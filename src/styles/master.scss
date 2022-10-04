@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+	position: relative;
+}
+
+body {
+	background: #000;
+	line-height: 1.5;
+}
+
+.bg-white {
+	background: #fff;
+}
+
+div,
+section {
+	--h: initial;
+	position: relative;
+	height: var(--h);
+}
+
+.h100 {
+	--h: 100vh;
+}
+
+.c {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.tc {
+	text-align: center;
+}
+
+.lock-body-scroll {
+	position: fixed;
+	overflow-y: scroll;
+	width: 100%;
+
+	> body {
+		overflow-y: hidden;
+	}
+}
