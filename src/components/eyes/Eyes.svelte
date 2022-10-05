@@ -10,7 +10,7 @@
 	});
 </script>
 
-<div class="eyes-container" style="margin:{margin}">
+<div class="eyes-container" style="margin:{margin}" aria-hidden="true">
 	<Eye {play} />
 	<Eye {play} />
 </div>

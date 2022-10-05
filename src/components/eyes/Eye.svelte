@@ -35,7 +35,7 @@
 		const mxs = mx - x0;
 		const mys = my - y0;
 
-		const dist = Math.sqrt(mxs ** 2 + mys ** 2);
+		const dist = Math.hypot(mxs,mys);
 
 		const ex = dist < 25 ? mxs : (25 * mxs) / dist;
 		const ey = dist < 25 ? mys : (25 * mys) / dist;
