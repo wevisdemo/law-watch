@@ -17,7 +17,7 @@ div,
 section {
 	--h: initial;
 	position: relative;
-	height: var(--h);
+	min-height: var(--h);
 }
 
 .h100 {
@@ -43,4 +43,20 @@ section {
 	> body {
 		overflow-y: hidden;
 	}
+}
+
+.sr-only {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+.nw {
+	white-space: nowrap;
 }
