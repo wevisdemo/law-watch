@@ -121,7 +121,7 @@
 		</p>
 		<p class="c wv-font-anuphan wv-b4" class:show={is_part3_finished}>
 			<span class="nw">กฎหมายจะออกใช้ได้</span>
-			<span class="nw">ต้องผ่านมือ สส.</span>
+			<span class="nw">ต้องผ่านมือ ส.ส.</span>
 			<span class="nw">ของพรรคการเมือง</span>
 			<span class="nw">ที่ประชาชนเลือกตั้งเสมอ</span>
 		</p>
@@ -209,7 +209,7 @@
 	</div>
 	<div bind:this={el_trigger3} style="--h:90vh;margin-bottom:20vh">
 		<span class="sr-only">
-			กฎหมายจะออกใช้ได้ ต้องผ่านมือ สส. ของพรรคการเมือง ที่ประชาชนเลือกตั้งเสมอ
+			กฎหมายจะออกใช้ได้ ต้องผ่านมือ ส.ส. ของพรรคการเมือง ที่ประชาชนเลือกตั้งเสมอ
 		</span>
 	</div>
 </section>
