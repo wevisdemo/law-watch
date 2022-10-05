@@ -5,7 +5,7 @@
 	import Eyes from 'components/eyes/Eyes.svelte';
 </script>
 
-<section class="c" style="--h:calc(100vh - 70px)">
+<section class="c tc" style="--h:calc(100vh - 70px)">
 	<section class="outro-section c">
 		<p class="wv-font-anuphan wv-b3">
 			ดังนั้น ผลงานด้านกฎหมาย จากบรรดา สส. พรรคการเมืองต่าง ๆ<br />
