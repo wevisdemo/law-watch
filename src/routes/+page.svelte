@@ -1,7 +1,8 @@
 <script>
-	import Intro from 'components/sections/intro.svelte';
-	import S2 from 'components/sections/process.svelte';
-	import Ending from 'components/sections/ending.svelte';
+	import Intro from 'components/sections/Intro.svelte';
+	import Process from 'components/sections/Process.svelte';
+	import Conclusion from 'components/sections/Conclusion.svelte';
+	import Ending from 'components/sections/Ending.svelte';
 </script>
 
 <svelte:head>
@@ -9,5 +10,6 @@
 </svelte:head>
 
 <Intro />
-<S2 />
+<Process />
+<Conclusion />
 <Ending />
