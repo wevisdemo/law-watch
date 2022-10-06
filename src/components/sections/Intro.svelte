@@ -66,7 +66,7 @@
 <section>
 	<div bind:this={el_header_container} class="c" style="--h:calc(100vh - 52px - 14vw)">
 		<div class="c tc">
-			<Eyes />
+			<Eyes animation="awake" />
 			<header>
 				<h1 bind:this={el_h1} class="wv-h2 wv-font-kondolar wv-font-black">
 					ส่องผลงานผ่านสภายุคตู่สอง

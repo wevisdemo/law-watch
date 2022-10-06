@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import type { AnimationType } from './AnimationType';
 
 	export let play = false;
+	export let animation: AnimationType;
 
 	let eye_el: Element;
 	let eye_x = 0;
@@ -35,7 +37,7 @@
 		const mxs = mx - x0;
 		const mys = my - y0;
 
-		const dist = Math.hypot(mxs,mys);
+		const dist = Math.hypot(mxs, mys);
 
 		const ex = dist < 25 ? mxs : (25 * mxs) / dist;
 		const ey = dist < 25 ? mys : (25 * mys) / dist;
@@ -48,11 +50,27 @@
 <svelte:body on:mousemove={handleMousemove} />
 <svelte:window bind:scrollY={page_y} />
 
-<div class="eyeball" bind:this={eye_el} class:play>
+<div
+	class="eyeball"
+	bind:this={eye_el}
+	class:pre-awake={animation === 'awake'}
+	class:awake={animation === 'awake' && play}
+	class:close={animation === 'close' && play}
+>
 	<div class="pupil" style:--x={x} style:--y={y} />
 </div>
 
 <style lang="scss">
+	@keyframes eye-close {
+		0% {
+			clip-path: ellipse(50% 50% at 50% 50%);
+		}
+
+		to {
+			clip-path: ellipse(50% 0% at 50% 50%);
+		}
+	}
+
 	@keyframes eye-blink {
 		0%,
 		25%,
@@ -97,7 +115,6 @@
 		background: #fff;
 		box-shadow: inset 0px 0px 24px rgba(0, 0, 0, 0.5);
 		border-radius: 50%;
-		clip-path: ellipse(50% 0% at 50% 50%);
 
 		> .pupil {
 			width: 50px;
@@ -109,12 +126,20 @@
 			transform: translate(25px, 25px) translate(var(--x), var(--y));
 		}
 
-		&.play {
+		&.pre-awake {
+			clip-path: ellipse(50% 0% at 50% 50%);
+		}
+
+		&.awake {
 			animation: eye-blink 3s forwards;
 
 			> .pupil {
 				animation: pupil-move 3s;
 			}
+		}
+
+		&.close {
+			animation: eye-close 1s forwards;
 		}
 	}
 </style>

@@ -1,18 +1,21 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
+	import type { AnimationType } from './AnimationType';
 	import Eye from './Eye.svelte';
 
 	export let margin = '0 0 64px';
+	export let animation: AnimationType = null;
+	export let playOnMount = true;
+	export let play = false;
 
-	let play = false;
 	onMount(() => {
-		play = true;
+		playOnMount && (play = true);
 	});
 </script>
 
 <div class="eyes-container" style="margin:{margin}" aria-hidden="true">
-	<Eye {play} />
-	<Eye {play} />
+	<Eye {animation} {play} />
+	<Eye {animation} {play} />
 </div>
 
 <style lang="scss">
