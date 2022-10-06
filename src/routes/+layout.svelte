@@ -23,19 +23,19 @@
 		homeHref="https://wevis.info/"
 		logoAddonSrc=""
 		title="LAW WATCH"
-		dark={true}
+		dark={false}
 		alwayShowSlot={false}
 		children={null}
 	>
 		<WvNavButton
 			active={$page.routeId === ''}
-			dark={true}
+			dark={false}
 			onClick={() => goto(`${base}/`)}
 			children={null}>Home</WvNavButton
 		>
 		<WvNavButton
 			active={$page.routeId === 'about'}
-			dark={true}
+			dark={false}
 			onClick={() => goto(`${base}/about`)}
 			children={null}>About</WvNavButton
 		>

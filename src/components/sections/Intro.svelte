@@ -71,7 +71,7 @@
 				<h1 bind:this={el_h1} class="wv-h2 wv-font-kondolar wv-font-black">
 					ส่องผลงานผ่านสภายุคตู่สอง
 				</h1>
-				<p bind:this={el_p} class="wv-h5 wv-font-kondolar">
+				<p bind:this={el_p} class="wv-h5 wv-font-kondolar c-mint">
 					ส.ส.
 					<strong>เสนอ</strong> และ/หรือ
 					<strong>โหวต</strong> กฎหมายอะไรกันบ้าง ?
@@ -104,7 +104,6 @@
 	}
 
 	p {
-		color: #a5ebd7;
 		opacity: 0;
 	}
 
