@@ -1,13 +1,52 @@
 <!-- wrapper for details summary -->
 <script lang="ts">
+	import { animate, type AnimationControls } from 'motion';
+
 	export let title: string;
+
+	let el_details: HTMLDetailsElement;
+	let el_body: HTMLElement;
+	let current_animation: AnimationControls | null = null;
+	let was_closing = true;
+	const changeDetailState = (state: boolean) => {
+		el_details.open = state;
+		el_details.ariaExpanded = '' + state;
+	};
+	const onClick = (event: MouseEvent) => {
+		event.preventDefault();
+		if (current_animation?.playState === 'running') {
+			current_animation.stop();
+			if (was_closing) {
+				el_body.style.marginBottom = '';
+				el_body.style.height = '';
+				changeDetailState(false);
+			}
+		}
+		requestAnimationFrame(() => {
+			if (el_details.open) {
+				const { height } = el_body.getClientRects()[0];
+				current_animation = animate(el_body, { height: [height + 'px', 0], marginBottom: 0 });
+				current_animation.finished.then(() => {
+					el_body.style.marginBottom = '';
+					el_body.style.height = '';
+					changeDetailState(false);
+				});
+				was_closing = true;
+			} else {
+				const { height } = el_body.getClientRects()[0];
+				current_animation = animate(el_body, { height: [0, height + 'px'] });
+				changeDetailState(true);
+				was_closing = false;
+			}
+		});
+	};
 </script>
 
-<details>
-	<summary class="wv-font-kondolar wv-h10">
-		<span>{title}<span class="cross" aria-hidden="true" /></span>
+<details bind:this={el_details} on:click={onClick} aria-expanded="false">
+	<summary class="wv-font-kondolar wv-h10" tabindex="0">
+		<span>{title}<span class="cross" aria-hidden="true" class:expanded={!was_closing} /></span>
 	</summary>
-	<div class="details-body">
+	<div bind:this={el_body} class="details-body">
 		<slot />
 	</div>
 </details>
@@ -20,6 +59,7 @@
 
 		> summary {
 			cursor: pointer;
+			user-select: none;
 			padding: 16px;
 
 			list-style: none;
@@ -34,50 +74,49 @@
 				align-items: center;
 
 				width: 100%;
-
-				> .cross {
-					display: block;
-					width: 16px;
-					height: 16px;
-
-					&::before,
-					&::after {
-						content: '';
-						position: absolute;
-						display: block;
-						height: 2px;
-						width: 100%;
-						top: 50%;
-						transform: translateY(-50%);
-
-						background: #fff;
-						border-radius: 1px;
-					}
-
-					&::after {
-						width: 2px;
-						height: 100%;
-						top: 0;
-						left: 50%;
-						transform: translateX(-50%);
-						transition: transform 0.5s;
-					}
-				}
 			}
 		}
 
-		&[open] > summary > span > .cross {
-			&::after {
-				width: 1.5px;
-				height: 100%;
-				top: 0;
-				left: 50%;
-				transform: translateX(-50%) scale(0);
-			}
+		> .details-body {
+			overflow: hidden;
+			margin-bottom: 16px;
 		}
 	}
 
-	.details-body {
-		margin-bottom: 16px;
+	.cross {
+		display: block;
+		width: 16px;
+		height: 16px;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			display: block;
+			height: 2px;
+			width: 100%;
+			top: 50%;
+			transform: translateY(-50%);
+
+			background: #fff;
+			border-radius: 1px;
+		}
+
+		&::after {
+			width: 2px;
+			height: 100%;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			transition: transform 0.5s;
+		}
+
+		&.expanded::after {
+			width: 1.5px;
+			height: 100%;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%) scale(0);
+		}
 	}
 </style>
