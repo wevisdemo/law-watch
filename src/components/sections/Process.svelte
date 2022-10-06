@@ -27,9 +27,9 @@
 		</div>
 		<div>
 			<Details title="ร่างกฎหมาย">
-				<img src="law-watch/process/draft.png" alt="TODO: เขียน alt ตรงนี้" />
+				<img src="/law-watch/process/draft.png" alt="TODO: เขียน alt ตรงนี้" />
 			</Details>
-			<img class="mem-tooltip" src="law-watch/process/mem-present.png" alt="" />
+			<img class="mem-tooltip" src="/law-watch/process/mem-present.png" alt="" />
 		</div>
 	</section>
 	<div class="sep" />
@@ -40,20 +40,20 @@
 		</h3>
 		<div>
 			<Details title="ส.ส.">
-				<img src="law-watch/process/member.png" alt="TODO: เขียน alt ตรงนี้" />
+				<img src="/law-watch/process/member.png" alt="TODO: เขียน alt ตรงนี้" />
 			</Details>
-			<img class="mem-tooltip" src="law-watch/process/mem-vote.png" alt="" />
+			<img class="mem-tooltip" src="/law-watch/process/mem-vote.png" alt="" />
 		</div>
 		<Details title="ส.ว.">
-			<img src="law-watch/process/senate.png" alt="TODO: เขียน alt ตรงนี้" />
+			<img src="/law-watch/process/senate.png" alt="TODO: เขียน alt ตรงนี้" />
 		</Details>
 		<Details title="ศาลรัฐธรรมนูญ">
-			<img src="law-watch/process/court.png" alt="TODO: เขียน alt ตรงนี้" />
+			<img src="/law-watch/process/court.png" alt="TODO: เขียน alt ตรงนี้" />
 		</Details>
 		<Details title="กษัตริย์">
-			<img src="law-watch/process/king.png" alt="TODO: เขียน alt ตรงนี้" />
+			<img src="/law-watch/process/king.png" alt="TODO: เขียน alt ตรงนี้" />
 		</Details>
-		<img class="passed-law" src="law-watch/passed-law.png" alt="" />
+		<img class="passed-law" src="/law-watch/passed-law.png" alt="" />
 		<p class="wv-font-kondolar wv-h10 c-mint">
 			ประกาศในราชกิจจานุเบกษา<br />
 			บังคับใช้เป็นกฎหมาย
