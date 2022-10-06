@@ -10,32 +10,42 @@
 	</h2>
 	<section class="before-sapa">
 		<h3 class="wv-font-anuphan wv-b6 c-mint">ก่อนเข้าสภา</h3>
-		<div class="who-can-draft-container wv-font-anuphan" aria-hidden="true">
-			<div class="tc"><span class="wv-font-semibold wv-b5">ครม.</span></div>
-			<div>/</div>
+		<div class="draft-editor-container wv-font-anuphan" aria-hidden="true">
 			<div class="tc">
-				<span class="wv-font-semibold wv-b5">ส.ส.</span><br /><span class="wv-b6">20 คน</span>
+				<span class="editor-type wv-font-semibold wv-b5">ครม.</span>
 			</div>
 			<div>/</div>
 			<div class="tc">
-				<span class="wv-font-semibold wv-b5">ประชาชน</span><br /><span class="wv-b6">10,000 คน</span
-				>
+				<span class="editor-type wv-font-semibold wv-b5">ส.ส.</span><br />
+				<span class="wv-b6">20 คน</span>
+			</div>
+			<div>/</div>
+			<div class="tc">
+				<span class="editor-type wv-font-semibold wv-b5">ประชาชน</span><br />
+				<span class="wv-b6">10,000 คน</span>
 			</div>
 		</div>
-		<Details title="ร่างกฎหมาย">
-			<img src="law-watch/process/draft.png" alt="TODO: เขียน alt ตรงนี้" />
-		</Details>
+		<div>
+			<Details title="ร่างกฎหมาย">
+				<img src="law-watch/process/draft.png" alt="TODO: เขียน alt ตรงนี้" />
+			</Details>
+			<img class="mem-tooltip" src="law-watch/process/mem-present.png" alt="" />
+		</div>
 	</section>
 	<div class="sep" />
 	<section>
 		<h3 class="wv-font-anuphan wv-b6 c-mint">
-			<span class="sr-only">เมื่อเข้ามา</span>ในสภา <span class="sr-only">ตัวกฎหมายจะต้องผ่าน</span>
+			<span class="sr-only">เมื่อเข้ามา</span>ในสภา
+			<span class="sr-only">ร่างกฎหมายจะต้องผ่านการโหวต</span>
 		</h3>
-		<Details title="ส.ส.">
-			<img src="law-watch/process/rep.png" alt="TODO: เขียน alt ตรงนี้" />
-		</Details>
+		<div>
+			<Details title="ส.ส.">
+				<img src="law-watch/process/member.png" alt="TODO: เขียน alt ตรงนี้" />
+			</Details>
+			<img class="mem-tooltip" src="law-watch/process/mem-vote.png" alt="" />
+		</div>
 		<Details title="ส.ว.">
-			<img src="law-watch/process/sw.png" alt="TODO: เขียน alt ตรงนี้" />
+			<img src="law-watch/process/senate.png" alt="TODO: เขียน alt ตรงนี้" />
 		</Details>
 		<Details title="ศาลรัฐธรรมนูญ">
 			<img src="law-watch/process/court.png" alt="TODO: เขียน alt ตรงนี้" />
@@ -49,6 +59,12 @@
 			บังคับใช้เป็นกฎหมาย
 		</p>
 	</section>
+	<p class="mem-detail wv-font-anuphan wv-b5">
+		<span class="wv-font-bold">ส.ส. จากพรรคการเมือง</span><br />
+		ที่ได้รับเลือกตั้งจากประชาชน<br />
+		มีส่วนเกี่ยวข้องกับกระบวนการ<br />
+		ออกกฎหมายทุกช่องทาง
+	</p>
 </section>
 
 <style lang="scss">
@@ -65,11 +81,22 @@
 		text-align: left;
 	}
 
-	.who-can-draft-container {
+	.draft-editor-container {
 		display: flex;
 		gap: 16px;
 		justify-content: center;
 		margin-top: 8px;
+
+		> div,
+		> div > .editor-type {
+			line-height: 1;
+		}
+	}
+
+	.mem-tooltip {
+		position: absolute;
+		top: -22px;
+		left: calc(100% + 16px);
 	}
 
 	.sep {
@@ -82,5 +109,12 @@
 	.passed-law {
 		display: inline-block;
 		margin-bottom: 12px;
+	}
+
+	.mem-detail {
+		position: absolute;
+		top: 154px /*139px*/;
+		left: calc(50% + 260px + 32px);
+		text-align: left;
 	}
 </style>
