@@ -4,6 +4,10 @@
 	position: relative;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	background: #000;
 	line-height: 1.5;

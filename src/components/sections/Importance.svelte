@@ -100,7 +100,7 @@
 	});
 </script>
 
-<section class="c tc">
+<section id="importance-section" class="c tc">
 	<div class="diagram" aria-hidden="true">
 		<p class="c wv-font-anuphan wv-b4" class:show={!is_part1_finished}>
 			<span class="nw">คือกติการ่วมกัน</span>

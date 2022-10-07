@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 
 	import Loader from 'components/Loader.svelte';
+	import Navigator from 'components/Navigator.svelte';
 
 	import Intro from 'components/sections/Intro.svelte';
 	import Importance from 'components/sections/Importance.svelte';
@@ -25,6 +26,7 @@
 {/if}
 {#if state}
 	<Intro />
+	<Navigator />
 {/if}
 <Importance />
 <Process />

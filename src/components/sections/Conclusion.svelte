@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { animate, scroll, timeline, ScrollOffset } from 'motion';
+	import { animate, scroll, timeline, inView } from 'motion';
+	import { is_section3_inview } from 'stores/sectionScrollManager';
 
 	let el_trigger1: Element;
 	let el_trigger2: Element;
@@ -16,6 +17,7 @@
 
 	let is_mounted = false;
 
+	let el_section: Element;
 	$: {
 		if (is_mounted) {
 			if (is_scroll_half) {
@@ -37,6 +39,17 @@
 
 	onMount(() => {
 		is_mounted = true;
+
+		inView(
+			el_section,
+			() => {
+				is_section3_inview.set(true);
+				return () => is_section3_inview.set(false);
+			},
+			{
+				margin: '0px 0px -50% 0px'
+			}
+		);
 
 		const trigger2_seq: TimelineDefinition = [
 			[el_trigger1, { opacity: [1, 0, 0] }],
@@ -78,7 +91,7 @@
 	});
 </script>
 
-<section class="c tc">
+<section bind:this={el_section} id="conclusion-section" class="c tc">
 	<div class="diagram" aria-hidden="true">
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 540 567">
 			<g bind:this={el_law}>

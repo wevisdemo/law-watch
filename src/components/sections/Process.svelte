@@ -1,10 +1,27 @@
-<script>
+<script lang="ts">
+	// TODO: เขียน alt
+	import { onMount } from 'svelte';
+	import { inView } from 'motion';
+	import { is_section1_inview } from 'stores/sectionScrollManager';
+
 	import Details from 'components/Details.svelte';
 
-	// TODO: เขียน alt
+	let el_section: Element;
+	onMount(() => {
+		inView(
+			el_section,
+			() => {
+				is_section1_inview.set(true);
+				return () => is_section1_inview.set(false);
+			},
+			{
+				margin: '0px 0px -50% 0px'
+			}
+		);
+	});
 </script>
 
-<section class="process-section c tc">
+<section bind:this={el_section} id="process-section" class="c tc">
 	<h2 class="wv-h9 wv-font-kondolar">
 		การที่ร่างกฎหมายจะออกเป็นกฎหมายได้ ต้องผ่าน <strong class="c-mint">กระบวนการทางสภา</strong> ดังนี้
 	</h2>
@@ -68,8 +85,9 @@
 </section>
 
 <style lang="scss">
-	.process-section {
+	#process-section {
 		color: #fff;
+		scroll-margin-top: 10vh;
 	}
 
 	h2 {

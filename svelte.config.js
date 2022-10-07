@@ -16,6 +16,7 @@ const config = {
 			'components/*': 'src/components/*',
 			'layouts/*': 'src/layouts/*',
 			'sections/*': 'src/sections/*',
+			'stores/*': 'src/stores/*',
 			'styles/*': 'src/styles/*',
 			'utils/*': 'src/utils/*'
 		}
