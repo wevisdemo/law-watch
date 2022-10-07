@@ -1,5 +1,5 @@
 <script>
-	import Details from 'components/details/Details.svelte';
+	import Details from 'components/Details.svelte';
 
 	// TODO: เขียน alt
 </script>
