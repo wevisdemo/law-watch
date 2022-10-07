@@ -1,11 +1,31 @@
-<script>
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { inView } from 'motion';
+	import { is_ending_inview } from 'stores/sectionScrollManager';
+
 	import WvSharer from '@wevisdemo/ui/components/sharer.svelte';
 	import WvFooter from '@wevisdemo/ui/components/footer.svelte';
 
 	import Eyes from 'components/eyes/Eyes.svelte';
+
+	let el_section: Element;
+	onMount(() => {
+		inView(
+			el_section,
+			() => {
+				is_ending_inview.set(true);
+				return () => {
+					is_ending_inview.set(false);
+				};
+			},
+			{
+				margin: '0px 0px -50% 0px'
+			}
+		);
+	});
 </script>
 
-<section class="c tc" style="--h:calc(100vh - 70px)">
+<section bind:this={el_section} class="c tc" style="--h:calc(100vh - 70px)">
 	<section class="outro-section c">
 		<p class="wv-font-anuphan wv-b3">
 			ดังนั้น การทำงานกระบวนการออกกฎหมาย<br />
