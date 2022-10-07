@@ -18,10 +18,6 @@
 	});
 </script>
 
-<svelte:head>
-	<title>ส่องกฎหมายผ่านสภายุคตู่สอง</title>
-</svelte:head>
-
 {#if state !== 'end'}
 	<Loader />
 {/if}

@@ -6,10 +6,6 @@
 	import WvSharer from '@wevisdemo/ui/components/sharer.svelte';
 </script>
 
-<svelte:head>
-	<title>ส่องกฎหมายผ่านสภายุคตู่สอง</title>
-</svelte:head>
-
 <WvContainer heading="เกี่ยวกับโครงการ" children>
 	<WvParagraphGroup small={false} heading="เป้าหมาย" children>
 		<p class="wv-font-baijamjuri">
