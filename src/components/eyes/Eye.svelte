@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import type { AnimationType } from './AnimationType';
+	import { mouseX, mouseY, scrollY } from 'stores/MousePositionStore';
 
 	export let play = false;
 	export let animation: AnimationType;
@@ -10,32 +11,31 @@
 	let eye_y = 0;
 	let eye_w = 0;
 	let eye_h = 0;
-	let page_y = 0;
 
-	let mx = 0;
-	let my = 0;
+	const updateEyePositions = () => {
+		if (eye_el) {
+			const { top, left, width, height } = eye_el.getBoundingClientRect();
+			eye_x = left;
+			eye_y = top;
+			eye_w = width;
+			eye_h = height;
+		}
+	};
+
+	const unsub = scrollY.subscribe(() => updateEyePositions());
+	onDestroy(unsub);
+
 	let x = '0';
 	let y = '0';
 
-	const handleMousemove = (event: MouseEvent) => {
-		mx = event.clientX;
-		my = event.clientY;
-	};
-
-	onMount(() => {
-		const { top, left, width, height } = eye_el.getBoundingClientRect();
-		eye_x = left;
-		eye_y = top;
-		eye_w = width;
-		eye_h = height;
-	});
+	onMount(() => updateEyePositions());
 
 	$: {
 		// shift origin
 		const x0 = eye_x + eye_w / 2;
-		const y0 = eye_y + eye_h / 2 - page_y;
-		const mxs = mx - x0;
-		const mys = my - y0;
+		const y0 = eye_y + eye_h / 2;
+		const mxs = $mouseX - x0;
+		const mys = $mouseY - y0;
 
 		const dist = Math.hypot(mxs, mys);
 
@@ -46,9 +46,6 @@
 		y = ey + 'px';
 	}
 </script>
-
-<svelte:body on:mousemove={handleMousemove} />
-<svelte:window bind:scrollY={page_y} />
 
 <div
 	class="eyeball"

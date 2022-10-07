@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	import CaptureMousePosition from 'components/CaptureMousePosition.svelte';
+
 	import Loader from 'components/Loader.svelte';
 	import Navigator from 'components/Navigator.svelte';
 
@@ -18,6 +20,7 @@
 	});
 </script>
 
+<CaptureMousePosition />
 {#if state !== 'end'}
 	<Loader />
 {/if}
