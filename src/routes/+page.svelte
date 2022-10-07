@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-	<title>Law Watch — WeVis</title>
+	<title>ส่องกฎหมายผ่านสภายุคตู่สอง</title>
 </svelte:head>
 
 {#if state !== 'end'}

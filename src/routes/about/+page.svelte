@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>เกี่ยวกับโครงการ Law Watch — WeVis</title>
+	<title>ส่องกฎหมายผ่านสภายุคตู่สอง</title>
 </svelte:head>
 
 <WvContainer heading="เกี่ยวกับโครงการ" children>
