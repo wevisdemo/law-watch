@@ -27,7 +27,7 @@
 			>
 		</li>
 		<li class="wv-font-anuphan wv-b5" class:current={$current_section === 2}>
-			<a href="#inspect-section">
+			<a href="#investigate-section">
 				<span class="text">สำรวจ</span>
 				<span class="indicator" />
 			</a>
