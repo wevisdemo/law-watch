@@ -1,9 +1,21 @@
 <script lang="ts">
-	import { current_section } from 'stores/sectionScrollManager';
+	import { current_section, jumpTo } from 'stores/sectionScrollManager';
+
+	const prev = () => {
+		const prev_index = $current_section - 1;
+		if (prev_index < 0) jumpTo(0);
+		else jumpTo(prev_index as 0 | 1 | 2);
+	};
+
+	const next = () => {
+		const next_index = $current_section + 1;
+		if (next_index > 3) jumpTo(3);
+		else jumpTo(next_index as 1 | 2 | 3);
+	};
 </script>
 
 <aside class="navigator">
-	<button>
+	<button type="button" on:click={prev} disabled={$current_section === 0}>
 		<svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				fill-rule="evenodd"
@@ -39,7 +51,7 @@
 			</a>
 		</li>
 	</ul>
-	<button>
+	<button type="button" on:click={next} disabled={$current_section === 3}>
 		<svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				fill-rule="evenodd"
@@ -74,11 +86,18 @@
 		cursor: pointer;
 		line-height: 0;
 		display: block;
+		transition: opacity 0.3s;
+		height: 14px;
+
+		&[disabled] {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
 	}
 
 	.navigator > ul {
 		list-style: none;
-		margin: 4px 0;
+		margin: 0;
 
 		> li {
 			line-height: 1;

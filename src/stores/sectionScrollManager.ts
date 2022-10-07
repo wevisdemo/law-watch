@@ -1,5 +1,12 @@
 import { derived, writable } from 'svelte/store';
 
+const SECTION_ID = [
+	'importance-section',
+	'process-section',
+	'investigate-section',
+	'conclusion-section'
+];
+
 export const is_section1_inview = writable(false);
 export const is_section2_inview = writable(false);
 export const is_section3_inview = writable(false);
@@ -13,3 +20,12 @@ export const current_section = derived(
 		return 0;
 	}
 );
+
+export const jumpTo = (section_id: 0 | 1 | 2 | 3) => {
+	const val = [false, false, false];
+	val[section_id - 1] = true;
+	is_section1_inview.set(val[0]);
+	is_section2_inview.set(val[1]);
+	is_section3_inview.set(val[2]);
+	location.href = '#' + SECTION_ID[section_id];
+};
