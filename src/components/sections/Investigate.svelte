@@ -30,34 +30,36 @@
 
 	<div>
 		<div class="paper-container">
-			<div class="paper" />
-			<div class="paper" />
-			<div class="paper" />
+			<div class="paper" style:--paper-color="#ff8a00" />
+			<div class="paper" style:--paper-color="#ff8a00" />
+			<div class="paper" style:--paper-color="#ff8a00" />
 			<div class="line" />
-			<div class="paper" />
-			<div class="paper" />
-			<div class="paper" />
+			<div class="paper" style:--paper-color="#676dff" />
+			<div class="paper" style:--paper-color="#676dff" />
+			<div class="paper" style:--paper-color="#676dff" />
 		</div>
 		<div class="paper-container">
-			<div class="paper process" />
-			<div class="paper process" />
-			<div class="paper process" />
-			<div class="paper process" />
-			<div class="paper process" />
+			<div class="paper process" style:--paper-color="#1dc775" />
+			<div class="paper process" style:--paper-color="#1dc775" />
+			<div class="paper process" style:--paper-color="#1dc775" />
+			<div class="paper process" style:--paper-color="#1dc775" />
+			<div class="paper process" style:--paper-color="#1dc775" />
 			<div class="line" />
-			<div class="paper process" />
-			<div class="paper process" />
-			<div class="paper process" />
-			<div class="paper process" />
-			<div class="paper process" />
+			<div class="paper process" style:--paper-color="#ff3767" />
+			<div class="paper process" style:--paper-color="#ff3767" />
+			<div class="paper process" style:--paper-color="#ff3767" />
+			<div class="paper process" style:--paper-color="#ff3767" />
+			<div class="paper process" style:--paper-color="#ff3767" />
 		</div>
 		<div class="paper-container">
-			<div class="paper pass" />
-			<div class="paper pass" />
-			<div class="paper pass" />
-			<div class="paper pass" />
-			<div class="paper pass" />
-			<div class="paper pass" />
+			<div class="paper stack" style:--paper-color="#d252ff" />
+			<div class="paper stack" style:--paper-color="#d252ff" />
+			<div class="paper stack" style:--paper-color="#fff173" />
+			<div class="paper stack" style:--paper-color="#fff173" />
+			<div class="paper stack" style:--paper-color="#fff173" />
+			<div class="paper pass" style:--paper-color="#9feeff" />
+			<div class="paper pass" style:--paper-color="#9feeff" />
+			<div class="paper pass" style:--paper-color="#9feeff" />
 			<div class="paper pass" />
 			<div class="paper pass" />
 		</div>
@@ -78,28 +80,71 @@
 	}
 
 	.paper {
+		position: relative;
+		z-index: 1;
+
 		width: 20px;
 		height: 24px;
 
 		background: #000;
-		border: 1px #fff solid;
+		border: 1px var(--paper-color, #fff) solid;
 
-		margin-right: -10px;
+		margin-right: -8px;
 
-		&.process {
-			background-color: #000;
-			background-image: url(/law-watch/bg.png);
-			background-size: 10px 6px;
+		transition: transform 0.1s;
+		&:hover {
+			transform: translateY(-4px);
 		}
 
-		&.pass {
+		&.process {
+			background: linear-gradient(
+				-29.04deg,
+				#000,
+				#000 40%,
+				var(--paper-color, #fff) 40%,
+				var(--paper-color, #fff) 50%,
+				#000 50%,
+				#000 90%,
+				var(--paper-color, #fff) 90%,
+				var(--paper-color, #fff) 100%
+			);
+			background-size: 10px 6px;
+			background-repeat: repeat;
+		}
+
+		&.pass,
+		&.stack {
 			border: 1px #000 solid;
-			background: #fff;
+			background: var(--paper-color, #fff);
+		}
+
+		&.stack {
+			top: 6px;
+			left: 7px;
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				width: 20px;
+				height: 24px;
+				border: 1px #000 solid;
+				background: var(--paper-color, #fff);
+				top: -4px;
+				left: -4px;
+			}
+
+			&::after {
+				top: -7px;
+				left: -8px;
+			}
 		}
 	}
 
 	.line {
 		position: relative;
+		pointer-events: none;
 
 		&::after {
 			content: '';
@@ -109,7 +154,7 @@
 			width: 4px;
 			top: -2px;
 			left: -2px;
-			z-index: 1;
+			z-index: 2;
 		}
 	}
 </style>
