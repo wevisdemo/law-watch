@@ -28,41 +28,467 @@
 		</span>
 	</h2>
 
-	<div>
-		<div class="paper-container">
-			<div class="paper" style:--paper-color="#ff8a00" />
-			<div class="paper" style:--paper-color="#ff8a00" />
-			<div class="paper" style:--paper-color="#ff8a00" />
-			<div class="line" />
-			<div class="paper" style:--paper-color="#676dff" />
-			<div class="paper" style:--paper-color="#676dff" />
-			<div class="paper" style:--paper-color="#676dff" />
+	<div class="chart-body">
+		<div class="chart-present-by wv-b4">ถูกเสนอโดย</div>
+		<div />
+		<div />
+		<div />
+		<div />
+		<div>
+			<span class="wv-b4">พรรคการเมือง</span><br />
+			<div class="number-aligner">
+				<span class="wv-font-kondolar wv-h5 wv-font-black">100</span>
+				<span class="wv-b5">ฉบับ</span>
+			</div>
 		</div>
-		<div class="paper-container">
-			<div class="paper process" style:--paper-color="#1dc775" />
-			<div class="paper process" style:--paper-color="#1dc775" />
-			<div class="paper process" style:--paper-color="#1dc775" />
-			<div class="paper process" style:--paper-color="#1dc775" />
-			<div class="paper process" style:--paper-color="#1dc775" />
-			<div class="line" />
-			<div class="paper process" style:--paper-color="#ff3767" />
-			<div class="paper process" style:--paper-color="#ff3767" />
-			<div class="paper process" style:--paper-color="#ff3767" />
-			<div class="paper process" style:--paper-color="#ff3767" />
-			<div class="paper process" style:--paper-color="#ff3767" />
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
 		</div>
-		<div class="paper-container">
-			<div class="paper stack" style:--paper-color="#d252ff" />
-			<div class="paper stack" style:--paper-color="#d252ff" />
-			<div class="paper stack" style:--paper-color="#fff173" />
-			<div class="paper stack" style:--paper-color="#fff173" />
-			<div class="paper stack" style:--paper-color="#fff173" />
-			<div class="paper pass" style:--paper-color="#9feeff" />
-			<div class="paper pass" style:--paper-color="#9feeff" />
-			<div class="paper pass" style:--paper-color="#9feeff" />
-			<div class="paper pass" />
-			<div class="paper pass" />
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
 		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<span class="wv-b4">คณะรัฐมนตรี</span><br />
+			<div class="number-aligner">
+				<span class="wv-font-kondolar wv-h5 wv-font-black">100</span>
+				<span class="wv-b5">ฉบับ</span>
+			</div>
+		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<span class="wv-b4">ประชาชน</span><br />
+			<div class="number-aligner">
+				<span class="wv-font-kondolar wv-h5 wv-font-black">100</span>
+				<span class="wv-b5">ฉบับ</span>
+			</div>
+		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<div class="paper-container">
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="line" />
+				<div class="paper" />
+				<div class="paper" />
+				<div class="paper" />
+			</div>
+			<div class="paper-container">
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="line" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+				<div class="paper process" />
+			</div>
+			<div class="paper-container">
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+				<div class="paper pass" />
+			</div>
+		</div>
+		<div>
+			<span class="wv-font-semibold wv-b6">สถานะกฎหมาย</span>
+			<div class="law-status">
+				<div class="paper" />
+				<span>ตกไป</span>
+				<span class="number">50</span>
+			</div>
+			<div class="law-status">
+				<div class="paper process" />
+				<span>อยู่ในกระบวนการ</span>
+				<span class="number">50</span>
+			</div>
+			<div class="law-status">
+				<div class="paper pass" />
+				<span>ออกเป็นกฎหมาย</span>
+				<span class="number">50</span>
+			</div>
+			<div class="law-status">
+				<div class="paper stack" />
+				<span>กฎหมายที่ถูกรวมร่าง</span>
+			</div>
+		</div>
+		<div class="wv-font-kondolar wv-font-black year">62</div>
+		<div class="wv-font-kondolar wv-font-black year">63</div>
+		<div class="wv-font-kondolar wv-font-black year">64</div>
+		<div class="wv-font-kondolar wv-font-black year">65</div>
 	</div>
 </section>
 
@@ -77,6 +503,10 @@
 		display: flex;
 		margin-bottom: 8px;
 		padding-right: 10px;
+
+		> .paper {
+			margin-right: -8px;
+		}
 	}
 
 	.paper {
@@ -89,7 +519,7 @@
 		background: #000;
 		border: 1px var(--paper-color, #fff) solid;
 
-		margin-right: -8px;
+		// margin-right: -8px;
 
 		transition: transform 0.1s;
 		&:hover {
@@ -98,17 +528,17 @@
 
 		&.process {
 			background: linear-gradient(
-				-29.04deg,
+				-30deg,
 				#000,
-				#000 40%,
-				var(--paper-color, #fff) 40%,
+				#000 40.37%,
+				var(--paper-color, #fff) 40.37%,
 				var(--paper-color, #fff) 50%,
 				#000 50%,
-				#000 90%,
-				var(--paper-color, #fff) 90%,
+				#000 90.37%,
+				var(--paper-color, #fff) 90.37%,
 				var(--paper-color, #fff) 100%
 			);
-			background-size: 10px 6px;
+			background-size: 10.39px 6px;
 			background-repeat: repeat;
 		}
 
@@ -155,6 +585,56 @@
 			top: -2px;
 			left: -2px;
 			z-index: 2;
+		}
+	}
+
+	.chart-body {
+		display: grid;
+		grid-template-columns: auto repeat(4, 1fr);
+		grid-template-rows: auto repeat(3, 1fr) auto;
+		width: 90%;
+
+		> div {
+			border-left: 1px solid #373746;
+			padding-bottom: 16px;
+			padding-right: 16px;
+
+			&:nth-child(5n + 1) {
+				border: none;
+			}
+
+			&:nth-child(n + 21) {
+				padding-bottom: 0;
+			}
+		}
+	}
+
+	.number-aligner,
+	.law-status {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+	}
+
+	.law-status {
+		margin-bottom: 8px;
+
+		> .number {
+			margin-left: auto;
+		}
+	}
+
+	.year {
+		color: #373746;
+		line-height: 5vw;
+		font-size: 10vw;
+		display: flex;
+		align-items: flex-end;
+
+		&::before {
+			content: '';
+			display: block;
+			margin-left: -0.5vw;
 		}
 	}
 </style>
