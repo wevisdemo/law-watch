@@ -73,7 +73,7 @@
 
 	.paper-container {
 		display: flex;
-		margin-bottom: 4px;
+		margin-bottom: 8px;
 		padding-right: 10px;
 	}
 
@@ -87,19 +87,9 @@
 		margin-right: -10px;
 
 		&.process {
-			background: linear-gradient(
-				-30deg,
-				#000,
-				#000 40.38%,
-				#fff 40.38%,
-				#fff 50%,
-				#000 50%,
-				#000 90.38%,
-				#fff 90.38%,
-				#fff 100%
-			);
-			background-size: 10.39px 6px;
-			background-repeat: repeat;
+			background-color: #000;
+			background-image: url(/law-watch/bg.png);
+			background-size: 10px 6px;
 		}
 
 		&.pass {
@@ -114,12 +104,12 @@
 		&::after {
 			content: '';
 			position: absolute;
-			border-right: 3px #fff dotted;
+			background: url(/law-watch/line.png);
+			height: 28px;
+			width: 4px;
+			top: -2px;
+			left: -2px;
 			z-index: 1;
-			display: block;
-			height: 100%;
-			transform: scale(1.5, 1.1) translateX(-25%);
-			left: 0;
 		}
 	}
 </style>
