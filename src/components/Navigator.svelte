@@ -15,8 +15,15 @@
 </script>
 
 <aside class="navigator">
-	<button type="button" on:click={prev} disabled={$current_section === 0}>
-		<svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<button type="button" title="กลับพาร์ทก่อนหน้า" on:click={prev} disabled={$current_section === 0}>
+		<svg
+			aria-label="กลับพาร์ทก่อนหน้า"
+			width="14"
+			height="8"
+			viewBox="0 0 14 8"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
 			<path
 				fill-rule="evenodd"
 				clip-rule="evenodd"
@@ -51,8 +58,15 @@
 			</a>
 		</li>
 	</ul>
-	<button type="button" on:click={next} disabled={$current_section === 3}>
-		<svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<button type="button" title="ไปพาร์ทถัดไป" on:click={next} disabled={$current_section === 3}>
+		<svg
+			aria-label="ไปพาร์ทถัดไป"
+			width="14"
+			height="8"
+			viewBox="0 0 14 8"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
 			<path
 				fill-rule="evenodd"
 				clip-rule="evenodd"
@@ -67,9 +81,8 @@
 	.navigator {
 		position: sticky;
 		top: 73px;
-		margin-top: 73px;
-		margin-right: 44px;
-		margin-bottom: calc(-128px - 73px);
+		margin: 73px 44px calc(-128px - 73px) auto;
+		width: max-content;
 		z-index: 999;
 
 		text-align: right;
