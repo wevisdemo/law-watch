@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
 	import type { AnimationType } from './AnimationType';
-	import { mouseX, mouseY, scrollY } from 'stores/MousePositionStore';
+	import { mouseX, mouseY, scrollY } from 'stores/mousePositionStore';
 
 	export let play = false;
 	export let animation: AnimationType;
