@@ -2,9 +2,10 @@
 	export let type: '' | 'process' | 'pass' | 'stack' = '';
 	export let color: '' | 'blue' | 'sky' | 'yellow' | 'orange' | 'green' | 'red' | 'magenta' = '';
 	export let noMargin = false;
+	export let noHover = false;
 </script>
 
-<div class="paper {type} {color}" class:noMargin>
+<div class="paper {type} {color}" class:noMargin class:noHover>
 	{#if type === 'process'}
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22">
 			<path
@@ -29,11 +30,10 @@
 		border: 1px var(--paper-color, #fff) solid;
 
 		margin-right: -8px;
-		overflow: hidden;
 
 		transition: transform 0.1s;
 
-		&:hover {
+		&:not(.noHover):hover {
 			transform: translateY(-4px);
 		}
 
