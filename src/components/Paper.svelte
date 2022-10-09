@@ -1,9 +1,21 @@
 <script lang="ts">
 	export let type: '' | 'process' | 'pass' | 'stack' = '';
+	export let color: '' | 'blue' | 'sky' | 'yellow' | 'orange' | 'green' | 'red' | 'magenta' = '';
 	export let noMargin = false;
 </script>
 
-<div class="paper {type}" class:noMargin />
+<div class="paper {type} {color}" class:noMargin>
+	{#if type === 'process'}
+		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22">
+			<path
+				fill="currentColor"
+				fill-rule="evenodd"
+				d="M0 .041L.072 0h2L0 1.196V.041zm0 7.155V6.041L10.464 0h2L0 7.196zm0 6v-1.155L18 1.65v1.155L0 13.196zm0 6v-1.155L18 7.65v1.155L0 19.196zM5.536 22h-2L18 13.65v1.154L5.536 22zm10.392 0h-2L18 19.65v1.154L15.928 22z"
+				clip-rule="evenodd"
+			/>
+		</svg>
+	{/if}
+</div>
 
 <style lang="scss">
 	.paper {
@@ -17,6 +29,7 @@
 		border: 1px var(--paper-color, #fff) solid;
 
 		margin-right: -8px;
+		overflow: hidden;
 
 		transition: transform 0.1s;
 
@@ -25,19 +38,7 @@
 		}
 
 		&.process {
-			background: linear-gradient(
-				-30deg,
-				#000,
-				#000 40.37%,
-				var(--paper-color, #fff) 40.37%,
-				var(--paper-color, #fff) 50%,
-				#000 50%,
-				#000 90.37%,
-				var(--paper-color, #fff) 90.37%,
-				var(--paper-color, #fff) 100%
-			);
-			background-size: 10.39px 6px;
-			background-repeat: repeat;
+			color: var(--paper-color, #fff);
 		}
 
 		&.pass,
@@ -72,5 +73,33 @@
 		&.noMargin {
 			margin-right: 0;
 		}
+	}
+
+	.blue {
+		--paper-color: #676dff;
+	}
+
+	.sky {
+		--paper-color: #9feeff;
+	}
+
+	.yellow {
+		--paper-color: #fff173;
+	}
+
+	.orange {
+		--paper-color: #ff8a00;
+	}
+
+	.green {
+		--paper-color: #1dc775;
+	}
+
+	.red {
+		--paper-color: #ff3767;
+	}
+
+	.magenta {
+		--paper-color: #d252ff;
 	}
 </style>
