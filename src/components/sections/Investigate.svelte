@@ -3,6 +3,9 @@
 	import { inView } from 'motion';
 	import { is_section2_inview } from 'stores/sectionScrollManager';
 
+	import LawStatus from 'components/LawStatus.svelte';
+	import PaperChart from 'components/PaperChart.svelte';
+
 	let el_section: Element;
 	onMount(() => {
 		inView(
@@ -42,140 +45,16 @@
 			</div>
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
 			<span class="wv-b4">คณะรัฐมนตรี</span><br />
@@ -185,140 +64,16 @@
 			</div>
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
 			<span class="wv-b4">ประชาชน</span><br />
@@ -328,164 +83,24 @@
 			</div>
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<div class="paper-container">
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="line" />
-				<div class="paper" />
-				<div class="paper" />
-				<div class="paper" />
-			</div>
-			<div class="paper-container">
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="line" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-				<div class="paper process" />
-			</div>
-			<div class="paper-container">
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-				<div class="paper pass" />
-			</div>
+			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<span class="wv-font-semibold wv-b6">สถานะกฎหมาย</span>
-			<div class="law-status">
-				<div class="paper" />
-				<span>ตกไป</span>
-				<span class="number">50</span>
-			</div>
-			<div class="law-status">
-				<div class="paper process" />
-				<span>อยู่ในกระบวนการ</span>
-				<span class="number">50</span>
-			</div>
-			<div class="law-status">
-				<div class="paper pass" />
-				<span>ออกเป็นกฎหมาย</span>
-				<span class="number">50</span>
-			</div>
-			<div class="law-status">
-				<div class="paper stack" />
-				<span>กฎหมายที่ถูกรวมร่าง</span>
-			</div>
+			<LawStatus />
 		</div>
-		<div class="wv-font-kondolar wv-font-black year">62</div>
+		<div class="wv-font-kondolar wv-font-black year">
+			<div class="year-label wv-font-anuphan wv-b6">ปี พ.ศ.</div>
+			62
+		</div>
 		<div class="wv-font-kondolar wv-font-black year">63</div>
 		<div class="wv-font-kondolar wv-font-black year">64</div>
 		<div class="wv-font-kondolar wv-font-black year">65</div>
@@ -499,95 +114,6 @@
 		gap: 1ch;
 	}
 
-	.paper-container {
-		display: flex;
-		margin-bottom: 8px;
-		padding-right: 10px;
-
-		> .paper {
-			margin-right: -8px;
-		}
-	}
-
-	.paper {
-		position: relative;
-		z-index: 1;
-
-		width: 20px;
-		height: 24px;
-
-		background: #000;
-		border: 1px var(--paper-color, #fff) solid;
-
-		// margin-right: -8px;
-
-		transition: transform 0.1s;
-		&:hover {
-			transform: translateY(-4px);
-		}
-
-		&.process {
-			background: linear-gradient(
-				-30deg,
-				#000,
-				#000 40.37%,
-				var(--paper-color, #fff) 40.37%,
-				var(--paper-color, #fff) 50%,
-				#000 50%,
-				#000 90.37%,
-				var(--paper-color, #fff) 90.37%,
-				var(--paper-color, #fff) 100%
-			);
-			background-size: 10.39px 6px;
-			background-repeat: repeat;
-		}
-
-		&.pass,
-		&.stack {
-			border: 1px #000 solid;
-			background: var(--paper-color, #fff);
-		}
-
-		&.stack {
-			top: 6px;
-			left: 7px;
-
-			&::before,
-			&::after {
-				content: '';
-				position: absolute;
-				z-index: -1;
-				width: 20px;
-				height: 24px;
-				border: 1px #000 solid;
-				background: var(--paper-color, #fff);
-				top: -4px;
-				left: -4px;
-			}
-
-			&::after {
-				top: -7px;
-				left: -8px;
-			}
-		}
-	}
-
-	.line {
-		position: relative;
-		pointer-events: none;
-
-		&::after {
-			content: '';
-			position: absolute;
-			background: url(/law-watch/line.png);
-			height: 28px;
-			width: 4px;
-			top: -2px;
-			left: -2px;
-			z-index: 2;
-		}
-	}
-
 	.chart-body {
 		display: grid;
 		grid-template-columns: auto repeat(4, 1fr);
@@ -596,11 +122,12 @@
 
 		> div {
 			border-left: 1px solid #373746;
-			padding-bottom: 16px;
+			padding-bottom: 24px;
 			padding-right: 16px;
 
 			&:nth-child(5n + 1) {
 				border: none;
+				padding-right: 32px;
 			}
 
 			&:nth-child(n + 21) {
@@ -609,32 +136,35 @@
 		}
 	}
 
-	.number-aligner,
-	.law-status {
+	.number-aligner {
 		display: flex;
 		gap: 10px;
 		align-items: center;
 	}
 
-	.law-status {
-		margin-bottom: 8px;
-
-		> .number {
-			margin-left: auto;
-		}
-	}
-
 	.year {
 		color: #373746;
-		line-height: 5vw;
-		font-size: 10vw;
+		line-height: 0.5;
+		font-size: min(10vw, 160px);
 		display: flex;
 		align-items: flex-end;
 
 		&::before {
 			content: '';
 			display: block;
-			margin-left: -0.5vw;
+			margin-left: max(-0.5vw, -8px);
 		}
+	}
+
+	.year-label {
+		position: absolute;
+		left: 0;
+		top: 75%;
+		transform: translateX(-50%) translateX(-12px) rotate(-90deg);
+		transform-origin: 50% 100%;
+
+		color: #fff;
+		font-weight: 400;
+		line-height: 0;
 	}
 </style>
