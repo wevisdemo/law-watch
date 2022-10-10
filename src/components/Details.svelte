@@ -110,7 +110,7 @@
 			top: 0;
 			left: 50%;
 			transform: translateX(-50%);
-			transition: transform 0.5s;
+			transition: transform 0.3s;
 		}
 
 		&.expanded::after {
