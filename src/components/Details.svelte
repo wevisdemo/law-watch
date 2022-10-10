@@ -8,10 +8,12 @@
 	let el_body: HTMLElement;
 	let current_animation: AnimationControls | null = null;
 	let was_closing = true;
+
 	const changeDetailState = (state: boolean) => {
 		el_details.open = state;
 		el_details.ariaExpanded = '' + state;
 	};
+
 	const onClick = (event: MouseEvent) => {
 		event.preventDefault();
 		if (current_animation?.playState === 'running') {
@@ -24,7 +26,7 @@
 		}
 		requestAnimationFrame(() => {
 			if (el_details.open) {
-				const { height } = el_body.getClientRects()[0];
+				const { height } = el_body.getBoundingClientRect();
 				current_animation = animate(el_body, { height: [height + 'px', 0], marginBottom: 0 });
 				current_animation.finished.then(() => {
 					el_body.style.marginBottom = '';
@@ -33,9 +35,9 @@
 				});
 				was_closing = true;
 			} else {
-				const { height } = el_body.getClientRects()[0];
-				current_animation = animate(el_body, { height: [0, height + 'px'] });
 				changeDetailState(true);
+				const { height } = el_body.getBoundingClientRect();
+				current_animation = animate(el_body, { height: [0, height + 'px'] });
 				was_closing = false;
 			}
 		});
