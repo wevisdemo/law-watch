@@ -23,7 +23,8 @@
 
 <section bind:this={el_section} id="process-section" class="c tc">
 	<h2 class="wv-h9 wv-font-kondolar">
-		การที่ร่างกฎหมายจะออกเป็นกฎหมายได้ ต้องผ่าน <strong class="c-mint">กระบวนการทางสภา</strong> ดังนี้
+		<span class="nw">การที่ร่างกฎหมายจะออกเป็นกฎหมายได้</span>
+		<span class="nw">ต้องผ่าน <strong class="c-mint">กระบวนการทางสภา</strong> ดังนี้</span>
 	</h2>
 	<section class="before-sapa">
 		<h3 class="wv-font-anuphan wv-b6 c-mint">ก่อนเข้าสภา</h3>
@@ -82,6 +83,18 @@
 		มีส่วนเกี่ยวข้องกับกระบวนการ<br />
 		ออกกฎหมายทุกช่องทาง
 	</p>
+	<div class="mem-relation">
+		<div class="rel-text">
+			<span class="wv-font-anuphan wv-h11 c-mint">ก่อนเข้าสภา</span>
+			<span class="wv-font-kondolar wv-h9">ร่างกฎหมาย</span>
+		</div>
+		<img class="rel-tooltip" src="/law-watch/process/mem-present.png" alt="" />
+		<div class="rel-text">
+			<span class="wv-font-anuphan wv-h11 c-mint">ในสภา</span>
+			<span class="wv-font-kondolar wv-h9">ส.ส.</span>
+		</div>
+		<img class="rel-tooltip" src="/law-watch/process/mem-vote.png" alt="" />
+	</div>
 </section>
 
 <style lang="scss">
@@ -115,6 +128,10 @@
 		position: absolute;
 		top: -22px;
 		left: calc(100% + 16px);
+
+		@media (max-width: 640px) {
+			display: none;
+		}
 	}
 
 	.sep {
@@ -134,5 +151,29 @@
 		top: 154px /*139px*/;
 		left: calc(50% + 260px + 32px);
 		text-align: left;
+
+		@media (max-width: 1100px) {
+			position: static;
+			margin-top: 64px;
+			text-align: center;
+		}
+	}
+
+	.mem-relation {
+		@media (min-width: 641px) {
+			display: none;
+		}
+
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 16px;
+		margin-top: 16px;
+
+		.rel-text {
+			align-self: flex-end;
+			> span {
+				display: block;
+			}
+		}
 	}
 </style>
