@@ -141,27 +141,19 @@
 					transition: background 0.3s;
 				}
 			}
-
-			&:nth-child(2) > a > .text {
-				transition-delay: 0.1s;
-			}
-
-			&:nth-child(3) > a > .text {
-				transition-delay: 0.2s;
-			}
-
-			&:nth-child(4) > a > .text {
-				transition-delay: 0.3s;
-			}
 		}
 
-		> li.current > a > .indicator {
+		> li:is(.current, :hover) > a > .indicator {
 			background: #a5ebd7;
 		}
 	}
 
 	.navigator > ul:hover {
 		> li > a > .text {
+			opacity: 0.5;
+		}
+
+		> li:is(.current, :hover) > a > .text {
 			opacity: 1;
 		}
 	}
