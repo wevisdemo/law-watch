@@ -31,6 +31,10 @@
 
 		margin-right: -8px;
 
+		@media (max-width: 640px) {
+			margin-right: -14px;
+		}
+
 		transition: transform 0.1s;
 
 		&:not(.noHover):hover {
