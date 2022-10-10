@@ -23,7 +23,9 @@
 
 <section bind:this={el_section} id="stats-section" class="c wv-font-anuphan">
 	<h2 class="wv-font-kondolar wv-h9 tc">
-		ร่างกฎหมายทั้งหมดที่ถูกเสนอในสมัยรัฐบาลประยุทธ์ จันทร์โอชา 2<br />
+		<span class="nw">ร่างกฎหมายทั้งหมดที่ถูกเสนอในสมัย</span><span class="nw"
+			>รัฐบาลประยุทธ์ จันทร์โอชา 2</span
+		><br />
 		<span class="header-line2">
 			ทั้งหมด
 			<span class="wv-font-kondolar wv-h4 wv-font-black c-mint">300</span>
@@ -95,7 +97,7 @@
 			<PaperChart data={[[3, 3], [5, 5], 8]} />
 		</div>
 		<div>
-			<LawStatus />
+			<LawStatus class="status" />
 		</div>
 		<div class="wv-font-kondolar wv-font-black year">
 			<div class="year-label wv-font-anuphan wv-b6">ปี พ.ศ.</div>
@@ -124,6 +126,8 @@
 		grid-template-rows: auto repeat(3, 1fr) auto;
 		width: 90%;
 
+		overflow: auto hidden;
+
 		> div {
 			border-left: 1px solid #373746;
 			padding-bottom: 24px;
@@ -149,26 +153,32 @@
 	.year {
 		color: #373746;
 		line-height: 0.5;
-		font-size: min(10vw, 160px);
+		font-size: clamp(80px, 10vw, 160px);
 		display: flex;
 		align-items: flex-end;
+		padding-top: clamp(40px, 5vw, 80px);
 
 		&::before {
 			content: '';
 			display: block;
-			margin-left: max(-0.5vw, -8px);
+			margin-left: clamp(-4px, -0.5vw, -8px);
 		}
 	}
 
 	.year-label {
 		position: absolute;
 		left: 0;
-		top: 75%;
-		transform: translateX(-50%) translateX(-12px) rotate(-90deg);
-		transform-origin: 50% 100%;
+		bottom: clamp(40px, 5vw, 80px);
+		// transform: translateX(-50%) translateX(-12px) rotate(-90deg);
 
 		color: #fff;
 		font-weight: 400;
 		line-height: 0;
+	}
+
+	@media (max-width: 1040px) {
+		:global(.status) {
+			display: none;
+		}
 	}
 </style>
