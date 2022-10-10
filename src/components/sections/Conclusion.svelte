@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { animate, scroll, timeline, inView } from 'motion';
-	import { is_section3_inview } from 'stores/sectionScrollManager';
+	import { is_conclusion_inview } from 'stores/sectionScrollManager';
 
 	let el_trigger1: Element;
 	let el_trigger2: Element;
@@ -43,8 +43,8 @@
 		inView(
 			el_section,
 			() => {
-				is_section3_inview.set(true);
-				return () => is_section3_inview.set(false);
+				is_conclusion_inview.set(true);
+				return () => is_conclusion_inview.set(false);
 			},
 			{
 				margin: '0px 0px -50% 0px'

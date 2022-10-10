@@ -9,6 +9,7 @@
 	import Intro from 'components/sections/Intro.svelte';
 	import Importance from 'components/sections/Importance.svelte';
 	import Process from 'components/sections/Process.svelte';
+	import Stats from 'components/sections/Stats.svelte';
 	import Investigate from 'components/sections/Investigate.svelte';
 	import Conclusion from 'components/sections/Conclusion.svelte';
 	import Ending from 'components/sections/Ending.svelte';
@@ -30,6 +31,7 @@
 {/if}
 <Importance />
 <Process />
+<Stats />
 <Investigate />
 <Conclusion />
 <Ending />

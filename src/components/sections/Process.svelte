@@ -2,7 +2,7 @@
 	// TODO: เขียน alt
 	import { onMount } from 'svelte';
 	import { inView } from 'motion';
-	import { is_section1_inview } from 'stores/sectionScrollManager';
+	import { is_process_inview } from 'stores/sectionScrollManager';
 
 	import Details from 'components/Details.svelte';
 
@@ -11,8 +11,8 @@
 		inView(
 			el_section,
 			() => {
-				is_section1_inview.set(true);
-				return () => is_section1_inview.set(false);
+				is_process_inview.set(true);
+				return () => is_process_inview.set(false);
 			},
 			{
 				margin: '0px 0px -50% 0px'

@@ -7,17 +7,24 @@ const SECTION_ID = [
 	'conclusion-section'
 ];
 
-export const is_section1_inview = writable(false);
-export const is_section2_inview = writable(false);
-export const is_section3_inview = writable(false);
+export const is_process_inview = writable(false);
+export const is_stats_inview = writable(false);
+export const is_investigate_inview = writable(false);
+export const is_conclusion_inview = writable(false);
 export const is_ending_inview = writable(false);
 
 export const current_section = derived(
-	[is_section1_inview, is_section2_inview, is_section3_inview, is_ending_inview],
-	([$is_section1_inview, $is_section2_inview, $is_section3_inview, $is_ending_inview]) => {
-		if ($is_section3_inview || $is_ending_inview) return 3;
-		if ($is_section2_inview) return 2;
-		if ($is_section1_inview) return 1;
+	[
+		is_process_inview,
+		is_stats_inview,
+		is_investigate_inview,
+		is_conclusion_inview,
+		is_ending_inview
+	],
+	([$proc, $stat, $inv, $con, $end]) => {
+		if ($con || $end) return 3;
+		if ($inv) return 2;
+		if ($proc || $stat) return 1;
 		return 0;
 	}
 );
@@ -25,9 +32,15 @@ export const current_section = derived(
 export const jumpTo = (section_id: 0 | 1 | 2 | 3) => {
 	const val = [false, false, false];
 	val[section_id - 1] = true;
-	is_section1_inview.set(val[0]);
-	is_section2_inview.set(val[1]);
-	is_section3_inview.set(val[2]);
+
+	// Base condition
+	is_process_inview.set(val[0]);
+	is_investigate_inview.set(val[1]);
+	is_conclusion_inview.set(val[2]);
+
+	// Set other to false
+	is_stats_inview.set(false);
 	is_ending_inview.set(false);
+
 	location.href = '#' + SECTION_ID[section_id];
 };
