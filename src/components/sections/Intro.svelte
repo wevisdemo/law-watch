@@ -69,12 +69,13 @@
 			<Eyes animation="awake" />
 			<header>
 				<h1 bind:this={el_h1} class="wv-h2 wv-font-kondolar wv-font-black">
-					ส่องผลงานผ่านสภายุคตู่สอง
+					<span class="nw">ส่องผลงาน</span><span class="nw">ผ่านสภา</span><span class="nw"
+						>ยุคตู่สอง</span
+					>
 				</h1>
 				<p bind:this={el_p} class="wv-h5 wv-font-kondolar c-mint">
-					ส.ส.
-					<strong>เสนอ</strong> และ/หรือ
-					<strong>โหวต</strong> กฎหมายอะไรกันบ้าง ?
+					<span class="nw">ส.ส. <strong>เสนอ</strong> และ/หรือ <strong>โหวต</strong></span>
+					<span class="nw">กฎหมายอะไรกันบ้าง ?</span>
 				</p>
 			</header>
 		</div>
