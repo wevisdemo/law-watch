@@ -273,6 +273,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			margin-bottom: 4px;
 		}
 
 		.chart-header {
