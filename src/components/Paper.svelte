@@ -31,7 +31,7 @@
 
 		margin-right: -8px;
 
-		@media (max-width: 640px) {
+		@media (max-width: 767.5px) {
 			margin-right: -14px;
 		}
 

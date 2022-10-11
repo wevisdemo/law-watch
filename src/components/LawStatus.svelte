@@ -22,7 +22,7 @@
 		<span>ออกเป็นกฎหมาย</span>
 		<span class="number">50</span>
 	</div>
-	<div class="law-status-type" style="margin:24px 0">
+	<div class="law-status-type merge-type">
 		<Paper type="stack" noMargin noHover />
 		<span>กฎหมายที่ถูกรวมร่าง</span>
 	</div>
@@ -43,9 +43,24 @@
 		gap: 10px;
 		align-items: center;
 		margin-bottom: 8px;
+		white-space: nowrap;
 
 		> .number {
 			margin-left: auto;
+		}
+	}
+
+	.merge-type {
+		margin: 24px 0;
+	}
+
+	@media (max-width: 767.5px) {
+		.merge-type {
+			margin: 16px 0;
+		}
+
+		.law-status-type {
+			justify-content: center;
 		}
 	}
 </style>
