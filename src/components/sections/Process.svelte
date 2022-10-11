@@ -129,7 +129,7 @@
 		top: -22px;
 		left: calc(100% + 16px);
 
-		@media (max-width: 640px) {
+		@media (max-width: 1100px) {
 			display: none;
 		}
 	}
@@ -160,7 +160,7 @@
 	}
 
 	.mem-relation {
-		@media (min-width: 641px) {
+		@media (min-width: 1101px) {
 			display: none;
 		}
 
