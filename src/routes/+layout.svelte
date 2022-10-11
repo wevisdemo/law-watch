@@ -21,7 +21,7 @@
 <body class:bg-white={$page.routeId === 'about'}>
 	<WvNavbar
 		homeHref="https://wevis.info/"
-		logoAddonSrc=""
+		logoAddonSrc="/law-watch/101pub.png"
 		title="LAW WATCH"
 		dark={true}
 		alwayShowSlot={false}
