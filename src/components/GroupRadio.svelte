@@ -33,21 +33,23 @@
 	export let selected_law: GROUP_NAME[];
 </script>
 
-<div class="header wv-font-semibold wv-font-anuphan wv-b6">หมวดหมู่กฎหมาย</div>
-<div class="law-group-selector">
-	{#each Object.entries(group) as [name, amount] (name)}
-		<input
-			class="law-group-radio"
-			id="law-group-{name}"
-			type="checkbox"
-			bind:group={selected_law}
-			value={name}
-		/>
-		<!-- @ts-expect-error -->
-		<label class="law-group-label {GROUP_COLOR[name]}" for="law-group-{name}">
-			<span class="wv-b6">{name} ({amount})</span>
-		</label>
-	{/each}
+<div>
+	<div class="header wv-font-semibold wv-font-anuphan wv-b6">หมวดหมู่กฎหมาย</div>
+	<div class="law-group-selector">
+		{#each Object.entries(group) as [name, amount] (name)}
+			<input
+				class="law-group-radio"
+				id="law-group-{name}"
+				type="checkbox"
+				bind:group={selected_law}
+				value={name}
+			/>
+			<!-- @ts-expect-error -->
+			<label class="law-group-label {GROUP_COLOR[name]}" for="law-group-{name}">
+				<span class="wv-b6">{name} ({amount})</span>
+			</label>
+		{/each}
+	</div>
 </div>
 
 <style lang="scss">
@@ -60,7 +62,7 @@
 		gap: 8px;
 		flex-wrap: wrap;
 
-		width: 320px;
+		// width: 320px;
 	}
 
 	.law-group-radio {
@@ -81,7 +83,7 @@
 		color: var(--group-color);
 
 		transition-property: color, background;
-		transition-duration: 0.3s;
+		transition-duration: 0.1s;
 	}
 
 	.law-group-radio:checked + .law-group-label {

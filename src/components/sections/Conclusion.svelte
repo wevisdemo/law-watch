@@ -183,7 +183,7 @@
 	<div
 		bind:this={el_trigger3}
 		class="c conclusion-content wv-font-anuphan wv-b4"
-		style="margin-bottom:35vh"
+		style="margin-bottom:30vh"
 	>
 		<span class="nw">ซึ่ง ส.ส. ทุกคนมาจาก</span>
 		<span class="nw">คะแนนเสียงของ <strong>ประชาชน</strong></span>
@@ -220,6 +220,7 @@
 	.conclusion-content {
 		color: #fff;
 		height: 40vh;
+		scroll-snap-align: center;
 
 		// background: red;
 

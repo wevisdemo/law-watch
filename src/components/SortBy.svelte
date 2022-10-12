@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { flip } from 'svelte/animate';
 
-	// export let sort_order = ['หมวดหมู่', 'สถานะ'];
-	export let sort_order = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
+	export let sort_order = ['หมวดหมู่', 'สถานะ'];
+	// export let sort_order = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
 
 	const setSortOrder = (property: string) => () => {
+		if (sort_order[0] === property) return;
 		// if (sort_order.length === 3) {
 		// 	switch (property) {
 		// 		case 'หมวดหมู่':
@@ -23,21 +24,23 @@
 	};
 </script>
 
-<div class="header wv-b6 wv-font-semibold">
-	<img src="/law-watch/sort.svg" alt="" width="12" height="12" />
-	เรียงตาม
-</div>
-<div class="sort-order-container">
-	{#each sort_order as property, i (property)}
-		<div
-			class="sort-property wv-b6"
-			class:active={i === 0}
-			on:click={setSortOrder(property)}
-			animate:flip={{ duration: 300 }}
-		>
-			{property}
-		</div>
-	{/each}
+<div>
+	<div class="header wv-b6 wv-font-semibold">
+		<img src="/law-watch/sort.svg" alt="" width="12" height="12" />
+		เรียงตาม
+	</div>
+	<div class="sort-order-container">
+		{#each sort_order as property, i (property)}
+			<div
+				class="sort-property wv-b6"
+				class:active={i === 0}
+				on:click={setSortOrder(property)}
+				animate:flip={{ duration: 300 }}
+			>
+				{property}
+			</div>
+		{/each}
+	</div>
 </div>
 
 <style lang="scss">
@@ -51,7 +54,6 @@
 	.sort-order-container {
 		display: flex;
 		align-items: center;
-		margin-bottom: 16px;
 	}
 
 	.sort-property {
@@ -64,6 +66,8 @@
 		user-select: none;
 
 		position: relative;
+
+		white-space: nowrap;
 
 		transition-property: color, background;
 		transition-duration: 0.3s;
