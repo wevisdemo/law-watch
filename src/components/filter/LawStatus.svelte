@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Paper from './Paper.svelte';
+	import Paper from 'components/Paper.svelte';
 
 	let clazz = '';
 	export { clazz as class };

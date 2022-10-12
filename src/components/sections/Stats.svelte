@@ -3,7 +3,7 @@
 	import { inView } from 'motion';
 	import { is_stats_inview } from 'stores/sectionScrollManager';
 
-	import LawStatus from 'components/LawStatus.svelte';
+	import LawStatus from 'components/filter/LawStatus.svelte';
 	import PaperChart from 'components/PaperChart.svelte';
 
 	let el_section: Element;

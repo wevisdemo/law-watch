@@ -25,8 +25,8 @@
 </script>
 
 <div>
-	<div class="header wv-b6 wv-font-semibold">
-		<img src="/law-watch/sort.svg" alt="" width="12" height="12" />
+	<div class="header wv-b7">
+		<img src="/law-watch/sort.svg" alt="" width="16" height="16" />
 		เรียงตาม
 	</div>
 	<div class="sort-order-container">
@@ -48,7 +48,7 @@
 		display: flex;
 		align-items: center;
 		gap: 4px;
-		margin-bottom: 4px;
+		margin-bottom: 8px;
 	}
 
 	.sort-order-container {

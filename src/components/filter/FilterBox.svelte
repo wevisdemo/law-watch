@@ -10,14 +10,16 @@
 		'รัฐธรรมนูญ'
 	];
 
-	import VisType from 'components/VisType.svelte';
-	import SortBy from 'components/SortBy.svelte';
-	import LawStatus from 'components/LawStatus.svelte';
-	import SearchBox from 'components/SearchBox.svelte';
+	import VisType from './VisType.svelte';
+	import SortBy from './SortBy.svelte';
+	import LawStatus from './LawStatus.svelte';
+	import SearchBox from './SearchBox.svelte';
+	import Dropdown from 'components/dropdown/Dropdown.svelte';
 </script>
 
 <div class="filter-box">
 	<SearchBox />
+	<Dropdown label_image="/law-watch/group.svg" />
 	<VisType />
 	<SortBy />
 	<GroupRadio {selected_law} />
