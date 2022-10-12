@@ -4,7 +4,8 @@
 	export let sort_order = ['หมวดหมู่', 'สถานะ'];
 	// export let sort_order = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
 
-	const setSortOrder = (property: string) => () => {
+	const setSortOrder = (property: string | number) => () => {
+		if (typeof property === 'number') return;
 		if (sort_order[0] === property) return;
 		// if (sort_order.length === 3) {
 		// 	switch (property) {
@@ -22,6 +23,11 @@
 		// }
 		sort_order = [property, ...sort_order.filter((e) => e !== property)];
 	};
+
+	$: arrow_inbetween = sort_order
+		.map((e, i) => [e, i])
+		.flat()
+		.slice(0, -1);
 </script>
 
 <div>
@@ -30,14 +36,20 @@
 		เรียงตาม
 	</div>
 	<div class="sort-order-container">
-		{#each sort_order as property, i (property)}
+		{#each arrow_inbetween as property, i (property)}
 			<div
-				class="sort-property wv-b6"
 				class:active={i === 0}
-				on:click={setSortOrder(property)}
+				class:sort-property={i % 2 === 0}
+				class:wv-b6={i % 2 === 0}
+				class:arrow={i % 2 === 1}
+				on:click={i % 2 === 1 ? () => {} : setSortOrder(property)}
 				animate:flip={{ duration: 300 }}
 			>
-				{property}
+				{#if i % 2 === 0}
+					{property}
+				{:else}
+					<img src="/law-watch/arrow_right.svg" alt="" width="10" height="8" />
+				{/if}
 			</div>
 		{/each}
 	</div>
@@ -76,21 +88,10 @@
 			background: white;
 			color: #000;
 		}
+	}
 
-		&:not(:last-child) {
-			margin-right: 10px;
-
-			&::after {
-				content: '';
-				display: block;
-				background: url(/law-watch/arrow_right.svg);
-				top: 50%;
-				right: -1px;
-				height: 8px;
-				width: 10px;
-				position: absolute;
-				transform: translateX(100%) translateY(-50%);
-			}
-		}
+	.arrow {
+		display: flex;
+		align-items: center;
 	}
 </style>
