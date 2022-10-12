@@ -5,8 +5,8 @@
 	export { clazz as class };
 </script>
 
-<div class="law-status wv-font-anuphan {clazz}">
-	<div class="header wv-font-semibold wv-b6">สถานะกฎหมาย</div>
+<div class="law-status wv-font-anuphan wv-b6 {clazz}">
+	<div class="header wv-font-semibold">สถานะกฎหมาย</div>
 	<div class="law-status-type">
 		<Paper noMargin noHover />
 		<span>ตกไป</span>
