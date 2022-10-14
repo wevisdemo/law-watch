@@ -14,6 +14,7 @@ const config = {
 		},
 		alias: {
 			'components/*': 'src/components/*',
+			'data/*': 'src/data/*',
 			'layouts/*': 'src/layouts/*',
 			'sections/*': 'src/sections/*',
 			'stores/*': 'src/stores/*',

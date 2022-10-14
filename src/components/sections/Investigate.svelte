@@ -5,6 +5,9 @@
 
 	import FilterBox from 'components/filter/FilterBox.svelte';
 	import HelpBtn from 'components/tutorial/HelpBtn.svelte';
+	import Sidebar from 'components/Sidebar.svelte';
+
+	let is_sidebar_open = true;
 
 	let el_section: Element;
 	onMount(() => {
@@ -21,10 +24,15 @@
 	});
 </script>
 
-<section bind:this={el_section} id="investigate-section" class="h100 wv-font-anuphan">
+<section bind:this={el_section} id="investigate-section" class="h100">
 	<h2 class="title wv-b4 tc">แสดงร่างกฎหมายไม่แบ่งกลุ่มเรียงตามสถานะ</h2>
 	<FilterBox />
 	<HelpBtn />
+	<Sidebar is_open={is_sidebar_open} />
+
+	<button type="button" on:click={() => (is_sidebar_open = !is_sidebar_open)} style="z-index:50">
+		open sidebar
+	</button>
 </section>
 
 <style lang="scss">

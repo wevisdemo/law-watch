@@ -41,7 +41,7 @@
 	};
 </script>
 
-<div class="dropdown-container wv-font-anuphan">
+<div class="dropdown-container">
 	<span id="dropdown-{label}-label" class="select-label wv-b7">
 		{#if label_image}
 			<img src={label_image} alt="" width="12" height="12" />
@@ -50,7 +50,7 @@
 	</span>
 	<button
 		type="button"
-		class="select-control wv-font-anuphan wv-b7"
+		class="select-control wv-b7"
 		tabindex="0"
 		on:click={toggleSelect}
 		id="dropdown-{label}-button"

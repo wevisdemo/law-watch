@@ -1,26 +1,18 @@
-<script context="module" lang="ts">
-	export type GROUP_NAME =
-		| 'บริหารราชการ'
-		| 'การศึกษา'
-		| 'เศรษฐกิจ'
-		| 'สังคม'
-		| 'สิ่งแวดล้อม'
-		| 'กระบวนการยุติธรรม'
-		| 'รัฐธรรมนูญ';
-</script>
-
 <script lang="ts">
-	const GROUP_COLOR: Record<GROUP_NAME, string> = {
-		บริหารราชการ: 'blue',
-		การศึกษา: 'sky',
-		เศรษฐกิจ: 'yellow',
-		สังคม: 'orange',
-		สิ่งแวดล้อม: 'green',
-		กระบวนการยุติธรรม: 'red',
-		รัฐธรรมนูญ: 'magenta'
-	};
+	import { LAW_TYPE_METADATA } from 'data/law-types';
+	import type { LawTypes } from 'data/law-types';
 
-	export let group: Record<GROUP_NAME, number> = {
+	const GROUP_ORDER: LawTypes[] = [
+		'เศรษฐกิจ',
+		'สังคม',
+		'สิ่งแวดล้อม',
+		'การศึกษา',
+		'บริหารราชการ',
+		'รัฐธรรมนูญ',
+		'กระบวนการยุติธรรม'
+	];
+
+	export let group: Record<LawTypes, number> = {
 		เศรษฐกิจ: 20,
 		สังคม: 20,
 		สิ่งแวดล้อม: 20,
@@ -30,13 +22,13 @@
 		กระบวนการยุติธรรม: 20
 	};
 
-	export let selected_law: GROUP_NAME[];
+	export let selected_law: LawTypes[];
 </script>
 
 <div>
-	<div class="header wv-font-semibold wv-font-anuphan wv-b6">หมวดหมู่กฎหมาย</div>
+	<div class="header wv-font-semibold wv-b6">หมวดหมู่กฎหมาย</div>
 	<div class="law-group-selector">
-		{#each Object.entries(group) as [name, amount] (name)}
+		{#each GROUP_ORDER as name (name)}
 			<input
 				class="law-group-radio"
 				id="law-group-{name}"
@@ -44,9 +36,8 @@
 				bind:group={selected_law}
 				value={name}
 			/>
-			<!-- @ts-expect-error -->
-			<label class="law-group-label {GROUP_COLOR[name]}" for="law-group-{name}">
-				<span class="wv-b6">{name} ({amount})</span>
+			<label class="law-group-label {LAW_TYPE_METADATA[name].color}" for="law-group-{name}">
+				<span class="wv-b6">{name} ({group[name]})</span>
 			</label>
 		{/each}
 	</div>
@@ -78,44 +69,16 @@
 		cursor: pointer;
 		user-select: none;
 
-		background: rgba(var(--group-color), 0);
-		border: 1px var(--group-color) solid;
-		color: var(--group-color);
+		background: rgba(var(--law-color), 0);
+		border: 1px var(--law-color) solid;
+		color: var(--law-color);
 
 		transition-property: color, background;
 		transition-duration: 0.1s;
 	}
 
 	.law-group-radio:checked + .law-group-label {
-		background: var(--group-color);
+		background: var(--law-color);
 		color: #000;
-	}
-
-	.blue {
-		--group-color: #676dff;
-	}
-
-	.sky {
-		--group-color: #9feeff;
-	}
-
-	.yellow {
-		--group-color: #fff173;
-	}
-
-	.orange {
-		--group-color: #ff8a00;
-	}
-
-	.green {
-		--group-color: #1dc775;
-	}
-
-	.red {
-		--group-color: #ff3767;
-	}
-
-	.magenta {
-		--group-color: #d252ff;
 	}
 </style>

@@ -27,18 +27,16 @@
 
 <section bind:this={el_section} class="c tc" style="--h:calc(100vh - 70px)">
 	<section class="outro-section c">
-		<p class="wv-font-anuphan wv-b3">
+		<p class="wv-b3">
 			ดังนั้น การทำงานกระบวนการออกกฎหมาย<br />
 			ของบรรดา ส.ส. จากพรรคการเมืองต่าง ๆ ในสภาชุดนี้<br />
 			คือตัวช่วยตัดสินใจอย่างหนึ่ง สำหรับประชาชนว่า
 		</p>
 		<Eyes margin="40px 0" />
-		<p class="wv-font-anuphan wv-b3 wv-font-semibold">
-			เราควรจะเลือก หรือไม่เลือกใคร ในการเลือกตั้งครั้งถัดไป
-		</p>
+		<p class="wv-b3 wv-font-semibold">เราควรจะเลือก หรือไม่เลือกใคร ในการเลือกตั้งครั้งถัดไป</p>
 	</section>
 	<section class="share-section c">
-		<span class="share-text wv-font-anuphan wv-b5">Share</span>
+		<span class="share-text wv-b5">Share</span>
 		<WvSharer
 			url=""
 			label=""

@@ -1,11 +1,19 @@
 <script lang="ts">
+	import { LAW_TYPE_METADATA } from 'data/law-types';
+	import type { LawTypes } from 'data/law-types';
+
 	export let type: '' | 'process' | 'pass' | 'stack' = '';
-	export let color: '' | 'blue' | 'sky' | 'yellow' | 'orange' | 'green' | 'red' | 'magenta' = '';
+	export let category: LawTypes | '' = '';
 	export let noMargin = false;
 	export let noHover = false;
 </script>
 
-<div class="paper {type} {color}" class:noMargin class:noHover>
+<div
+	class="paper {type} {category && LAW_TYPE_METADATA[category].color}"
+	class:noMargin
+	class:noHover
+	{...$$restProps}
+>
 	{#if type === 'process'}
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22">
 			<path
@@ -27,7 +35,7 @@
 		height: 24px;
 
 		background: #000;
-		border: 1px var(--paper-color, #fff) solid;
+		border: 1px var(--law-color, #fff) solid;
 
 		margin-right: -8px;
 
@@ -42,13 +50,13 @@
 		}
 
 		&.process {
-			color: var(--paper-color, #fff);
+			color: var(--law-color, #fff);
 		}
 
 		&.pass,
 		&.stack {
 			border: 1px #000 solid;
-			background: var(--paper-color, #fff);
+			background: var(--law-color, #fff);
 		}
 
 		&.stack {
@@ -63,7 +71,7 @@
 				width: 20px;
 				height: 24px;
 				border: 1px #000 solid;
-				background: var(--paper-color, #fff);
+				background: var(--law-color, #fff);
 				top: -4px;
 				left: -4px;
 			}
@@ -77,33 +85,5 @@
 		&.noMargin {
 			margin-right: 0;
 		}
-	}
-
-	.blue {
-		--paper-color: #676dff;
-	}
-
-	.sky {
-		--paper-color: #9feeff;
-	}
-
-	.yellow {
-		--paper-color: #fff173;
-	}
-
-	.orange {
-		--paper-color: #ff8a00;
-	}
-
-	.green {
-		--paper-color: #1dc775;
-	}
-
-	.red {
-		--paper-color: #ff3767;
-	}
-
-	.magenta {
-		--paper-color: #d252ff;
 	}
 </style>

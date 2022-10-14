@@ -2,7 +2,7 @@
 	export let viewTimeline = false;
 </script>
 
-<label class="vistype-container wv-font-anuphan wv-b6">
+<label class="vistype-container wv-b6">
 	<span>ภาพรวม</span>
 	<input class="switch-input" type="checkbox" bind:checked={viewTimeline} />
 	<span class="switch-decor" />

@@ -10,7 +10,7 @@
 
 <section class="c" class:ready style="--h:calc(100vh - 52px)">
 	<Eyes animation="close" playOnMount={false} play={ready} margin="0 0 25px" />
-	<p class="wv-font-anuphan wv-b4">Loading...</p>
+	<p class="wv-b4">Loading...</p>
 </section>
 
 <style lang="scss">

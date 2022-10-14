@@ -102,24 +102,24 @@
 
 <section id="importance-section" class="c tc">
 	<div class="diagram" aria-hidden="true">
-		<p class="c wv-font-anuphan wv-b4" class:show={!is_part1_finished}>
+		<p class="c wv-b4" class:show={!is_part1_finished}>
 			<span class="nw">คือกติการ่วมกัน</span>
 			<span class="nw">ของคนในสังคม</span>
 		</p>
-		<p class="c wv-font-anuphan wv-b4" class:show={is_part1_finished && !is_part2_finished}>
+		<p class="c wv-b4" class:show={is_part1_finished && !is_part2_finished}>
 			<span class="nw">ที่มาของกฎหมาย</span>
 			<span class="nw">ควรต้องมาจาก</span>
 			<span class="nw">กระบวนการซึ่งยึดโยง</span>
 			<span class="nw">ประชาชนไม่ว่าจะ</span>
 			<span class="nw">ในทางตรงหรือทางอ้อม</span>
 		</p>
-		<p class="c wv-font-anuphan wv-b4" class:show={is_part2_finished && !is_part3_finished}>
+		<p class="c wv-b4" class:show={is_part2_finished && !is_part3_finished}>
 			<span class="nw">และพรรคการเมือง</span>
 			<span class="nw">คือส่วนหนึ่งของกลไก</span>
 			<span class="nw">ที่ทำให้กฎหมาย</span>
 			<span class="nw">มีที่มายึดโยงกับประชาชน</span>
 		</p>
-		<p class="c wv-font-anuphan wv-b4" class:show={is_part3_finished}>
+		<p class="c wv-b4" class:show={is_part3_finished}>
 			<span class="nw">กฎหมายจะออกใช้ได้</span>
 			<span class="nw">ต้องผ่านมือ ส.ส.</span>
 			<span class="nw">ของพรรคการเมือง</span>

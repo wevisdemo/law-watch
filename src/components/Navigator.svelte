@@ -33,25 +33,25 @@
 		</svg>
 	</button>
 	<ul>
-		<li class="wv-font-anuphan wv-b5" class:current={$current_section === 0}>
+		<li class="wv-b5" class:current={$current_section === 0}>
 			<a href="#importance-section"
 				><span class="text">ความสำคัญ</span>
 				<span class="indicator" /></a
 			>
 		</li>
-		<li class="wv-font-anuphan wv-b5" class:current={$current_section === 1}>
+		<li class="wv-b5" class:current={$current_section === 1}>
 			<a href="#process-section"
 				><span class="text">ขั้นตอนการเสนอ</span>
 				<span class="indicator" /></a
 			>
 		</li>
-		<li class="wv-font-anuphan wv-b5" class:current={$current_section === 2}>
+		<li class="wv-b5" class:current={$current_section === 2}>
 			<a href="#investigate-section">
 				<span class="text">สำรวจ</span>
 				<span class="indicator" />
 			</a>
 		</li>
-		<li class="wv-font-anuphan wv-b5" class:current={$current_section === 3}>
+		<li class="wv-b5" class:current={$current_section === 3}>
 			<a href="#conclusion-section">
 				<span class="text">บทสรุป</span>
 				<span class="indicator" />
@@ -83,7 +83,7 @@
 		top: 73px;
 		margin: 73px 44px calc(-128px - 73px) auto;
 		width: max-content;
-		z-index: 999;
+		z-index: 10;
 
 		text-align: right;
 

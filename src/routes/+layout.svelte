@@ -18,7 +18,7 @@
 	});
 </script>
 
-<body class:bg-white={$page.routeId === 'about'}>
+<body class="wv-font-anuphan" class:bg-white={$page.routeId === 'about'}>
 	<WvNavbar
 		homeHref="https://wevis.info/"
 		logoAddonSrc="/law-watch/101pub.png"

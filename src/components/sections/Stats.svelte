@@ -21,7 +21,7 @@
 	});
 </script>
 
-<section bind:this={el_section} id="stats-section" class="c wv-font-anuphan">
+<section bind:this={el_section} id="stats-section" class="c">
 	<h2 class="wv-font-kondolar wv-h9 tc">
 		<span class="nw">ร่างกฎหมายทั้งหมดที่ถูกเสนอในสมัย</span><span class="nw"
 			>รัฐบาลประยุทธ์ จันทร์โอชา 2</span
@@ -121,7 +121,7 @@
 			</div>
 			<div class="wv-font-kondolar wv-font-black year">
 				<div class="first-year-wrapper">
-					<div class="year-label wv-font-anuphan wv-b6">ปี พ.ศ.</div>
+					<div class="year-label wv-b6">ปี พ.ศ.</div>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 175 108">
 						<path
 							fill="#373746"

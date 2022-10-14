@@ -27,8 +27,8 @@
 		<span class="nw">ต้องผ่าน <strong class="c-mint">กระบวนการทางสภา</strong> ดังนี้</span>
 	</h2>
 	<section class="before-sapa">
-		<h3 class="wv-font-anuphan wv-b6 c-mint">ก่อนเข้าสภา</h3>
-		<div class="draft-editor-container wv-font-anuphan" aria-hidden="true">
+		<h3 class="wv-b6 c-mint">ก่อนเข้าสภา</h3>
+		<div class="draft-editor-container" aria-hidden="true">
 			<div class="tc">
 				<span class="editor-type wv-font-semibold wv-b5">ครม.</span>
 			</div>
@@ -52,7 +52,7 @@
 	</section>
 	<div class="sep" />
 	<section>
-		<h3 class="wv-font-anuphan wv-b6 c-mint">
+		<h3 class="wv-b6 c-mint">
 			<span class="sr-only">เมื่อเข้ามา</span>ในสภา
 			<span class="sr-only">ร่างกฎหมายจะต้องผ่านการโหวต</span>
 		</h3>
@@ -77,7 +77,7 @@
 			บังคับใช้เป็นกฎหมาย
 		</p>
 	</section>
-	<p class="mem-detail wv-font-anuphan wv-b5">
+	<p class="mem-detail wv-b5">
 		<span class="wv-font-bold">ส.ส. จากพรรคการเมือง</span><br />
 		ที่ได้รับเลือกตั้งจากประชาชน<br />
 		มีส่วนเกี่ยวข้องกับกระบวนการ<br />
@@ -85,12 +85,12 @@
 	</p>
 	<div class="mem-relation">
 		<div class="rel-text">
-			<span class="wv-font-anuphan wv-h11 c-mint">ก่อนเข้าสภา</span>
+			<span class="wv-h11 c-mint">ก่อนเข้าสภา</span>
 			<span class="wv-font-kondolar wv-h9">ร่างกฎหมาย</span>
 		</div>
 		<img class="rel-tooltip" src="/law-watch/process/mem-present.png" alt="" />
 		<div class="rel-text">
-			<span class="wv-font-anuphan wv-h11 c-mint">ในสภา</span>
+			<span class="wv-h11 c-mint">ในสภา</span>
 			<span class="wv-font-kondolar wv-h9">ส.ส.</span>
 		</div>
 		<img class="rel-tooltip" src="/law-watch/process/mem-vote.png" alt="" />

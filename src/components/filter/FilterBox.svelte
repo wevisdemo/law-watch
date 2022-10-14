@@ -1,6 +1,7 @@
 <script lang="ts">
-	import GroupRadio, { type GROUP_NAME } from 'components/GroupRadio.svelte';
-	let selected_law: GROUP_NAME[] = [
+	import type { LawTypes } from 'data/law-types';
+	import GroupRadio from 'components/GroupRadio.svelte';
+	let selected_law: LawTypes[] = [
 		'บริหารราชการ',
 		'การศึกษา',
 		'เศรษฐกิจ',
