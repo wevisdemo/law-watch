@@ -27,13 +27,22 @@
 
 <section bind:this={el_section} class="c tc" style="--h:calc(100vh - 70px)">
 	<section class="outro-section c">
-		<p class="wv-b3">
-			ดังนั้น การทำงานกระบวนการออกกฎหมาย<br />
-			ของบรรดา ส.ส. จากพรรคการเมืองต่าง ๆ ในสภาชุดนี้<br />
-			คือตัวช่วยตัดสินใจอย่างหนึ่ง สำหรับประชาชนว่า
+		<p class="outro-1 wv-b3">
+			<span class="nw">ดังนั้น การทำงานกระบวนการ</span><span class="nw">
+				ออกกฎหมาย<br class="hide-br" />
+				ของบรรดา ส.ส.
+			</span>
+			<span class="nw">จากพรรคการเมืองต่าง ๆ ในสภา</span><span class="nw">
+				ชุดนี้<br class="hide-br" />
+				คือตัวช่วยตัดสินใจอย่างหนึ่ง
+			</span>
+			<span class="nw">สำหรับประชาชนว่า</span>
 		</p>
 		<Eyes margin="40px 0" />
-		<p class="wv-b3 wv-font-semibold">เราควรจะเลือก หรือไม่เลือกใคร ในการเลือกตั้งครั้งถัดไป</p>
+		<p class="wv-b3 wv-font-semibold">
+			<span class="nw">เราควรจะเลือก หรือไม่เลือกใคร</span>
+			<span class="nw">ในการเลือกตั้งครั้งถัดไป</span>
+		</p>
 	</section>
 	<section class="share-section c">
 		<span class="share-text wv-b5">Share</span>
@@ -69,6 +78,16 @@
 		> .share-text {
 			color: #fff;
 			margin-bottom: 20px;
+		}
+	}
+
+	@media (max-width: 400px) {
+		.outro-1 {
+			padding: 0 16px;
+		}
+
+		.hide-br {
+			display: none;
 		}
 	}
 </style>
