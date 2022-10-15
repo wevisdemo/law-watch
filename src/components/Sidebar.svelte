@@ -186,8 +186,8 @@
 		gap: 8px;
 
 		// Webkit Scrollbar
-		margin-right: -4px;
-		padding-right: 2px;
+		margin-right: -6px;
+		padding-right: 4px;
 
 		overflow-y: scroll;
 
@@ -201,7 +201,7 @@
 		}
 
 		@supports (-moz-appearance: none) {
-			scrollbar-color: #00000040 #0000;
+			scrollbar-color: #00000040 #00000000;
 			scrollbar-width: thin;
 			margin-right: -12px;
 			padding-right: 4px;

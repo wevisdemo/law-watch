@@ -72,7 +72,6 @@
 	.filter-box {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		gap: 14px;
 
 		width: 260px;
@@ -82,6 +81,28 @@
 		right: unset;
 		top: 10%;
 		bottom: 10%;
+
+		// Webkit Scrollbar
+		margin-right: -6px;
+		padding-right: 4px;
+
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar {
+			width: 2px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #ffffff40;
+			border-radius: 1px;
+		}
+
+		@supports (-moz-appearance: none) {
+			scrollbar-color: #ffffff40 #ffffff00;
+			scrollbar-width: thin;
+			margin-right: -12px;
+			padding-right: 4px;
+		}
 	}
 
 	:global(.alone) {
