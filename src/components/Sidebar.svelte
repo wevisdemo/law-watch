@@ -16,100 +16,66 @@
 			<img src="/law-watch/card-close.svg" alt="ปิด" width="16" height="16" />
 		</button>
 	</header>
-	<div class="merged-doc">
-		<button type="button">
-			<img src="/law-watch/caret-lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
-		</button>
-		<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง 1/7 ฉบับ</span>
-		<button type="button">
-			<img src="/law-watch/caret-rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
-		</button>
-	</div>
-	<div class="status">
-		<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
-		<Paper
-			noHover
-			noMargin
-			type="process"
-			style="display:inline-block;margin-left:4px;height:16px;width:13.33px"
-		/>
-		<span style="line-height:1">อยู่ในกระบวนการ</span>
-	</div>
-	<div class="timeline">
-		<div class="active">ร่างกฎหมาย</div>
-		<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
-		<div class="active">ส.ส.</div>
-		<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
-		<div>ส.ว.</div>
-		<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
-		<div>ศาลรัฐธรรมนูญ</div>
-		<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
-		<div>กษัตริย์</div>
-	</div>
-	<span>ส.ส. วาระที่ 2</span>
-	<section>
-		<dl>
-			<dd class="wv-font-semibold">หมวดกฎหมาย</dd>
-			<dt>
-				<div class="law-type-pill {LAW_TYPE_METADATA['บริหารราชการ'].color}">บริหารราชการ</div>
-			</dt>
-			<dd class="wv-font-semibold">
-				<img src="/law-watch/calendar.svg" alt="" class="addon" />
-				วันที่เสนอ
-			</dd>
-			<dt>8/8/2562</dt>
-			<dd class="wv-font-semibold">
-				<img src="/law-watch/calendar.svg" alt="" class="addon" />
-				วันที่สิ้นสุด
-			</dd>
-			<dt>8/8/2562</dt>
-			<dd class="wv-font-semibold">
-				<img src="/law-watch/person.svg" alt="" class="addon" />
-				ชื่อผู้เสนอ
-			</dd>
-			<dt>วราวุธ ศิลปอาชา กับคณะ</dt>
-			<dd class="wv-font-semibold">
-				<div class="addon" />
-				ประเภทผู้เสนอ
-			</dd>
-			<dt>ผู้แทนพรรค</dt>
-		</dl>
-		<ul class="party wv-b7">
-			<li>ชาติไทยพัฒนา</li>
-			<li>เพื่อไทย</li>
-			<li>พลังประชารัฐ</li>
-			<li>อนาคตใหม่</li>
-			<li>ประชาธิปไตยใหม่</li>
-			<li>ไทยศรีวิไลย์</li>
-			<li>พลังท้องถิ่นไทย</li>
-			<li>ภูมิใจไทย</li>
-		</ul>
-	</section>
-	<section class="theywork">
-		<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
-		<p>วาระ xxxxx</p>
-		<div class="wv-font-kondolar wv-font-black wv-h10">50% ผ่าน</div>
-		<div class="theywork-barchart" style="--total:120+100+12+10">
-			<div class="bar" style="--bar-color:#1dc7a8;--bar-value:120" />
-			<div class="bar" style="--bar-color:#e63a64;--bar-value:100" />
-			<div class="bar" style="--bar-color:#aaa;--bar-value:12" />
-			<div class="bar border" style="--bar-color:#fff;--bar-value:10" />
+	<div class="detail-wrapper">
+		<div class="merged-doc">
+			<button type="button">
+				<img src="/law-watch/caret-lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
+			</button>
+			<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง 1/7 ฉบับ</span>
+			<button type="button">
+				<img src="/law-watch/caret-rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
+			</button>
 		</div>
-		<ul class="theywork-chart-desc wv-b7">
-			<li style="--bar-color:#1dc7a8">120 เห็นด้วย</li>
-			<li style="--bar-color:#e63a64">100 ไม่เห็นด้วย</li>
-			<li style="--bar-color:#aaa">12 งดออกเสียง</li>
-			<li class="border" style="--bar-color:#fff">10 ไม่ลงคะแนน</li>
-		</ul>
-		<details>
-			<summary>
-				<span class="wv-font-semibold">
-					<img src="/law-watch/checked.svg" alt="" width="12" height="12" />
-					พรรคที่ให้ผ่าน
-					<img class="caret" src="/law-watch/caret-bb.svg" alt="" width="14" height="7" />
-				</span>
-			</summary>
-			<ul class="theywork-ul wv-b7">
+		<div class="status">
+			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
+			<Paper
+				noHover
+				noMargin
+				type="process"
+				style="display:inline-block;margin-left:4px;height:16px;width:13.33px"
+			/>
+			<span style="line-height:1">อยู่ในกระบวนการ</span>
+		</div>
+		<div class="timeline">
+			<div class="active">ร่างกฎหมาย</div>
+			<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
+			<div class="active">ส.ส.</div>
+			<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
+			<div>ส.ว.</div>
+			<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
+			<div>ศาลรัฐธรรมนูญ</div>
+			<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
+			<div>กษัตริย์</div>
+		</div>
+		<span>ส.ส. วาระที่ 2</span>
+		<section>
+			<dl>
+				<dd class="wv-font-semibold">หมวดกฎหมาย</dd>
+				<dt>
+					<div class="law-type-pill {LAW_TYPE_METADATA['บริหารราชการ'].color}">บริหารราชการ</div>
+				</dt>
+				<dd class="wv-font-semibold">
+					<img src="/law-watch/calendar.svg" alt="" class="addon" />
+					วันที่เสนอ
+				</dd>
+				<dt>8/8/2562</dt>
+				<dd class="wv-font-semibold">
+					<img src="/law-watch/calendar.svg" alt="" class="addon" />
+					วันที่สิ้นสุด
+				</dd>
+				<dt>8/8/2562</dt>
+				<dd class="wv-font-semibold">
+					<img src="/law-watch/person.svg" alt="" class="addon" />
+					ชื่อผู้เสนอ
+				</dd>
+				<dt>วราวุธ ศิลปอาชา กับคณะ</dt>
+				<dd class="wv-font-semibold">
+					<div class="addon" />
+					ประเภทผู้เสนอ
+				</dd>
+				<dt>ผู้แทนพรรค</dt>
+			</dl>
+			<ul class="party wv-b7">
 				<li>ชาติไทยพัฒนา</li>
 				<li>เพื่อไทย</li>
 				<li>พลังประชารัฐ</li>
@@ -119,27 +85,63 @@
 				<li>พลังท้องถิ่นไทย</li>
 				<li>ภูมิใจไทย</li>
 			</ul>
-		</details>
-		<details>
-			<summary>
-				<span class="wv-font-semibold">
-					<img src="/law-watch/cross.svg" alt="" width="12" height="12" />
-					พรรคที่ไม่ให้ผ่าน
-					<img class="caret" src="/law-watch/caret-bb.svg" alt="" width="14" height="7" />
-				</span>
-			</summary>
-			<ul class="theywork-ul wv-b7">
-				<li>ชาติไทยพัฒนา</li>
-				<li>เพื่อไทย</li>
-				<li>พลังประชารัฐ</li>
-				<li>อนาคตใหม่</li>
-				<li>ประชาธิปไตยใหม่</li>
-				<li>ไทยศรีวิไลย์</li>
-				<li>พลังท้องถิ่นไทย</li>
-				<li>ภูมิใจไทย</li>
+		</section>
+		<section class="theywork">
+			<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
+			<p>วาระ xxxxx</p>
+			<div class="wv-font-kondolar wv-font-black wv-h10">50% ผ่าน</div>
+			<div class="theywork-barchart" style="--total:120+100+12+10">
+				<div class="bar" style="--bar-color:#1dc7a8;--bar-value:120" />
+				<div class="bar" style="--bar-color:#e63a64;--bar-value:100" />
+				<div class="bar" style="--bar-color:#aaa;--bar-value:12" />
+				<div class="bar border" style="--bar-color:#fff;--bar-value:10" />
+			</div>
+			<ul class="theywork-chart-desc wv-b7">
+				<li style="--bar-color:#1dc7a8">120 เห็นด้วย</li>
+				<li style="--bar-color:#e63a64">100 ไม่เห็นด้วย</li>
+				<li style="--bar-color:#aaa">12 งดออกเสียง</li>
+				<li class="border" style="--bar-color:#fff">10 ไม่ลงคะแนน</li>
 			</ul>
-		</details>
-	</section>
+			<details>
+				<summary>
+					<span class="wv-font-semibold">
+						<img src="/law-watch/checked.svg" alt="" width="12" height="12" />
+						พรรคที่ให้ผ่าน
+						<img class="caret" src="/law-watch/caret-bb.svg" alt="" width="14" height="7" />
+					</span>
+				</summary>
+				<ul class="theywork-ul wv-b7">
+					<li>ชาติไทยพัฒนา</li>
+					<li>เพื่อไทย</li>
+					<li>พลังประชารัฐ</li>
+					<li>อนาคตใหม่</li>
+					<li>ประชาธิปไตยใหม่</li>
+					<li>ไทยศรีวิไลย์</li>
+					<li>พลังท้องถิ่นไทย</li>
+					<li>ภูมิใจไทย</li>
+				</ul>
+			</details>
+			<details>
+				<summary>
+					<span class="wv-font-semibold">
+						<img src="/law-watch/cross.svg" alt="" width="12" height="12" />
+						พรรคที่ไม่ให้ผ่าน
+						<img class="caret" src="/law-watch/caret-bb.svg" alt="" width="14" height="7" />
+					</span>
+				</summary>
+				<ul class="theywork-ul wv-b7">
+					<li>ชาติไทยพัฒนา</li>
+					<li>เพื่อไทย</li>
+					<li>พลังประชารัฐ</li>
+					<li>อนาคตใหม่</li>
+					<li>ประชาธิปไตยใหม่</li>
+					<li>ไทยศรีวิไลย์</li>
+					<li>พลังท้องถิ่นไทย</li>
+					<li>ภูมิใจไทย</li>
+				</ul>
+			</details>
+		</section>
+	</div>
 	<a href="#top" class="theywork-link wv-b6">
 		ดูรายละเอียดการโหวตเพิ่มเติม
 		<img src="/law-watch/external-link.svg" alt="" width="14" height="14" />
@@ -174,6 +176,36 @@
 
 	header {
 		display: flex;
+	}
+
+	.detail-wrapper {
+		flex: 1 1 0;
+
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+
+		// Webkit Scrollbar
+		margin-right: -4px;
+		padding-right: 2px;
+
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar {
+			width: 2px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #00000040;
+			border-radius: 1px;
+		}
+
+		@supports (-moz-appearance: none) {
+			scrollbar-color: #00000040 #0000;
+			scrollbar-width: thin;
+			margin-right: -12px;
+			padding-right: 4px;
+		}
 	}
 
 	.merged-doc {
@@ -211,11 +243,16 @@
 			border: 1px solid #000;
 			padding: 0 4px;
 			font-size: 0.625rem;
+			text-align: center;
 
 			&.active {
 				background: #000;
 				color: #fff;
 			}
+		}
+
+		> img {
+			flex: 1 1 0;
 		}
 	}
 
