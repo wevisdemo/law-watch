@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { flip } from 'svelte/animate';
 
-	export let sort_order = ['หมวดหมู่', 'สถานะ'];
+	export let sort_order = ['สถานะ', 'หมวดหมู่'];
 	// export let sort_order = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
 
 	const setSortOrder = (property: string | number) => () => {

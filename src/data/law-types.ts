@@ -1,11 +1,14 @@
-export type LawTypes =
-	| 'บริหารราชการ'
-	| 'การศึกษา'
-	| 'เศรษฐกิจ'
-	| 'สังคม'
-	| 'สิ่งแวดล้อม'
-	| 'กระบวนการยุติธรรม'
-	| 'รัฐธรรมนูญ';
+export const LAW_TYPES = [
+	'บริหารราชการ',
+	'การศึกษา',
+	'เศรษฐกิจ',
+	'สังคม',
+	'สิ่งแวดล้อม',
+	'กระบวนการยุติธรรม',
+	'รัฐธรรมนูญ'
+] as const;
+
+export type LawTypes = typeof LAW_TYPES[number];
 
 export type LawColor =
 	| 'law-blue'

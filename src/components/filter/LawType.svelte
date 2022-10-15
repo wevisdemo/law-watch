@@ -1,16 +1,8 @@
 <script lang="ts">
-	import { LAW_TYPE_METADATA } from 'data/law-types';
+	import { LAW_TYPES, LAW_TYPE_METADATA } from 'data/law-types';
 	import type { LawTypes } from 'data/law-types';
 
-	const GROUP_ORDER: LawTypes[] = [
-		'เศรษฐกิจ',
-		'สังคม',
-		'สิ่งแวดล้อม',
-		'การศึกษา',
-		'บริหารราชการ',
-		'รัฐธรรมนูญ',
-		'กระบวนการยุติธรรม'
-	];
+	const GROUP_ORDER: LawTypes[] = [...LAW_TYPES];
 
 	export let group: Record<LawTypes, number> = {
 		เศรษฐกิจ: 20,

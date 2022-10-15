@@ -10,7 +10,7 @@
 
 	export let label_image: string | null = null;
 	export let label = 'แบ่งกลุ่มตาม';
-	export let choices: ChoiceType[] = [
+	export let choices: readonly ChoiceType[] = [
 		'ไม่แบ่งกลุ่ม',
 		'ฝ่ายที่เสนอร่าง',
 		'พรรคที่เสนอร่าง',
@@ -50,7 +50,7 @@
 	</span>
 	<button
 		type="button"
-		class="select-control wv-b7"
+		class="select-control wv-font-anuphan wv-b7"
 		tabindex="0"
 		on:click={toggleSelect}
 		id="dropdown-{label}-button"

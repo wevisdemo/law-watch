@@ -16,6 +16,7 @@
 		gap: 10px;
 
 		user-select: none;
+		cursor: pointer;
 	}
 
 	.switch-input {
