@@ -51,17 +51,21 @@
 
 <style lang="scss">
 	.navigator {
-		position: sticky;
-		top: 73px;
-		margin: 73px 44px calc(-128px - 73px) auto;
-		width: max-content;
-		z-index: 10;
+		display: none;
 
-		text-align: right;
+		@media (min-width: 768px) {
+			position: sticky;
+			top: 73px;
+			margin: 73px 44px calc(-128px - 73px) auto;
+			width: max-content;
+			z-index: 10;
 
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
+			text-align: right;
+
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+		}
 	}
 
 	.navigator > button {
