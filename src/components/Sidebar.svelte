@@ -229,6 +229,7 @@
 		height: 24px;
 		flex: 0 0 24px;
 		padding: 4px;
+		margin-left: auto;
 
 		border: none;
 		background: transparent;
@@ -250,10 +251,6 @@
 				color: #fff;
 			}
 		}
-
-		> img {
-			flex: 1 1 0;
-		}
 	}
 
 	.status {
@@ -264,7 +261,7 @@
 
 	dl {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: max-content 1fr;
 		margin: 0;
 		gap: 2px 8px;
 	}
@@ -393,5 +390,18 @@
 		align-items: center;
 		justify-content: center;
 		gap: 6px;
+	}
+
+	@media (max-width: 767.5px) {
+		.law-detail {
+			inset: 12px 14px;
+			width: auto;
+
+			transform: translateY(100vh);
+
+			&.open {
+				transform: translateY(0);
+			}
+		}
 	}
 </style>
