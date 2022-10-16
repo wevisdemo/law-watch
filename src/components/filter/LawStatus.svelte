@@ -3,24 +3,35 @@
 
 	let clazz = '';
 	export { clazz as class };
+
+	export let data: {
+		reject: number;
+		progress: number;
+		pass: number;
+	} = { reject: 50, progress: 50, pass: 50 };
 </script>
 
-<div class="law-status wv-b6 {clazz}">
-	<div class="header wv-font-semibold">สถานะกฎหมาย</div>
+<details class="law-status wv-b6 {clazz}" open {...$$restProps}>
+	<summary class="header wv-font-semibold">
+		<span>
+			สถานะกฎหมาย
+			<img class="caret" src="/law-watch/carets/dw.svg" alt="" width="14" height="8" />
+		</span>
+	</summary>
 	<div class="law-status-type">
 		<Paper noMargin noHover />
 		<span>ตกไป</span>
-		<span class="number">50</span>
+		<span class="number">{data.reject}</span>
 	</div>
 	<div class="law-status-type">
 		<Paper type="process" noMargin noHover />
 		<span>อยู่ในกระบวนการ</span>
-		<span class="number">50</span>
+		<span class="number">{data.progress}</span>
 	</div>
 	<div class="law-status-type">
 		<Paper type="pass" noMargin noHover />
 		<span>ออกเป็นกฎหมาย</span>
-		<span class="number">50</span>
+		<span class="number">{data.pass}</span>
 	</div>
 	<div class="law-status-type merge-type">
 		<Paper type="stack" noMargin noHover />
@@ -31,11 +42,31 @@
 		<img src="/law-watch/line.png" alt="" />
 		<span class="wv-b7">ในสภา</span>
 	</div>
-</div>
+</details>
 
 <style lang="scss">
 	.header {
-		margin-bottom: 8px;
+		cursor: pointer;
+
+		list-style: none;
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		> span {
+			margin-bottom: 8px;
+			display: flex;
+			align-items: center;
+			> .caret {
+				margin-left: auto;
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	.law-status[open] .caret {
+		transform: rotate(0);
 	}
 
 	.law-status-type {
