@@ -107,7 +107,7 @@
 					<span class="wv-font-semibold">
 						<img src="/law-watch/checked.svg" alt="" width="12" height="12" />
 						พรรคที่ให้ผ่าน
-						<img class="caret" src="/law-watch/carets/db.svg" alt="" width="14" height="7" />
+						<img class="caret" src="/law-watch/carets/db.svg" alt="" width="14" height="8" />
 					</span>
 				</summary>
 				<ul class="theywork-ul wv-b7">
@@ -126,7 +126,7 @@
 					<span class="wv-font-semibold">
 						<img src="/law-watch/cross.svg" alt="" width="12" height="12" />
 						พรรคที่ไม่ให้ผ่าน
-						<img class="caret" src="/law-watch/carets/db.svg" alt="" width="14" height="7" />
+						<img class="caret" src="/law-watch/carets/db.svg" alt="" width="14" height="8" />
 					</span>
 				</summary>
 				<ul class="theywork-ul wv-b7">
@@ -360,6 +360,10 @@
 					margin-left: auto;
 				}
 			}
+		}
+
+		&[open] .caret {
+			transform: rotate(180deg);
 		}
 	}
 
