@@ -93,6 +93,7 @@
 
 <section bind:this={el_section} id="conclusion-section" class="c tc">
 	<div class="diagram" aria-hidden="true">
+		<!-- keep svg: dom manipulation -->
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 540 567">
 			<g bind:this={el_law}>
 				<path

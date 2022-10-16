@@ -125,6 +125,7 @@
 			<span class="nw">ของพรรคการเมือง</span>
 			<span class="nw">ที่ประชาชนเลือกตั้งเสมอ</span>
 		</p>
+		<!-- keep svg: dom manipulation -->
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 540 567">
 			<g>
 				<path fill="#fff" d="M215 0h110v132H215z" />

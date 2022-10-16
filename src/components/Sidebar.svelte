@@ -19,11 +19,11 @@
 	<div class="detail-wrapper">
 		<div class="merged-doc">
 			<button type="button">
-				<img src="/law-watch/caret-lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
+				<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
 			</button>
 			<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง 1/7 ฉบับ</span>
 			<button type="button">
-				<img src="/law-watch/caret-rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
+				<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
 			</button>
 		</div>
 		<div class="status">
@@ -38,13 +38,13 @@
 		</div>
 		<div class="timeline">
 			<div class="active">ร่างกฎหมาย</div>
-			<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
+			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
 			<div class="active">ส.ส.</div>
-			<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
+			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
 			<div>ส.ว.</div>
-			<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
+			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
 			<div>ศาลรัฐธรรมนูญ</div>
-			<img src="/law-watch/card-arr.svg" alt="" width="9" height="4" />
+			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
 			<div>กษัตริย์</div>
 		</div>
 		<span>ส.ส. วาระที่ 2</span>
@@ -107,7 +107,7 @@
 					<span class="wv-font-semibold">
 						<img src="/law-watch/checked.svg" alt="" width="12" height="12" />
 						พรรคที่ให้ผ่าน
-						<img class="caret" src="/law-watch/caret-bb.svg" alt="" width="14" height="7" />
+						<img class="caret" src="/law-watch/carets/db.svg" alt="" width="14" height="7" />
 					</span>
 				</summary>
 				<ul class="theywork-ul wv-b7">
@@ -126,7 +126,7 @@
 					<span class="wv-font-semibold">
 						<img src="/law-watch/cross.svg" alt="" width="12" height="12" />
 						พรรคที่ไม่ให้ผ่าน
-						<img class="caret" src="/law-watch/caret-bb.svg" alt="" width="14" height="7" />
+						<img class="caret" src="/law-watch/carets/db.svg" alt="" width="14" height="7" />
 					</span>
 				</summary>
 				<ul class="theywork-ul wv-b7">
