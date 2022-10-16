@@ -6,12 +6,14 @@
 	export let category: LawTypes | '' = '';
 	export let noMargin = false;
 	export let noHover = false;
+	export let marked = false;
 </script>
 
 <div
 	class="paper {type} {category && LAW_TYPE_METADATA[category].color}"
 	class:noMargin
 	class:noHover
+	class:marked
 	{...$$restProps}
 >
 	{#if type === 'process'}
@@ -50,6 +52,16 @@
 			transform: translateY(-4px);
 		}
 
+		&.marked::after {
+			content: '';
+			position: absolute;
+			width: 4px;
+			height: 7px;
+			background: var(--law-color, #fff);
+			top: 0;
+			left: 3px;
+		}
+
 		&.process {
 			color: var(--law-color, #fff);
 		}
@@ -58,6 +70,10 @@
 		&.stack {
 			border: 1px #000 solid;
 			background: var(--law-color, #fff);
+
+			&::after {
+				background: #000;
+			}
 		}
 
 		&.stack {
