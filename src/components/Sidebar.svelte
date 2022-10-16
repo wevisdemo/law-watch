@@ -16,16 +16,16 @@
 			<img src="/law-watch/card-close.svg" alt="ปิด" width="16" height="16" />
 		</button>
 	</header>
+	<div class="merged-doc">
+		<button type="button">
+			<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
+		</button>
+		<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง 1/7 ฉบับ</span>
+		<button type="button">
+			<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
+		</button>
+	</div>
 	<div class="detail-wrapper">
-		<div class="merged-doc">
-			<button type="button">
-				<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
-			</button>
-			<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง 1/7 ฉบับ</span>
-			<button type="button">
-				<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
-			</button>
-		</div>
 		<div class="status">
 			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
 			<Paper
