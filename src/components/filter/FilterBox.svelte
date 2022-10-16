@@ -108,4 +108,11 @@
 	:global(.alone) {
 		margin-top: auto;
 	}
+
+	@media (max-width: 767.5px) {
+		.filter-box {
+			inset: 16px;
+			width: auto;
+		}
+	}
 </style>
