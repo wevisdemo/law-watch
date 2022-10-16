@@ -18,7 +18,12 @@
 >
 	{#if type === 'process'}
 		<!-- keep svg: css coloring -->
-		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 18 22"
+			preserveAspectRatio="none"
+		>
 			<path
 				fill="currentColor"
 				fill-rule="evenodd"
@@ -40,11 +45,10 @@
 		background: #000;
 		border: 1px var(--law-color, #fff) solid;
 
-		margin-right: -8px;
+		font-size: 0;
+		line-height: 0;
 
-		@media (max-width: 767.5px) {
-			margin-right: -14px;
-		}
+		margin-right: -8px;
 
 		transition: transform 0.1s;
 
@@ -64,6 +68,11 @@
 
 		&.process {
 			color: var(--law-color, #fff);
+
+			> svg {
+				width: 100%;
+				height: 100%;
+			}
 		}
 
 		&.pass,
@@ -101,6 +110,27 @@
 
 		&.noMargin {
 			margin-right: 0;
+		}
+	}
+
+	@media (max-width: 767.5px) {
+		.paper {
+			width: 13px;
+			height: 16px;
+
+			&.marked::after {
+				width: 2px;
+				height: 5px;
+				left: 1px;
+			}
+
+			&.stack {
+				&::before,
+				&::after {
+					width: 13px;
+					height: 16px;
+				}
+			}
 		}
 	}
 </style>

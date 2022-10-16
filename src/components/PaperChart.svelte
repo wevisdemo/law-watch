@@ -11,7 +11,7 @@
 	{#each Array(data[0][1]) as _}
 		<Paper />
 	{/each}
-	<div class="number">{data[0][0] + data[0][1]}</div>
+	<div class="number wv-b5">{data[0][0] + data[0][1]}</div>
 </div>
 <div class="paper-container">
 	{#each Array(data[1][0]) as _}
@@ -21,13 +21,13 @@
 	{#each Array(data[1][1]) as _}
 		<Paper type="process" />
 	{/each}
-	<div class="number">{data[1][0] + data[1][1]}</div>
+	<div class="number wv-b5">{data[1][0] + data[1][1]}</div>
 </div>
 <div class="paper-container">
 	{#each Array(data[2]) as _}
 		<Paper type="pass" />
 	{/each}
-	<div class="number">{data[2]}</div>
+	<div class="number wv-b5">{data[2]}</div>
 </div>
 
 <style lang="scss">
@@ -50,11 +50,30 @@
 			content: '';
 			position: absolute;
 			background: url(/law-watch/line.png);
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
 			height: 28px;
 			width: 4px;
 			top: -2px;
 			left: -2px;
 			z-index: 2;
+		}
+	}
+
+	@media (max-width: 767.5px) {
+		.paper-container {
+			margin-bottom: 4px;
+		}
+
+		.number {
+			font-size: 12px;
+			line-height: 1.3;
+		}
+
+		.line::after {
+			height: 20px;
+			left: -1.5px;
 		}
 	}
 </style>
