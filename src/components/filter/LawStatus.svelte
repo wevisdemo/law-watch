@@ -9,6 +9,7 @@
 		progress: number;
 		pass: number;
 	} = { reject: 50, progress: 50, pass: 50 };
+	export let always_show_line = false;
 </script>
 
 <details class="law-status wv-b6 {clazz}" open {...$$restProps}>
@@ -37,7 +38,7 @@
 		<Paper type="stack" noMargin noHover />
 		<span>กฎหมายที่ถูกรวมร่าง</span>
 	</div>
-	<div class="law-status-type">
+	<div class="law-status-type law-line" class:always_show_line>
 		<span class="wv-b7">ก่อนเข้าสภา</span>
 		<img src="/law-watch/line.png" alt="" />
 		<span class="wv-b7">ในสภา</span>
@@ -45,6 +46,10 @@
 </details>
 
 <style lang="scss">
+	.law-status {
+		min-width: 140px;
+	}
+
 	.header {
 		cursor: pointer;
 
@@ -85,13 +90,25 @@
 		margin: 24px 0;
 	}
 
+	.law-line {
+		justify-content: center;
+	}
+
 	@media (max-width: 767.5px) {
 		.merge-type {
-			margin: 16px 0;
+			margin: 12px 0;
 		}
 
-		.law-status-type {
-			justify-content: center;
+		.law-line {
+			gap: 4px;
+
+			> img {
+				height: 16px;
+			}
+		}
+
+		.law-line:not(.always_show_line) {
+			display: none;
 		}
 	}
 </style>

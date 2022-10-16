@@ -33,7 +33,7 @@
 		</span>
 	</h2>
 
-	<LawStatus class="status-mobile" />
+	<LawStatus class="status-mobile" always_show_line />
 	<div class="chart-header-mobile">
 		<div class="wv-b7">เสนอโดย</div>
 		<img src="/law-watch/carets/rw.svg" alt="" width="8" height="14" />
