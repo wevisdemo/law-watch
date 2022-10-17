@@ -263,10 +263,10 @@
 		}
 
 		.chart-body > div {
-			padding-bottom: 16px;
+			padding-bottom: 42px;
 
 			&:nth-child(-n + 4) {
-				padding-top: 16px;
+				padding-top: 32px;
 			}
 		}
 	}

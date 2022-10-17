@@ -62,10 +62,6 @@
 	}
 
 	@media (max-width: 767.5px) {
-		.paper-container {
-			margin-bottom: 4px;
-		}
-
 		.number {
 			font-size: 12px;
 			line-height: 1.3;
