@@ -28,12 +28,32 @@
 	export let current_party_choice: PartyChoiceType = PARTY_CHOICES[0];
 	export let current_voteparty_choice: VotepartyChoiceType = VOTEPARTY_CHOICES[0];
 
-	export let sort_order = ['สถานะ', 'หมวดหมู่'];
+	export let view_timeline = false;
+	let sort_order_when_status = ['สถานะ', 'หมวดหมู่'];
+	let sort_order_when_timeline = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
+	export let sort_order = sort_order_when_status;
+	let recent_run_timeline = false;
+	const swapSortOrderToTimeline = () => {
+		sort_order_when_status = sort_order;
+		sort_order = sort_order_when_timeline;
+		recent_run_timeline = true;
+	};
+	const swapSortOrderToStatus = () => {
+		sort_order_when_timeline = sort_order;
+		sort_order = sort_order_when_status;
+		recent_run_timeline = false;
+	};
 
 	let is_mobile_drawer_open = false;
 	const toggleMobileDrawer = () => {
 		is_mobile_drawer_open = !is_mobile_drawer_open;
 	};
+
+	$: if (view_timeline) {
+		!recent_run_timeline && swapSortOrderToTimeline();
+	} else {
+		recent_run_timeline && swapSortOrderToStatus();
+	}
 </script>
 
 <div class="filter-box">
@@ -47,7 +67,7 @@
 		<button type="button" class="close-btn" on:click={toggleMobileDrawer}>
 			<img src="/law-watch/close.svg" alt="ปิด" width="16" height="16" />
 		</button>
-		<VisType />
+		<VisType bind:view_timeline />
 		<Dropdown
 			label_image="/law-watch/group.svg"
 			choices={GROUP_CHOICES}

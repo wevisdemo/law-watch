@@ -1,10 +1,10 @@
 <script lang="ts">
-	export let viewTimeline = false;
+	export let view_timeline = false;
 </script>
 
 <label class="vistype-container wv-b6">
 	<span>ภาพรวม</span>
-	<input class="switch-input" type="checkbox" bind:checked={viewTimeline} />
+	<input class="switch-input" type="checkbox" bind:checked={view_timeline} />
 	<span class="switch-decor" />
 	<span>ดูระยะเวลา</span>
 </label>
