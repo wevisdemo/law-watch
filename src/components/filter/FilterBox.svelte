@@ -184,6 +184,7 @@
 			inset: 0;
 			background: rgba(0, 0, 0, 0.8);
 			padding: 16px 24px;
+			backdrop-filter: blur(4px);
 
 			transform: translateX(-100vw);
 			transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
