@@ -89,7 +89,7 @@
 		flex-direction: column;
 		gap: 14px;
 
-		width: 260px;
+		width: 268px;
 
 		position: absolute;
 		left: 5%;
@@ -98,8 +98,8 @@
 		bottom: 10%;
 
 		// Webkit Scrollbar
-		margin-right: -6px;
-		padding-right: 4px;
+		margin-right: -8px;
+		padding-right: 6px;
 
 		overflow-y: scroll;
 
