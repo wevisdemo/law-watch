@@ -398,13 +398,14 @@
 
 	@media (max-width: 767.5px) {
 		.law-detail {
+			padding: 16px 16px;
 			inset: 12px 14px;
 			width: auto;
 
-			transform: translateY(100vh);
+			transform: translateX(100vh);
 
 			&.open {
-				transform: translateY(0);
+				transform: translateX(0);
 			}
 		}
 	}
