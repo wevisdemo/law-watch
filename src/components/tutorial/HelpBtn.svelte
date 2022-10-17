@@ -15,8 +15,13 @@
 		height: 48px;
 
 		position: absolute;
-		bottom: 10%;
-		right: 5%;
+		bottom: 16px;
+		right: 16px;
+
+		@media (min-width: 768px) {
+			bottom: 10%;
+			right: 5%;
+		}
 
 		cursor: pointer;
 
