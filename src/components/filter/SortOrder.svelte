@@ -71,6 +71,7 @@
 	.sort-property {
 		padding: 0px 8px;
 
+		background: #000;
 		border: 1px solid #ffffff;
 		border-radius: 2px;
 
@@ -85,7 +86,7 @@
 		transition-duration: 0.3s;
 
 		&.active {
-			background: white;
+			background: #fff;
 			color: #000;
 		}
 	}
