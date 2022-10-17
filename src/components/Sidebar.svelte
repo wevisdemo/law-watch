@@ -50,30 +50,30 @@
 		<span>ส.ส. วาระที่ 2</span>
 		<section>
 			<dl>
-				<dd class="wv-font-semibold">หมวดกฎหมาย</dd>
-				<dt>
+				<dt class="wv-font-semibold">หมวดกฎหมาย</dt>
+				<dd>
 					<div class="law-type-pill {LAW_TYPE_METADATA['บริหารราชการ'].color}">บริหารราชการ</div>
-				</dt>
-				<dd class="wv-font-semibold">
+				</dd>
+				<dt class="wv-font-semibold">
 					<img src="/law-watch/calendar.svg" alt="" class="addon" />
 					วันที่เสนอ
-				</dd>
-				<dt>8/8/2562</dt>
-				<dd class="wv-font-semibold">
+				</dt>
+				<dd>8/8/2562</dd>
+				<dt class="wv-font-semibold">
 					<img src="/law-watch/calendar.svg" alt="" class="addon" />
 					วันที่สิ้นสุด
-				</dd>
-				<dt>8/8/2562</dt>
-				<dd class="wv-font-semibold">
+				</dt>
+				<dd>8/8/2562</dd>
+				<dt class="wv-font-semibold">
 					<img src="/law-watch/person.svg" alt="" class="addon" />
 					ชื่อผู้เสนอ
-				</dd>
-				<dt>วราวุธ ศิลปอาชา กับคณะ</dt>
-				<dd class="wv-font-semibold">
+				</dt>
+				<dd>วราวุธ ศิลปอาชา กับคณะ</dd>
+				<dt class="wv-font-semibold">
 					<div class="addon" />
 					ประเภทผู้เสนอ
-				</dd>
-				<dt>ผู้แทนพรรค</dt>
+				</dt>
+				<dd>ผู้แทนพรรค</dd>
 			</dl>
 			<ul class="party wv-b7">
 				<li>ชาติไทยพัฒนา</li>
@@ -264,6 +264,11 @@
 		grid-template-columns: max-content 1fr;
 		margin: 0;
 		gap: 2px 8px;
+	}
+
+	dt {
+		display: flex;
+		align-items: center;
 	}
 
 	.law-type-pill {
