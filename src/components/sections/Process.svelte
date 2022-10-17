@@ -100,7 +100,7 @@
 <style lang="scss">
 	#process-section {
 		color: #fff;
-		scroll-margin-top: 10vh;
+		scroll-margin-top: 64px;
 	}
 
 	h2 {

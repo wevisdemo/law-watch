@@ -133,7 +133,7 @@
 
 <style lang="scss">
 	#stats-section {
-		padding-top: 10vh;
+		padding-top: 64px;
 	}
 
 	.header-line2 {
