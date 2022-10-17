@@ -166,11 +166,11 @@
 		gap: 8px;
 
 		transform: translateX(100%);
-		transition: transform 0.5s ease-in;
+		transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
 
 		&.open {
 			transform: translateX(0);
-			transition-timing-function: ease-out;
+			transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 		}
 	}
 
