@@ -25,7 +25,7 @@
 	});
 </script>
 
-<section bind:this={el_section} class="c tc" style="--h:calc(100vh - 70px)">
+<section bind:this={el_section} class="outro-container c tc">
 	<section class="outro-section c">
 		<p class="outro-1 wv-b3">
 			<span class="nw">ดังนั้น การทำงานกระบวนการ</span><span class="nw">
@@ -60,6 +60,14 @@
 <WvFooter dark={false} />
 
 <style lang="scss">
+	.outro-container {
+		--h: calc(100vh - 54px);
+
+		@media (min-width: 768px) {
+			--h: calc(100vh - 70px);
+		}
+	}
+
 	.outro-section {
 		margin-bottom: 90px;
 

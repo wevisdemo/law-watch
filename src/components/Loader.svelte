@@ -8,12 +8,20 @@
 	});
 </script>
 
-<section class="c" class:ready style="--h:calc(100vh - 52px)">
+<section class="loader-container c" class:ready>
 	<Eyes animation="close" playOnMount={false} play={ready} margin="0 0 25px" />
 	<p class="wv-b4">Loading...</p>
 </section>
 
 <style lang="scss">
+	.loader-container {
+		--h: calc(100vh - 40px);
+
+		@media (min-width: 768px) {
+			--h: calc(100vh - 52px);
+		}
+	}
+
 	section {
 		position: fixed;
 		inset: 0;
