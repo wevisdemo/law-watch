@@ -4,8 +4,8 @@ export const LAW_TYPES = [
 	'เศรษฐกิจ',
 	'สังคม',
 	'สิ่งแวดล้อม',
-	'กระบวนการยุติธรรม',
-	'รัฐธรรมนูญ'
+	'รัฐธรรมนูญ',
+	'กระบวนการยุติธรรม'
 ] as const;
 
 export type LawTypes = typeof LAW_TYPES[number];
