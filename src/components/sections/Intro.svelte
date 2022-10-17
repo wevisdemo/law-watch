@@ -64,7 +64,7 @@
 </script>
 
 <section>
-	<div bind:this={el_header_container} class="c" style="--h:calc(100vh - 52px - 14vw)">
+	<div bind:this={el_header_container} class="c jumbo-container">
 		<div class="c tc">
 			<Eyes animation="awake" />
 			<header>
@@ -90,7 +90,15 @@
 	/>
 </section>
 
-<style>
+<style lang="scss">
+	.jumbo-container {
+		--h: calc(100vh - 40px - 14vw);
+
+		@media (min-width: 768px) {
+			--h: calc(100vh - 52px - 14vw);
+		}
+	}
+
 	h1 {
 		color: #fff;
 		margin-bottom: 4px;
