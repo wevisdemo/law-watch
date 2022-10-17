@@ -1,9 +1,16 @@
 <script>
+	import { onMount } from 'svelte';
+	import { removeClass } from 'utils/class-director';
+
 	import WvContainer from '@wevisdemo/ui/components/container.svelte';
 	import WvParagraphGroup from '@wevisdemo/ui/components/paragraph-group.svelte';
 	import WvButtonGroup from '@wevisdemo/ui/components/button-group.svelte';
 	import WvButton from '@wevisdemo/ui/components/button.svelte';
 	import WvSharer from '@wevisdemo/ui/components/sharer.svelte';
+
+	onMount(() => {
+		removeClass('lock-body-scroll');
+	});
 </script>
 
 <WvContainer heading="เกี่ยวกับโครงการ" children>
