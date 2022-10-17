@@ -1,4 +1,9 @@
-<div class="searchbox-container">
+<script lang="ts">
+	let clazz: string = '';
+	export { clazz as class };
+</script>
+
+<div class="searchbox-container {clazz}" {...$$restProps}>
 	<input class="search-input wv-font-anuphan wv-b6" type="text" placeholder="ค้นหาร่างกฎหมาย" />
 	<img src="/law-watch/search.svg" alt="" width="14" height="14" />
 </div>
@@ -13,7 +18,7 @@
 
 	.search-input {
 		border: none;
-		background: rgba(0, 0, 0, 0);
+		background: transparent;
 		color: #fff;
 
 		padding: 4px 0;

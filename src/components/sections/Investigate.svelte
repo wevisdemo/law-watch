@@ -81,6 +81,7 @@
 
 <section bind:this={el_section} id="investigate-section" class="h100">
 	<h2 class="title wv-b4 tc">{label}</h2>
+	<HelpBtn />
 	<FilterBox
 		bind:sort_order
 		bind:current_group_choice
@@ -88,12 +89,11 @@
 		bind:current_party_choice
 		bind:current_voteparty_choice
 	/>
-	<HelpBtn />
 	<Sidebar is_open={is_sidebar_open} />
 
-	<button type="button" on:click={() => (is_sidebar_open = !is_sidebar_open)} style="z-index:50">
+	<!-- <button type="button" on:click={() => (is_sidebar_open = !is_sidebar_open)} style="z-index:50">
 		open sidebar
-	</button>
+	</button> -->
 </section>
 
 <style lang="scss">

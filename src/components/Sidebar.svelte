@@ -215,7 +215,7 @@
 
 		> button {
 			border: none;
-			background: rgba(0, 0, 0, 0);
+			background: transparent;
 			cursor: pointer;
 
 			padding: 0;

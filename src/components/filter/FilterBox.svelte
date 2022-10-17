@@ -29,42 +29,57 @@
 	export let current_voteparty_choice: VotepartyChoiceType = VOTEPARTY_CHOICES[0];
 
 	export let sort_order = ['สถานะ', 'หมวดหมู่'];
+
+	let is_mobile_drawer_open = false;
+	const toggleMobileDrawer = () => {
+		is_mobile_drawer_open = !is_mobile_drawer_open;
+	};
 </script>
 
 <div class="filter-box">
-	<SearchBox />
-	<Dropdown
-		label_image="/law-watch/group.svg"
-		choices={GROUP_CHOICES}
-		bind:current_choice={current_group_choice}
-	/>
-	{#if current_group_choice === 'ฝ่ายที่เสนอร่าง'}
+	<div class="search-mobile-aligner">
+		<button type="button" class="mobile-toggle-drawer" on:click={toggleMobileDrawer}>
+			<img src="/law-watch/setting.svg" alt="แสดงตัวเลือก" width="20" height="20" />
+		</button>
+		<SearchBox class="search-flex" />
+	</div>
+	<div class="drawer-container" class:open={is_mobile_drawer_open}>
+		<button type="button" class="close-btn" on:click={toggleMobileDrawer}>
+			<img src="/law-watch/close.svg" alt="ปิด" width="16" height="16" />
+		</button>
+		<VisType />
 		<Dropdown
-			label_image="/law-watch/filter.svg"
-			label="ตัวกรอง"
-			choices={SIDE_CHOICES}
-			bind:current_choice={current_side_choice}
+			label_image="/law-watch/group.svg"
+			choices={GROUP_CHOICES}
+			bind:current_choice={current_group_choice}
 		/>
-	{/if}
-	{#if current_group_choice === 'พรรคที่เสนอร่าง'}
-		<Dropdown
-			label_image="/law-watch/filter.svg"
-			label="ตัวกรอง"
-			choices={PARTY_CHOICES}
-			bind:current_choice={current_party_choice}
-		/>
-	{/if}
-	{#if current_group_choice === 'ผลโหวตของพรรค'}
-		<Dropdown
-			label_image="/law-watch/filter.svg"
-			label="ตัวกรอง"
-			choices={VOTEPARTY_CHOICES}
-			bind:current_choice={current_voteparty_choice}
-		/>
-	{/if}
-	<VisType />
-	<SortOrder bind:sort_order />
-	<LawType {selected_law} />
+		{#if current_group_choice === 'ฝ่ายที่เสนอร่าง'}
+			<Dropdown
+				label_image="/law-watch/filter.svg"
+				label="ตัวกรอง"
+				choices={SIDE_CHOICES}
+				bind:current_choice={current_side_choice}
+			/>
+		{/if}
+		{#if current_group_choice === 'พรรคที่เสนอร่าง'}
+			<Dropdown
+				label_image="/law-watch/filter.svg"
+				label="ตัวกรอง"
+				choices={PARTY_CHOICES}
+				bind:current_choice={current_party_choice}
+			/>
+		{/if}
+		{#if current_group_choice === 'ผลโหวตของพรรค'}
+			<Dropdown
+				label_image="/law-watch/filter.svg"
+				label="ตัวกรอง"
+				choices={VOTEPARTY_CHOICES}
+				bind:current_choice={current_voteparty_choice}
+			/>
+		{/if}
+		<SortOrder bind:sort_order />
+		<LawType {selected_law} />
+	</div>
 	<LawStatus class="alone" />
 </div>
 
@@ -105,14 +120,82 @@
 		}
 	}
 
+	.drawer-container {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.close-btn {
+		width: 24px;
+		height: 24px;
+		flex: 0 0 24px;
+		padding: 4px;
+		margin-left: auto;
+
+		border: none;
+		background: transparent;
+		cursor: pointer;
+
+		@media (min-width: 768px) {
+			display: none;
+		}
+	}
+
 	:global(.alone) {
 		margin-top: auto;
 	}
 
+	.search-mobile-aligner {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	:global(.search-flex) {
+		width: 100%;
+		margin-left: auto;
+	}
+
+	.mobile-toggle-drawer {
+		border: none;
+		background: transparent;
+		padding: 0;
+		width: 20px;
+		height: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+
+		@media (min-width: 768px) {
+			display: none;
+		}
+	}
+
 	@media (max-width: 767.5px) {
 		.filter-box {
-			inset: 16px;
+			inset: 16px 24px;
 			width: auto;
+		}
+
+		.drawer-container {
+			position: fixed;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.8);
+			padding: 16px 24px;
+
+			transform: translateX(-100vw);
+			transition: transform 0.5s ease-in;
+
+			&.open {
+				transform: translateX(0);
+				transition-timing-function: ease-out;
+			}
+		}
+
+		:global(.alone) {
+			width: 200px;
 		}
 	}
 </style>
