@@ -46,11 +46,11 @@
 							เลือกทุกพรรค: 'ทุกพรรค'
 						}?.[current_party_choice] ?? 'พรรค' + current_party_choice;
 				}
-				return `แสดงการเสนอร่างกฎหมาย${formatted_choice}เรียงตาม${sort_order[0]}`;
+				return `แสดงการเสนอ<wbr>ร่างกฎหมาย${formatted_choice}<wbr>เรียงตาม${sort_order[0]}`;
 			case 'ผลโหวตของพรรค':
-				return `แสดงผลโหวตของพรรค${current_voteparty_choice}เรียงตาม${sort_order[0]}`;
+				return `แสดงผลโหวต<wbr>ของพรรค${current_voteparty_choice}<wbr>เรียงตาม${sort_order[0]}`;
 			default:
-				return `แสดงร่างกฎหมายไม่แบ่งกลุ่มเรียงตาม${sort_order[0]}`;
+				return `แสดงร่างกฎหมาย<wbr>ไม่แบ่งกลุ่ม<wbr>เรียงตาม${sort_order[0]}`;
 		}
 	})();
 
@@ -80,7 +80,7 @@
 </script>
 
 <section bind:this={el_section} id="investigate-section" class="h100">
-	<h2 class="title wv-b4 tc">{label}</h2>
+	<h2 class="title wv-b4 tc nw">{@html label}</h2>
 	<HelpBtn />
 	<FilterBox
 		bind:sort_order
@@ -91,9 +91,13 @@
 	/>
 	<Sidebar is_open={is_sidebar_open} />
 
-	<!-- <button type="button" on:click={() => (is_sidebar_open = !is_sidebar_open)} style="z-index:50">
+	<button
+		type="button"
+		on:click={() => (is_sidebar_open = !is_sidebar_open)}
+		style="position:absolute;top:50%;left:50%"
+	>
 		open sidebar
-	</button> -->
+	</button>
 </section>
 
 <style lang="scss">
@@ -103,7 +107,13 @@
 
 	.title {
 		position: absolute;
-		inset: 0;
+		inset: 24px;
 		top: 64px;
+		width: calc(100% - 48px);
+
+		@media (min-width: 768px) {
+			left: calc(5% + 260px);
+			width: calc(100% - 10% - 520px);
+		}
 	}
 </style>
