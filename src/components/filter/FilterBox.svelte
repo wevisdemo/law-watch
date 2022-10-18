@@ -112,10 +112,10 @@
 		width: 268px;
 
 		position: absolute;
-		left: 5%;
+		left: 48px;
 		right: unset;
-		top: 10%;
-		bottom: 10%;
+		top: 48px;
+		bottom: 48px;
 
 		// Webkit Scrollbar
 		margin-right: -8px;

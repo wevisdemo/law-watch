@@ -19,8 +19,8 @@
 		right: 16px;
 
 		@media (min-width: 768px) {
-			bottom: 10%;
-			right: 5%;
+			bottom: 48px;
+			right: 48px;
 		}
 
 		cursor: pointer;

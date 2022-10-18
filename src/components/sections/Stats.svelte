@@ -144,7 +144,7 @@
 
 	.chart-container {
 		display: flex;
-		width: 90%;
+		width: calc(100% - 96px);
 	}
 
 	.chart-header {
@@ -169,7 +169,7 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat(3, min-content) auto;
-		width: 90%;
+		width: 100%;
 
 		overflow: auto hidden;
 
