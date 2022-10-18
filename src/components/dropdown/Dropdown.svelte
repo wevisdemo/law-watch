@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { tick } from 'svelte';
 	import { isParty, getPartyImage } from 'data/parties';
 	import type { DropdownChoiceType } from 'data/filter-choices';
 
@@ -33,10 +34,47 @@
 	};
 
 	const selectChoiceKbd = (choice: DropdownChoiceType) => (event: KeyboardEvent) => {
-		if (event.key === 'Enter') return selectChoice(choice)();
-		if (event.key === 'Tab') return;
-		event.preventDefault();
-		return false;
+		const el = event.target as HTMLElement;
+		const parent = el.parentElement as HTMLElement;
+		const siblings = Array.from(parent.children) as HTMLElement[];
+		const index = siblings?.indexOf(el);
+		if (event.key === 'Enter') {
+			event.preventDefault();
+			parent.focus();
+			selectChoice(choice)();
+			return false;
+		}
+		if (event.key === 'ArrowDown') {
+			event.preventDefault();
+			siblings[index + 1]?.focus();
+			return false;
+		}
+		if (event.key === 'ArrowUp') {
+			event.preventDefault();
+			siblings[index - 1]?.focus();
+			return false;
+		}
+		if (event.key === 'Escape') {
+			event.preventDefault();
+			parent.focus();
+			closeSelect();
+			return false;
+		}
+		if (event.key !== 'Tab') {
+			event.preventDefault();
+			return false;
+		}
+	};
+
+	const selectKeyManager = (event: KeyboardEvent) => {
+		if (event.key === 'ArrowDown') {
+			event.preventDefault();
+			is_list_opened = true;
+			tick().then(() => {
+				(el_list.children[0] as HTMLElement).focus();
+			});
+			return false;
+		}
 	};
 </script>
 
@@ -52,6 +90,7 @@
 		class="select-control wv-font-anuphan wv-b7"
 		tabindex="0"
 		on:click={toggleSelect}
+		on:keydown={selectKeyManager}
 		id="dropdown-{label}-button"
 		aria-labelledby="dropdown-{label}-label dropdown-{label}-button"
 		aria-haspopup="listbox"
@@ -71,23 +110,47 @@
 		aria-activedescendant="dropdown-{label}-{current_choice}"
 	>
 		{#each choices as choice}
-			<li
-				class="wv-b7 select-list-option"
-				class:bold={typeof choice !== 'string' && choice.bold}
-				class:border={typeof choice !== 'string' && choice.border}
-				class:readonly={typeof choice !== 'string' && choice.readonly}
-				on:click={selectChoice(choice)}
-				on:keydown={selectChoiceKbd(typeof choice === 'string' ? choice : choice.text)}
-				role="option"
-				aria-selected={current_choice === (typeof choice === 'string' ? choice : choice.text)}
-				id="dropdown-{label}-{typeof choice === 'string' ? choice : choice.text}"
-				tabindex={is_list_opened ? 0 : -1}
-			>
-				{#if typeof choice !== 'string' && choice.image}
-					<img class="party-image" src={choice.image} alt={choice.text} />
+			{#if typeof choice !== 'string'}
+				{#if choice.readonly}
+					<li
+						class="wv-b7 select-list-option readonly"
+						class:bold={choice.bold}
+						class:border={choice.border}
+						id="dropdown-{label}-{choice.text}"
+					>
+						{choice.text}
+					</li>
+				{:else}
+					<li
+						class="wv-b7 select-list-option"
+						class:bold={choice.bold}
+						class:border={choice.border}
+						on:click={selectChoice(choice)}
+						on:keydown={selectChoiceKbd(choice)}
+						role="option"
+						aria-selected={current_choice === choice.text}
+						id="dropdown-{label}-{choice.text}"
+						tabindex={is_list_opened ? 0 : -1}
+					>
+						{#if choice.image}
+							<img class="party-image" src={choice.image} alt={choice.text} />
+						{/if}
+						{choice.text}
+					</li>
 				{/if}
-				{typeof choice === 'string' ? choice : choice.text}
-			</li>
+			{:else}
+				<li
+					class="wv-b7 select-list-option"
+					on:click={selectChoice(choice)}
+					on:keydown={selectChoiceKbd(choice)}
+					role="option"
+					aria-selected={current_choice === choice}
+					id="dropdown-{label}-{choice}"
+					tabindex={is_list_opened ? 0 : -1}
+				>
+					{choice}
+				</li>
+			{/if}
 		{/each}
 	</ul>
 </div>
@@ -133,6 +196,7 @@
 
 		max-height: 30vh;
 		overflow-y: auto;
+		scrollbar-width: thin;
 	}
 
 	.select-list.open {
