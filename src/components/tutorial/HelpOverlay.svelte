@@ -170,17 +170,20 @@
 
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		justify-content: space-between;
 
 		cursor: pointer;
 
 		padding: 8px 8px 8px 12px;
+		width: 126px;
 
 		&.primary {
 			background: #3904e9;
 			color: #fff;
+		}
 
-			gap: 16px;
+		@media (min-width: 768px) {
+			width: 145px;
 		}
 	}
 </style>
