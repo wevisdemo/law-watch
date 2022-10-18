@@ -408,7 +408,7 @@
 			inset: 12px 14px;
 			width: auto;
 
-			transform: translateX(100vh);
+			transform: translateX(100vw);
 
 			&.open {
 				transform: translateX(0);
