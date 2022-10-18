@@ -17,7 +17,7 @@
 	} from 'data/filter-choices';
 
 	import FilterBox from 'components/filter/FilterBox.svelte';
-	import HelpBtn from 'components/tutorial/HelpBtn.svelte';
+	import HelpOverlay from 'components/tutorial/HelpOverlay.svelte';
 	import Sidebar from 'components/Sidebar.svelte';
 
 	let current_group_choice: GroupChoiceType = GROUP_CHOICES[0];
@@ -73,7 +73,6 @@
 
 <section bind:this={el_section} id="investigate-section" class="h100">
 	<h2 class="title wv-b4 tc nw">{@html label}</h2>
-	<HelpBtn />
 	<FilterBox
 		bind:sort_order
 		bind:current_group_choice
@@ -82,6 +81,7 @@
 		bind:current_voteparty_choice
 	/>
 	<Sidebar is_open={is_sidebar_open} />
+	<HelpOverlay />
 
 	<button
 		type="button"

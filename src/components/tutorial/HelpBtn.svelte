@@ -1,6 +1,6 @@
-<div class="help-btn">
+<button type="button" class="help-btn" on:click>
 	<img src="/law-watch/question.svg" alt="" />
-</div>
+</button>
 
 <style lang="scss">
 	.help-btn {
@@ -9,12 +9,14 @@
 		justify-content: center;
 
 		background: #ffffff;
+		border: none;
 		border-radius: 24px;
 
 		width: 48px;
 		height: 48px;
 
 		position: absolute;
+		padding: 0;
 		bottom: 16px;
 		right: 16px;
 
