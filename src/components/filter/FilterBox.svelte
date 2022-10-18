@@ -124,13 +124,17 @@
 		flex-direction: column;
 		gap: 14px;
 
-		width: 268px;
+		width: 270px;
 
 		position: absolute;
 		left: 48px;
 		right: unset;
 		top: 48px;
 		bottom: 48px;
+
+		// focus overflow
+		margin: -2px;
+		padding: 2px;
 
 		// Webkit Scrollbar
 		margin-right: -8px;

@@ -4,7 +4,7 @@
 
 <label class="vistype-container wv-b6">
 	<span>ภาพรวม</span>
-	<input class="switch-input" type="checkbox" bind:checked={view_timeline} />
+	<input id="vistype-check" class="switch-input" type="checkbox" bind:checked={view_timeline} />
 	<span class="switch-decor" />
 	<span>ดูระยะเวลา</span>
 </label>
@@ -20,7 +20,9 @@
 	}
 
 	.switch-input {
-		display: none;
+		position: absolute;
+		clip: rect(0, 0, 0, 0);
+		pointer-events: none;
 	}
 
 	.switch-decor {
@@ -52,5 +54,9 @@
 			border: 1px #000 solid;
 			transform: translateX(11px);
 		}
+	}
+
+	.switch-input:focus + .switch-decor {
+		box-shadow: 0 0 0 1px #000, 0 0 0 2px #fff;
 	}
 </style>

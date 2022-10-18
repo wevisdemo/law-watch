@@ -177,6 +177,12 @@
 
 		user-select: none;
 		cursor: pointer;
+
+		&:focus {
+			outline: none;
+			border-radius: 0;
+			box-shadow: 0 0 0 1px #000, 0 0 0 2px #fff;
+		}
 	}
 
 	.select-arrow {

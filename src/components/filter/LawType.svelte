@@ -44,12 +44,12 @@
 		display: flex;
 		gap: 8px;
 		flex-wrap: wrap;
-
-		// width: 320px;
 	}
 
 	.law-group-radio {
-		display: none;
+		position: absolute;
+		clip: rect(0, 0, 0, 0);
+		pointer-events: none;
 	}
 
 	.law-group-label {
@@ -72,5 +72,9 @@
 	.law-group-radio:checked + .law-group-label {
 		background: var(--law-color);
 		color: #000;
+	}
+
+	.law-group-radio:focus + .law-group-label {
+		box-shadow: 0 0 0 1px #000, 0 0 0 2px var(--law-color);
 	}
 </style>

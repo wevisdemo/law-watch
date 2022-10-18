@@ -37,11 +37,14 @@
 	</div>
 	<div class="sort-order-container">
 		{#each arrow_inbetween as property, i (property)}
-			<div
+			<button
+				type="button"
+				class="wv-font-anuphan"
 				class:active={i === 0}
 				class:sort-property={i % 2 === 0}
 				class:wv-b6={i % 2 === 0}
 				class:arrow={i % 2 === 1}
+				tabindex={-(i % 2)}
 				on:click={i % 2 === 1 ? () => {} : setSortOrder(property)}
 				animate:flip={{ duration: 300 }}
 			>
@@ -50,7 +53,7 @@
 				{:else}
 					<img src="/law-watch/arrow_right.svg" alt="" width="10" height="8" />
 				{/if}
-			</div>
+			</button>
 		{/each}
 	</div>
 </div>
@@ -72,8 +75,9 @@
 		padding: 0px 8px;
 
 		background: #000;
-		border: 1px solid #ffffff;
+		border: 1px solid #fff;
 		border-radius: 2px;
+		color: #fff;
 
 		cursor: pointer;
 		user-select: none;
@@ -89,9 +93,17 @@
 			background: #fff;
 			color: #000;
 		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 1px #000, 0 0 0 2px #fff;
+		}
 	}
 
 	.arrow {
+		background: transparent;
+		border: none;
+		padding: 0;
 		display: flex;
 		align-items: center;
 	}
