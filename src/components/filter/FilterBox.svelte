@@ -1,9 +1,11 @@
 <script lang="ts">
 	import {
 		GROUP_CHOICES,
-		PARTY_CHOICES,
 		SIDE_CHOICES,
-		VOTEPARTY_CHOICES
+		PARTY_CHOICES,
+		PARTY_DROPDOWN_CHOICES,
+		VOTEPARTY_CHOICES,
+		VOTEPARTY_DROPDOWN_CHOICES
 	} from 'data/filter-choices';
 	import type {
 		GroupChoiceType,
@@ -98,7 +100,7 @@
 			<Dropdown
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
-				choices={PARTY_CHOICES}
+				choices={PARTY_DROPDOWN_CHOICES}
 				bind:current_choice={current_party_choice}
 			/>
 		{/if}
@@ -106,7 +108,7 @@
 			<Dropdown
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
-				choices={VOTEPARTY_CHOICES}
+				choices={VOTEPARTY_DROPDOWN_CHOICES}
 				bind:current_choice={current_voteparty_choice}
 			/>
 		{/if}

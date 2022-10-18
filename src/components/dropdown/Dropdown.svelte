@@ -1,22 +1,16 @@
 <script lang="ts">
-	type ChoiceType =
-		| string
-		| {
-				text: string;
-				border?: boolean;
-				bold?: boolean;
-				image?: string;
-		  };
+	import { isParty, getPartyImage } from 'data/parties';
+	import type { DropdownChoiceType } from 'data/filter-choices';
 
 	export let label_image: string | null = null;
 	export let label = 'แบ่งกลุ่มตาม';
-	export let choices: readonly ChoiceType[] = [
+	export let choices: readonly DropdownChoiceType[] = [
 		'ไม่แบ่งกลุ่ม',
 		'ฝ่ายที่เสนอร่าง',
 		'พรรคที่เสนอร่าง',
 		'ผลโหวตของพรรค'
 	];
-	export let current_choice = choices[0];
+	export let current_choice = typeof choices[0] === 'string' ? choices[0] : choices[0].text;
 
 	let el_list: HTMLElement;
 	let is_list_opened = false;
@@ -28,12 +22,17 @@
 		is_list_opened = false;
 	};
 
-	const selectChoice = (choice: string) => () => {
-		current_choice = choice;
+	const selectChoice = (choice: DropdownChoiceType) => () => {
+		if (typeof choice !== 'string') {
+			if (choice.readonly) return;
+			current_choice = choice.text;
+		} else {
+			current_choice = choice;
+		}
 		closeSelect();
 	};
 
-	const selectChoiceKbd = (choice: string) => (event: KeyboardEvent) => {
+	const selectChoiceKbd = (choice: DropdownChoiceType) => (event: KeyboardEvent) => {
 		if (event.key === 'Enter') return selectChoice(choice)();
 		if (event.key === 'Tab') return;
 		event.preventDefault();
@@ -57,6 +56,9 @@
 		aria-labelledby="dropdown-{label}-label dropdown-{label}-button"
 		aria-haspopup="listbox"
 	>
+		{#if isParty(current_choice)}
+			<img class="party-image" src={getPartyImage(current_choice)} alt={current_choice} />
+		{/if}
 		{current_choice}
 		<img class="select-arrow" src="/law-watch/carets/dw.svg" alt="" width="14" height="8" />
 	</button>
@@ -73,13 +75,17 @@
 				class="wv-b7 select-list-option"
 				class:bold={typeof choice !== 'string' && choice.bold}
 				class:border={typeof choice !== 'string' && choice.border}
-				on:click={selectChoice(typeof choice === 'string' ? choice : choice.text)}
+				class:readonly={typeof choice !== 'string' && choice.readonly}
+				on:click={selectChoice(choice)}
 				on:keydown={selectChoiceKbd(typeof choice === 'string' ? choice : choice.text)}
 				role="option"
 				aria-selected={current_choice === (typeof choice === 'string' ? choice : choice.text)}
 				id="dropdown-{label}-{typeof choice === 'string' ? choice : choice.text}"
 				tabindex={is_list_opened ? 0 : -1}
 			>
+				{#if typeof choice !== 'string' && choice.image}
+					<img class="party-image" src={choice.image} alt={choice.text} />
+				{/if}
 				{typeof choice === 'string' ? choice : choice.text}
 			</li>
 		{/each}
@@ -124,6 +130,9 @@
 		display: none;
 		margin: 0;
 		list-style: none;
+
+		max-height: 30vh;
+		overflow-y: auto;
 	}
 
 	.select-list.open {
@@ -141,18 +150,32 @@
 		cursor: pointer;
 
 		&.border {
-			border-bottom: 1px #fff dashed;
+			border-top: 1px #fff dashed;
 		}
 
 		&.bold {
 			font-weight: 600;
 		}
 
-		&:hover,
-		&:focus {
+		&.readonly {
+			cursor: auto;
+			pointer-events: none;
+		}
+
+		&:not(.readonly):hover,
+		&:not(.readonly):focus {
 			background: #fff;
 			color: #000;
 			outline: none;
 		}
+	}
+
+	.party-image {
+		width: 20px;
+		height: 20px;
+
+		border: 1px solid #000000;
+		border-radius: 50%;
+		margin-right: 8px;
 	}
 </style>

@@ -1,3 +1,15 @@
+import { GOV_PARTY, OPP_PARTY, FREE_PARTY, getPartyImage } from './parties';
+
+export type DropdownChoiceType =
+	| string
+	| {
+			text: string;
+			border?: boolean;
+			bold?: boolean;
+			image?: string;
+			readonly?: boolean;
+	  };
+
 export const GROUP_CHOICES = [
 	'ไม่แบ่งกลุ่ม',
 	'ฝ่ายที่เสนอร่าง',
@@ -17,23 +29,43 @@ export const SIDE_CHOICES = [
 ] as const;
 export type SideChoiceType = typeof SIDE_CHOICES[number];
 
-export const PARTY_CHOICES = [
-	'เลือกทุกพรรค',
-	'ครูไทยเพื่อประชาชน',
-	'ชาติไทยพัฒนา',
-	'ชาติพัฒนา',
-	'ไทรักธรรม',
-	'ประชาชนปฏิรูป',
-	'ประชาธรรมไทย'
-] as const;
+export const PARTY_CHOICES = ['เลือกทุกพรรค', ...GOV_PARTY, ...OPP_PARTY, ...FREE_PARTY] as const;
+export const PARTY_DROPDOWN_CHOICES: DropdownChoiceType[] = [
+	{ text: 'เลือกทุกพรรค', bold: true },
+	{ text: 'ฝ่ายรัฐบาล', border: true, bold: true, readonly: true },
+	...GOV_PARTY.map((name) => ({
+		text: name,
+		image: getPartyImage(name)
+	})),
+	{ text: 'ฝ่ายค้าน', border: true, bold: true, readonly: true },
+	...OPP_PARTY.map((name) => ({
+		text: name,
+		image: getPartyImage(name)
+	})),
+	{ text: 'ฝ่ายอิสระ', border: true, bold: true, readonly: true },
+	...FREE_PARTY.map((name) => ({
+		text: name,
+		image: getPartyImage(name)
+	}))
+];
 export type PartyChoiceType = typeof PARTY_CHOICES[number];
 
-export const VOTEPARTY_CHOICES = [
-	'ครูไทยเพื่อประชาชน',
-	'ชาติไทยพัฒนา',
-	'ชาติพัฒนา',
-	'ไทรักธรรม',
-	'ประชาชนปฏิรูป',
-	'ประชาธรรมไทย'
-] as const;
+export const VOTEPARTY_CHOICES = [...GOV_PARTY, ...OPP_PARTY, ...FREE_PARTY] as const;
+export const VOTEPARTY_DROPDOWN_CHOICES: DropdownChoiceType[] = [
+	{ text: 'ฝ่ายรัฐบาล', bold: true, readonly: true },
+	...GOV_PARTY.map((name) => ({
+		text: name,
+		image: getPartyImage(name)
+	})),
+	{ text: 'ฝ่ายค้าน', border: true, bold: true, readonly: true },
+	...OPP_PARTY.map((name) => ({
+		text: name,
+		image: getPartyImage(name)
+	})),
+	{ text: 'ฝ่ายอิสระ', border: true, bold: true, readonly: true },
+	...FREE_PARTY.map((name) => ({
+		text: name,
+		image: getPartyImage(name)
+	}))
+];
 export type VotepartyChoiceType = typeof VOTEPARTY_CHOICES[number];
