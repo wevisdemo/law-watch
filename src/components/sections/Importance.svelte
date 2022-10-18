@@ -226,10 +226,17 @@
 
 		> svg {
 			position: absolute;
-			top: 15vh;
-			left: 15vw;
-			width: 70vw;
-			height: 70vh;
+			top: 5vh;
+			left: 5vw;
+			width: 90vw;
+			height: 90vh;
+
+			@media (min-width: 768px) {
+				top: 15vh;
+				left: 15vw;
+				width: 70vw;
+				height: 70vh;
+			}
 		}
 
 		> p {
