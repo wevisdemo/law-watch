@@ -261,7 +261,7 @@
 
 	dl {
 		display: grid;
-		grid-template-columns: max-content 1fr;
+		grid-template-columns: 1fr 1fr;
 		margin: 0;
 		gap: 2px 8px;
 	}
@@ -269,6 +269,7 @@
 	dt {
 		display: flex;
 		align-items: center;
+		margin-bottom: auto;
 	}
 
 	.law-type-pill {
@@ -293,7 +294,7 @@
 
 		> li::before {
 			content: '•';
-			margin: 0.5ch;
+			margin-right: 0.5ch;
 		}
 	}
 
@@ -378,7 +379,7 @@
 
 		> li::before {
 			content: '•';
-			margin: 0.5ch;
+			margin-right: 0.5ch;
 		}
 	}
 
