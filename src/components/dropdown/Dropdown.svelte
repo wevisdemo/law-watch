@@ -178,7 +178,7 @@
 		user-select: none;
 		cursor: pointer;
 
-		&:focus {
+		&:focus-visible {
 			outline: none;
 			border-radius: 0;
 			box-shadow: 0 0 0 1px #000, 0 0 0 2px #fff;
@@ -233,7 +233,7 @@
 		}
 
 		&:not(.readonly):hover,
-		&:not(.readonly):focus {
+		&:not(.readonly):focus-visible {
 			background: #fff;
 			color: #000;
 			outline: none;

@@ -94,7 +94,7 @@
 			color: #000;
 		}
 
-		&:focus {
+		&:focus-visible {
 			outline: none;
 			box-shadow: 0 0 0 1px #000, 0 0 0 2px #fff;
 		}

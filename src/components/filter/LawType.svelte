@@ -74,7 +74,7 @@
 		color: #000;
 	}
 
-	.law-group-radio:focus + .law-group-label {
+	.law-group-radio:focus-visible + .law-group-label {
 		box-shadow: 0 0 0 1px #000, 0 0 0 2px var(--law-color);
 	}
 </style>
