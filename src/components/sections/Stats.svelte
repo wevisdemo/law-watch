@@ -237,8 +237,12 @@
 			display: block;
 		}
 
+		.chart-container {
+			width: calc(100% - 32px);
+		}
+
 		.chart-header-mobile {
-			width: 90%;
+			width: calc(100% - 32px);
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
