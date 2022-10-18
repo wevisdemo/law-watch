@@ -10,9 +10,10 @@
 		pass: number;
 	} = { reject: 50, progress: 50, pass: 50 };
 	export let always_show_line = false;
+	export let is_open = true;
 </script>
 
-<details class="law-status wv-b6 {clazz}" open {...$$restProps}>
+<details class="law-status wv-b6 {clazz}" bind:open={is_open} {...$$restProps}>
 	<summary class="header wv-font-semibold">
 		<span>
 			สถานะกฎหมาย

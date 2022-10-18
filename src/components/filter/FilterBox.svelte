@@ -20,6 +20,7 @@
 	import SortOrder from './SortOrder.svelte';
 	import LawType from './LawType.svelte';
 	import LawStatus from './LawStatus.svelte';
+	import { onMount } from 'svelte';
 
 	export let selected_law: LawTypes[] = [...LAW_TYPES];
 
@@ -54,6 +55,18 @@
 	} else {
 		recent_run_timeline && swapSortOrderToStatus();
 	}
+
+	let is_law_status_open = true;
+	const collapseStatusOnSmallHeight = () => {
+		is_law_status_open =
+			Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) >= 800;
+	};
+
+	onMount(() => {
+		window.addEventListener('resize', collapseStatusOnSmallHeight);
+
+		return () => window.removeEventListener('resize', collapseStatusOnSmallHeight);
+	});
 </script>
 
 <div class="filter-box">
@@ -100,7 +113,7 @@
 		<SortOrder bind:sort_order />
 		<LawType {selected_law} />
 	</div>
-	<LawStatus class="alone" />
+	<LawStatus class="alone" bind:is_open={is_law_status_open} />
 </div>
 
 <style lang="scss">
