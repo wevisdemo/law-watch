@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
 	import HelpBtn from './HelpBtn.svelte';
 
 	let is_help_show = true;
@@ -19,7 +20,7 @@
 {/if}
 <div class="help-overlay c" class:show={is_help_show}>
 	{#if is_intro_dismiss}
-		<div class="balloon wv-b5">
+		<div class="balloon wv-b5" in:fly={{ y: 10, duration: 300, delay: 0 }}>
 			<div>
 				<strong>ร่างกฎหมาย</strong> มักไม่ค่อยออกเป็น<br />
 				กฎหมาย ส่วนมากอยู่ระหว่าง<br />
@@ -27,21 +28,21 @@
 			</div>
 			<img src="/law-watch/question.svg" alt="" />
 		</div>
-		<div class="balloon wv-b5">
+		<div class="balloon wv-b5" in:fly={{ y: 10, duration: 300, delay: 100 }}>
 			<div>
 				<strong>ร่างกฎหมาย</strong> ของฝ่ายรัฐบาล<br />
 				ผ่านได้ง่ายกว่าของฝ่ายค้านหรือเปล่า
 			</div>
 			<img src="/law-watch/question.svg" alt="" />
 		</div>
-		<div class="balloon wv-b5">
+		<div class="balloon wv-b5" in:fly={{ y: 10, duration: 300, delay: 200 }}>
 			<div>
 				<strong>พรรคการเมือง</strong> สนใจประเด็น<br />
 				กฎหมายแตกต่างกันแค่ไหน
 			</div>
 			<img src="/law-watch/question.svg" alt="" />
 		</div>
-		<div class="balloon wv-b5">
+		<div class="balloon wv-b5" in:fly={{ y: 10, duration: 300, delay: 300 }}>
 			<div>
 				<strong>ร่างกฎหมาย</strong> ที่ใช้ระยะเวลานานใน<br />
 				กระบวนการนานมักไม่ผ่านใช่ไหม
@@ -108,10 +109,15 @@
 		z-index: 1;
 
 		background: rgba(0, 0, 0, 0.5);
-		display: none;
+
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
 
 		&.show {
-			display: flex;
+			opacity: 1;
+			pointer-events: all;
+			transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 		}
 	}
 

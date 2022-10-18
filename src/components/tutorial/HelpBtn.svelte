@@ -1,4 +1,15 @@
-<button type="button" class="help-btn" on:click>
+<script lang="ts">
+	import { scale } from 'svelte/transition';
+	import { cubicOut, cubicInOut } from 'svelte/easing';
+</script>
+
+<button
+	type="button"
+	class="help-btn"
+	on:click
+	in:scale={{ duration: 300, easing: cubicOut }}
+	out:scale={{ duration: 300, easing: cubicInOut }}
+>
 	<img src="/law-watch/question.svg" alt="" />
 </button>
 
