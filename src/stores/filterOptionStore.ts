@@ -10,6 +10,8 @@ import type {
 import { LAW_TYPES } from 'data/law-types';
 import type { LawTypes } from 'data/law-types';
 
+export const search_input = writable<string>('');
+
 export const selected_law = writable<LawTypes[]>([...LAW_TYPES]);
 
 export const current_group_choice = writable<GroupChoiceType>(GROUP_CHOICES[0]);

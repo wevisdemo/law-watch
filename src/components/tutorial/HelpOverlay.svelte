@@ -2,6 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import { LAW_TYPES } from 'data/law-types';
 	import {
+		search_input,
 		view_timeline,
 		current_group_choice,
 		current_side_choice,
@@ -44,6 +45,7 @@
 	};
 
 	const resetFilter = () => {
+		$search_input = '';
 		$sort_order_when_timeline = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
 		$sort_order_when_status = ['สถานะ', 'หมวดหมู่'];
 		$view_timeline = false;

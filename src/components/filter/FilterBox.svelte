@@ -8,16 +8,17 @@
 		VOTEPARTY_DROPDOWN_CHOICES
 	} from 'data/filter-choices';
 	import {
-		current_group_choice,
-		current_party_choice,
-		current_side_choice,
-		current_voteparty_choice,
-		selected_law,
+		search_input,
 		view_timeline,
-		is_mobile_drawer_open,
-		is_law_status_open,
+		current_group_choice,
+		current_side_choice,
+		current_party_choice,
+		current_voteparty_choice,
 		sort_order_when_status,
-		sort_order_when_timeline
+		sort_order_when_timeline,
+		selected_law,
+		is_law_status_open,
+		is_mobile_drawer_open
 	} from 'stores/filterOptionStore';
 	import { group_highlight, law_status_highlight } from 'stores/highlightManager';
 
@@ -49,7 +50,7 @@
 		<button type="button" class="mobile-toggle-drawer" on:click={toggleMobileDrawer}>
 			<img src="/law-watch/setting.svg" alt="แสดงตัวเลือก" width="20" height="20" />
 		</button>
-		<SearchBox class="search-flex" />
+		<SearchBox class="search-flex" bind:value={$search_input} />
 	</div>
 	<div class="drawer-container" class:open={$is_mobile_drawer_open}>
 		<button type="button" class="close-btn" on:click={toggleMobileDrawer}>

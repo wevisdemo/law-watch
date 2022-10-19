@@ -1,10 +1,17 @@
 <script lang="ts">
 	let clazz: string = '';
 	export { clazz as class };
+
+	export let value = '';
 </script>
 
 <div class="searchbox-container {clazz}" {...$$restProps}>
-	<input class="search-input wv-font-anuphan wv-b6" type="text" placeholder="ค้นหาร่างกฎหมาย" />
+	<input
+		class="search-input wv-font-anuphan wv-b6"
+		type="text"
+		placeholder="ค้นหาร่างกฎหมาย"
+		bind:value
+	/>
 	<img src="/law-watch/search.svg" alt="" width="14" height="14" />
 </div>
 
