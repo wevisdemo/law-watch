@@ -1,5 +1,13 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
+	import {
+		vis_type_highlight,
+		group_highlight,
+		order_highlight,
+		law_type_highlight,
+		law_status_highlight
+	} from 'stores/highlightManager';
+
 	import HelpBtn from './HelpBtn.svelte';
 
 	let is_help_show = true;

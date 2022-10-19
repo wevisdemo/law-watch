@@ -2,6 +2,8 @@
 	import { LAW_TYPES, LAW_TYPE_METADATA } from 'data/law-types';
 	import type { LawTypes } from 'data/law-types';
 
+	import { law_type_highlight } from 'stores/highlightManager';
+
 	const GROUP_ORDER: LawTypes[] = [...LAW_TYPES];
 
 	export let group: Record<LawTypes, number> = {
@@ -17,7 +19,7 @@
 	export let selected_law: LawTypes[];
 </script>
 
-<div>
+<div class:highlight={$law_type_highlight}>
 	<div class="header wv-font-semibold wv-b6">หมวดหมู่กฎหมาย</div>
 	<div class="law-group-selector">
 		{#each GROUP_ORDER as name (name)}
@@ -76,5 +78,9 @@
 
 	.law-group-radio:focus-visible + .law-group-label {
 		box-shadow: 0 0 0 1px #000, 0 0 0 2px var(--law-color);
+	}
+
+	.highlight {
+		z-index: 2;
 	}
 </style>

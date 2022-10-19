@@ -1,4 +1,12 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
+	import {
+		GROUP_CHOICES,
+		SIDE_CHOICES,
+		PARTY_DROPDOWN_CHOICES,
+		VOTEPARTY_DROPDOWN_CHOICES
+	} from 'data/filter-choices';
 	import {
 		current_group_choice,
 		current_party_choice,
@@ -11,12 +19,7 @@
 		sort_order_when_status,
 		sort_order_when_timeline
 	} from 'stores/filterOptionStore';
-	import {
-		GROUP_CHOICES,
-		SIDE_CHOICES,
-		PARTY_DROPDOWN_CHOICES,
-		VOTEPARTY_DROPDOWN_CHOICES
-	} from 'data/filter-choices';
+	import { group_highlight, law_status_highlight } from 'stores/highlightManager';
 
 	import SearchBox from './SearchBox.svelte';
 	import Dropdown from 'components/dropdown/Dropdown.svelte';
@@ -24,7 +27,6 @@
 	import SortOrder from './SortOrder.svelte';
 	import LawType from './LawType.svelte';
 	import LawStatus from './LawStatus.svelte';
-	import { onMount } from 'svelte';
 
 	let sort_order = $sort_order_when_status;
 	let recent_run_timeline = false;
@@ -76,6 +78,7 @@
 		<Dropdown
 			label_image="/law-watch/group.svg"
 			choices={GROUP_CHOICES}
+			highlight={$group_highlight}
 			bind:current_choice={$current_group_choice}
 		/>
 		{#if $current_group_choice === 'ฝ่ายที่เสนอร่าง'}
@@ -83,6 +86,7 @@
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
 				choices={SIDE_CHOICES}
+				highlight={$group_highlight}
 				bind:current_choice={$current_side_choice}
 			/>
 		{/if}
@@ -91,6 +95,7 @@
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
 				choices={PARTY_DROPDOWN_CHOICES}
+				highlight={$group_highlight}
 				bind:current_choice={$current_party_choice}
 			/>
 		{/if}
@@ -99,13 +104,14 @@
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
 				choices={VOTEPARTY_DROPDOWN_CHOICES}
+				highlight={$group_highlight}
 				bind:current_choice={$current_voteparty_choice}
 			/>
 		{/if}
 		<SortOrder bind:sort_order />
 		<LawType selected_law={$selected_law} />
 	</div>
-	<LawStatus class="alone" bind:is_open={$is_law_status_open} />
+	<LawStatus class="alone" bind:is_open={$is_law_status_open} highlight={$law_status_highlight} />
 </div>
 
 <style lang="scss">

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { LawStatusHighlightType } from 'stores/highlightManager';
 	import Paper from 'components/Paper.svelte';
 
 	let clazz = '';
@@ -11,21 +12,34 @@
 	} = { reject: 50, progress: 50, pass: 50 };
 	export let always_show_line = false;
 	export let is_open = true;
+
+	export let highlight: LawStatusHighlightType = false;
 </script>
 
-<details class="law-status wv-b6 {clazz}" bind:open={is_open} {...$$restProps}>
-	<summary class="header wv-font-semibold">
+<details
+	class="law-status wv-b6 {clazz}"
+	class:highlight={highlight === 'all'}
+	bind:open={is_open}
+	{...$$restProps}
+>
+	<summary
+		class="header wv-font-semibold"
+		class:highlight={typeof highlight === 'string' && ['one', 'two'].includes(highlight)}
+	>
 		<span>
 			สถานะกฎหมาย
 			<img class="caret" src="/law-watch/carets/dw.svg" alt="" width="14" height="8" />
 		</span>
 	</summary>
-	<div class="law-status-type">
+	<div
+		class="law-status-type"
+		class:highlight={typeof highlight === 'string' && ['one', 'two'].includes(highlight)}
+	>
 		<Paper noMargin noHover />
 		<span>ตกไป</span>
 		<span class="number">{data.reject}</span>
 	</div>
-	<div class="law-status-type">
+	<div class="law-status-type" class:highlight={highlight === 'two'}>
 		<Paper type="process" noMargin noHover />
 		<span>อยู่ในกระบวนการ</span>
 		<span class="number">{data.progress}</span>
@@ -111,5 +125,9 @@
 		.law-line:not(.always_show_line) {
 			display: none;
 		}
+	}
+
+	.highlight {
+		z-index: 2;
 	}
 </style>

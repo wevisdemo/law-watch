@@ -76,9 +76,11 @@
 			return false;
 		}
 	};
+
+	export let highlight = false;
 </script>
 
-<div class="dropdown-container">
+<div class="dropdown-container" class:highlight>
 	<span id="dropdown-{label}-label" class="select-label wv-b7">
 		{#if label_image}
 			<img src={label_image} alt="" width="12" height="12" />
@@ -247,5 +249,9 @@
 		border: 1px solid #000000;
 		border-radius: 50%;
 		margin-right: 8px;
+	}
+
+	.highlight {
+		z-index: 2;
 	}
 </style>

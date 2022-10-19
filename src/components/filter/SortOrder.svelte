@@ -1,26 +1,12 @@
 <script lang="ts">
 	import { flip } from 'svelte/animate';
 
+	import { order_highlight } from 'stores/highlightManager';
+
 	export let sort_order = ['สถานะ', 'หมวดหมู่'];
-	// export let sort_order = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
 
 	const setSortOrder = (property: string | number) => () => {
-		if (typeof property === 'number') return;
-		if (sort_order[0] === property) return;
-		// if (sort_order.length === 3) {
-		// 	switch (property) {
-		// 		case 'หมวดหมู่':
-		// 			sort_order = ['หมวดหมู่', 'สถานะ', 'ระยะเวลา'];
-		// 			break;
-		// 		case 'สถานะ':
-		// 			sort_order = ['สถานะ', 'หมวดหมู่', 'ระยะเวลา'];
-		// 			break;
-		// 		default:
-		// 			sort_order = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
-		// 			break;
-		// 	}
-		// } else {
-		// }
+		if (typeof property === 'number' || sort_order[0] === property) return;
 		sort_order = [property, ...sort_order.filter((e) => e !== property)];
 	};
 
@@ -30,7 +16,7 @@
 		.slice(0, -1);
 </script>
 
-<div>
+<div class:highlight={$order_highlight}>
 	<div class="header wv-b7">
 		<img src="/law-watch/sort.svg" alt="" width="16" height="16" />
 		เรียงตาม
@@ -106,5 +92,9 @@
 		padding: 0;
 		display: flex;
 		align-items: center;
+	}
+
+	.highlight {
+		z-index: 2;
 	}
 </style>

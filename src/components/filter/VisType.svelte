@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { vis_type_highlight } from 'stores/highlightManager';
+
 	export let view_timeline = false;
 </script>
 
-<label class="vistype-container wv-b6">
+<label class="vistype-container wv-b6" class:highlight={$vis_type_highlight}>
 	<span>ภาพรวม</span>
 	<input id="vistype-check" class="switch-input" type="checkbox" bind:checked={view_timeline} />
 	<span class="switch-decor" />
@@ -58,5 +60,9 @@
 
 	.switch-input:focus-visible + .switch-decor {
 		box-shadow: 0 0 0 1px #000, 0 0 0 2px #fff;
+	}
+
+	.highlight {
+		z-index: 2;
 	}
 </style>
