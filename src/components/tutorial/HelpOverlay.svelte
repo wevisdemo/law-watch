@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 	import { LAW_TYPES } from 'data/law-types';
 	import {
 		search_input,
@@ -26,6 +27,7 @@
 
 	let is_help_show = true;
 	let is_intro_dismiss = false;
+	let current_tutorial: 1 | 2 | 3 | 4 | null = null;
 
 	const dismissIntro = () => {
 		is_intro_dismiss = true;
@@ -35,6 +37,11 @@
 		is_help_show = false;
 		if (!is_intro_dismiss) setTimeout(dismissIntro, 500);
 		setTimeout(resetHighlight, 500);
+		setTimeout(resetCurrentTutorial, 500);
+	};
+
+	const resetCurrentTutorial = () => {
+		current_tutorial = null;
 	};
 
 	const resetHighlight = () => {
@@ -60,6 +67,7 @@
 	};
 
 	const showTutorial1 = () => {
+		current_tutorial = 1;
 		resetHighlight();
 		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
@@ -71,6 +79,7 @@
 	};
 
 	const showTutorial2 = () => {
+		current_tutorial = 2;
 		resetHighlight();
 		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
@@ -83,6 +92,7 @@
 	};
 
 	const showTutorial3 = () => {
+		current_tutorial = 3;
 		resetHighlight();
 		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
@@ -91,11 +101,13 @@
 		$law_type_highlight = true;
 
 		resetFilter();
+		$sort_order_when_status = ['หมวดหมู่', 'สถานะ'];
 		$current_group_choice = 'พรรคที่เสนอร่างกฎหมาย';
-		$selected_law = [];
+		$selected_law = ['สิ่งแวดล้อม'];
 	};
 
 	const showTutorial4 = () => {
+		current_tutorial = 4;
 		resetHighlight();
 		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
@@ -106,13 +118,122 @@
 		resetFilter();
 		$view_timeline = true;
 	};
+
+	const TUTORIAL_BALLOONS = [
+		[
+			{
+				key: 0,
+				name: 'เลือกดูภาพรวม',
+				position: 'top:81px'
+			},
+			{
+				key: 1,
+				name: 'เลือกไม่แบ่งกลุ่ม เพื่อดูทั้งหมด',
+				position: 'top:151px'
+			},
+			{
+				key: 2,
+				name: 'เลือกเรียงตามสถานะ',
+				position: 'top:222px'
+			},
+			{
+				key: 5,
+				name: 'มองหาสัญลักษณ์ที่บอกว่าตกไป/อยู่ในกระบวนการ<br />หรือดูจำนวนรวมเทียบกัน',
+				position: 'bottom:205px'
+			}
+		],
+		[
+			{
+				key: 0,
+				name: 'เลือกดูภาพรวม',
+				position: 'top:81px'
+			},
+			{
+				key: 1,
+				name: 'เลือกดูฝ่ายที่เสนอร่างกฎหมาย',
+				position: 'top:151px'
+			},
+			{
+				key: 2,
+				name: 'เลือกทุกฝ่ายเพื่อเทียบกัน',
+				position: 'top:231px'
+			},
+			{
+				key: 5,
+				name: 'มองหาสัญลักษณ์ที่บอกว่าผ่าน<br />หรือดูจำนวนรวมเทียบกัน',
+				position: 'bottom:205px'
+			}
+		],
+		[
+			{
+				key: 0,
+				name: 'เลือกดูภาพรวม',
+				position: 'top:81px'
+			},
+			{
+				key: 1,
+				name: 'เลือกดูพรรคที่เสนอร่างกฎหมาย',
+				position: 'top:151px'
+			},
+			{
+				key: 2,
+				name: 'เลือกทุกพรรคเพื่อเทียบกัน',
+				position: 'top:231px'
+			},
+			{
+				key: 3,
+				name: 'เลือกเรียงตามหมวดหมู่เพื่อดูประเด็น',
+				position: 'top:302px'
+			},
+			{
+				key: 4,
+				name: 'เลือกหมวดหมู่ที่สนใจ',
+				position: 'top:419px'
+			}
+		],
+		[
+			{
+				key: 0,
+				name: 'เลือกดูระยะเวลา',
+				position: 'top:81px'
+			},
+			{
+				key: 1,
+				name: 'เลือกไม่แบ่งกลุ่ม เพื่อดูทั้งหมด',
+				position: 'top:151px'
+			},
+			{
+				key: 2,
+				name: 'เลือกเรียงตามระยะเวลา',
+				position: 'top:222px'
+			},
+			{
+				key: 5,
+				name: 'มองหาสัญลักษณ์ที่บอกว่าตกไป',
+				position: 'bottom:217px'
+			}
+		]
+	];
 </script>
 
 {#if !is_help_show}
 	<HelpBtn on:click={() => (is_help_show = true)} />
 {/if}
 <div class="help-overlay" class:show={is_help_show}>
-	<div class="help-backdrop" />
+	<div class="help-backdrop">
+		{#if current_tutorial}
+			{#each TUTORIAL_BALLOONS[current_tutorial - 1] as { key, name, position } (key)}
+				<div
+					class="help-tooltip"
+					style={position}
+					transition:fade={{ duration: 300 }}
+					animate:flip={{ duration: 300 }}
+				>
+					{@html name}
+				</div>
+			{/each}
+		{/if}
+	</div>
 	<div class="help-content c">
 		{#if is_intro_dismiss}
 			<div
@@ -332,6 +453,29 @@
 
 		@media (min-width: 768px) {
 			width: 145px;
+		}
+	}
+
+	.help-tooltip {
+		background: #fff;
+		color: #3904e9;
+		border-radius: 2px;
+
+		padding: 10px;
+
+		position: absolute;
+		left: 324px;
+
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		&::before {
+			content: '';
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 41 16'%3E%3Cpath fill='%233904E9' d='M.293 7.293a1 1 0 000 1.414l6.364 6.364a1 1 0 001.414-1.414L2.414 8l5.657-5.657A1 1 0 006.657.93L.293 7.293zM41 7H1v2h40V7z'/%3E%3C/svg%3E");
+			width: 40px;
+			// display: block;
+			height: 16px;
 		}
 	}
 </style>
