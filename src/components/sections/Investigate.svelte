@@ -17,7 +17,7 @@
 	$: label = (() => {
 		let formatted_choice;
 		switch ($current_group_choice) {
-			case 'ฝ่ายที่เสนอร่าง':
+			case 'ฝ่ายที่เสนอร่างกฎหมาย':
 				formatted_choice =
 					// @ts-expect-error ตรงนี้ fallback แล้วด้วย `??`
 					{
@@ -26,7 +26,7 @@
 						ประชาชน: 'ฝ่ายประชาชน',
 						ผสม: 'ฝ่ายผสม'
 					}?.[$current_side_choice] ?? $current_side_choice;
-			case 'พรรคที่เสนอร่าง':
+			case 'พรรคที่เสนอร่างกฎหมาย':
 				if (!formatted_choice) {
 					formatted_choice =
 						// @ts-expect-error ตรงนี้ fallback แล้วด้วย `??`

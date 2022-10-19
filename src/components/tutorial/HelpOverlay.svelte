@@ -1,5 +1,17 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
+	import { LAW_TYPES } from 'data/law-types';
+	import {
+		view_timeline,
+		current_group_choice,
+		current_side_choice,
+		current_party_choice,
+		current_voteparty_choice,
+		sort_order_when_status,
+		sort_order_when_timeline,
+		selected_law,
+		is_law_status_open
+	} from 'stores/filterOptionStore';
 	import {
 		vis_type_highlight,
 		group_highlight,
@@ -13,13 +25,78 @@
 	let is_help_show = true;
 	let is_intro_dismiss = false;
 
-	const dismiss_intro = () => {
+	const dismissIntro = () => {
 		is_intro_dismiss = true;
 	};
 
-	const close_help = () => {
+	const closeHelp = () => {
 		is_help_show = false;
-		if (!is_intro_dismiss) setTimeout(dismiss_intro, 500);
+		if (!is_intro_dismiss) setTimeout(dismissIntro, 500);
+		setTimeout(resetHighlight, 500);
+	};
+
+	const resetHighlight = () => {
+		$vis_type_highlight = false;
+		$group_highlight = false;
+		$order_highlight = false;
+		$law_type_highlight = false;
+		$law_status_highlight = false;
+	};
+
+	const resetFilter = () => {
+		$sort_order_when_timeline = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
+		$sort_order_when_status = ['สถานะ', 'หมวดหมู่'];
+		$view_timeline = false;
+		$current_group_choice = 'ไม่แบ่งกลุ่ม';
+		$current_side_choice = 'เลือกทุกฝ่าย';
+		$current_party_choice = 'เลือกทุกพรรค';
+		$current_voteparty_choice = 'ครูไทยเพื่อประชาชน';
+		$selected_law = [...LAW_TYPES];
+		$is_law_status_open = true;
+	};
+
+	const showTutorial1 = () => {
+		resetHighlight();
+		$vis_type_highlight = true;
+		$group_highlight = true;
+		$order_highlight = true;
+		$law_status_highlight = 'two';
+
+		resetFilter();
+	};
+
+	const showTutorial2 = () => {
+		resetHighlight();
+		$vis_type_highlight = true;
+		$group_highlight = true;
+		$law_status_highlight = 'all';
+
+		resetFilter();
+		$current_group_choice = 'ฝ่ายที่เสนอร่างกฎหมาย';
+		$selected_law = [];
+	};
+
+	const showTutorial3 = () => {
+		resetHighlight();
+		$vis_type_highlight = true;
+		$group_highlight = true;
+		$order_highlight = true;
+		$law_type_highlight = true;
+
+		resetFilter();
+		$current_group_choice = 'พรรคที่เสนอร่างกฎหมาย';
+		$selected_law = [];
+	};
+
+	const showTutorial4 = () => {
+		resetHighlight();
+		$vis_type_highlight = true;
+		$group_highlight = true;
+		$order_highlight = true;
+		$law_status_highlight = 'one';
+
+		resetFilter();
+		$view_timeline = true;
 	};
 </script>
 
@@ -30,7 +107,11 @@
 	<div class="help-backdrop" />
 	<div class="help-content c">
 		{#if is_intro_dismiss}
-			<div class="balloon wv-b5 choice" in:fly={{ y: 10, duration: 300, delay: 0 }}>
+			<div
+				class="balloon wv-b5 choice"
+				on:click={showTutorial1}
+				in:fly={{ y: 10, duration: 300, delay: 0 }}
+			>
 				<div>
 					<strong>ร่างกฎหมาย</strong> มักไม่ค่อยออกเป็น<br />
 					กฎหมาย ส่วนมากอยู่ระหว่าง<br />
@@ -38,21 +119,33 @@
 				</div>
 				<img src="/law-watch/question.svg" alt="" />
 			</div>
-			<div class="balloon wv-b5 choice" in:fly={{ y: 10, duration: 300, delay: 100 }}>
+			<div
+				class="balloon wv-b5 choice"
+				on:click={showTutorial2}
+				in:fly={{ y: 10, duration: 300, delay: 100 }}
+			>
 				<div>
 					<strong>ร่างกฎหมาย</strong> ของฝ่ายรัฐบาล<br />
 					ผ่านได้ง่ายกว่าของฝ่ายค้านหรือเปล่า
 				</div>
 				<img src="/law-watch/question.svg" alt="" />
 			</div>
-			<div class="balloon wv-b5 choice" in:fly={{ y: 10, duration: 300, delay: 200 }}>
+			<div
+				class="balloon wv-b5 choice"
+				on:click={showTutorial3}
+				in:fly={{ y: 10, duration: 300, delay: 200 }}
+			>
 				<div>
 					<strong>พรรคการเมือง</strong> สนใจประเด็น<br />
 					กฎหมายแตกต่างกันแค่ไหน
 				</div>
 				<img src="/law-watch/question.svg" alt="" />
 			</div>
-			<div class="balloon wv-b5 choice" in:fly={{ y: 10, duration: 300, delay: 300 }}>
+			<div
+				class="balloon wv-b5 choice"
+				on:click={showTutorial4}
+				in:fly={{ y: 10, duration: 300, delay: 300 }}
+			>
 				<div>
 					<strong>ร่างกฎหมาย</strong> ที่ใช้ระยะเวลานานใน<br />
 					กระบวนการนานมักไม่ผ่านใช่ไหม
@@ -69,7 +162,7 @@
 			</div>
 		{/if}
 		<div class="btn-container" class:right={is_intro_dismiss}>
-			<button type="button" class="wv-font-anuphan wv-b4 tut-btn primary" on:click={close_help}>
+			<button type="button" class="wv-font-anuphan wv-b4 tut-btn primary" on:click={closeHelp}>
 				สำรวจเอง
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +190,7 @@
 				>
 			</button>
 			{#if !is_intro_dismiss}
-				<button type="button" class="wv-font-anuphan wv-b4 tut-btn" on:click={dismiss_intro}>
+				<button type="button" class="wv-font-anuphan wv-b4 tut-btn" on:click={dismissIntro}>
 					ช่วยนำทางที
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

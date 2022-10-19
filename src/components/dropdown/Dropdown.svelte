@@ -7,8 +7,8 @@
 	export let label = 'แบ่งกลุ่มตาม';
 	export let choices: readonly DropdownChoiceType[] = [
 		'ไม่แบ่งกลุ่ม',
-		'ฝ่ายที่เสนอร่าง',
-		'พรรคที่เสนอร่าง',
+		'ฝ่ายที่เสนอร่างกฎหมาย',
+		'พรรคที่เสนอร่างกฎหมาย',
 		'ผลโหวตของพรรค'
 	];
 	export let current_choice = typeof choices[0] === 'string' ? choices[0] : choices[0].text;
@@ -78,6 +78,7 @@
 	};
 
 	export let highlight = false;
+	export let menu_z = 4;
 </script>
 
 <div class="dropdown-container" class:highlight>
@@ -103,6 +104,8 @@
 		{current_choice}
 		<img class="select-arrow" src="/law-watch/carets/dw.svg" alt="" width="14" height="8" />
 	</button>
+</div>
+<div class="list-container" style="z-index:{menu_z}">
 	<ul
 		bind:this={el_list}
 		class="select-list"
@@ -191,13 +194,16 @@
 		margin-left: auto;
 	}
 
+	.list-container {
+		margin-bottom: -14px;
+	}
+
 	.select-list {
 		border: 1px solid #fff;
 		position: absolute;
-		top: calc(100% + 14px);
+		top: 0;
 		width: 100%;
 		background: #000;
-		z-index: 5;
 		display: none;
 		margin: 0;
 		list-style: none;
@@ -252,6 +258,6 @@
 	}
 
 	.highlight {
-		z-index: 2;
+		z-index: 3;
 	}
 </style>

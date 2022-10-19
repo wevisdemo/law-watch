@@ -28,25 +28,6 @@
 	import LawType from './LawType.svelte';
 	import LawStatus from './LawStatus.svelte';
 
-	let sort_order = $sort_order_when_status;
-	let recent_run_timeline = false;
-	const swapSortOrderToTimeline = () => {
-		$sort_order_when_status = sort_order;
-		sort_order = $sort_order_when_timeline;
-		recent_run_timeline = true;
-	};
-	const swapSortOrderToStatus = () => {
-		$sort_order_when_timeline = sort_order;
-		sort_order = $sort_order_when_status;
-		recent_run_timeline = false;
-	};
-
-	$: if ($view_timeline) {
-		!recent_run_timeline && swapSortOrderToTimeline();
-	} else {
-		recent_run_timeline && swapSortOrderToStatus();
-	}
-
 	const toggleMobileDrawer = () => {
 		$is_mobile_drawer_open = !$is_mobile_drawer_open;
 	};
@@ -79,9 +60,10 @@
 			label_image="/law-watch/group.svg"
 			choices={GROUP_CHOICES}
 			highlight={$group_highlight}
+			menu_z={5}
 			bind:current_choice={$current_group_choice}
 		/>
-		{#if $current_group_choice === 'ฝ่ายที่เสนอร่าง'}
+		{#if $current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย'}
 			<Dropdown
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
@@ -90,7 +72,7 @@
 				bind:current_choice={$current_side_choice}
 			/>
 		{/if}
-		{#if $current_group_choice === 'พรรคที่เสนอร่าง'}
+		{#if $current_group_choice === 'พรรคที่เสนอร่างกฎหมาย'}
 			<Dropdown
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
@@ -108,7 +90,11 @@
 				bind:current_choice={$current_voteparty_choice}
 			/>
 		{/if}
-		<SortOrder bind:sort_order />
+		{#if $view_timeline}
+			<SortOrder bind:sort_order={$sort_order_when_timeline} />
+		{:else}
+			<SortOrder bind:sort_order={$sort_order_when_status} />
+		{/if}
 		<LawType selected_law={$selected_law} />
 	</div>
 	<LawStatus class="alone" bind:is_open={$is_law_status_open} highlight={$law_status_highlight} />
