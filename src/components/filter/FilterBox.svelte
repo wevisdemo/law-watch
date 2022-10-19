@@ -1,20 +1,22 @@
 <script lang="ts">
 	import {
+		current_group_choice,
+		current_party_choice,
+		current_side_choice,
+		current_voteparty_choice,
+		selected_law,
+		view_timeline,
+		is_mobile_drawer_open,
+		is_law_status_open,
+		sort_order_when_status,
+		sort_order_when_timeline
+	} from 'stores/filterOptionStore';
+	import {
 		GROUP_CHOICES,
 		SIDE_CHOICES,
-		PARTY_CHOICES,
 		PARTY_DROPDOWN_CHOICES,
-		VOTEPARTY_CHOICES,
 		VOTEPARTY_DROPDOWN_CHOICES
 	} from 'data/filter-choices';
-	import type {
-		GroupChoiceType,
-		PartyChoiceType,
-		SideChoiceType,
-		VotepartyChoiceType
-	} from 'data/filter-choices';
-	import { LAW_TYPES } from 'data/law-types';
-	import type { LawTypes } from 'data/law-types';
 
 	import SearchBox from './SearchBox.svelte';
 	import Dropdown from 'components/dropdown/Dropdown.svelte';
@@ -24,43 +26,31 @@
 	import LawStatus from './LawStatus.svelte';
 	import { onMount } from 'svelte';
 
-	export let selected_law: LawTypes[] = [...LAW_TYPES];
-
-	export let current_group_choice: GroupChoiceType = GROUP_CHOICES[0];
-	export let current_side_choice: SideChoiceType = SIDE_CHOICES[0];
-	export let current_party_choice: PartyChoiceType = PARTY_CHOICES[0];
-	export let current_voteparty_choice: VotepartyChoiceType = VOTEPARTY_CHOICES[0];
-
-	export let view_timeline = false;
-	let sort_order_when_status = ['สถานะ', 'หมวดหมู่'];
-	let sort_order_when_timeline = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
-	export let sort_order = sort_order_when_status;
+	let sort_order = $sort_order_when_status;
 	let recent_run_timeline = false;
 	const swapSortOrderToTimeline = () => {
-		sort_order_when_status = sort_order;
-		sort_order = sort_order_when_timeline;
+		$sort_order_when_status = sort_order;
+		sort_order = $sort_order_when_timeline;
 		recent_run_timeline = true;
 	};
 	const swapSortOrderToStatus = () => {
-		sort_order_when_timeline = sort_order;
-		sort_order = sort_order_when_status;
+		$sort_order_when_timeline = sort_order;
+		sort_order = $sort_order_when_status;
 		recent_run_timeline = false;
 	};
 
-	let is_mobile_drawer_open = false;
-	const toggleMobileDrawer = () => {
-		is_mobile_drawer_open = !is_mobile_drawer_open;
-	};
-
-	$: if (view_timeline) {
+	$: if ($view_timeline) {
 		!recent_run_timeline && swapSortOrderToTimeline();
 	} else {
 		recent_run_timeline && swapSortOrderToStatus();
 	}
 
-	let is_law_status_open = true;
+	const toggleMobileDrawer = () => {
+		$is_mobile_drawer_open = !$is_mobile_drawer_open;
+	};
+
 	const collapseStatusOnSmallHeight = () => {
-		is_law_status_open =
+		$is_law_status_open =
 			Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) >= 800;
 	};
 
@@ -78,44 +68,44 @@
 		</button>
 		<SearchBox class="search-flex" />
 	</div>
-	<div class="drawer-container" class:open={is_mobile_drawer_open}>
+	<div class="drawer-container" class:open={$is_mobile_drawer_open}>
 		<button type="button" class="close-btn" on:click={toggleMobileDrawer}>
 			<img src="/law-watch/close.svg" alt="ปิด" width="16" height="16" />
 		</button>
-		<VisType bind:view_timeline />
+		<VisType bind:view_timeline={$view_timeline} />
 		<Dropdown
 			label_image="/law-watch/group.svg"
 			choices={GROUP_CHOICES}
-			bind:current_choice={current_group_choice}
+			bind:current_choice={$current_group_choice}
 		/>
-		{#if current_group_choice === 'ฝ่ายที่เสนอร่าง'}
+		{#if $current_group_choice === 'ฝ่ายที่เสนอร่าง'}
 			<Dropdown
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
 				choices={SIDE_CHOICES}
-				bind:current_choice={current_side_choice}
+				bind:current_choice={$current_side_choice}
 			/>
 		{/if}
-		{#if current_group_choice === 'พรรคที่เสนอร่าง'}
+		{#if $current_group_choice === 'พรรคที่เสนอร่าง'}
 			<Dropdown
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
 				choices={PARTY_DROPDOWN_CHOICES}
-				bind:current_choice={current_party_choice}
+				bind:current_choice={$current_party_choice}
 			/>
 		{/if}
-		{#if current_group_choice === 'ผลโหวตของพรรค'}
+		{#if $current_group_choice === 'ผลโหวตของพรรค'}
 			<Dropdown
 				label_image="/law-watch/filter.svg"
 				label="ตัวกรอง"
 				choices={VOTEPARTY_DROPDOWN_CHOICES}
-				bind:current_choice={current_voteparty_choice}
+				bind:current_choice={$current_voteparty_choice}
 			/>
 		{/if}
 		<SortOrder bind:sort_order />
-		<LawType {selected_law} />
+		<LawType selected_law={$selected_law} />
 	</div>
-	<LawStatus class="alone" bind:is_open={is_law_status_open} />
+	<LawStatus class="alone" bind:is_open={$is_law_status_open} />
 </div>
 
 <style lang="scss">

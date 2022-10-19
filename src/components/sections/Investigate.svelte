@@ -2,33 +2,21 @@
 	import { onMount } from 'svelte';
 	import { inView } from 'motion';
 	import { is_investigate_inview } from 'stores/sectionScrollManager';
-
 	import {
-		GROUP_CHOICES,
-		PARTY_CHOICES,
-		SIDE_CHOICES,
-		VOTEPARTY_CHOICES
-	} from 'data/filter-choices';
-	import type {
-		GroupChoiceType,
-		PartyChoiceType,
-		SideChoiceType,
-		VotepartyChoiceType
-	} from 'data/filter-choices';
+		current_group_choice,
+		current_side_choice,
+		current_party_choice,
+		current_voteparty_choice,
+		sort_order
+	} from 'stores/filterOptionStore';
 
 	import FilterBox from 'components/filter/FilterBox.svelte';
 	import HelpOverlay from 'components/tutorial/HelpOverlay.svelte';
 	import Sidebar from 'components/Sidebar.svelte';
 
-	let current_group_choice: GroupChoiceType = GROUP_CHOICES[0];
-	let current_side_choice: SideChoiceType = SIDE_CHOICES[0];
-	let current_party_choice: PartyChoiceType = PARTY_CHOICES[0];
-	let current_voteparty_choice: VotepartyChoiceType = VOTEPARTY_CHOICES[0];
-	let sort_order = ['สถานะ', 'หมวดหมู่'];
-
 	$: label = (() => {
 		let formatted_choice;
-		switch (current_group_choice) {
+		switch ($current_group_choice) {
 			case 'ฝ่ายที่เสนอร่าง':
 				formatted_choice =
 					// @ts-expect-error ตรงนี้ fallback แล้วด้วย `??`
@@ -37,20 +25,20 @@
 						คณะรัฐมนตรี: 'ฝ่ายคณะรัฐมนตรี',
 						ประชาชน: 'ฝ่ายประชาชน',
 						ผสม: 'ฝ่ายผสม'
-					}?.[current_side_choice] ?? current_side_choice;
+					}?.[$current_side_choice] ?? $current_side_choice;
 			case 'พรรคที่เสนอร่าง':
 				if (!formatted_choice) {
 					formatted_choice =
 						// @ts-expect-error ตรงนี้ fallback แล้วด้วย `??`
 						{
 							เลือกทุกพรรค: 'ทุกพรรค'
-						}?.[current_party_choice] ?? 'พรรค' + current_party_choice;
+						}?.[$current_party_choice] ?? 'พรรค' + $current_party_choice;
 				}
-				return `แสดงการเสนอ<wbr>ร่างกฎหมาย${formatted_choice}<wbr>เรียงตาม${sort_order[0]}`;
+				return `แสดงการเสนอ<wbr>ร่างกฎหมาย${formatted_choice}<wbr>เรียงตาม${$sort_order[0]}`;
 			case 'ผลโหวตของพรรค':
-				return `แสดงผลโหวต<wbr>ของพรรค${current_voteparty_choice}<wbr>เรียงตาม${sort_order[0]}`;
+				return `แสดงผลโหวต<wbr>ของพรรค${current_voteparty_choice}<wbr>เรียงตาม${$sort_order[0]}`;
 			default:
-				return `แสดงร่างกฎหมาย<wbr>ไม่แบ่งกลุ่ม<wbr>เรียงตาม${sort_order[0]}`;
+				return `แสดงร่างกฎหมาย<wbr>ไม่แบ่งกลุ่ม<wbr>เรียงตาม${$sort_order[0]}`;
 		}
 	})();
 
@@ -73,13 +61,7 @@
 
 <section bind:this={el_section} id="investigate-section" class="h100">
 	<h2 class="title wv-b4 tc nw">{@html label}</h2>
-	<FilterBox
-		bind:sort_order
-		bind:current_group_choice
-		bind:current_side_choice
-		bind:current_party_choice
-		bind:current_voteparty_choice
-	/>
+	<FilterBox />
 	<Sidebar is_open={is_sidebar_open} />
 	<HelpOverlay />
 
