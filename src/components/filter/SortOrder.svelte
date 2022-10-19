@@ -14,9 +14,12 @@
 		.map((e, i) => [e, i])
 		.flat()
 		.slice(0, -1);
+
+	let clazz = '';
+	export { clazz as class };
 </script>
 
-<div class:highlight={$order_highlight}>
+<div class={clazz} class:highlight={$order_highlight}>
 	<div class="header wv-b7">
 		<img src="/law-watch/sort.svg" alt="" width="16" height="16" />
 		เรียงตาม

@@ -18,7 +18,8 @@
 		group_highlight,
 		order_highlight,
 		law_type_highlight,
-		law_status_highlight
+		law_status_highlight,
+		mobile_filter_toggle_highlight
 	} from 'stores/highlightManager';
 
 	import HelpBtn from './HelpBtn.svelte';
@@ -42,6 +43,7 @@
 		$order_highlight = false;
 		$law_type_highlight = false;
 		$law_status_highlight = false;
+		$mobile_filter_toggle_highlight = false;
 	};
 
 	const resetFilter = () => {
@@ -59,6 +61,7 @@
 
 	const showTutorial1 = () => {
 		resetHighlight();
+		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
 		$group_highlight = true;
 		$order_highlight = true;
@@ -69,6 +72,7 @@
 
 	const showTutorial2 = () => {
 		resetHighlight();
+		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
 		$group_highlight = true;
 		$law_status_highlight = 'all';
@@ -80,6 +84,7 @@
 
 	const showTutorial3 = () => {
 		resetHighlight();
+		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
 		$group_highlight = true;
 		$order_highlight = true;
@@ -92,6 +97,7 @@
 
 	const showTutorial4 = () => {
 		resetHighlight();
+		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
 		$group_highlight = true;
 		$order_highlight = true;

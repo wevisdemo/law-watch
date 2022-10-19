@@ -17,9 +17,12 @@
 	};
 
 	export let selected_law: LawTypes[];
+
+	let clazz = '';
+	export { clazz as class };
 </script>
 
-<div class:highlight={$law_type_highlight}>
+<div class={clazz} class:highlight={$law_type_highlight}>
 	<div class="header wv-font-semibold wv-b6">หมวดหมู่กฎหมาย</div>
 	<div class="law-group-selector">
 		{#each GROUP_ORDER as name (name)}

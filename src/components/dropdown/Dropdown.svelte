@@ -79,9 +79,12 @@
 
 	export let highlight = false;
 	export let menu_z = 4;
+
+	let clazz = '';
+	export { clazz as class };
 </script>
 
-<div class="dropdown-container" class:highlight>
+<div class="dropdown-container {clazz}" class:highlight>
 	<span id="dropdown-{label}-label" class="select-label wv-b7">
 		{#if label_image}
 			<img src={label_image} alt="" width="12" height="12" />

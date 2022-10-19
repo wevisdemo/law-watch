@@ -65,13 +65,13 @@
 	<Sidebar is_open={is_sidebar_open} />
 	<HelpOverlay />
 
-	<button
+	<!-- <button
 		type="button"
 		on:click={() => (is_sidebar_open = !is_sidebar_open)}
 		style="position:absolute;top:50%;left:50%"
 	>
 		open sidebar
-	</button>
+	</button> -->
 </section>
 
 <style lang="scss">
