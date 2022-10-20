@@ -498,10 +498,12 @@
 
 	.help-content {
 		&.right {
-			&.shift-tut3 {
-				padding: 16px 24px;
-				align-items: flex-end;
-				justify-content: flex-end;
+			@media (max-width: 767.5px) {
+				&.shift-tut3 {
+					padding: 16px 24px;
+					align-items: flex-end;
+					justify-content: flex-end;
+				}
 			}
 
 			@media (min-width: 768px) {
