@@ -119,6 +119,13 @@
 		$view_timeline = true;
 	};
 
+	const TUTORIAL_CHOICES = [
+		'<strong>ร่างกฎหมาย</strong> มักไม่ค่อยออกเป็น<br />กฎหมาย ส่วนมากอยู่ระหว่าง<br />กระบวนการ หรือตกไปแล้วใช่ไหม',
+		'<strong>ร่างกฎหมาย</strong> ของฝ่ายรัฐบาล<br />ผ่านได้ง่ายกว่าของฝ่ายค้านหรือเปล่า',
+		'<strong>พรรคการเมือง</strong> สนใจประเด็น<br />กฎหมายแตกต่างกันแค่ไหน',
+		'<strong>ร่างกฎหมาย</strong> ที่ใช้ระยะเวลานานใน<br />กระบวนการนานมักไม่ผ่านใช่ไหม'
+	];
+
 	const TUTORIAL_BALLOONS = [
 		[
 			{
@@ -234,50 +241,56 @@
 			{/each}
 		{/if}
 	</div>
-	<div class="help-content c">
-		{#if is_intro_dismiss}
+	<div class="help-content c" class:right={current_tutorial}>
+		{#if is_intro_dismiss && !current_tutorial}
 			<div
-				class="balloon wv-b5 choice"
+				class="balloon wv-b5"
+				class:clickable={!current_tutorial}
 				on:click={showTutorial1}
 				in:fly={{ y: 10, duration: 300, delay: 0 }}
 			>
 				<div>
-					<strong>ร่างกฎหมาย</strong> มักไม่ค่อยออกเป็น<br />
-					กฎหมาย ส่วนมากอยู่ระหว่าง<br />
-					กระบวนการ หรือตกไปแล้วใช่ไหม
+					{@html TUTORIAL_CHOICES[0]}
 				</div>
 				<img src="/law-watch/question.svg" alt="" />
 			</div>
 			<div
-				class="balloon wv-b5 choice"
+				class="balloon wv-b5"
+				class:clickable={!current_tutorial}
 				on:click={showTutorial2}
 				in:fly={{ y: 10, duration: 300, delay: 100 }}
 			>
 				<div>
-					<strong>ร่างกฎหมาย</strong> ของฝ่ายรัฐบาล<br />
-					ผ่านได้ง่ายกว่าของฝ่ายค้านหรือเปล่า
+					{@html TUTORIAL_CHOICES[1]}
 				</div>
 				<img src="/law-watch/question.svg" alt="" />
 			</div>
 			<div
-				class="balloon wv-b5 choice"
+				class="balloon wv-b5"
+				class:clickable={!current_tutorial}
 				on:click={showTutorial3}
 				in:fly={{ y: 10, duration: 300, delay: 200 }}
 			>
 				<div>
-					<strong>พรรคการเมือง</strong> สนใจประเด็น<br />
-					กฎหมายแตกต่างกันแค่ไหน
+					{@html TUTORIAL_CHOICES[2]}
 				</div>
 				<img src="/law-watch/question.svg" alt="" />
 			</div>
 			<div
-				class="balloon wv-b5 choice"
+				class="balloon wv-b5"
+				class:clickable={!current_tutorial}
 				on:click={showTutorial4}
 				in:fly={{ y: 10, duration: 300, delay: 300 }}
 			>
 				<div>
-					<strong>ร่างกฎหมาย</strong> ที่ใช้ระยะเวลานานใน<br />
-					กระบวนการนานมักไม่ผ่านใช่ไหม
+					{@html TUTORIAL_CHOICES[3]}
+				</div>
+				<img src="/law-watch/question.svg" alt="" />
+			</div>
+		{:else if current_tutorial}
+			<div class="balloon wv-b5">
+				<div>
+					{@html TUTORIAL_CHOICES[current_tutorial - 1]}
 				</div>
 				<img src="/law-watch/question.svg" alt="" />
 			</div>
@@ -291,33 +304,35 @@
 			</div>
 		{/if}
 		<div class="btn-container" class:right={is_intro_dismiss}>
-			<button type="button" class="wv-font-anuphan wv-b4 tut-btn primary" on:click={closeHelp}>
-				สำรวจเอง
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					><rect
-						width="16.388"
-						height="1.366"
-						x="5.908"
-						y="17.346"
-						fill="currentColor"
-						rx=".683"
-						transform="rotate(-45 5.908 17.346)"
-					/><rect
-						width="16.388"
-						height="1.366"
-						x="6.873"
-						y="5.867"
-						fill="currentColor"
-						rx=".683"
-						transform="rotate(45 6.873 5.867)"
-					/></svg
-				>
-			</button>
+			{#if !current_tutorial}
+				<button type="button" class="wv-font-anuphan wv-b4 tut-btn primary" on:click={closeHelp}>
+					สำรวจเอง
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						><rect
+							width="16.388"
+							height="1.366"
+							x="5.908"
+							y="17.346"
+							fill="currentColor"
+							rx=".683"
+							transform="rotate(-45 5.908 17.346)"
+						/><rect
+							width="16.388"
+							height="1.366"
+							x="6.873"
+							y="5.867"
+							fill="currentColor"
+							rx=".683"
+							transform="rotate(45 6.873 5.867)"
+						/></svg
+					>
+				</button>
+			{/if}
 			{#if !is_intro_dismiss}
 				<button type="button" class="wv-font-anuphan wv-b4 tut-btn" on:click={dismissIntro}>
 					ช่วยนำทางที
@@ -334,6 +349,62 @@
 							clip-rule="evenodd"
 						/></svg
 					>
+				</button>
+			{/if}
+			{#if current_tutorial}
+				<button
+					type="button"
+					class="wv-font-anuphan wv-b4 tut-btn"
+					style="width:80px;padding:8px 12px 8px 8px"
+					on:click={resetCurrentTutorial}
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						width="20"
+						height="20"
+						viewBox="0 0 20 21"
+						><g clip-path="url(#a)" filter="url(#b)"
+							><path
+								fill="#3904E9"
+								fill-rule="evenodd"
+								d="M14.193 2.558a.625.625 0 00-.885 0l-7.5 7.5a.624.624 0 000 .885l7.5 7.5a.626.626 0 00.885-.885L7.134 10.5l7.059-7.057a.623.623 0 000-.885z"
+								clip-rule="evenodd"
+							/></g
+						><defs
+							><clipPath id="a"
+								><path
+									fill="#fff"
+									d="M0 0h20v20H0z"
+									transform="matrix(1 0 0 -1 0 20.5)"
+								/></clipPath
+							><filter
+								id="b"
+								width="48.752"
+								height="56.252"
+								x="-14.376"
+								y="-17.626"
+								color-interpolation-filters="sRGB"
+								filterUnits="userSpaceOnUse"
+								><feFlood flood-opacity="0" result="BackgroundImageFix" /><feColorMatrix
+									in="SourceAlpha"
+									result="hardAlpha"
+									values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+								/><feOffset /><feGaussianBlur stdDeviation="10" /><feComposite
+									in2="hardAlpha"
+									operator="out"
+								/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0" /><feBlend
+									in2="BackgroundImageFix"
+									result="effect1_dropShadow_430_66298"
+								/><feBlend
+									in="SourceGraphic"
+									in2="effect1_dropShadow_430_66298"
+									result="shape"
+								/></filter
+							></defs
+						></svg
+					>
+					กลับ
 				</button>
 			{/if}
 		</div>
@@ -385,6 +456,17 @@
 		}
 	}
 
+	.help-backdrop {
+		overflow: hidden;
+	}
+
+	.help-content {
+		&.right {
+			padding: 0 80px;
+			align-items: flex-end;
+		}
+	}
+
 	.balloon {
 		display: flex;
 		align-items: center;
@@ -398,14 +480,14 @@
 		margin-bottom: 16px;
 
 		width: 260px;
+		user-select: none;
 
 		> img {
 			height: 48px;
 		}
 
-		&.choice {
+		&.clickable {
 			cursor: pointer;
-			user-select: none;
 		}
 
 		@media (min-width: 768px) {

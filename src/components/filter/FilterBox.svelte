@@ -229,7 +229,7 @@
 			inset: 0;
 			padding: 18px 26px;
 			padding-right: 30px;
-			width: auto;
+			width: 100%;
 		}
 
 		.drawer-backdrop {
