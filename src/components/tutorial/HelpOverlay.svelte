@@ -435,7 +435,7 @@
 {#if current_tutorial}
 	{#each TUTORIAL_BALLOONS[current_tutorial - 1] as { key, name, styles } (key)}
 		<div
-			class="help-tooltip wv-b5 nw"
+			class="help-tooltip wv-b6 nw"
 			class:mobile-top={key === -1}
 			class:bottom={key === 5}
 			style={styles}
