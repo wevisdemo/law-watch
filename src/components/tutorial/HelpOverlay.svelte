@@ -12,7 +12,8 @@
 		sort_order_when_status,
 		sort_order_when_timeline,
 		selected_law,
-		is_law_status_open
+		is_law_status_open,
+		is_mobile_drawer_open
 	} from 'stores/filterOptionStore';
 	import {
 		vis_type_highlight,
@@ -36,12 +37,12 @@
 	const closeHelp = () => {
 		is_help_show = false;
 		if (!is_intro_dismiss) setTimeout(dismissIntro, 500);
-		setTimeout(resetHighlight, 500);
 		setTimeout(resetCurrentTutorial, 500);
 	};
 
 	const resetCurrentTutorial = () => {
 		current_tutorial = null;
+		resetHighlight();
 	};
 
 	const resetHighlight = () => {
@@ -51,6 +52,7 @@
 		$law_type_highlight = false;
 		$law_status_highlight = false;
 		$mobile_filter_toggle_highlight = false;
+		$is_mobile_drawer_open = false;
 	};
 
 	const resetFilter = () => {
@@ -74,6 +76,7 @@
 		$group_highlight = true;
 		$order_highlight = true;
 		$law_status_highlight = 'two';
+		$is_mobile_drawer_open = true;
 
 		resetFilter();
 	};
@@ -85,6 +88,7 @@
 		$vis_type_highlight = true;
 		$group_highlight = true;
 		$law_status_highlight = 'all';
+		$is_mobile_drawer_open = true;
 
 		resetFilter();
 		$current_group_choice = 'ฝ่ายที่เสนอร่างกฎหมาย';
@@ -99,6 +103,7 @@
 		$group_highlight = true;
 		$order_highlight = true;
 		$law_type_highlight = true;
+		$is_mobile_drawer_open = true;
 
 		resetFilter();
 		$sort_order_when_status = ['หมวดหมู่', 'สถานะ'];
@@ -114,6 +119,7 @@
 		$group_highlight = true;
 		$order_highlight = true;
 		$law_status_highlight = 'one';
+		$is_mobile_drawer_open = true;
 
 		resetFilter();
 		$view_timeline = true;
@@ -129,95 +135,115 @@
 	const TUTORIAL_BALLOONS = [
 		[
 			{
+				key: -1,
+				name: 'เลือก filter',
+				styles: '--m-t:11px'
+			},
+			{
 				key: 0,
 				name: 'เลือกดูภาพรวม',
-				position: 'top:81px'
+				styles: '--d-t:81px;--m-t:41px'
 			},
 			{
 				key: 1,
-				name: 'เลือกไม่แบ่งกลุ่ม เพื่อดูทั้งหมด',
-				position: 'top:151px'
+				name: 'เลือกไม่แบ่งกลุ่ม<wbr> เพื่อดูทั้งหมด',
+				styles: '--d-t:151px;--m-t:89px'
 			},
 			{
 				key: 2,
-				name: 'เลือกเรียงตามสถานะ',
-				position: 'top:222px'
+				name: 'เลือกเรียงตาม<wbr>สถานะ',
+				styles: '--d-t:222px;--m-t:152px'
 			},
 			{
 				key: 5,
-				name: 'มองหาสัญลักษณ์ที่บอกว่าตกไป/อยู่ในกระบวนการ<br />หรือดูจำนวนรวมเทียบกัน',
-				position: 'bottom:205px'
+				name: 'มองหาสัญลักษณ์ที่บอกว่า<wbr>ตกไป/อยู่ในกระบวนการ<br />หรือดูจำนวนรวมเทียบกัน',
+				styles: '--d-b:205px;--m-b:130px'
 			}
 		],
 		[
 			{
+				key: -1,
+				name: 'เลือก filter',
+				styles: '--m-t:11px'
+			},
+			{
 				key: 0,
 				name: 'เลือกดูภาพรวม',
-				position: 'top:81px'
+				styles: '--d-t:81px;--m-t:41px'
 			},
 			{
 				key: 1,
-				name: 'เลือกดูฝ่ายที่เสนอร่างกฎหมาย',
-				position: 'top:151px'
+				name: 'เลือกดูฝ่ายที่เสนอ<wbr>ร่างกฎหมาย',
+				styles: '--d-t:151px;--m-t:89px'
 			},
 			{
 				key: 2,
-				name: 'เลือกทุกฝ่ายเพื่อเทียบกัน',
-				position: 'top:231px'
+				name: 'เลือกทุกฝ่าย<wbr>เพื่อเทียบกัน',
+				styles: '--d-t:231px;--m-t:161px'
 			},
 			{
 				key: 5,
 				name: 'มองหาสัญลักษณ์ที่บอกว่าผ่าน<br />หรือดูจำนวนรวมเทียบกัน',
-				position: 'bottom:205px'
+				styles: '--d-b:205px;--m-b:130px'
 			}
 		],
 		[
+			{
+				key: -1,
+				name: 'เลือก filter',
+				styles: '--m-t:11px'
+			},
 			{
 				key: 0,
 				name: 'เลือกดูภาพรวม',
-				position: 'top:81px'
+				styles: '--d-t:81px;--m-t:41px'
 			},
 			{
 				key: 1,
-				name: 'เลือกดูพรรคที่เสนอร่างกฎหมาย',
-				position: 'top:151px'
+				name: 'เลือกดูพรรคที่<wbr>เสนอร่างกฎหมาย',
+				styles: '--d-t:151px;--m-t:89px'
 			},
 			{
 				key: 2,
-				name: 'เลือกทุกพรรคเพื่อเทียบกัน',
-				position: 'top:231px'
+				name: 'เลือกทุกพรรค<wbr>เพื่อเทียบกัน',
+				styles: '--d-t:231px;--m-t:161px'
 			},
 			{
 				key: 3,
-				name: 'เลือกเรียงตามหมวดหมู่เพื่อดูประเด็น',
-				position: 'top:302px'
+				name: 'เลือกเรียงตาม<wbr>หมวดหมู่<wbr>เพื่อดูประเด็น',
+				styles: '--d-t:302px;--m-t:213px'
 			},
 			{
 				key: 4,
-				name: 'เลือกหมวดหมู่ที่สนใจ',
-				position: 'top:419px'
+				name: 'เลือกหมวดหมู่<wbr>ที่สนใจ',
+				styles: '--d-t:419px;--m-t:323px'
 			}
 		],
 		[
 			{
+				key: -1,
+				name: 'เลือก filter',
+				styles: '--m-t:11px'
+			},
+			{
 				key: 0,
 				name: 'เลือกดูระยะเวลา',
-				position: 'top:81px'
+				styles: '--d-t:81px;--m-t:41px'
 			},
 			{
 				key: 1,
-				name: 'เลือกไม่แบ่งกลุ่ม เพื่อดูทั้งหมด',
-				position: 'top:151px'
+				name: 'เลือกไม่แบ่งกลุ่ม<wbr> เพื่อดูทั้งหมด',
+				styles: '--d-t:151px;--m-t:90px'
 			},
 			{
 				key: 2,
-				name: 'เลือกเรียงตามระยะเวลา',
-				position: 'top:222px'
+				name: 'เลือกเรียงตาม<wbr>ระยะเวลา',
+				styles: '--d-t:222px;--m-t:152px'
 			},
 			{
 				key: 5,
-				name: 'มองหาสัญลักษณ์ที่บอกว่าตกไป',
-				position: 'bottom:217px'
+				name: 'มองหาสัญลักษณ์<wbr>ที่บอกว่าตกไป',
+				styles: '--d-b:217px;--m-b:130px'
 			}
 		]
 	];
@@ -227,21 +253,12 @@
 	<HelpBtn on:click={() => (is_help_show = true)} />
 {/if}
 <div class="help-overlay" class:show={is_help_show}>
-	<div class="help-backdrop">
-		{#if current_tutorial}
-			{#each TUTORIAL_BALLOONS[current_tutorial - 1] as { key, name, position } (key)}
-				<div
-					class="help-tooltip"
-					style={position}
-					transition:fade={{ duration: 300 }}
-					animate:flip={{ duration: 300 }}
-				>
-					{@html name}
-				</div>
-			{/each}
-		{/if}
-	</div>
-	<div class="help-content c" class:right={current_tutorial}>
+	<div class="help-backdrop" />
+	<div
+		class="help-content c"
+		class:right={current_tutorial}
+		class:shift-tut3={current_tutorial === 3}
+	>
 		{#if is_intro_dismiss && !current_tutorial}
 			<div
 				class="balloon wv-b5"
@@ -288,7 +305,12 @@
 				<img src="/law-watch/question.svg" alt="" />
 			</div>
 		{:else if current_tutorial}
-			<div class="balloon wv-b5">
+			<div
+				class="balloon wv-b5"
+				class:shift-tut1={current_tutorial === 1}
+				class:shift-tut2={current_tutorial === 2}
+				class:shift-tut4={current_tutorial === 4}
+			>
 				<div>
 					{@html TUTORIAL_CHOICES[current_tutorial - 1]}
 				</div>
@@ -410,6 +432,20 @@
 		</div>
 	</div>
 </div>
+{#if current_tutorial}
+	{#each TUTORIAL_BALLOONS[current_tutorial - 1] as { key, name, styles } (key)}
+		<div
+			class="help-tooltip wv-b5 nw"
+			class:mobile-top={key === -1}
+			class:bottom={key === 5}
+			style={styles}
+			transition:fade={{ duration: 300 }}
+			animate:flip={{ duration: 300 }}
+		>
+			{@html name}
+		</div>
+	{/each}
+{/if}
 
 <style lang="scss">
 	.help-overlay,
@@ -462,8 +498,16 @@
 
 	.help-content {
 		&.right {
-			padding: 0 80px;
-			align-items: flex-end;
+			&.shift-tut3 {
+				padding: 16px 24px;
+				align-items: flex-end;
+				justify-content: flex-end;
+			}
+
+			@media (min-width: 768px) {
+				justify-content: center;
+				padding: 0 80px;
+			}
 		}
 	}
 
@@ -488,6 +532,20 @@
 
 		&.clickable {
 			cursor: pointer;
+		}
+
+		@media (max-width: 767.5px) {
+			&.shift-tut1 {
+				margin-top: 37px;
+			}
+
+			&.shift-tut2 {
+				margin-top: 67px;
+			}
+
+			&.shift-tut4 {
+				margin-top: 58px;
+			}
 		}
 
 		@media (min-width: 768px) {
@@ -543,21 +601,63 @@
 		color: #3904e9;
 		border-radius: 2px;
 
-		padding: 10px;
+		padding: 8px;
 
 		position: absolute;
-		left: 324px;
+		top: var(--m-t, unset);
+		bottom: var(--m-b, unset);
+		left: 178px;
+		width: min-content;
+		max-width: 140px;
+		z-index: 4;
 
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 6px;
 
 		&::before {
 			content: '';
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 41 16'%3E%3Cpath fill='%233904E9' d='M.293 7.293a1 1 0 000 1.414l6.364 6.364a1 1 0 001.414-1.414L2.414 8l5.657-5.657A1 1 0 006.657.93L.293 7.293zM41 7H1v2h40V7z'/%3E%3C/svg%3E");
-			width: 40px;
-			// display: block;
+			background-size: cover;
+			width: 16px;
 			height: 16px;
+			flex: 0 0 16px;
+
+			@media (min-width: 768px) {
+				flex: 0 0 40px;
+				width: 40px;
+			}
+		}
+
+		&.mobile-top {
+			left: 56px;
+		}
+
+		@media (max-width: 767.5px) {
+			&.bottom {
+				left: 24px;
+				flex-direction: column;
+				align-items: flex-start;
+				max-width: 185px;
+				gap: 4px;
+
+				&:before {
+					order: 1;
+					transform: rotate(-90deg);
+				}
+			}
+		}
+
+		@media (min-width: 768px) {
+			gap: 8px;
+			left: 324px;
+			top: var(--d-t, unset);
+			bottom: var(--d-b, unset);
+			max-width: unset;
+
+			&.mobile-top {
+				display: none;
+			}
 		}
 	}
 </style>

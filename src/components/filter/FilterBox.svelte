@@ -65,7 +65,6 @@
 	<button
 		type="button"
 		class="close-btn drawer-partner"
-		class:highlight={$mobile_filter_toggle_highlight}
 		class:dw-open={$is_mobile_drawer_open}
 		on:click={toggleMobileDrawer}
 	>
@@ -196,7 +195,7 @@
 		display: flex;
 		align-items: center;
 		gap: 16px;
-		margin-bottom: -41px;
+		margin-bottom: -33px;
 
 		@media (min-width: 768px) {
 			margin-bottom: -14px;
@@ -230,6 +229,8 @@
 			padding: 18px 26px;
 			padding-right: 30px;
 			width: 100%;
+
+			gap: 8px;
 		}
 
 		.drawer-backdrop {

@@ -110,11 +110,17 @@
 	}
 
 	@media (max-width: 767.5px) {
+		.law-status-type,
+		.header > span {
+			margin-bottom: 4px;
+		}
+
 		.merge-type {
-			margin: 12px 0;
+			margin: 0;
 		}
 
 		.law-line {
+			margin-top: 8px;
 			gap: 4px;
 
 			> img {
