@@ -141,17 +141,17 @@
 			{
 				key: 0,
 				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:84px;--m-t:42px'
+				styles: '--d-t:84px;--m-t:43px'
 			},
 			{
 				key: 1,
 				name: 'เลือกไม่แบ่งกลุ่ม<wbr class="no-desktop">เพื่อดูทั้งหมด',
-				styles: '--d-t:155px;--m-t:93px'
+				styles: '--d-t:155px;--m-t:94px'
 			},
 			{
 				key: 2,
 				name: 'เลือกเรียงตาม<wbr class="no-desktop">สถานะ',
-				styles: '--d-t:226px;--m-t:155px'
+				styles: '--d-t:226px;--m-t:156px'
 			},
 			{
 				key: 5,
@@ -168,22 +168,22 @@
 			{
 				key: 0,
 				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:84px;--m-t:42px'
+				styles: '--d-t:84px;--m-t:43px'
 			},
 			{
 				key: 1,
 				name: 'เลือกดูฝ่ายที่เสนอ<wbr class="no-desktop">ร่างกฎหมาย',
-				styles: '--d-t:155px;--m-t:93px'
+				styles: '--d-t:155px;--m-t:94px'
 			},
 			{
 				key: 2,
 				name: 'เลือกทุกฝ่าย<wbr class="no-desktop">เพื่อเทียบกัน',
-				styles: '--d-t:235px;--m-t:164px'
+				styles: '--d-t:235px;--m-t:165px'
 			},
 			{
-				key: 5,
+				key: 6,
 				name: 'มองหาสัญลักษณ์ที่บอกว่าผ่าน<br>หรือดูจำนวนรวมเทียบกัน',
-				styles: '--d-b:211px;--m-b:130px'
+				styles: '--d-st:530px;--d-b:211px;--m-b:130px'
 			}
 		],
 		[
@@ -195,27 +195,27 @@
 			{
 				key: 0,
 				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:84px;--m-t:42px'
+				styles: '--d-t:84px;--m-t:43px'
 			},
 			{
 				key: 1,
 				name: 'เลือกดูพรรคที่<wbr class="no-desktop">เสนอร่างกฎหมาย',
-				styles: '--d-t:155px;--m-t:93px'
+				styles: '--d-t:155px;--m-t:94px'
 			},
 			{
 				key: 2,
 				name: 'เลือกทุกพรรค<wbr class="no-desktop">เพื่อเทียบกัน',
-				styles: '--d-t:235px;--m-t:164px'
+				styles: '--d-t:235px;--m-t:165px'
 			},
 			{
 				key: 3,
 				name: 'เลือกเรียงตาม<wbr class="no-desktop">หมวดหมู่<wbr class="no-desktop">เพื่อดูประเด็น',
-				styles: '--d-t:306px;--m-t:217px'
+				styles: '--d-t:306px;--m-t:218px'
 			},
 			{
 				key: 4,
 				name: 'เลือกหมวดหมู่<wbr class="no-desktop">ที่สนใจ',
-				styles: '--d-t:423px;--m-t:326px'
+				styles: '--d-t:423px;--m-t:327px'
 			}
 		],
 		[
@@ -227,17 +227,17 @@
 			{
 				key: 0,
 				name: 'เลือกดูระยะเวลา',
-				styles: '--d-t:84px;--m-t:42px'
+				styles: '--d-t:84px;--m-t:43px'
 			},
 			{
 				key: 1,
 				name: 'เลือกไม่แบ่งกลุ่ม<wbr class="no-desktop">เพื่อดูทั้งหมด',
-				styles: '--d-t:155px;--m-t:93px'
+				styles: '--d-t:155px;--m-t:94px'
 			},
 			{
 				key: 2,
 				name: 'เลือกเรียงตาม<wbr class="no-desktop">ระยะเวลา',
-				styles: '--d-t:226px;--m-t:155px'
+				styles: '--d-t:226px;--m-t:156px'
 			},
 			{
 				key: 5,
@@ -436,7 +436,8 @@
 		<div
 			class="help-tooltip wv-b6 nw"
 			class:mobile-top={key === -1}
-			class:bottom={key === 5}
+			class:bottom={key === 5 || key === 6}
+			class:special-bottom={key === 6}
 			style={styles}
 			transition:fade={{ duration: 300 }}
 		>
@@ -655,6 +656,13 @@
 					order: 1;
 					transform: rotate(-90deg);
 				}
+			}
+		}
+
+		@media (max-height: 800px) and (min-width: 768px) {
+			&.special-bottom {
+				top: var(--d-st, unset);
+				bottom: unset;
 			}
 		}
 
