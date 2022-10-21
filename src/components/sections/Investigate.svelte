@@ -7,8 +7,11 @@
 		current_side_choice,
 		current_party_choice,
 		current_voteparty_choice,
-		sort_order
+		sort_order,
+		selected_law
 	} from 'stores/filterOptionStore';
+
+	import { data } from 'data/rawData';
 
 	import FilterBox from 'components/filter/FilterBox.svelte';
 	import HelpOverlay from 'components/tutorial/HelpOverlay.svelte';
@@ -57,13 +60,47 @@
 			}
 		);
 	});
+
+	// https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore
+	const groupBy = (arr: any[], groupFn: (element: any) => any) => {
+		return arr.reduce((r, v, _i, _a, k = groupFn(v)) => ((r[k] || (r[k] = [])).push(v), r), {});
+	};
+
+	let transformed_data: any = data;
+	const getTransformedData = () => transformed_data;
+	$: {
+		let temp = getTransformedData(); // avoid excessive recalculation
+		if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
+			temp = groupBy(data, (element) => element['ประเภทผู้เสนอ']);
+			for (let key in temp) {
+				if ($sort_order[0] === 'สถานะ') {
+					temp[key] = groupBy(temp[key], (element) => element['status ร่างกฎหมาย']);
+				} else {
+					temp[key] = groupBy(temp[key], (element) => element.หมวดหมู่ร่างกฎหมาย);
+				}
+			}
+		} else {
+			if ($sort_order[0] === 'สถานะ') {
+				temp = groupBy(data, (element) => element['status ร่างกฎหมาย']);
+			} else {
+				temp = groupBy(data, (element) => element.หมวดหมู่ร่างกฎหมาย);
+			}
+			for (let key in temp) {
+				temp[key] = temp[key].filter((e: any) =>
+					$selected_law.some((c) => e.หมวดหมู่ร่างกฎหมาย.includes(c))
+				);
+			}
+		}
+		transformed_data = temp;
+	}
 </script>
 
 <section bind:this={el_section} id="investigate-section" class="h100">
 	<h2 class="title wv-b4 tc nw">{@html label}</h2>
+	<div class="playground"><pre>{JSON.stringify(transformed_data, null, 2)}</pre></div>
 	<FilterBox />
 	<Sidebar is_open={is_sidebar_open} />
-	<HelpOverlay />
+	<!-- <HelpOverlay /> -->
 
 	<!-- <button
 		type="button"
@@ -89,5 +126,15 @@
 			left: calc(308px);
 			width: calc(100% - 616px);
 		}
+	}
+
+	.playground {
+		background: #fff;
+		color: #000;
+
+		position: absolute;
+		inset: 25%;
+
+		overflow-y: scroll;
 	}
 </style>

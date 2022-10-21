@@ -117,7 +117,7 @@
 	{/if}
 	<LawType
 		class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
-		selected_law={$selected_law}
+		bind:selected_law={$selected_law}
 	/>
 	<LawStatus class="alone" bind:is_open={$is_law_status_open} highlight={$law_status_highlight} />
 </div>
