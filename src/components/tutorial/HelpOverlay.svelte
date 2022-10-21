@@ -125,17 +125,17 @@
 	};
 
 	const TUTORIAL_CHOICES = [
-		'<strong>ร่างกฎหมาย</strong> มักไม่ค่อยออกเป็น<br />กฎหมาย ส่วนมากอยู่ระหว่าง<br />กระบวนการ หรือตกไปแล้วใช่ไหม',
-		'<strong>ร่างกฎหมาย</strong> ของฝ่ายรัฐบาล<br />ผ่านได้ง่ายกว่าของฝ่ายค้านหรือเปล่า',
-		'<strong>พรรคการเมือง</strong> สนใจประเด็น<br />กฎหมายแตกต่างกันแค่ไหน',
-		'<strong>ร่างกฎหมาย</strong> ที่ใช้ระยะเวลานานใน<br />กระบวนการนานมักไม่ผ่านใช่ไหม'
+		'<strong>ร่างกฎหมาย</strong> มักไม่ค่อยออกเป็น<br>กฎหมาย ส่วนมากอยู่ระหว่าง<br>กระบวนการ หรือตกไปแล้วใช่ไหม',
+		'<strong>ร่างกฎหมาย</strong> ของฝ่ายรัฐบาล<br>ผ่านได้ง่ายกว่าของฝ่ายค้านหรือเปล่า',
+		'<strong>พรรคการเมือง</strong> สนใจประเด็น<br>กฎหมายแตกต่างกันแค่ไหน',
+		'<strong>ร่างกฎหมาย</strong> ที่ใช้ระยะเวลานานใน<br>กระบวนการนานมักไม่ผ่านใช่ไหม'
 	];
 
 	const TUTORIAL_BALLOONS = [
 		[
 			{
 				key: -1,
-				name: 'เลือก filter',
+				name: 'เลือก Filter',
 				styles: '--m-t:12px'
 			},
 			{
@@ -145,51 +145,24 @@
 			},
 			{
 				key: 1,
-				name: 'เลือกไม่แบ่งกลุ่ม<wbr> เพื่อดูทั้งหมด',
-				styles: '--d-t:144px;--m-t:93px'
+				name: 'เลือกไม่แบ่งกลุ่ม<wbr class="no-desktop">เพื่อดูทั้งหมด',
+				styles: '--d-t:155px;--m-t:93px'
 			},
 			{
 				key: 2,
-				name: 'เลือกเรียงตาม<wbr>สถานะ',
-				styles: '--d-t:215px;--m-t:155px'
+				name: 'เลือกเรียงตาม<wbr class="no-desktop">สถานะ',
+				styles: '--d-t:226px;--m-t:155px'
 			},
 			{
 				key: 5,
-				name: 'มองหาสัญลักษณ์ที่บอกว่า<wbr>ตกไป/อยู่ในกระบวนการ<br />หรือดูจำนวนรวมเทียบกัน',
-				styles: '--d-b:200px;--m-b:130px'
-			}
-		],
-		[
-			{
-				key: -1,
-				name: 'เลือก filter',
-				styles: '--m-t:12px'
-			},
-			{
-				key: 0,
-				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:84px;--m-t:42px'
-			},
-			{
-				key: 1,
-				name: 'เลือกดูฝ่ายที่เสนอ<wbr>ร่างกฎหมาย',
-				styles: '--d-t:144px;--m-t:93px'
-			},
-			{
-				key: 2,
-				name: 'เลือกทุกฝ่าย<wbr>เพื่อเทียบกัน',
-				styles: '--d-t:224px;--m-t:164px'
-			},
-			{
-				key: 5,
-				name: 'มองหาสัญลักษณ์ที่บอกว่าผ่าน<br />หรือดูจำนวนรวมเทียบกัน',
+				name: 'มองหาสัญลักษณ์ที่บอกว่า<wbr class="no-desktop">ตกไป/อยู่ในกระบวนการ<br>หรือดูจำนวนรวมเทียบกัน',
 				styles: '--d-b:211px;--m-b:130px'
 			}
 		],
 		[
 			{
 				key: -1,
-				name: 'เลือก filter',
+				name: 'เลือก Filter',
 				styles: '--m-t:12px'
 			},
 			{
@@ -199,29 +172,56 @@
 			},
 			{
 				key: 1,
-				name: 'เลือกดูพรรคที่<wbr>เสนอร่างกฎหมาย',
-				styles: '--d-t:144px;--m-t:93px'
+				name: 'เลือกดูฝ่ายที่เสนอ<wbr class="no-desktop">ร่างกฎหมาย',
+				styles: '--d-t:155px;--m-t:93px'
 			},
 			{
 				key: 2,
-				name: 'เลือกทุกพรรค<wbr>เพื่อเทียบกัน',
-				styles: '--d-t:224px;--m-t:164px'
+				name: 'เลือกทุกฝ่าย<wbr class="no-desktop">เพื่อเทียบกัน',
+				styles: '--d-t:235px;--m-t:164px'
 			},
 			{
-				key: 3,
-				name: 'เลือกเรียงตาม<wbr>หมวดหมู่<wbr>เพื่อดูประเด็น',
-				styles: '--d-t:285px;--m-t:217px'
-			},
-			{
-				key: 4,
-				name: 'เลือกหมวดหมู่<wbr>ที่สนใจ',
-				styles: '--d-t:412px;--m-t:326px'
+				key: 5,
+				name: 'มองหาสัญลักษณ์ที่บอกว่าผ่าน<br>หรือดูจำนวนรวมเทียบกัน',
+				styles: '--d-b:211px;--m-b:130px'
 			}
 		],
 		[
 			{
 				key: -1,
-				name: 'เลือก filter',
+				name: 'เลือก Filter',
+				styles: '--m-t:12px'
+			},
+			{
+				key: 0,
+				name: 'เลือกดูภาพรวม',
+				styles: '--d-t:84px;--m-t:42px'
+			},
+			{
+				key: 1,
+				name: 'เลือกดูพรรคที่<wbr class="no-desktop">เสนอร่างกฎหมาย',
+				styles: '--d-t:155px;--m-t:93px'
+			},
+			{
+				key: 2,
+				name: 'เลือกทุกพรรค<wbr class="no-desktop">เพื่อเทียบกัน',
+				styles: '--d-t:235px;--m-t:164px'
+			},
+			{
+				key: 3,
+				name: 'เลือกเรียงตาม<wbr class="no-desktop">หมวดหมู่<wbr class="no-desktop">เพื่อดูประเด็น',
+				styles: '--d-t:306px;--m-t:217px'
+			},
+			{
+				key: 4,
+				name: 'เลือกหมวดหมู่<wbr class="no-desktop">ที่สนใจ',
+				styles: '--d-t:423px;--m-t:326px'
+			}
+		],
+		[
+			{
+				key: -1,
+				name: 'เลือก Filter',
 				styles: '--m-t:12px'
 			},
 			{
@@ -231,18 +231,18 @@
 			},
 			{
 				key: 1,
-				name: 'เลือกไม่แบ่งกลุ่ม<wbr> เพื่อดูทั้งหมด',
-				styles: '--d-t:144px;--m-t:93px'
+				name: 'เลือกไม่แบ่งกลุ่ม<wbr class="no-desktop">เพื่อดูทั้งหมด',
+				styles: '--d-t:155px;--m-t:93px'
 			},
 			{
 				key: 2,
-				name: 'เลือกเรียงตาม<wbr>ระยะเวลา',
-				styles: '--d-t:215px;--m-t:155px'
+				name: 'เลือกเรียงตาม<wbr class="no-desktop">ระยะเวลา',
+				styles: '--d-t:226px;--m-t:155px'
 			},
 			{
 				key: 5,
-				name: 'มองหาสัญลักษณ์<wbr>ที่บอกว่าตกไป',
-				styles: '--d-b:211px;--m-b:130px'
+				name: 'มองหาสัญลักษณ์<wbr class="no-desktop">ที่บอกว่าตกไป',
+				styles: '--d-b:221px;--m-b:130px'
 			}
 		]
 	];
@@ -668,6 +668,12 @@
 			&.mobile-top {
 				display: none;
 			}
+		}
+	}
+
+	@media (min-width: 768px) {
+		:global(wbr.no-desktop) {
+			display: none;
 		}
 	}
 </style>
