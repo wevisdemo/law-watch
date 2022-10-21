@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { fly, fade } from 'svelte/transition';
-	import { flip } from 'svelte/animate';
 	import { LAW_TYPES } from 'data/law-types';
 	import {
 		search_input,
@@ -137,113 +136,113 @@
 			{
 				key: -1,
 				name: 'เลือก filter',
-				styles: '--m-t:11px'
+				styles: '--m-t:12px'
 			},
 			{
 				key: 0,
 				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:81px;--m-t:41px'
+				styles: '--d-t:84px;--m-t:42px'
 			},
 			{
 				key: 1,
 				name: 'เลือกไม่แบ่งกลุ่ม<wbr> เพื่อดูทั้งหมด',
-				styles: '--d-t:151px;--m-t:89px'
+				styles: '--d-t:144px;--m-t:93px'
 			},
 			{
 				key: 2,
 				name: 'เลือกเรียงตาม<wbr>สถานะ',
-				styles: '--d-t:222px;--m-t:152px'
+				styles: '--d-t:215px;--m-t:155px'
 			},
 			{
 				key: 5,
 				name: 'มองหาสัญลักษณ์ที่บอกว่า<wbr>ตกไป/อยู่ในกระบวนการ<br />หรือดูจำนวนรวมเทียบกัน',
-				styles: '--d-b:205px;--m-b:130px'
+				styles: '--d-b:200px;--m-b:130px'
 			}
 		],
 		[
 			{
 				key: -1,
 				name: 'เลือก filter',
-				styles: '--m-t:11px'
+				styles: '--m-t:12px'
 			},
 			{
 				key: 0,
 				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:81px;--m-t:41px'
+				styles: '--d-t:84px;--m-t:42px'
 			},
 			{
 				key: 1,
 				name: 'เลือกดูฝ่ายที่เสนอ<wbr>ร่างกฎหมาย',
-				styles: '--d-t:151px;--m-t:89px'
+				styles: '--d-t:144px;--m-t:93px'
 			},
 			{
 				key: 2,
 				name: 'เลือกทุกฝ่าย<wbr>เพื่อเทียบกัน',
-				styles: '--d-t:231px;--m-t:161px'
+				styles: '--d-t:224px;--m-t:164px'
 			},
 			{
 				key: 5,
 				name: 'มองหาสัญลักษณ์ที่บอกว่าผ่าน<br />หรือดูจำนวนรวมเทียบกัน',
-				styles: '--d-b:205px;--m-b:130px'
+				styles: '--d-b:211px;--m-b:130px'
 			}
 		],
 		[
 			{
 				key: -1,
 				name: 'เลือก filter',
-				styles: '--m-t:11px'
+				styles: '--m-t:12px'
 			},
 			{
 				key: 0,
 				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:81px;--m-t:41px'
+				styles: '--d-t:84px;--m-t:42px'
 			},
 			{
 				key: 1,
 				name: 'เลือกดูพรรคที่<wbr>เสนอร่างกฎหมาย',
-				styles: '--d-t:151px;--m-t:89px'
+				styles: '--d-t:144px;--m-t:93px'
 			},
 			{
 				key: 2,
 				name: 'เลือกทุกพรรค<wbr>เพื่อเทียบกัน',
-				styles: '--d-t:231px;--m-t:161px'
+				styles: '--d-t:224px;--m-t:164px'
 			},
 			{
 				key: 3,
 				name: 'เลือกเรียงตาม<wbr>หมวดหมู่<wbr>เพื่อดูประเด็น',
-				styles: '--d-t:302px;--m-t:213px'
+				styles: '--d-t:285px;--m-t:217px'
 			},
 			{
 				key: 4,
 				name: 'เลือกหมวดหมู่<wbr>ที่สนใจ',
-				styles: '--d-t:419px;--m-t:323px'
+				styles: '--d-t:412px;--m-t:326px'
 			}
 		],
 		[
 			{
 				key: -1,
 				name: 'เลือก filter',
-				styles: '--m-t:11px'
+				styles: '--m-t:12px'
 			},
 			{
 				key: 0,
 				name: 'เลือกดูระยะเวลา',
-				styles: '--d-t:81px;--m-t:41px'
+				styles: '--d-t:84px;--m-t:42px'
 			},
 			{
 				key: 1,
 				name: 'เลือกไม่แบ่งกลุ่ม<wbr> เพื่อดูทั้งหมด',
-				styles: '--d-t:151px;--m-t:90px'
+				styles: '--d-t:144px;--m-t:93px'
 			},
 			{
 				key: 2,
 				name: 'เลือกเรียงตาม<wbr>ระยะเวลา',
-				styles: '--d-t:222px;--m-t:152px'
+				styles: '--d-t:215px;--m-t:155px'
 			},
 			{
 				key: 5,
 				name: 'มองหาสัญลักษณ์<wbr>ที่บอกว่าตกไป',
-				styles: '--d-b:217px;--m-b:130px'
+				styles: '--d-b:211px;--m-b:130px'
 			}
 		]
 	];
@@ -440,7 +439,6 @@
 			class:bottom={key === 5}
 			style={styles}
 			transition:fade={{ duration: 300 }}
-			animate:flip={{ duration: 300 }}
 		>
 			{@html name}
 		</div>
@@ -616,6 +614,16 @@
 		display: flex;
 		align-items: center;
 		gap: 6px;
+
+		// aligner
+		// &::after {
+		// 	content: '';
+		// 	height: 2px;
+		// 	width: 300px;
+		// 	background: red;
+		// 	position: absolute;
+		// 	transform: translateX(-100%);
+		// }
 
 		&::before {
 			content: '';
