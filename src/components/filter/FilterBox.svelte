@@ -62,14 +62,6 @@
 		<SearchBox class="search-flex" bind:value={$search_input} />
 	</div>
 	<div class="drawer-backdrop drawer-partner" class:dw-open={$is_mobile_drawer_open} />
-	<button
-		type="button"
-		class="close-btn drawer-partner"
-		class:dw-open={$is_mobile_drawer_open}
-		on:click={toggleMobileDrawer}
-	>
-		<img src="/law-watch/close.svg" alt="ปิด" width="16" height="16" />
-	</button>
 	<VisType
 		class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
 		bind:view_timeline={$view_timeline}
@@ -171,22 +163,6 @@
 		}
 	}
 
-	.close-btn {
-		width: 24px;
-		height: 24px;
-		flex: 0 0 24px;
-		padding: 4px;
-		margin-left: auto;
-
-		border: none;
-		background: transparent;
-		cursor: pointer;
-
-		@media (min-width: 768px) {
-			display: none;
-		}
-	}
-
 	:global(.alone) {
 		margin-top: auto;
 	}
@@ -195,7 +171,6 @@
 		display: flex;
 		align-items: center;
 		gap: 16px;
-		margin-bottom: -33px;
 
 		@media (min-width: 768px) {
 			margin-bottom: -14px;
@@ -217,6 +192,7 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
+		z-index: 1;
 
 		@media (min-width: 768px) {
 			display: none;
