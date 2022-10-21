@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="paper {type} {category && LAW_TYPE_METADATA[category].color}"
+	class="paper {type} {category && LAW_TYPE_METADATA[category]?.color}"
 	class:noMargin
 	class:noHover
 	class:marked
