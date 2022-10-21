@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { tick } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { LAW_TYPES } from 'data/law-types';
 	import {
@@ -69,59 +70,75 @@
 
 	const showTutorial1 = () => {
 		current_tutorial = 1;
+
 		resetHighlight();
 		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
 		$group_highlight = true;
 		$order_highlight = true;
 		$law_status_highlight = 'two';
-		$is_mobile_drawer_open = true;
 
 		resetFilter();
+
+		tick().then(() => {
+			$is_mobile_drawer_open = true;
+		});
 	};
 
 	const showTutorial2 = () => {
 		current_tutorial = 2;
+
 		resetHighlight();
 		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
 		$group_highlight = true;
 		$law_status_highlight = 'all';
-		$is_mobile_drawer_open = true;
 
 		resetFilter();
 		$current_group_choice = 'ฝ่ายที่เสนอร่างกฎหมาย';
 		$selected_law = [];
+
+		tick().then(() => {
+			$is_mobile_drawer_open = true;
+		});
 	};
 
 	const showTutorial3 = () => {
 		current_tutorial = 3;
+
 		resetHighlight();
 		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
 		$group_highlight = true;
 		$order_highlight = true;
 		$law_type_highlight = true;
-		$is_mobile_drawer_open = true;
 
 		resetFilter();
 		$sort_order_when_status = ['หมวดหมู่', 'สถานะ'];
 		$current_group_choice = 'พรรคที่เสนอร่างกฎหมาย';
 		$selected_law = ['สิ่งแวดล้อม'];
+
+		tick().then(() => {
+			$is_mobile_drawer_open = true;
+		});
 	};
 
 	const showTutorial4 = () => {
 		current_tutorial = 4;
+
 		resetHighlight();
 		$mobile_filter_toggle_highlight = true;
 		$vis_type_highlight = true;
 		$group_highlight = true;
 		$order_highlight = true;
 		$law_status_highlight = 'one';
-		$is_mobile_drawer_open = true;
 
 		resetFilter();
 		$view_timeline = true;
+
+		tick().then(() => {
+			$is_mobile_drawer_open = true;
+		});
 	};
 
 	const TUTORIAL_CHOICES = [
