@@ -2,6 +2,13 @@
 	import { tick } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { LAW_TYPES } from 'data/law-types';
+	import type { LawTypes } from 'data/law-types';
+	import type {
+		GroupChoiceType,
+		PartyChoiceType,
+		SideChoiceType,
+		VotepartyChoiceType
+	} from 'data/filter-choices';
 	import {
 		search_input,
 		view_timeline,
@@ -23,6 +30,8 @@
 		law_status_highlight,
 		mobile_filter_toggle_highlight
 	} from 'stores/highlightManager';
+	import type { LawStatusHighlightType } from 'stores/highlightManager';
+	import { TUTORIAL_BALLOONS, TUTORIAL_CHOICES } from 'data/tutorial-data';
 
 	import HelpBtn from './HelpBtn.svelte';
 
@@ -42,43 +51,69 @@
 
 	const resetCurrentTutorial = () => {
 		current_tutorial = null;
-		resetHighlight();
+		setHighlight();
 	};
 
-	const resetHighlight = () => {
-		$vis_type_highlight = false;
-		$group_highlight = false;
-		$order_highlight = false;
-		$law_type_highlight = false;
-		$law_status_highlight = false;
-		$mobile_filter_toggle_highlight = false;
-		$is_mobile_drawer_open = false;
+	type setHighlightOptionType = {
+		vis_type_highlight?: boolean;
+		group_highlight?: boolean;
+		order_highlight?: boolean;
+		law_type_highlight?: boolean;
+		law_status_highlight?: LawStatusHighlightType;
+		mobile_filter_toggle_highlight?: boolean;
+		is_mobile_drawer_open?: boolean;
+	};
+	const setHighlight = (options?: setHighlightOptionType) => {
+		$vis_type_highlight = options?.vis_type_highlight ?? false;
+		$group_highlight = options?.group_highlight ?? false;
+		$order_highlight = options?.order_highlight ?? false;
+		$law_type_highlight = options?.law_type_highlight ?? false;
+		$law_status_highlight = options?.law_status_highlight ?? false;
+		$mobile_filter_toggle_highlight = options?.mobile_filter_toggle_highlight ?? false;
+		$is_mobile_drawer_open = options?.is_mobile_drawer_open ?? false;
 	};
 
-	const resetFilter = () => {
-		$search_input = '';
-		$sort_order_when_timeline = ['ระยะเวลา', 'สถานะ', 'หมวดหมู่'];
-		$sort_order_when_status = ['สถานะ', 'หมวดหมู่'];
-		$view_timeline = false;
-		$current_group_choice = 'ไม่แบ่งกลุ่ม';
-		$current_side_choice = 'เลือกทุกฝ่าย';
-		$current_party_choice = 'เลือกทุกพรรค';
-		$current_voteparty_choice = 'ครูไทยเพื่อประชาชน';
-		$selected_law = [...LAW_TYPES];
-		$is_law_status_open = true;
+	type setFilterOptionType = {
+		search_input?: string;
+		sort_order_when_timeline?: string[];
+		sort_order_when_status?: string[];
+		view_timeline?: boolean;
+		current_group_choice?: GroupChoiceType;
+		current_side_choice?: SideChoiceType;
+		current_party_choice?: PartyChoiceType;
+		current_voteparty_choice?: VotepartyChoiceType;
+		selected_law?: LawTypes[];
+		is_law_status_open?: boolean;
+	};
+	const setFilter = (options?: setFilterOptionType) => {
+		$search_input = options?.search_input ?? '';
+		$sort_order_when_timeline = options?.sort_order_when_timeline ?? [
+			'ระยะเวลา',
+			'สถานะ',
+			'หมวดหมู่'
+		];
+		$sort_order_when_status = options?.sort_order_when_status ?? ['สถานะ', 'หมวดหมู่'];
+		$view_timeline = options?.view_timeline ?? false;
+		$current_group_choice = options?.current_group_choice ?? 'ไม่แบ่งกลุ่ม';
+		$current_side_choice = options?.current_side_choice ?? 'เลือกทุกฝ่าย';
+		$current_party_choice = options?.current_party_choice ?? 'เลือกทุกพรรค';
+		$current_voteparty_choice = options?.current_voteparty_choice ?? 'ครูไทยเพื่อประชาชน';
+		$selected_law = options?.selected_law ?? [...LAW_TYPES];
+		$is_law_status_open = options?.is_law_status_open ?? true;
 	};
 
 	const showTutorial1 = () => {
 		current_tutorial = 1;
 
-		resetHighlight();
-		$mobile_filter_toggle_highlight = true;
-		$vis_type_highlight = true;
-		$group_highlight = true;
-		$order_highlight = true;
-		$law_status_highlight = 'two';
+		setHighlight({
+			mobile_filter_toggle_highlight: true,
+			vis_type_highlight: true,
+			group_highlight: true,
+			order_highlight: true,
+			law_status_highlight: 'two'
+		});
 
-		resetFilter();
+		setFilter();
 
 		tick().then(() => {
 			$is_mobile_drawer_open = true;
@@ -88,15 +123,17 @@
 	const showTutorial2 = () => {
 		current_tutorial = 2;
 
-		resetHighlight();
-		$mobile_filter_toggle_highlight = true;
-		$vis_type_highlight = true;
-		$group_highlight = true;
-		$law_status_highlight = 'all';
+		setHighlight({
+			mobile_filter_toggle_highlight: true,
+			vis_type_highlight: true,
+			group_highlight: true,
+			law_status_highlight: 'all'
+		});
 
-		resetFilter();
-		$current_group_choice = 'ฝ่ายที่เสนอร่างกฎหมาย';
-		$selected_law = [];
+		setFilter({
+			current_group_choice: 'ฝ่ายที่เสนอร่างกฎหมาย',
+			selected_law: []
+		});
 
 		tick().then(() => {
 			$is_mobile_drawer_open = true;
@@ -106,17 +143,19 @@
 	const showTutorial3 = () => {
 		current_tutorial = 3;
 
-		resetHighlight();
-		$mobile_filter_toggle_highlight = true;
-		$vis_type_highlight = true;
-		$group_highlight = true;
-		$order_highlight = true;
-		$law_type_highlight = true;
+		setHighlight({
+			mobile_filter_toggle_highlight: true,
+			vis_type_highlight: true,
+			group_highlight: true,
+			order_highlight: true,
+			law_type_highlight: true
+		});
 
-		resetFilter();
-		$sort_order_when_status = ['หมวดหมู่', 'สถานะ'];
-		$current_group_choice = 'พรรคที่เสนอร่างกฎหมาย';
-		$selected_law = ['สิ่งแวดล้อม'];
+		setFilter({
+			sort_order_when_status: ['หมวดหมู่', 'สถานะ'],
+			current_group_choice: 'พรรคที่เสนอร่างกฎหมาย',
+			selected_law: ['สิ่งแวดล้อม']
+		});
 
 		tick().then(() => {
 			$is_mobile_drawer_open = true;
@@ -126,143 +165,22 @@
 	const showTutorial4 = () => {
 		current_tutorial = 4;
 
-		resetHighlight();
-		$mobile_filter_toggle_highlight = true;
-		$vis_type_highlight = true;
-		$group_highlight = true;
-		$order_highlight = true;
-		$law_status_highlight = 'one';
+		setHighlight({
+			mobile_filter_toggle_highlight: true,
+			vis_type_highlight: true,
+			group_highlight: true,
+			order_highlight: true,
+			law_status_highlight: 'one'
+		});
 
-		resetFilter();
-		$view_timeline = true;
+		setFilter({
+			view_timeline: true
+		});
 
 		tick().then(() => {
 			$is_mobile_drawer_open = true;
 		});
 	};
-
-	const TUTORIAL_CHOICES = [
-		'<strong>ร่างกฎหมาย</strong> มักไม่ค่อยออกเป็น<br>กฎหมาย ส่วนมากอยู่ระหว่าง<br>กระบวนการ หรือตกไปแล้วใช่ไหม',
-		'<strong>ร่างกฎหมาย</strong> ของฝ่ายรัฐบาล<br>ผ่านได้ง่ายกว่าของฝ่ายค้านหรือเปล่า',
-		'<strong>พรรคการเมือง</strong> สนใจประเด็น<br>กฎหมายแตกต่างกันแค่ไหน',
-		'<strong>ร่างกฎหมาย</strong> ที่ใช้ระยะเวลานานใน<br>กระบวนการนานมักไม่ผ่านใช่ไหม'
-	];
-
-	const TUTORIAL_BALLOONS = [
-		[
-			{
-				key: -1,
-				name: 'เลือก Filter',
-				styles: '--m-t:12px'
-			},
-			{
-				key: 0,
-				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:84px;--m-t:43px'
-			},
-			{
-				key: 1,
-				name: 'เลือกไม่แบ่งกลุ่ม<wbr class="no-desktop">เพื่อดูทั้งหมด',
-				styles: '--d-t:155px;--m-t:94px'
-			},
-			{
-				key: 2,
-				name: 'เลือกเรียงตาม<wbr class="no-desktop">สถานะ',
-				styles: '--d-t:226px;--m-t:156px'
-			},
-			{
-				key: 5,
-				name: 'มองหาสัญลักษณ์ที่บอกว่า<wbr class="no-desktop">ตกไป/อยู่ในกระบวนการ<br>หรือดูจำนวนรวมเทียบกัน',
-				styles: '--d-b:211px;--m-b:130px'
-			}
-		],
-		[
-			{
-				key: -1,
-				name: 'เลือก Filter',
-				styles: '--m-t:12px'
-			},
-			{
-				key: 0,
-				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:84px;--m-t:43px'
-			},
-			{
-				key: 1,
-				name: 'เลือกดูฝ่ายที่เสนอ<wbr class="no-desktop">ร่างกฎหมาย',
-				styles: '--d-t:155px;--m-t:94px'
-			},
-			{
-				key: 2,
-				name: 'เลือกทุกฝ่าย<wbr class="no-desktop">เพื่อเทียบกัน',
-				styles: '--d-t:235px;--m-t:165px'
-			},
-			{
-				key: 6,
-				name: 'มองหาสัญลักษณ์ที่บอกว่าผ่าน<br>หรือดูจำนวนรวมเทียบกัน',
-				styles: '--d-st:530px;--d-b:211px;--m-b:130px'
-			}
-		],
-		[
-			{
-				key: -1,
-				name: 'เลือก Filter',
-				styles: '--m-t:12px'
-			},
-			{
-				key: 0,
-				name: 'เลือกดูภาพรวม',
-				styles: '--d-t:84px;--m-t:43px'
-			},
-			{
-				key: 1,
-				name: 'เลือกดูพรรคที่<wbr class="no-desktop">เสนอร่างกฎหมาย',
-				styles: '--d-t:155px;--m-t:94px'
-			},
-			{
-				key: 2,
-				name: 'เลือกทุกพรรค<wbr class="no-desktop">เพื่อเทียบกัน',
-				styles: '--d-t:235px;--m-t:165px'
-			},
-			{
-				key: 3,
-				name: 'เลือกเรียงตาม<wbr class="no-desktop">หมวดหมู่<wbr class="no-desktop">เพื่อดูประเด็น',
-				styles: '--d-t:306px;--m-t:218px'
-			},
-			{
-				key: 4,
-				name: 'เลือกหมวดหมู่<wbr class="no-desktop">ที่สนใจ',
-				styles: '--d-t:423px;--m-t:327px'
-			}
-		],
-		[
-			{
-				key: -1,
-				name: 'เลือก Filter',
-				styles: '--m-t:12px'
-			},
-			{
-				key: 0,
-				name: 'เลือกดูระยะเวลา',
-				styles: '--d-t:84px;--m-t:43px'
-			},
-			{
-				key: 1,
-				name: 'เลือกไม่แบ่งกลุ่ม<wbr class="no-desktop">เพื่อดูทั้งหมด',
-				styles: '--d-t:155px;--m-t:94px'
-			},
-			{
-				key: 2,
-				name: 'เลือกเรียงตาม<wbr class="no-desktop">ระยะเวลา',
-				styles: '--d-t:226px;--m-t:156px'
-			},
-			{
-				key: 5,
-				name: 'มองหาสัญลักษณ์<wbr class="no-desktop">ที่บอกว่าตกไป',
-				styles: '--d-b:221px;--m-b:130px'
-			}
-		]
-	];
 </script>
 
 {#if !is_help_show}
@@ -276,50 +194,19 @@
 		class:shift-tut3={current_tutorial === 3}
 	>
 		{#if is_intro_dismiss && !current_tutorial}
-			<div
-				class="balloon wv-b5"
-				class:clickable={!current_tutorial}
-				on:click={showTutorial1}
-				in:fly={{ y: 10, duration: 300, delay: 0 }}
-			>
-				<div>
-					{@html TUTORIAL_CHOICES[0]}
+			{#each TUTORIAL_CHOICES as choice, i}
+				<div
+					class="balloon wv-b5"
+					class:clickable={!current_tutorial}
+					on:click={[showTutorial1, showTutorial2, showTutorial3, showTutorial4][i]}
+					in:fly={{ y: 10, duration: 300, delay: i * 100 }}
+				>
+					<div>
+						{@html choice}
+					</div>
+					<img src="/law-watch/question.svg" alt="" />
 				</div>
-				<img src="/law-watch/question.svg" alt="" />
-			</div>
-			<div
-				class="balloon wv-b5"
-				class:clickable={!current_tutorial}
-				on:click={showTutorial2}
-				in:fly={{ y: 10, duration: 300, delay: 100 }}
-			>
-				<div>
-					{@html TUTORIAL_CHOICES[1]}
-				</div>
-				<img src="/law-watch/question.svg" alt="" />
-			</div>
-			<div
-				class="balloon wv-b5"
-				class:clickable={!current_tutorial}
-				on:click={showTutorial3}
-				in:fly={{ y: 10, duration: 300, delay: 200 }}
-			>
-				<div>
-					{@html TUTORIAL_CHOICES[2]}
-				</div>
-				<img src="/law-watch/question.svg" alt="" />
-			</div>
-			<div
-				class="balloon wv-b5"
-				class:clickable={!current_tutorial}
-				on:click={showTutorial4}
-				in:fly={{ y: 10, duration: 300, delay: 300 }}
-			>
-				<div>
-					{@html TUTORIAL_CHOICES[3]}
-				</div>
-				<img src="/law-watch/question.svg" alt="" />
-			</div>
+			{/each}
 		{:else if current_tutorial}
 			<div
 				class="balloon wv-b5"
@@ -449,15 +336,8 @@
 	</div>
 </div>
 {#if current_tutorial}
-	{#each TUTORIAL_BALLOONS[current_tutorial - 1] as { key, name, styles } (key)}
-		<div
-			class="help-tooltip wv-b6 nw"
-			class:mobile-top={key === -1}
-			class:bottom={key === 5 || key === 6}
-			class:special-bottom={key === 6}
-			style={styles}
-			transition:fade={{ duration: 300 }}
-		>
+	{#each TUTORIAL_BALLOONS[current_tutorial - 1] as { name, cssClass, style }}
+		<div class="help-tooltip wv-b6 nw {cssClass}" {style} transition:fade={{ duration: 300 }}>
 			{@html name}
 		</div>
 	{/each}
