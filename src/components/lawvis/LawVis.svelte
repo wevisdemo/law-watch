@@ -132,6 +132,10 @@
 		width: 370px;
 		margin: auto;
 
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
 		.row {
 			display: flex;
 			flex-wrap: wrap;
