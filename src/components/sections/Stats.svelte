@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { inView } from 'motion';
-	import { is_stats_inview } from 'stores/sectionScrollManager';
 
 	import LawStatus from 'components/filter/LawStatus.svelte';
 	import PaperChart from 'components/PaperChart.svelte';
+
+	import { stats } from 'data/stats-cache';
+
+	import { is_stats_inview } from 'stores/sectionScrollManager';
 
 	let el_section: Element;
 	onMount(() => {
@@ -28,7 +31,7 @@
 		><br />
 		<span class="header-line2">
 			ทั้งหมด
-			<span class="wv-font-kondolar wv-h4 wv-font-black c-mint">300</span>
+			<span class="wv-font-kondolar wv-h4 wv-font-black c-mint">{stats.all_law_len}</span>
 			ฉบับ
 		</span>
 	</h2>
@@ -46,7 +49,7 @@
 				<div class="chart-presenter-header">
 					<span class="wv-b4">พรรคการเมือง</span><br />
 					<div class="number-aligner">
-						<span class="wv-font-kondolar wv-h5 wv-font-black">100</span>
+						<span class="wv-font-kondolar wv-h5 wv-font-black">{stats.by_party_len}</span>
 						<span class="wv-b5">ฉบับ</span>
 					</div>
 				</div>
@@ -56,7 +59,7 @@
 					<div class="number-container">
 						<span class="wv-b4">คณะรัฐมนตรี</span><br />
 						<div class="number-aligner">
-							<span class="wv-font-kondolar wv-h5 wv-font-black">100</span>
+							<span class="wv-font-kondolar wv-h5 wv-font-black">{stats.by_cabinet_len}</span>
 							<span class="wv-b5">ฉบับ</span>
 						</div>
 					</div>
@@ -66,7 +69,7 @@
 				<div class="chart-presenter-header">
 					<span class="wv-b4">ประชาชน</span><br />
 					<div class="number-aligner">
-						<span class="wv-font-kondolar wv-h5 wv-font-black">100</span>
+						<span class="wv-font-kondolar wv-h5 wv-font-black">{stats.by_people_len}</span>
 						<span class="wv-b5">ฉบับ</span>
 					</div>
 				</div>
@@ -76,42 +79,11 @@
 			</div>
 		</div>
 		<div class="chart-body">
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
-			<div>
-				<PaperChart data={[[3, 3], [5, 5], 8]} />
-			</div>
+			{#each stats.data as data}
+				<div>
+					<PaperChart {data} />
+				</div>
+			{/each}
 			<div class="wv-font-kondolar wv-font-black year">
 				<div class="first-year-wrapper">
 					<div class="year-label wv-b6">ปี พ.ศ.</div>

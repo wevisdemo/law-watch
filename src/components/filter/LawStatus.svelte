@@ -1,6 +1,9 @@
 <script lang="ts">
-	import type { LawStatusHighlightType } from 'stores/highlightManager';
 	import Paper from 'components/Paper.svelte';
+
+	import { stats } from 'data/stats-cache';
+
+	import type { LawStatusHighlightType } from 'stores/highlightManager';
 
 	let clazz = '';
 	export { clazz as class };
@@ -9,7 +12,7 @@
 		reject: number;
 		progress: number;
 		pass: number;
-	} = { reject: 50, progress: 50, pass: 50 };
+	} = { reject: stats.total_reject, progress: stats.total_progress, pass: stats.total_pass };
 	export let always_show_line = false;
 	export let is_open = true;
 
@@ -50,7 +53,7 @@
 		<span class="number">{data.pass}</span>
 	</div>
 	<div class="law-status-type merge-type">
-		<Paper type="stack" noMargin noHover />
+		<Paper type="pass" stacked noMargin noHover />
 		<span>กฎหมายที่ถูกรวมร่าง</span>
 	</div>
 	<div class="law-status-type law-line" class:always_show_line>

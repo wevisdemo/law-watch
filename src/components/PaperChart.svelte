@@ -1,6 +1,10 @@
 <script lang="ts">
 	import Paper from './Paper.svelte';
-	export let data: [[number, number], [number, number], number] = [[0, 0], [0, 0], 0];
+	export let data: number[][] = [
+		[0, 0],
+		[0, 0],
+		[0, 0]
+	];
 </script>
 
 <div class="paper-container">
@@ -24,10 +28,10 @@
 	<div class="number wv-b5">{data[1][0] + data[1][1]}</div>
 </div>
 <div class="paper-container">
-	{#each Array(data[2]) as _}
+	{#each Array(data[2][1]) as _}
 		<Paper type="pass" />
 	{/each}
-	<div class="number wv-b5">{data[2]}</div>
+	<div class="number wv-b5">{data[2][1]}</div>
 </div>
 
 <style lang="scss">
