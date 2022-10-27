@@ -1,4 +1,6 @@
-export const stats = {
+import type { StatsCacheType } from './stats-cache-types';
+
+export const stats: StatsCacheType = {
   "all_law_len": 291,
   "by_party_len": 200,
   "by_cabinet_len": 84,

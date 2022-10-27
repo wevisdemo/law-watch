@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Paper from './Paper.svelte';
-	export let data: number[][] = [
+	export let data: [[number, number], [number, number], [0, number]] = [
 		[0, 0],
 		[0, 0],
 		[0, 0]
