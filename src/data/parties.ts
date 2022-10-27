@@ -32,6 +32,10 @@ export const OPP_PARTY = [
 	'อนาคตใหม่'
 ] as const;
 
+const ALL_PARTY = [...GOV_PARTY, ...OPP_PARTY];
+
+export type PartyType = typeof ALL_PARTY[number];
+
 export const isParty = (string: string) => {
 	return ([...GOV_PARTY, ...OPP_PARTY] as string[]).includes(string);
 };

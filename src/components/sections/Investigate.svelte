@@ -2,7 +2,7 @@
 	import { inView } from 'motion';
 	import { onMount } from 'svelte';
 
-	import { data } from 'data/raw_data';
+	import { data } from 'data/raw-data';
 
 	import {
 		current_group_choice,

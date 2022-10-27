@@ -1,13 +1,22 @@
 <script lang="ts">
 	import Paper from 'components/Paper.svelte';
+
+	import type { RawDataType } from 'data/raw-data-types';
+
 	import { sort_order_when_status, current_group_choice } from 'stores/filterOptionStore';
 
-	export let data: any;
+	export let data: RawDataType[];
 
 	// #region[ --- HELPER FUNCTIONS --- ]
 	// https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore
-	const groupBy = (arr: any[], groupFn: (element: any) => any) => {
-		return arr.reduce((r, v, _i, _a, k = groupFn(v)) => ((r[k] || (r[k] = [])).push(v), r), {});
+	const groupBy = <T, K extends keyof any>(
+		arr: T[],
+		groupFn: (element: T) => K
+	): Record<K, T[]> => {
+		return arr.reduce(
+			(r, v, _i, _a, k = groupFn(v)) => ((r[k] || (r[k] = [])).push(v), r),
+			{} as Record<K, T[]>
+		);
 	};
 
 	const sortByName = (a: any, z: any) => {
@@ -23,12 +32,24 @@
 			} as const
 		)[text_type] ?? '');
 
-	const groupDataByStatus = <T>(data: T[]): T[][] => {
+	const groupDataByStatus = (
+		data: RawDataType[]
+	): [RawDataType[], RawDataType[], RawDataType[]] => {
 		const status_json = groupBy(data, (d) => d.Law_Status);
 		return [status_json.ตกไป, status_json.อยู่ในกระบวนการ, status_json.ออกเป็นกฎหมาย];
 	};
 
-	const groupDataByCatg = <T>(data: T[]): T[][] => {
+	const groupDataByCatg = (
+		data: RawDataType[]
+	): [
+		RawDataType[],
+		RawDataType[],
+		RawDataType[],
+		RawDataType[],
+		RawDataType[],
+		RawDataType[],
+		RawDataType[]
+	] => {
 		const catg_json = groupBy(data, (d) => d.Law_Type);
 		return [
 			catg_json.บริหารราชการ,
@@ -41,7 +62,7 @@
 		];
 	};
 
-	const groupDataByInOutSapa = <T>(data: T[]): T[][] => {
+	const groupDataByInOutSapa = (data: RawDataType[]): [RawDataType[], RawDataType[]] => {
 		const in_out_json = groupBy(data, (d) => +d.Law_in_Parliament);
 		return [in_out_json[0] ?? [], in_out_json[1] ?? []];
 	};
@@ -51,9 +72,9 @@
 
 	// #endregion
 
-	let transformed_data: any = data;
+	let transformed_data: [RawDataType[], RawDataType[]][][];
 	$: {
-		let temp: any = '';
+		// let temp: unknown;
 		// if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
 		// 	temp = groupBy(data, (element) => element.Law_Status);
 		// 	temp = [temp.ตกไป, temp.อยู่ในกระบวนการ, temp.ออกเป็นกฎหมาย];
@@ -62,15 +83,17 @@
 			$sort_order_when_status[0] === 'สถานะ'
 				? [groupDataByStatus, groupDataByCatg]
 				: [groupDataByCatg, groupDataByStatus];
-		temp = step_function[0](data).map((data_by_status) =>
+		transformed_data = step_function[0](data).map((data_by_status) =>
 			step_function[1](data_by_status)
 				.filter(removeNull)
-				.map((data_by_catg) =>
-					groupDataByInOutSapa(data_by_catg).map((data_by_inout) => data_by_inout.sort(sortByName))
+				.map(
+					(data_by_catg) =>
+						groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
+							data_by_inout.sort(sortByName)
+						) as [RawDataType[], RawDataType[]]
 				)
 		);
 		// }
-		transformed_data = temp;
 	}
 </script>
 
@@ -86,9 +109,9 @@
 						title={doc.Law_Name}
 					/>
 				{/each}
-				{#if out_sapa.length && in_sapa.length}
-					<div class="line" />
-				{/if}
+				<!-- {#if out_sapa.length && in_sapa.length} -->
+				<div class="line" />
+				<!-- {/if} -->
 				{#each in_sapa as doc (doc.Law_ID)}
 					<Paper
 						category={doc.Law_Type}
