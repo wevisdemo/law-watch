@@ -1,19 +1,29 @@
 <script lang="ts">
-	import { LAW_TYPE_METADATA } from 'data/law-types';
 	import type { LawTypes } from 'data/law-types';
+	import { LAW_TYPE_METADATA } from 'data/law-types';
 
-	export let type: '' | 'process' | 'pass' | 'stack' = '';
+	import { selected_law } from 'stores/filterOptionStore';
+
+	export let type: '' | 'process' | 'pass' = '';
+	export let stacked = false;
 	export let category: LawTypes | '' = '';
 	export let noMargin = false;
 	export let noHover = false;
 	export let marked = false;
+
+	export let title = '';
+
+	$: color_class =
+		category && $selected_law.includes(category) && LAW_TYPE_METADATA[category]?.color;
 </script>
 
 <div
-	class="paper {type} {category && LAW_TYPE_METADATA[category]?.color}"
+	class="paper {type} {color_class}"
+	class:stacked
 	class:noMargin
 	class:noHover
 	class:marked
+	{title}
 	{...$$restProps}
 >
 	{#if type === 'process'}
@@ -75,17 +85,12 @@
 			}
 		}
 
-		&.pass,
-		&.stack {
+		&.pass {
 			border: 1px #000 solid;
 			background: var(--law-color, #fff);
-
-			&::after {
-				background: #000;
-			}
 		}
 
-		&.stack {
+		&.stacked {
 			top: 6px;
 			left: 7px;
 
@@ -105,6 +110,19 @@
 			&::after {
 				top: -7px;
 				left: -8px;
+			}
+
+			&.process {
+				> svg {
+					top: -6px;
+					left: -7px;
+				}
+
+				&::before,
+				&::after {
+					border: 1px var(--law-color, #fff) solid;
+					background: #000;
+				}
 			}
 		}
 

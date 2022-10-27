@@ -1,17 +1,17 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import '@wevisdemo/ui/styles/components.css';
+	import '@wevisdemo/ui/styles/typography.css';
+	import 'styles/master.scss';
+
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+
 	import { weAreAlwaysHiring } from 'utils/we-are-hiring';
 
-	import '@wevisdemo/ui/styles/typography.css';
-	import '@wevisdemo/ui/styles/components.css';
-
-	import WvNavbar from '@wevisdemo/ui/components/navbar.svelte';
 	import WvNavButton from '@wevisdemo/ui/components/nav-button.svelte';
-
-	import 'styles/master.scss';
-	import { onMount } from 'svelte';
+	import WvNavbar from '@wevisdemo/ui/components/navbar.svelte';
 
 	onMount(() => {
 		weAreAlwaysHiring();
