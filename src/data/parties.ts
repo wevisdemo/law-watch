@@ -2,8 +2,8 @@ export const GOV_PARTY = [
 	'ครูไทยเพื่อประชาชน',
 	'ชาติไทยพัฒนา',
 	'ชาติพัฒนา',
+	'ไทยศรีวิไลย์',
 	'ไทรักธรรม',
-	'ประชาชนปฏิรูป',
 	'ประชาธรรมไทย',
 	'ประชาธิปไตยใหม่',
 	'ประชาธิปัตย์',
@@ -12,33 +12,31 @@ export const GOV_PARTY = [
 	'พลเมืองไทย',
 	'พลังชาติไทย',
 	'พลังท้องถิ่นไท',
-	'พลังไทยรักไทย',
 	'พลังธรรมใหม่',
 	'พลังประชารัฐ',
+	'เพื่อชาติไทย',
 	'ภูมิใจไทย',
 	'รวมพลังประชาชาติไทย',
 	'รักษ์ผืนป่าประเทศไทย',
+	'เศรษฐกิจไทย',
 	'เศรษฐกิจใหม่'
 ] as const;
 
 export const OPP_PARTY = [
-	'ไทยศรีวิไลย์',
+	'ก้าวไกล',
 	'ประชาชาติ',
 	'พลังปวงชนไทย',
 	'เพื่อชาติ',
 	'เพื่อไทย',
 	'เสรีรวมไทย',
-	'อนาคตใหม่',
-	'ประชาธิปไตยใหม่'
+	'อนาคตใหม่'
 ] as const;
 
-export const FREE_PARTY = ['ชื่อพรรค', 'ชื่อพรรค', 'ชื่อพรรค'] as const;
-
 export const isParty = (string: string) => {
-	return ([...GOV_PARTY, ...OPP_PARTY, ...FREE_PARTY] as string[]).includes(string);
+	return ([...GOV_PARTY, ...OPP_PARTY] as string[]).includes(string);
 };
 
 export const getPartyImage = (party: string) => {
-	if (isParty(party)) return `https://promisetracker.wevis.info/images/party/${party}.jpg`;
+	if (isParty(party)) return `/law-watch/party/${party}.jpg`;
 	return '';
 };

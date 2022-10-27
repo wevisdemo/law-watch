@@ -40,7 +40,7 @@
 				}
 				return `แสดงการเสนอ<wbr>ร่างกฎหมาย${formatted_choice}<wbr>เรียงตาม${$sort_order[0]}`;
 			case 'ผลโหวตของพรรค':
-				return `แสดงผลโหวต<wbr>ของพรรค${current_voteparty_choice}<wbr>เรียงตาม${$sort_order[0]}`;
+				return `แสดงผลโหวต<wbr>ของพรรค${$current_voteparty_choice}<wbr>เรียงตาม${$sort_order[0]}`;
 			default:
 				return `แสดงร่างกฎหมาย<wbr>ไม่แบ่งกลุ่ม<wbr>เรียงตาม${$sort_order[0]}`;
 		}
