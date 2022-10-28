@@ -2,6 +2,7 @@ import type { StatsCacheType } from './stats-cache-types';
 
 export const stats: StatsCacheType = {
   "all_law_len": 291,
+  "merged_law_len": 30,
   "by_party_len": 200,
   "by_cabinet_len": 84,
   "by_people_len": 7,
@@ -45,7 +46,7 @@ export const stats: StatsCacheType = {
       ],
       [
         0,
-        2
+        3
       ]
     ],
     [
@@ -177,5 +178,5 @@ export const stats: StatsCacheType = {
   ],
   "total_reject": 100,
   "total_progress": 129,
-  "total_pass": 61
+  "total_pass": 62
 }

@@ -32,12 +32,12 @@ export const OPP_PARTY = [
 	'อนาคตใหม่'
 ] as const;
 
-const ALL_PARTY = [...GOV_PARTY, ...OPP_PARTY];
+export const ALL_PARTY = [...GOV_PARTY, ...OPP_PARTY].sort((a, z) => a.localeCompare(z));
 
 export type PartyType = typeof ALL_PARTY[number];
 
 export const isParty = (string: string) => {
-	return ([...GOV_PARTY, ...OPP_PARTY] as string[]).includes(string);
+	return (ALL_PARTY as string[]).includes(string);
 };
 
 export const getPartyImage = (party: string) => {

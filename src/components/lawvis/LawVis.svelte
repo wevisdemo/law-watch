@@ -1,23 +1,27 @@
 <script lang="ts">
 	import Paper from 'components/Paper.svelte';
+	import type { PartyChoiceType, SideChoiceType } from 'data/filter-choices';
 
 	import type { RawDataType } from 'data/raw-data-types';
+	import { stats } from 'data/stats-cache';
+	import { ALL_PARTY } from 'data/parties';
 
-	import { sort_order_when_status, current_group_choice } from 'stores/filterOptionStore';
+	import {
+		sort_order_when_status,
+		current_group_choice,
+		current_side_choice,
+		current_party_choice
+	} from 'stores/filterOptionStore';
 
 	export let data: RawDataType[];
 
-	// #region[ --- HELPER FUNCTIONS --- ]
+	// #region [ --- HELPER FUNCTIONS --- ]
 	// https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore
-	const groupBy = <T, K extends keyof any>(
-		arr: T[],
-		groupFn: (element: T) => K
-	): Record<K, T[]> => {
-		return arr.reduce(
+	const groupBy = <T, K extends keyof any>(arr: T[], groupFn: (element: T) => K): Record<K, T[]> =>
+		arr.reduce(
 			(r, v, _i, _a, k = groupFn(v)) => ((r[k] || (r[k] = [])).push(v), r),
 			{} as Record<K, T[]>
 		);
-	};
 
 	const sortByName = (a: any, z: any) => {
 		return a.Law_Name.localeCompare(z.Law_Name);
@@ -67,74 +71,228 @@
 		return [in_out_json[0] ?? [], in_out_json[1] ?? []];
 	};
 
+	const groupDataByProposer = (
+		data: RawDataType[],
+		specific_group: SideChoiceType
+	): RawDataType[][] => {
+		const catg_json = groupBy(data, (d) => d.Proposer_Type);
+		return specific_group === 'เลือกทุกฝ่าย'
+			? [
+					catg_json.คณะรัฐมนตรี,
+					catg_json.ประชาชน,
+					catg_json.ฝ่ายรัฐบาล,
+					catg_json.ฝ่ายค้าน,
+					catg_json.ผสม,
+					catg_json.ไม่ทราบฝ่าย
+			  ]
+			: [catg_json[specific_group]];
+	};
+
+	const LAW_COUNT_WO_STACK = stats.all_law_len - stats.merged_law_len;
+
+	const groupDataByParty = (
+		data: RawDataType[],
+		specific_party: PartyChoiceType
+	): RawDataType[][] => {
+		const by_party = ALL_PARTY.map((party) => data.filter((d) => d.Proposer_Party.includes(party)));
+		return specific_party === 'เลือกทุกพรรค'
+			? by_party
+			: [by_party[ALL_PARTY.indexOf(specific_party)]];
+	};
+
+	const PROPOSER = ['คณะรัฐมนตรี', 'ประชาชน', 'ฝ่ายรัฐบาล', 'ฝ่ายค้าน', 'ผสม', 'ไม่ทราบฝ่าย'];
+
 	// https://twitter.com/dtinth/status/1315714173242728448/photo/1
 	const removeNull = (element: any): element is Exclude<typeof element, null> => !!element;
 
 	// #endregion
 
-	let transformed_data: [RawDataType[], RawDataType[]][][];
+	let general_visdata: [RawDataType[], RawDataType[]][][];
+	let proposer_visdata: [RawDataType[], RawDataType[]][][][];
+	let party_visdata: [RawDataType[], RawDataType[]][][][];
 	$: {
-		// let temp: unknown;
-		// if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
-		// 	temp = groupBy(data, (element) => element.Law_Status);
-		// 	temp = [temp.ตกไป, temp.อยู่ในกระบวนการ, temp.ออกเป็นกฎหมาย];
-		// } else {
-		const step_function =
-			$sort_order_when_status[0] === 'สถานะ'
-				? [groupDataByStatus, groupDataByCatg]
-				: [groupDataByCatg, groupDataByStatus];
-		transformed_data = step_function[0](data).map((data_by_status) =>
-			step_function[1](data_by_status)
-				.filter(removeNull)
-				.map(
-					(data_by_catg) =>
-						groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
-							data_by_inout.sort(sortByName)
-						) as [RawDataType[], RawDataType[]]
-				)
-		);
-		// }
+		if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
+			proposer_visdata = groupDataByProposer(data, $current_side_choice).map((data_by_proposer) => {
+				const sort_step_functions =
+					$sort_order_when_status[0] === 'สถานะ'
+						? [groupDataByStatus, groupDataByCatg]
+						: [groupDataByCatg, groupDataByStatus];
+				return sort_step_functions[0](data_by_proposer)
+					.filter(removeNull)
+					.map((data_by_status) =>
+						sort_step_functions[1](data_by_status)
+							.filter(removeNull)
+							.map(
+								(data_by_catg) =>
+									groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
+										data_by_inout.sort(sortByName)
+									) as [RawDataType[], RawDataType[]]
+							)
+					);
+			});
+		} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
+			party_visdata = groupDataByParty(data, $current_party_choice).map((data_by_party) => {
+				const sort_step_functions =
+					$sort_order_when_status[0] === 'สถานะ'
+						? [groupDataByStatus, groupDataByCatg]
+						: [groupDataByCatg, groupDataByStatus];
+				return sort_step_functions[0](data_by_party)
+					.filter(removeNull)
+					.map((data_by_status) =>
+						sort_step_functions[1](data_by_status)
+							.filter(removeNull)
+							.map(
+								(data_by_catg) =>
+									groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
+										data_by_inout.sort(sortByName)
+									) as [RawDataType[], RawDataType[]]
+							)
+					);
+			});
+		} else {
+			const sort_step_functions =
+				$sort_order_when_status[0] === 'สถานะ'
+					? [groupDataByStatus, groupDataByCatg]
+					: [groupDataByCatg, groupDataByStatus];
+			general_visdata = sort_step_functions[0](data).map((data_by_status) =>
+				sort_step_functions[1](data_by_status)
+					.filter(removeNull)
+					.map(
+						(data_by_catg) =>
+							groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
+								data_by_inout.sort(sortByName)
+							) as [RawDataType[], RawDataType[]]
+					)
+			);
+		}
 	}
 </script>
 
 <div id="vis-playground">
-	{#each transformed_data as dom_catg}
-		<div class="row">
-			{#each dom_catg as [out_sapa, in_sapa]}
-				{#each out_sapa as doc (doc.Law_ID)}
-					<Paper
-						category={doc.Law_Type}
-						type={textTypeToPaperType(doc.Law_Status)}
-						stacked={doc.Law_Merge_Head}
-						title={doc.Law_Name}
-					/>
-				{/each}
-				<!-- {#if out_sapa.length && in_sapa.length} -->
-				<div class="line" />
-				<!-- {/if} -->
-				{#each in_sapa as doc (doc.Law_ID)}
-					<Paper
-						category={doc.Law_Type}
-						type={textTypeToPaperType(doc.Law_Status)}
-						stacked={doc.Law_Merge_Head}
-						title={doc.Law_Name}
-					/>
-				{/each}
+	{#if $current_group_choice === 'ไม่แบ่งกลุ่ม'}
+		<div class="general-vis-container">
+			{#each general_visdata as dom_catg}
+				<div class="row">
+					{#each dom_catg as [out_sapa, in_sapa]}
+						{#each out_sapa as doc (doc.Law_ID)}
+							<Paper
+								category={doc.Law_Type}
+								type={textTypeToPaperType(doc.Law_Status)}
+								stacked={doc.Law_Merge_Head}
+								title={doc.Law_Name}
+							/>
+						{/each}
+						<!-- {#if out_sapa.length && in_sapa.length} -->
+						<div class="line" />
+						<!-- {/if} -->
+						{#each in_sapa as doc (doc.Law_ID)}
+							<Paper
+								category={doc.Law_Type}
+								type={textTypeToPaperType(doc.Law_Status)}
+								stacked={doc.Law_Merge_Head}
+								title={doc.Law_Name}
+							/>
+						{/each}
+					{/each}
+				</div>
 			{/each}
 		</div>
-	{/each}
+	{:else if $current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย'}
+		<div class="proposer-container">
+			{#each proposer_visdata as proposer, i}
+				<div class="nw text-right">
+					{$current_side_choice === 'เลือกทุกฝ่าย' ? PROPOSER[i] : $current_side_choice}
+				</div>
+				<div>
+					{#each proposer as dom_catg}
+						<div class="row">
+							{#each dom_catg as [out_sapa, in_sapa]}
+								{#each out_sapa as doc (doc.Law_ID)}
+									<Paper
+										category={doc.Law_Type}
+										type={textTypeToPaperType(doc.Law_Status)}
+										stacked={doc.Law_Merge_Head}
+										title={doc.Law_Name}
+									/>
+								{/each}
+								<!-- <div class="line" /> -->
+								{#each in_sapa as doc (doc.Law_ID)}
+									<Paper
+										category={doc.Law_Type}
+										type={textTypeToPaperType(doc.Law_Status)}
+										stacked={doc.Law_Merge_Head}
+										title={doc.Law_Name}
+									/>
+								{/each}
+							{/each}
+							<div class="number">
+								{dom_catg.flat(2).length} ฉบับ ({(
+									(dom_catg.flat(2).length / LAW_COUNT_WO_STACK) *
+									100
+								).toFixed(2)}%)
+							</div>
+						</div>
+					{/each}
+				</div>
+			{/each}
+		</div>
+	{:else if $current_group_choice === 'พรรคที่เสนอร่างกฎหมาย'}
+		<div class="party-container">
+			{#each party_visdata as party, i}
+				<div class="nw text-right">
+					{$current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[i] : $current_party_choice}
+				</div>
+				<div class="row">
+					{#each party as dom_catg}
+						{#each dom_catg as [out_sapa, in_sapa]}
+							{#each out_sapa as doc (doc.Law_ID)}
+								<Paper
+									category={doc.Law_Type}
+									type={textTypeToPaperType(doc.Law_Status)}
+									stacked={doc.Law_Merge_Head}
+									title={doc.Law_Name}
+								/>
+							{/each}
+							<!-- <div class="line" /> -->
+							{#each in_sapa as doc (doc.Law_ID)}
+								<Paper
+									category={doc.Law_Type}
+									type={textTypeToPaperType(doc.Law_Status)}
+									stacked={doc.Law_Merge_Head}
+									title={doc.Law_Name}
+								/>
+							{/each}
+						{/each}
+					{/each}
+					<div class="number">
+						{party.flat(3).length} ({party
+							.map((e) => e.flat(2).length)
+							.filter((e) => e)
+							.join('/')}) ฉบับ
+					</div>
+				</div>
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
 	#vis-playground {
 		position: absolute;
-		inset: 25% 0;
-		width: 370px;
+		inset: 128px 0;
+		width: calc(100% - 48px);
+		@media (min-width: 768px) {
+			inset: 128px 308px;
+			width: calc(100% - 616px);
+		}
+
 		margin: auto;
 
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		align-items: center;
+
+		overflow-y: auto;
 
 		.row {
 			display: flex;
@@ -142,6 +300,11 @@
 			gap: 8px 0;
 			margin-bottom: 8px;
 		}
+	}
+
+	.general-vis-container {
+		max-width: 370px;
+		margin: auto;
 	}
 
 	.line {
@@ -161,5 +324,26 @@
 			left: -2px;
 			z-index: 2;
 		}
+	}
+
+	.proposer-container,
+	.party-container {
+		display: grid;
+		grid-template-columns: auto auto;
+		align-items: center;
+		gap: 24px 48px;
+		margin: auto;
+	}
+
+	.party-container {
+		gap: 16px 16px;
+	}
+
+	.text-right {
+		text-align: right;
+	}
+
+	.number {
+		margin-left: 20px;
 	}
 </style>

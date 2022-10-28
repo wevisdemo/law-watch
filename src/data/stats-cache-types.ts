@@ -1,5 +1,6 @@
 export type StatsCacheType = {
 	all_law_len: number;
+	merged_law_len: number;
 	by_party_len: number;
 	by_cabinet_len: number;
 	by_people_len: number;

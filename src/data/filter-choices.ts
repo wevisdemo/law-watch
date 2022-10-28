@@ -22,10 +22,10 @@ export const SIDE_CHOICES = [
 	'เลือกทุกฝ่าย',
 	'คณะรัฐมนตรี',
 	'ประชาชน',
-	'ผสม',
 	'ฝ่ายรัฐบาล',
 	'ฝ่ายค้าน',
-	'ฝ่ายอิสระ'
+	'ผสม',
+	'ไม่ทราบฝ่าย'
 ] as const;
 export type SideChoiceType = typeof SIDE_CHOICES[number];
 
