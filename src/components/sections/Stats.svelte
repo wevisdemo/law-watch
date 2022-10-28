@@ -25,10 +25,9 @@
 </script>
 
 <section bind:this={el_section} id="stats-section" class="c">
-	<h2 class="wv-font-kondolar wv-h9 tc">
-		<span class="nw">ร่างกฎหมายทั้งหมดที่ถูกเสนอในสมัย</span><span class="nw"
-			>รัฐบาลประยุทธ์ จันทร์โอชา 2</span
-		><br />
+	<h2 class="wv-font-kondolar wv-h9 tc" style="padding:0 16px">
+		<span class="nw">ร่างกฎหมายทั้งหมดที่ถูกเสนอ</span><span class="nw">เพื่อพิจารณาในสมัย</span
+		><span class="nw">รัฐบาลประยุทธ์ จันทร์โอชา 2</span><br />
 		<span class="header-line2">
 			ทั้งหมด
 			<span class="wv-font-kondolar wv-h4 wv-font-black c-mint">{stats.all_law_len}</span>
