@@ -36,8 +36,8 @@
 	class:noHover
 	class:marked
 	class:whiteBg
-	class:has-lawid={law_id && $highlighted_paper_ids.length}
-	class:highlight={law_id && $highlighted_paper_ids.includes(law_id)}
+	class:has-lawid={law_id && $highlighted_paper_ids}
+	class:highlight={law_id && $highlighted_paper_ids?.includes(law_id)}
 	data-title={title}
 	on:click={setSelectedPaper}
 	on:mouseenter={showTooltip}

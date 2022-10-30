@@ -8,7 +8,6 @@
 		VOTEPARTY_DROPDOWN_CHOICES
 	} from 'data/filter-choices';
 	import {
-		search_input,
 		view_timeline,
 		current_group_choice,
 		current_side_choice,
@@ -59,7 +58,7 @@
 		>
 			<img src="/law-watch/setting.svg" alt="แสดงตัวเลือก" width="20" height="20" />
 		</button>
-		<SearchBox class="search-flex" bind:value={$search_input} />
+		<SearchBox class="search-flex" />
 	</div>
 	<div class="drawer-backdrop drawer-partner" class:dw-open={$is_mobile_drawer_open} />
 	<VisType

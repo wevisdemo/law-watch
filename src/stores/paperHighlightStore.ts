@@ -1,6 +1,7 @@
 import { derived, writable } from 'svelte/store';
 
-export const manual_highlighted_paper_ids = writable<number[]>([]);
+// null = not manual highlight, [] = no result
+export const manual_highlighted_paper_ids = writable<number[] | null>(null);
 export const current_selected_paper_id = writable<number | null>(null);
 
 export const highlighted_paper_ids = derived(
