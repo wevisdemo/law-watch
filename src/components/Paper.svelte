@@ -4,6 +4,8 @@
 
 	import { selected_law } from 'stores/filterOptionStore';
 
+	import { hideTooltip as _hideTooltip, showTooltip as _showTooltip } from 'utils/tooltips';
+
 	export let type: '' | 'process' | 'pass' = '';
 	export let stacked = false;
 	export let category: LawTypes | '' = '';
@@ -12,6 +14,9 @@
 	export let marked = false;
 
 	export let title = '';
+
+	let showTooltip = noHover ? () => {} : _showTooltip;
+	let hideTooltip = noHover ? () => {} : _hideTooltip;
 
 	$: color_class =
 		category && $selected_law.includes(category) && LAW_TYPE_METADATA[category]?.color;
@@ -23,7 +28,9 @@
 	class:noMargin
 	class:noHover
 	class:marked
-	{title}
+	data-title={title}
+	on:mouseenter={showTooltip}
+	on:mouseleave={hideTooltip}
 	{...$$restProps}
 >
 	{#if type === 'process'}

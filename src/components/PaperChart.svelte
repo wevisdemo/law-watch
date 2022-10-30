@@ -9,27 +9,27 @@
 
 <div class="paper-container">
 	{#each Array(data[0][0]) as _}
-		<Paper />
+		<Paper noHover />
 	{/each}
 	<div class="line" />
 	{#each Array(data[0][1]) as _}
-		<Paper />
+		<Paper noHover />
 	{/each}
 	<div class="number wv-b5">{data[0][0] + data[0][1]}</div>
 </div>
 <div class="paper-container">
 	{#each Array(data[1][0]) as _}
-		<Paper type="process" />
+		<Paper type="process" noHover />
 	{/each}
 	<div class="line" />
 	{#each Array(data[1][1]) as _}
-		<Paper type="process" />
+		<Paper type="process" noHover />
 	{/each}
 	<div class="number wv-b5">{data[1][0] + data[1][1]}</div>
 </div>
 <div class="paper-container">
 	{#each Array(data[2][1]) as _}
-		<Paper type="pass" />
+		<Paper type="pass" noHover />
 	{/each}
 	<div class="number wv-b5">{data[2][1]}</div>
 </div>

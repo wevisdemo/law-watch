@@ -15,7 +15,11 @@
 	import Ending from 'components/sections/Ending.svelte';
 
 	let state: null | 'transitioning' | 'end' = null;
+	let el_tooltip: HTMLElement;
+	let el_tooltip_arrow: HTMLElement;
 	onMount(() => {
+		window.el_tooltip = el_tooltip;
+		window.el_tooltip_arrow = el_tooltip_arrow;
 		setTimeout(() => (state = 'transitioning'), 1000);
 		setTimeout(() => (state = 'end'), 2000);
 	});
@@ -35,3 +39,7 @@
 <Investigate />
 <Conclusion />
 <Ending />
+<div bind:this={el_tooltip} class="tooltip">
+	<span />
+	<div bind:this={el_tooltip_arrow} class="tooltip-arrow" />
+</div>

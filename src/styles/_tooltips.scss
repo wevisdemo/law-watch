@@ -1,0 +1,52 @@
+.tooltip {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 20;
+
+	padding: 4px;
+
+	background: #fff;
+	border-radius: 2px;
+
+	display: flex;
+
+	color: #000;
+	letter-spacing: 0.3px;
+	line-height: 1;
+	white-space: nowrap;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+
+	font-size: 0;
+	opacity: 0;
+	transition: opacity 0s;
+	pointer-events: none;
+
+	> .tooltip-arrow {
+		position: absolute;
+		width: 16px;
+		height: 8px;
+		top: 100%;
+		left: 50%;
+		border-top: 8px #fff solid;
+		border-left: 8px transparent solid;
+		border-right: 8px transparent solid;
+		opacity: 0;
+		transition: opacity 0s;
+	}
+
+	&.show {
+		font-size: 0.75rem;
+		opacity: 1;
+		pointer-events: auto;
+		transition: opacity 0.1s;
+
+		> .tooltip-arrow {
+			opacity: 1;
+			transition: opacity 0.1s;
+		}
+	}
+}
