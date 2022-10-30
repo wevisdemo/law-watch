@@ -3,6 +3,15 @@ import type { StatsCacheType } from './stats-cache-types';
 export const stats: StatsCacheType = {
   "all_law_len": 291,
   "merged_law_len": 30,
+  "type_len": {
+    "เศรษฐกิจ": 91,
+    "สังคม": 103,
+    "กระบวนการยุติธรรม": 11,
+    "การศึกษา": 26,
+    "บริหารราชการ": 25,
+    "สิ่งแวดล้อม": 7,
+    "รัฐธรรมนูญ": 28
+  },
   "by_party_len": 200,
   "by_cabinet_len": 84,
   "by_people_len": 7,

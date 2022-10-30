@@ -1,20 +1,13 @@
 <script lang="ts">
-	import { LAW_TYPES, LAW_TYPE_METADATA } from 'data/law-types';
 	import type { LawTypes } from 'data/law-types';
+	import { LAW_TYPES, LAW_TYPE_METADATA } from 'data/law-types';
+	import { stats } from 'data/stats-cache';
 
 	import { law_type_highlight } from 'stores/highlightManager';
 
 	const GROUP_ORDER: LawTypes[] = [...LAW_TYPES];
 
-	export let group: Record<LawTypes, number> = {
-		เศรษฐกิจ: 20,
-		สังคม: 20,
-		สิ่งแวดล้อม: 20,
-		การศึกษา: 20,
-		บริหารราชการ: 20,
-		รัฐธรรมนูญ: 20,
-		กระบวนการยุติธรรม: 20
-	};
+	export let group: Record<LawTypes, number> = stats.type_len;
 
 	export let selected_law: LawTypes[];
 
