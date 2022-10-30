@@ -25,38 +25,60 @@
 	};
 
 	let open_sidebar = false;
-	let current_law: undefined | RawDataType = undefined;
+
+	let current_law_index = 0;
+	let relative_law: undefined | RawDataType[] = undefined;
 	$: {
 		if ($current_selected_paper_id) {
-			current_law = data.find((e) => e.Law_ID === $current_selected_paper_id);
+			relative_law = data.filter(
+				(e) => e.Law_ID === $current_selected_paper_id || e.Law_Merge === $current_selected_paper_id
+			);
+			current_law_index = 0;
+			// if(current_law?.Law_Merge_Head === true){
+			// relative_law = data.filter(d => d.Law_Merge === current_law?.Law_ID)
+			// }
 			open_sidebar = true;
 		}
 	}
 
+	const nextLaw = () => {
+		if (relative_law) {
+			current_law_index = (current_law_index + 1) % relative_law.length;
+		}
+	};
+
+	const prevLaw = () => {
+		if (relative_law) {
+			current_law_index = (current_law_index - 1) % relative_law.length;
+		}
+	};
+
 	const close = () => {
 		open_sidebar = false;
-		setTimeout(() => {
-			$current_selected_paper_id = null;
-		}, 500);
+		$current_selected_paper_id = null;
 	};
 </script>
 
 <article class="law-detail wv-b6" class:open={open_sidebar}>
 	<header>
-		<h3 class="wv-font-semibold wv-h10">{current_law?.Law_Name}</h3>
+		<h3 class="wv-font-semibold wv-h10">{relative_law?.[current_law_index]?.Law_Name}</h3>
 		<button type="button" class="close-btn" on:click={close}>
 			<img src="/law-watch/card-close.svg" alt="ปิด" width="16" height="16" />
 		</button>
 	</header>
-	<!-- <div class="merged-doc">
-		<button type="button">
-			<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
-		</button>
-		<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง 1/7 ฉบับ</span>
-		<button type="button">
-			<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
-		</button>
-	</div> -->
+	{#if (relative_law?.length ?? 0) > 1}
+		<div class="merged-doc">
+			<button type="button" on:click={prevLaw}>
+				<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
+			</button>
+			<span
+				>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง {current_law_index + 1}/{relative_law?.length ?? 0} ฉบับ</span
+			>
+			<button type="button" on:click={nextLaw}>
+				<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
+			</button>
+		</div>
+	{/if}
 	<div class="detail-wrapper">
 		<div class="status">
 			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
@@ -64,11 +86,11 @@
 				noHover
 				noMargin
 				whiteBg
-				type={textTypeToPaperType(current_law?.Law_Status ?? '')}
-				stacked={current_law?.Law_Merge_Head}
+				type={textTypeToPaperType(relative_law?.[current_law_index]?.Law_Status ?? '')}
+				stacked={relative_law?.[current_law_index]?.Law_Merge_Head}
 				style="display:inline-block;margin-left:4px;height:16px;width:13.33px"
 			/>
-			<span style="line-height:1">{current_law?.Law_Status}</span>
+			<span style="line-height:1">{relative_law?.[current_law_index]?.Law_Status}</span>
 		</div>
 		<div class="timeline">
 			<div class="active">ร่างกฎหมาย</div>
@@ -81,42 +103,43 @@
 			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
 			<div>กษัตริย์</div>
 		</div>
-		<span>{current_law?.Status_Description}</span>
+		<span>{relative_law?.[current_law_index]?.Status_Description}</span>
 		<section>
 			<dl>
 				<dt class="wv-font-semibold">หมวดกฎหมาย</dt>
 				<dd>
 					<div
-						class="law-type-pill {LAW_TYPE_METADATA[current_law?.Law_Type ?? 'กระบวนการยุติธรรม']
-							.color}"
+						class="law-type-pill {LAW_TYPE_METADATA[
+							relative_law?.[current_law_index]?.Law_Type ?? 'กระบวนการยุติธรรม'
+						].color}"
 					>
-						{current_law?.Law_Type}
+						{relative_law?.[current_law_index]?.Law_Type}
 					</div>
 				</dd>
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/calendar.svg" alt="" class="addon" />
 					วันที่เสนอ
 				</dt>
-				<dd>{formatDate(current_law?.Start_Date)}</dd>
+				<dd>{formatDate(relative_law?.[current_law_index]?.Start_Date)}</dd>
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/calendar.svg" alt="" class="addon" />
 					วันที่สิ้นสุด
 				</dt>
-				<dd>{formatDate(current_law?.End_Date)}</dd>
+				<dd>{formatDate(relative_law?.[current_law_index]?.End_Date)}</dd>
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/person.svg" alt="" class="addon" />
 					ชื่อผู้เสนอ
 				</dt>
-				<dd>{current_law?.Proposer_Name}</dd>
+				<dd>{relative_law?.[current_law_index]?.Proposer_Name}</dd>
 				<dt class="wv-font-semibold">
 					<div class="addon" />
 					ประเภทผู้เสนอ
 				</dt>
-				<dd>{current_law?.Proposer_Type}</dd>
+				<dd>{relative_law?.[current_law_index]?.Proposer_Type}</dd>
 			</dl>
-			{#if current_law?.Proposer_Party?.length}
+			{#if relative_law?.[current_law_index]?.Proposer_Party?.length}
 				<ul class="party wv-b7">
-					{#each current_law?.Proposer_Party as party}
+					{#each relative_law?.[current_law_index]?.Proposer_Party as party}
 						<li>{party}</li>
 					{/each}
 				</ul>

@@ -3,7 +3,7 @@
 	import { LAW_TYPE_METADATA } from 'data/law-types';
 
 	import { selected_law } from 'stores/filterOptionStore';
-	import { current_selected_paper_id } from 'stores/paperHighlightStore';
+	import { highlighted_paper_ids, current_selected_paper_id } from 'stores/paperHighlightStore';
 
 	import { hideTooltip as _hideTooltip, showTooltip as _showTooltip } from 'utils/tooltips';
 
@@ -15,7 +15,7 @@
 	export let marked = false;
 	export let whiteBg = false;
 
-	export let law_id: number | null;
+	export let law_id: number | null = null;
 	export let title = '';
 
 	let showTooltip = noHover ? () => {} : _showTooltip;
@@ -36,8 +36,8 @@
 	class:noHover
 	class:marked
 	class:whiteBg
-	class:has-lawid={law_id && $current_selected_paper_id != null}
-	class:highlight={law_id && $current_selected_paper_id === law_id}
+	class:has-lawid={law_id && $highlighted_paper_ids.length}
+	class:highlight={law_id && $highlighted_paper_ids.includes(law_id)}
 	data-title={title}
 	on:click={setSelectedPaper}
 	on:mouseenter={showTooltip}
