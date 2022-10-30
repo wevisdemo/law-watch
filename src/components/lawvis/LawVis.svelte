@@ -226,10 +226,10 @@
 								{/each}
 							{/each}
 							<div class="number">
-								{dom_catg.flat(2).length} ฉบับ ({(
-									(dom_catg.flat(2).length / LAW_COUNT_WO_STACK) *
-									100
-								).toFixed(2)}%)
+								<span class="wv-font-semibold">{dom_catg.flat(2).length} ฉบับ</span>
+								<span class="number-back">
+									{((dom_catg.flat(2).length / LAW_COUNT_WO_STACK) * 100).toFixed(1)}%
+								</span>
 							</div>
 						</div>
 					{/each}
@@ -345,5 +345,17 @@
 
 	.number {
 		margin-left: 20px;
+
+		display: flex;
+		align-items: center;
+	}
+
+	.number-back {
+		border-left: 1px #fff solid;
+
+		font-size: 0.8em;
+
+		margin-left: 1ch;
+		padding-left: 1ch;
 	}
 </style>
