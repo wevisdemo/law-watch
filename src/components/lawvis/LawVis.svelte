@@ -176,6 +176,7 @@
 					{#each dom_catg as [out_sapa, in_sapa]}
 						{#each out_sapa as doc (doc.Law_ID)}
 							<Paper
+								law_id={doc.Law_ID}
 								category={doc.Law_Type}
 								type={textTypeToPaperType(doc.Law_Status)}
 								stacked={doc.Law_Merge_Head}
@@ -187,6 +188,7 @@
 						<!-- {/if} -->
 						{#each in_sapa as doc (doc.Law_ID)}
 							<Paper
+								law_id={doc.Law_ID}
 								category={doc.Law_Type}
 								type={textTypeToPaperType(doc.Law_Status)}
 								stacked={doc.Law_Merge_Head}
@@ -209,6 +211,7 @@
 							{#each dom_catg as [out_sapa, in_sapa]}
 								{#each out_sapa as doc (doc.Law_ID)}
 									<Paper
+										law_id={doc.Law_ID}
 										category={doc.Law_Type}
 										type={textTypeToPaperType(doc.Law_Status)}
 										stacked={doc.Law_Merge_Head}
@@ -218,6 +221,7 @@
 								<!-- <div class="line" /> -->
 								{#each in_sapa as doc (doc.Law_ID)}
 									<Paper
+										law_id={doc.Law_ID}
 										category={doc.Law_Type}
 										type={textTypeToPaperType(doc.Law_Status)}
 										stacked={doc.Law_Merge_Head}
@@ -247,6 +251,7 @@
 						{#each dom_catg as [out_sapa, in_sapa]}
 							{#each out_sapa as doc (doc.Law_ID)}
 								<Paper
+									law_id={doc.Law_ID}
 									category={doc.Law_Type}
 									type={textTypeToPaperType(doc.Law_Status)}
 									stacked={doc.Law_Merge_Head}
@@ -256,6 +261,7 @@
 							<!-- <div class="line" /> -->
 							{#each in_sapa as doc (doc.Law_ID)}
 								<Paper
+									law_id={doc.Law_ID}
 									category={doc.Law_Type}
 									type={textTypeToPaperType(doc.Law_Status)}
 									stacked={doc.Law_Merge_Head}

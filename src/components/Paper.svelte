@@ -3,6 +3,7 @@
 	import { LAW_TYPE_METADATA } from 'data/law-types';
 
 	import { selected_law } from 'stores/filterOptionStore';
+	import { current_selected_paper_id } from 'stores/paperHighlightStore';
 
 	import { hideTooltip as _hideTooltip, showTooltip as _showTooltip } from 'utils/tooltips';
 
@@ -12,11 +13,17 @@
 	export let noMargin = false;
 	export let noHover = false;
 	export let marked = false;
+	export let whiteBg = false;
 
+	export let law_id: number | null;
 	export let title = '';
 
 	let showTooltip = noHover ? () => {} : _showTooltip;
 	let hideTooltip = noHover ? () => {} : _hideTooltip;
+
+	const setSelectedPaper = () => {
+		if (law_id) $current_selected_paper_id = law_id;
+	};
 
 	$: color_class =
 		category && $selected_law.includes(category) && LAW_TYPE_METADATA[category]?.color;
@@ -28,7 +35,11 @@
 	class:noMargin
 	class:noHover
 	class:marked
+	class:whiteBg
+	class:has-lawid={law_id && $current_selected_paper_id != null}
+	class:highlight={law_id && $current_selected_paper_id === law_id}
 	data-title={title}
+	on:click={setSelectedPaper}
 	on:mouseenter={showTooltip}
 	on:mouseleave={hideTooltip}
 	{...$$restProps}
@@ -53,24 +64,41 @@
 
 <style lang="scss">
 	.paper {
+		--paper-bg: #000;
+		--default-color: #fff;
 		position: relative;
 		z-index: 1;
 
 		width: 20px;
 		height: 24px;
 
-		background: #000;
-		border: 1px var(--law-color, #fff) solid;
+		background: var(--paper-bg);
+		border: 1px var(--law-color, var(--default-color)) solid;
 
 		font-size: 0;
 		line-height: 0;
 
 		margin-right: -8px;
 
-		transition: transform 0.1s;
+		cursor: pointer;
+
+		transition: transform 0.1s, opacity 0.1s;
 
 		&:not(.noHover):hover {
 			transform: translateY(-4px);
+		}
+
+		&.whiteBg {
+			--paper-bg: #fff;
+			--default-color: #000;
+		}
+
+		&.has-lawid {
+			opacity: 0.25;
+		}
+
+		&.has-lawid.highlight {
+			opacity: 1;
 		}
 
 		&.marked::after {
@@ -78,13 +106,13 @@
 			position: absolute;
 			width: 4px;
 			height: 7px;
-			background: var(--law-color, #fff);
+			background: var(--law-color, var(--default-color));
 			top: 0;
 			left: 3px;
 		}
 
 		&.process {
-			color: var(--law-color, #fff);
+			color: var(--law-color, var(--default-color));
 
 			> svg {
 				width: 100%;
@@ -93,8 +121,8 @@
 		}
 
 		&.pass {
-			border: 1px #000 solid;
-			background: var(--law-color, #fff);
+			border: 1px var(--paper-bg) solid;
+			background: var(--law-color, var(--default-color));
 		}
 
 		&.stacked {
@@ -108,8 +136,8 @@
 				z-index: -1;
 				width: 20px;
 				height: 24px;
-				border: 1px #000 solid;
-				background: var(--law-color, #fff);
+				border: 1px var(--paper-bg) solid;
+				background: var(--law-color, var(--default-color));
 				top: -4px;
 				left: -4px;
 			}
@@ -127,8 +155,8 @@
 
 				&::before,
 				&::after {
-					border: 1px var(--law-color, #fff) solid;
-					background: #000;
+					border: 1px var(--law-color, var(--default-color)) solid;
+					background: var(--paper-bg);
 				}
 			}
 		}

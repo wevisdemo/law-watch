@@ -1,22 +1,54 @@
 <script lang="ts">
 	import { LAW_TYPE_METADATA } from 'data/law-types';
+	import { data } from 'data/raw-data';
+	import type { RawDataType } from 'data/raw-data-types';
+
+	import { current_selected_paper_id } from 'stores/paperHighlightStore';
+
 	import Paper from './Paper.svelte';
 
-	export let is_open = false;
+	const textTypeToPaperType = (text_type: string) =>
+		((
+			{
+				ตกไป: '',
+				อยู่ในกระบวนการ: 'process',
+				ออกเป็นกฎหมาย: 'pass'
+			} as const
+		)[text_type] ?? '');
+
+	const date_formatter = new Intl.DateTimeFormat('th-TH', {
+		dateStyle: 'short'
+	});
+	const formatDate = (date: number | null | undefined) => {
+		if (!date) return 'ไม่พบวันที่';
+		return date_formatter.format(new Date(date));
+	};
+
+	let open_sidebar = false;
+	let current_law: undefined | RawDataType = undefined;
+	$: {
+		if ($current_selected_paper_id) {
+			current_law = data.find((e) => e.Law_ID === $current_selected_paper_id);
+			open_sidebar = true;
+		}
+	}
 
 	const close = () => {
-		is_open = false;
+		open_sidebar = false;
+		setTimeout(() => {
+			$current_selected_paper_id = null;
+		}, 500);
 	};
 </script>
 
-<article class="law-detail wv-b6" class:open={is_open}>
+<article class="law-detail wv-b6" class:open={open_sidebar}>
 	<header>
-		<h3 class="wv-font-semibold wv-h10">ร่างพระราชบัญญัติวิธีพิจารณาคดีจราจร พ.ศ. ...</h3>
+		<h3 class="wv-font-semibold wv-h10">{current_law?.Law_Name}</h3>
 		<button type="button" class="close-btn" on:click={close}>
 			<img src="/law-watch/card-close.svg" alt="ปิด" width="16" height="16" />
 		</button>
 	</header>
-	<div class="merged-doc">
+	<!-- <div class="merged-doc">
 		<button type="button">
 			<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
 		</button>
@@ -24,17 +56,19 @@
 		<button type="button">
 			<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
 		</button>
-	</div>
+	</div> -->
 	<div class="detail-wrapper">
 		<div class="status">
 			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
 			<Paper
 				noHover
 				noMargin
-				type="process"
+				whiteBg
+				type={textTypeToPaperType(current_law?.Law_Status ?? '')}
+				stacked={current_law?.Law_Merge_Head}
 				style="display:inline-block;margin-left:4px;height:16px;width:13.33px"
 			/>
-			<span style="line-height:1">อยู่ในกระบวนการ</span>
+			<span style="line-height:1">{current_law?.Law_Status}</span>
 		</div>
 		<div class="timeline">
 			<div class="active">ร่างกฎหมาย</div>
@@ -47,44 +81,46 @@
 			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
 			<div>กษัตริย์</div>
 		</div>
-		<span>ส.ส. วาระที่ 2</span>
+		<span>{current_law?.Status_Description}</span>
 		<section>
 			<dl>
 				<dt class="wv-font-semibold">หมวดกฎหมาย</dt>
 				<dd>
-					<div class="law-type-pill {LAW_TYPE_METADATA['บริหารราชการ'].color}">บริหารราชการ</div>
+					<div
+						class="law-type-pill {LAW_TYPE_METADATA[current_law?.Law_Type ?? 'กระบวนการยุติธรรม']
+							.color}"
+					>
+						{current_law?.Law_Type}
+					</div>
 				</dd>
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/calendar.svg" alt="" class="addon" />
 					วันที่เสนอ
 				</dt>
-				<dd>8/8/2562</dd>
+				<dd>{formatDate(current_law?.Start_Date)}</dd>
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/calendar.svg" alt="" class="addon" />
 					วันที่สิ้นสุด
 				</dt>
-				<dd>8/8/2562</dd>
+				<dd>{formatDate(current_law?.End_Date)}</dd>
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/person.svg" alt="" class="addon" />
 					ชื่อผู้เสนอ
 				</dt>
-				<dd>วราวุธ ศิลปอาชา กับคณะ</dd>
+				<dd>{current_law?.Proposer_Name}</dd>
 				<dt class="wv-font-semibold">
 					<div class="addon" />
 					ประเภทผู้เสนอ
 				</dt>
-				<dd>ผู้แทนพรรค</dd>
+				<dd>{current_law?.Proposer_Type}</dd>
 			</dl>
-			<ul class="party wv-b7">
-				<li>ชาติไทยพัฒนา</li>
-				<li>เพื่อไทย</li>
-				<li>พลังประชารัฐ</li>
-				<li>อนาคตใหม่</li>
-				<li>ประชาธิปไตยใหม่</li>
-				<li>ไทยศรีวิไลย์</li>
-				<li>พลังท้องถิ่นไทย</li>
-				<li>ภูมิใจไทย</li>
-			</ul>
+			{#if current_law?.Proposer_Party?.length}
+				<ul class="party wv-b7">
+					{#each current_law?.Proposer_Party as party}
+						<li>{party}</li>
+					{/each}
+				</ul>
+			{/if}
 		</section>
 		<section class="theywork">
 			<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>

@@ -14,6 +14,7 @@
 	import { is_investigate_inview } from 'stores/sectionScrollManager';
 
 	import FilterBox from 'components/filter/FilterBox.svelte';
+	// import HelpOverlay from 'components/tutorial/HelpOverlay.svelte';
 	import LawVis from 'components/lawvis/LawVis.svelte';
 	import Sidebar from 'components/Sidebar.svelte';
 
@@ -45,8 +46,6 @@
 		}
 	})();
 
-	let is_sidebar_open = false;
-
 	let el_section: Element;
 	onMount(() => {
 		inView(
@@ -66,16 +65,8 @@
 	<h2 class="title wv-b4 tc nw">{@html label}</h2>
 	<LawVis {data} />
 	<FilterBox />
-	<Sidebar is_open={is_sidebar_open} />
+	<Sidebar />
 	<!-- <HelpOverlay /> -->
-
-	<!-- <button
-		type="button"
-		on:click={() => (is_sidebar_open = !is_sidebar_open)}
-		style="position:absolute;top:50%;left:50%"
-	>
-		open sidebar
-	</button> -->
 </section>
 
 <style lang="scss">
