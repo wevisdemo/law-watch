@@ -1,11 +1,16 @@
 import { derived, writable } from 'svelte/store';
 
-import { GROUP_CHOICES, SIDE_CHOICES, PARTY_CHOICES, VOTEPARTY_CHOICES } from 'data/filter-choices';
+import {
+	GROUP_CHOICES,
+	SIDE_CHOICES,
+	PARTY_CHOICES
+	// VOTEPARTY_CHOICES
+} from 'data/filter-choices';
 import type {
 	GroupChoiceType,
 	PartyChoiceType,
-	SideChoiceType,
-	VotepartyChoiceType
+	SideChoiceType
+	// VotepartyChoiceType
 } from 'data/filter-choices';
 import { LAW_TYPES } from 'data/law-types';
 import type { LawTypes } from 'data/law-types';
@@ -17,7 +22,7 @@ export const selected_law = writable<LawTypes[]>([...LAW_TYPES]);
 export const current_group_choice = writable<GroupChoiceType>(GROUP_CHOICES[0]);
 export const current_side_choice = writable<SideChoiceType>(SIDE_CHOICES[0]);
 export const current_party_choice = writable<PartyChoiceType>(PARTY_CHOICES[0]);
-export const current_voteparty_choice = writable<VotepartyChoiceType>(VOTEPARTY_CHOICES[0]);
+// export const current_voteparty_choice = writable<VotepartyChoiceType>(VOTEPARTY_CHOICES[0]);
 
 export const view_timeline = writable(false);
 

@@ -15,7 +15,7 @@
 		current_group_choice,
 		current_side_choice,
 		current_party_choice,
-		current_voteparty_choice,
+		// current_voteparty_choice,
 		sort_order_when_status,
 		sort_order_when_timeline,
 		selected_law,
@@ -81,7 +81,7 @@
 		current_group_choice?: GroupChoiceType;
 		current_side_choice?: SideChoiceType;
 		current_party_choice?: PartyChoiceType;
-		current_voteparty_choice?: VotepartyChoiceType;
+		// current_voteparty_choice?: VotepartyChoiceType;
 		selected_law?: LawTypes[];
 		is_law_status_open?: boolean;
 	};
@@ -97,7 +97,7 @@
 		$current_group_choice = options?.current_group_choice ?? 'ไม่แบ่งกลุ่ม';
 		$current_side_choice = options?.current_side_choice ?? 'เลือกทุกฝ่าย';
 		$current_party_choice = options?.current_party_choice ?? 'เลือกทุกพรรค';
-		$current_voteparty_choice = options?.current_voteparty_choice ?? 'ครูไทยเพื่อประชาชน';
+		// $current_voteparty_choice = options?.current_voteparty_choice ?? 'ครูไทยเพื่อประชาชน';
 		$selected_law = options?.selected_law ?? [...LAW_TYPES];
 		$is_law_status_open = options?.is_law_status_open ?? true;
 	};
@@ -154,7 +154,7 @@
 		setFilter({
 			sort_order_when_status: ['หมวดหมู่', 'สถานะ'],
 			current_group_choice: 'พรรคที่เสนอร่างกฎหมาย',
-			selected_law: ['สิ่งแวดล้อม']
+			selected_law: ['บริหารราชการ']
 		});
 
 		tick().then(() => {

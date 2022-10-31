@@ -13,8 +13,8 @@ export type DropdownChoiceType =
 export const GROUP_CHOICES = [
 	'ไม่แบ่งกลุ่ม',
 	'ฝ่ายที่เสนอร่างกฎหมาย',
-	'พรรคที่เสนอร่างกฎหมาย',
-	'ผลโหวตของพรรค'
+	'พรรคที่เสนอร่างกฎหมาย'
+	// 'ผลโหวตของพรรค'
 ] as const;
 export type GroupChoiceType = typeof GROUP_CHOICES[number];
 

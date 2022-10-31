@@ -8,13 +8,13 @@
 		current_group_choice,
 		current_party_choice,
 		current_side_choice,
-		current_voteparty_choice,
+		// current_voteparty_choice,
 		sort_order
 	} from 'stores/filterOptionStore';
 	import { is_investigate_inview } from 'stores/sectionScrollManager';
 
 	import FilterBox from 'components/filter/FilterBox.svelte';
-	// import HelpOverlay from 'components/tutorial/HelpOverlay.svelte';
+	import HelpOverlay from 'components/tutorial/HelpOverlay.svelte';
 	import LawVis from 'components/lawvis/LawVis.svelte';
 	import Sidebar from 'components/Sidebar.svelte';
 
@@ -39,8 +39,8 @@
 						}?.[$current_party_choice] ?? 'พรรค' + $current_party_choice;
 				}
 				return `แสดงการเสนอ<wbr>ร่างกฎหมาย${formatted_choice}<wbr>เรียงตาม${$sort_order[0]}`;
-			case 'ผลโหวตของพรรค':
-				return `แสดงผลโหวต<wbr>ของพรรค${$current_voteparty_choice}<wbr>เรียงตาม${$sort_order[0]}`;
+			// case 'ผลโหวตของพรรค':
+			// 	return `แสดงผลโหวต<wbr>ของพรรค${$current_voteparty_choice}<wbr>เรียงตาม${$sort_order[0]}`;
 			default:
 				return `แสดงร่างกฎหมาย<wbr>ไม่แบ่งกลุ่ม<wbr>เรียงตาม${$sort_order[0]}`;
 		}
@@ -66,7 +66,7 @@
 	<LawVis {data} />
 	<FilterBox />
 	<Sidebar />
-	<!-- <HelpOverlay /> -->
+	<HelpOverlay />
 </section>
 
 <style lang="scss">

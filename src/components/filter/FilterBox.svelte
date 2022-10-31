@@ -4,15 +4,15 @@
 	import {
 		GROUP_CHOICES,
 		SIDE_CHOICES,
-		PARTY_DROPDOWN_CHOICES,
-		VOTEPARTY_DROPDOWN_CHOICES
+		PARTY_DROPDOWN_CHOICES
+		// VOTEPARTY_DROPDOWN_CHOICES
 	} from 'data/filter-choices';
 	import {
 		view_timeline,
 		current_group_choice,
 		current_side_choice,
 		current_party_choice,
-		current_voteparty_choice,
+		// current_voteparty_choice,
 		sort_order_when_status,
 		sort_order_when_timeline,
 		selected_law,
@@ -93,7 +93,7 @@
 			bind:current_choice={$current_party_choice}
 		/>
 	{/if}
-	{#if $current_group_choice === 'ผลโหวตของพรรค'}
+	<!-- {#if $current_group_choice === 'ผลโหวตของพรรค'}
 		<Dropdown
 			class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
 			label_image="/law-watch/filter.svg"
@@ -102,7 +102,7 @@
 			highlight={$group_highlight}
 			bind:current_choice={$current_voteparty_choice}
 		/>
-	{/if}
+	{/if} -->
 	{#if $view_timeline}
 		<SortOrder
 			class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
