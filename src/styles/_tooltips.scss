@@ -5,6 +5,7 @@
 	z-index: 20;
 
 	padding: 4px;
+	max-width: 300px;
 
 	background: #fff;
 	border-radius: 2px;
@@ -12,9 +13,10 @@
 	display: flex;
 
 	color: #000;
-	letter-spacing: 0.3px;
-	line-height: 1;
-	white-space: nowrap;
+	// letter-spacing: 0.3px;
+	// line-height: 1;
+	// white-space: nowrap;
+	text-align: center;
 
 	-webkit-user-select: none;
 	-moz-user-select: none;
