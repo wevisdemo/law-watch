@@ -231,7 +231,7 @@
 							{/each}
 							<div class="number">
 								<span class="wv-font-semibold">{dom_catg.flat(2).length} ฉบับ</span>
-								<span class="number-back">
+								<span class="number-back sep">
 									{((dom_catg.flat(2).length / LAW_COUNT_WO_STACK) * 100).toFixed(1)}%
 								</span>
 							</div>
@@ -271,10 +271,13 @@
 						{/each}
 					{/each}
 					<div class="number">
-						{party.flat(3).length} ({party
-							.map((e) => e.flat(2).length)
-							.filter((e) => e)
-							.join('/')}) ฉบับ
+						<span class="wv-font-semibold">{party.flat(3).length} ฉบับ</span>
+						<span class="number-back">
+							{party
+								.map((e) => e.flat(2).length)
+								.filter((e) => e)
+								.join(' | ')}
+						</span>
 					</div>
 				</div>
 			{/each}
@@ -353,15 +356,17 @@
 		margin-left: 20px;
 
 		display: flex;
-		align-items: center;
+		align-items: baseline;
 	}
 
 	.number-back {
-		border-left: 1px #fff solid;
-
 		font-size: 0.8em;
 
 		margin-left: 1ch;
-		padding-left: 1ch;
+
+		&.sep {
+			border-left: 1px #fff solid;
+			padding-left: 1ch;
+		}
 	}
 </style>
