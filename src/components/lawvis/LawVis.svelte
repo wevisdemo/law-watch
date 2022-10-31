@@ -174,25 +174,26 @@
 			{#each general_visdata as dom_catg}
 				<div class="row">
 					{#each dom_catg as [out_sapa, in_sapa]}
-						{#each out_sapa as doc (doc.Law_ID)}
+						{#each out_sapa as doc, i (doc.Law_ID)}
 							<Paper
 								law_id={doc.Law_ID}
 								category={doc.Law_Type}
 								type={textTypeToPaperType(doc.Law_Status)}
 								stacked={doc.Law_Merge_Head}
 								title={doc.Law_Name}
+								marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length
+									? 'left'
+									: null}
 							/>
 						{/each}
-						<!-- {#if out_sapa.length && in_sapa.length} -->
-						<div class="line" />
-						<!-- {/if} -->
-						{#each in_sapa as doc (doc.Law_ID)}
+						{#each in_sapa as doc, i (doc.Law_ID)}
 							<Paper
 								law_id={doc.Law_ID}
 								category={doc.Law_Type}
 								type={textTypeToPaperType(doc.Law_Status)}
 								stacked={doc.Law_Merge_Head}
 								title={doc.Law_Name}
+								marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
 							/>
 						{/each}
 					{/each}
@@ -209,23 +210,26 @@
 					{#each proposer as dom_catg}
 						<div class="row">
 							{#each dom_catg as [out_sapa, in_sapa]}
-								{#each out_sapa as doc (doc.Law_ID)}
+								{#each out_sapa as doc, i (doc.Law_ID)}
 									<Paper
 										law_id={doc.Law_ID}
 										category={doc.Law_Type}
 										type={textTypeToPaperType(doc.Law_Status)}
 										stacked={doc.Law_Merge_Head}
 										title={doc.Law_Name}
+										marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length
+											? 'left'
+											: null}
 									/>
 								{/each}
-								<!-- <div class="line" /> -->
-								{#each in_sapa as doc (doc.Law_ID)}
+								{#each in_sapa as doc, i (doc.Law_ID)}
 									<Paper
 										law_id={doc.Law_ID}
 										category={doc.Law_Type}
 										type={textTypeToPaperType(doc.Law_Status)}
 										stacked={doc.Law_Merge_Head}
 										title={doc.Law_Name}
+										marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
 									/>
 								{/each}
 							{/each}
@@ -249,23 +253,26 @@
 				<div class="row">
 					{#each party as dom_catg}
 						{#each dom_catg as [out_sapa, in_sapa]}
-							{#each out_sapa as doc (doc.Law_ID)}
+							{#each out_sapa as doc, i (doc.Law_ID)}
 								<Paper
 									law_id={doc.Law_ID}
 									category={doc.Law_Type}
 									type={textTypeToPaperType(doc.Law_Status)}
 									stacked={doc.Law_Merge_Head}
 									title={doc.Law_Name}
+									marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length
+										? 'left'
+										: null}
 								/>
 							{/each}
-							<!-- <div class="line" /> -->
-							{#each in_sapa as doc (doc.Law_ID)}
+							{#each in_sapa as doc, i (doc.Law_ID)}
 								<Paper
 									law_id={doc.Law_ID}
 									category={doc.Law_Type}
 									type={textTypeToPaperType(doc.Law_Status)}
 									stacked={doc.Law_Merge_Head}
 									title={doc.Law_Name}
+									marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
 								/>
 							{/each}
 						{/each}

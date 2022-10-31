@@ -12,7 +12,7 @@
 	export let category: LawTypes | '' = '';
 	export let noMargin = false;
 	export let noHover = false;
-	export let marked = false;
+	export let marked: null | 'left' | 'right' = null;
 	export let whiteBg = false;
 
 	export let law_id: number | null = null;
@@ -34,8 +34,9 @@
 	class:stacked
 	class:noMargin
 	class:noHover
-	class:marked
 	class:whiteBg
+	class:paper-mark-left={marked === 'left'}
+	class:paper-mark-right={marked === 'right'}
 	class:has-lawid={law_id && $highlighted_paper_ids}
 	class:highlight={law_id && $highlighted_paper_ids?.includes(law_id)}
 	data-title={title}
@@ -59,6 +60,12 @@
 				clip-rule="evenodd"
 			/>
 		</svg>
+	{/if}
+	{#if marked === 'left'}
+		<div class="mark-left" />
+	{/if}
+	{#if marked === 'right'}
+		<div class="mark-right" />
 	{/if}
 </div>
 
@@ -84,6 +91,10 @@
 
 		transition: transform 0.1s, opacity 0.1s;
 
+		&.noHover {
+			cursor: default;
+		}
+
 		&:not(.noHover):hover {
 			transform: translateY(-4px);
 		}
@@ -99,16 +110,6 @@
 
 		&.has-lawid.highlight {
 			opacity: 1;
-		}
-
-		&.marked::after {
-			content: '';
-			position: absolute;
-			width: 4px;
-			height: 7px;
-			background: var(--law-color, var(--default-color));
-			top: 0;
-			left: 3px;
 		}
 
 		&.process {
@@ -166,16 +167,50 @@
 		}
 	}
 
+	.mark-left {
+		position: absolute;
+		top: -1px;
+		width: 7px;
+		height: 7px;
+		border: 3px var(--law-color, #fff) solid;
+		right: 7px;
+		border-right: 3px #0000 solid;
+		border-top: 3px #0000 solid;
+	}
+
+	.mark-right {
+		position: absolute;
+		top: -1px;
+		width: 7px;
+		height: 7px;
+		border: 3px var(--law-color, #fff) solid;
+		left: -1px;
+		border-left: 3px #0000 solid;
+		border-top: 3px #0000 solid;
+	}
+
+	.paper-mark-left {
+		clip-path: polygon(6px 0, 12px 6px, 12px 100%, 0 100%, 0 0);
+	}
+
+	.paper-mark-right {
+		clip-path: polygon(7px 0, 100% 0, 100% 100%, 0 100%, 0 7px);
+	}
+
+	.paper:last-of-type > .mark-left,
+	.paper:nth-last-of-type(2) > .mark-left {
+		left: 12px;
+	}
+
+	.paper-mark-left:last-of-type,
+	.paper-mark-left:nth-last-of-type(2) {
+		clip-path: polygon(12px 0, 20px 8px, 20px 100%, 0 100%, 0 0);
+	}
+
 	@media (max-width: 767.5px) {
 		.paper {
 			width: 13px;
 			height: 16px;
-
-			&.marked::after {
-				width: 2px;
-				height: 5px;
-				left: 1px;
-			}
 
 			&.stack {
 				&::before,
