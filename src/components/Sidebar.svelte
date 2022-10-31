@@ -20,7 +20,7 @@
 		dateStyle: 'short'
 	});
 	const formatDate = (date: number | null | undefined) => {
-		if (!date) return 'ไม่พบวันที่';
+		if (!date) return 'ไม่พบข้อมูล';
 		return date_formatter.format(new Date(date));
 	};
 
