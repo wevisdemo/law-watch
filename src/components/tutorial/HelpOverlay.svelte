@@ -154,7 +154,7 @@
 		setFilter({
 			sort_order_when_status: ['หมวดหมู่', 'สถานะ'],
 			current_group_choice: 'พรรคที่เสนอร่างกฎหมาย',
-			selected_law: ['บริหารราชการ']
+			selected_law: ['เศรษฐกิจ', 'สังคม', 'รัฐธรรมนูญ']
 		});
 
 		tick().then(() => {
@@ -403,8 +403,9 @@
 			}
 
 			@media (min-width: 768px) {
-				justify-content: center;
 				padding: 0 80px;
+				align-items: flex-end;
+				justify-content: center;
 			}
 		}
 	}
@@ -512,16 +513,6 @@
 		display: flex;
 		align-items: center;
 		gap: 6px;
-
-		// aligner
-		// &::after {
-		// 	content: '';
-		// 	height: 2px;
-		// 	width: 300px;
-		// 	background: red;
-		// 	position: absolute;
-		// 	transform: translateX(-100%);
-		// }
 
 		&::before {
 			content: '';
