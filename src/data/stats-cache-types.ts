@@ -17,4 +17,5 @@ export type StatsCacheType = {
 		สิ่งแวดล้อม: number;
 		รัฐธรรมนูญ: number;
 	};
+	longest_diff: number;
 };

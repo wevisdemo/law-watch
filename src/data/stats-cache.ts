@@ -3,6 +3,7 @@ import type { StatsCacheType } from './stats-cache-types';
 export const stats: StatsCacheType = {
   "all_law_len": 291,
   "merged_law_len": 30,
+  "longest_diff": 1539,
   "type_len": {
     "เศรษฐกิจ": 91,
     "สังคม": 103,

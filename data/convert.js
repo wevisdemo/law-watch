@@ -10,18 +10,19 @@ csv()
 			b.Proposer_Party = b.Proposer_Party.split(',')
 				.map((e) => e.trim())
 				.filter((e) => e);
-			b.Start_Date = new Date(b.Start_Date);
-			b.End_Date = new Date(b.End_Date);
+			b.Start_Date = b.Start_Date ? new Date(b.Start_Date) : null;
+			b.End_Date = b.End_Date ? new Date(b.End_Date) : null;
 			b.Law_Merge = b.Law_Merge ? +b.Law_Merge : null;
 			b.Law_in_Parliament = b.Law_in_Parliament === 'TRUE';
 			b.VoteLog_ID = b.VoteLog_ID ? +b.VoteLog_ID : null;
 			if (b.Start_Date && b.End_Date) {
+				// https://stackoverflow.com/a/7763364
 				b.Date_Diff = Math.floor((b.End_Date - b.Start_Date) / (24 * 3600 * 1000));
 			} else {
 				b.Date_Diff = null;
 			}
-			b.Start_Date = +b.Start_Date;
-			b.End_Date = +b.End_Date;
+			b.Start_Date = b.Start_Date ? +b.Start_Date : null;
+			b.End_Date = b.End_Date ? +b.End_Date : null;
 
 			return b;
 		});
@@ -66,8 +67,11 @@ csv()
 				: new Date(e.End_Date).getFullYear(),
 			status: e.Law_Status === 'กฎหมายที่ถูกรวมร่าง' ? e.Law_Merge_Status : e.Law_Status,
 			in_par: +e.Law_in_Parliament,
-			type: e.Law_Type
+			type: e.Law_Type,
+			diff: e.Date_Diff
 		}));
+
+		statCache.longest_diff = Math.max(...minimal_data.map((e) => e.diff));
 
 		const law_by_type = groupBy(minimal_data, (e) => e.type);
 
