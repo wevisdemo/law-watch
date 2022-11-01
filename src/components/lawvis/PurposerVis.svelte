@@ -84,7 +84,6 @@
 
 	.number-back {
 		font-size: 0.8em;
-
 		margin-left: 1ch;
 
 		border-left: 1px #fff solid;

@@ -65,13 +65,16 @@ csv()
 			year: e.Start_Date
 				? new Date(e.Start_Date).getFullYear()
 				: new Date(e.End_Date).getFullYear(),
+			original_status: e.Law_Status,
 			status: e.Law_Status === 'กฎหมายที่ถูกรวมร่าง' ? e.Law_Merge_Status : e.Law_Status,
 			in_par: +e.Law_in_Parliament,
 			type: e.Law_Type,
 			diff: e.Date_Diff
 		}));
 
-		statCache.longest_diff = Math.max(...minimal_data.map((e) => e.diff));
+		statCache.longest_diff = Math.max(
+			...minimal_data.filter((e) => e.original_status !== 'กฎหมายที่ถูกรวมร่าง').map((e) => e.diff)
+		);
 
 		const law_by_type = groupBy(minimal_data, (e) => e.type);
 

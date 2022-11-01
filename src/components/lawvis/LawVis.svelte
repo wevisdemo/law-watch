@@ -8,12 +8,15 @@
 		current_group_choice,
 		current_party_choice,
 		current_side_choice,
-		sort_order_when_status
+		sort_order_when_status,
+		sort_order_when_timeline,
+		view_timeline
 	} from 'stores/filterOptionStore';
 
 	import GeneralVis from './GeneralVis.svelte';
 	import PartyVis from './PartyVis.svelte';
 	import PurposerVis from './PurposerVis.svelte';
+	import TimelineVis from './TimelineVis.svelte';
 
 	export let data: RawDataType[];
 
@@ -85,10 +88,9 @@
 		data: RawDataType[],
 		specific_party: PartyChoiceType
 	): RawDataType[][] => {
-		const by_party = ALL_PARTY.map((party) => data.filter((d) => d.Proposer_Party.includes(party)));
-		return specific_party === 'เลือกทุกพรรค'
-			? by_party
-			: [by_party[ALL_PARTY.indexOf(specific_party)]];
+		return (specific_party === 'เลือกทุกพรรค' ? ALL_PARTY : [specific_party]).map((party) =>
+			data.filter((d) => d.Proposer_Party.includes(party))
+		);
 	};
 
 	// https://twitter.com/dtinth/status/1315714173242728448/photo/1
@@ -99,8 +101,63 @@
 	let general_visdata: [RawDataType[], RawDataType[]][][];
 	let proposer_visdata: [RawDataType[], RawDataType[]][][][];
 	let party_visdata: [RawDataType[], RawDataType[]][][][];
+	let timeline_visdata: any;
 	$: {
-		if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
+		if ($view_timeline) {
+			let temp: Record<string, RawDataType[]>;
+			// Split into base catg
+			if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
+				temp = groupBy(data, (d) => d.Proposer_Type);
+				if ($current_side_choice !== 'เลือกทุกฝ่าย')
+					temp = { [$current_side_choice]: temp[$current_side_choice] };
+			} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
+				temp = Object.fromEntries(
+					($current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY : [$current_party_choice]).map(
+						(party) => [party, data.filter((d) => d.Proposer_Party.includes(party))]
+					)
+				);
+			} else {
+				temp = { '0': data };
+			}
+			// remove merged law
+			for (let group in temp) {
+				temp[group] = temp[group].filter((d) => d.Law_Status !== 'กฎหมายที่ถูกรวมร่าง');
+			}
+			// sort order
+			const STATUS_SORT_LOOKUP = {
+				กฎหมายที่ถูกรวมร่าง: 0,
+				ตกไป: 1,
+				อยู่ในกระบวนการ: 2,
+				ออกเป็นกฎหมาย: 3
+			} as const;
+			const CATG_SORT_LOOKUP = {
+				บริหารราชการ: 0,
+				การศึกษา: 1,
+				เศรษฐกิจ: 2,
+				สังคม: 3,
+				สิ่งแวดล้อม: 4,
+				รัฐธรรมนูญ: 5,
+				กระบวนการยุติธรรม: 6
+			};
+			const sort_by_duration = (a: RawDataType, z: RawDataType) =>
+				(z.Date_Diff ?? 0) - (a.Date_Diff ?? 0);
+			const sort_by_status = (a: RawDataType, z: RawDataType) =>
+				STATUS_SORT_LOOKUP[a.Law_Status] - STATUS_SORT_LOOKUP[z.Law_Status];
+			const sort_by_catg = (a: RawDataType, z: RawDataType) =>
+				CATG_SORT_LOOKUP[a.Law_Type] - CATG_SORT_LOOKUP[z.Law_Type];
+			const SORT_FUNCTION_LOOKUP = {
+				ระยะเวลา: sort_by_duration,
+				สถานะ: sort_by_status,
+				หมวดหมู่: sort_by_catg
+			};
+			const sort_type_arr = [...$sort_order_when_timeline].reverse();
+			for (let sort_type of sort_type_arr) {
+				for (let group in temp) {
+					temp[group] = temp[group].sort(SORT_FUNCTION_LOOKUP[sort_type]);
+				}
+			}
+			timeline_visdata = temp;
+		} else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
 			proposer_visdata = groupDataByProposer(data, $current_side_choice).map((data_by_proposer) => {
 				const sort_step_functions =
 					$sort_order_when_status[0] === 'สถานะ'
@@ -158,12 +215,14 @@
 </script>
 
 <div id="vis-playground">
-	{#if $current_group_choice === 'ไม่แบ่งกลุ่ม'}
-		<GeneralVis data={general_visdata} />
+	{#if $view_timeline === true}
+		<TimelineVis data={timeline_visdata} />
 	{:else if $current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย'}
 		<PurposerVis data={proposer_visdata} />
 	{:else if $current_group_choice === 'พรรคที่เสนอร่างกฎหมาย'}
 		<PartyVis data={party_visdata} />
+	{:else}
+		<GeneralVis data={general_visdata} />
 	{/if}
 </div>
 

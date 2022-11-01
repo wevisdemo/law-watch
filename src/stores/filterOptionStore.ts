@@ -26,8 +26,12 @@ export const current_party_choice = writable<PartyChoiceType>(PARTY_CHOICES[0]);
 
 export const view_timeline = writable(false);
 
-export const sort_order_when_status = writable(['สถานะ', 'หมวดหมู่']);
-export const sort_order_when_timeline = writable(['ระยะเวลา', 'สถานะ', 'หมวดหมู่']);
+export const sort_order_when_status = writable<('สถานะ' | 'หมวดหมู่')[]>(['สถานะ', 'หมวดหมู่']);
+export const sort_order_when_timeline = writable<('ระยะเวลา' | 'สถานะ' | 'หมวดหมู่')[]>([
+	'ระยะเวลา',
+	'สถานะ',
+	'หมวดหมู่'
+]);
 export const sort_order = derived(
 	[view_timeline, sort_order_when_status, sort_order_when_timeline],
 	([$view_timeline, $sort_order_when_status, $sort_order_when_timeline]) => {
