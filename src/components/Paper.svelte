@@ -190,7 +190,7 @@
 	}
 
 	.paper-mark-left {
-		clip-path: polygon(6px 0, 12px 6px, 12px 100%, 0 100%, 0 0);
+		clip-path: polygon(5px 0, 12px 7px, 12px 100%, 0 100%, 0 0);
 	}
 
 	.paper-mark-right {
