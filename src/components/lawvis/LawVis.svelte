@@ -324,25 +324,6 @@
 		margin: auto;
 	}
 
-	.line {
-		position: relative;
-		pointer-events: none;
-
-		&::after {
-			content: '';
-			position: absolute;
-			background: url(/law-watch/line.png);
-			background-size: contain;
-			background-position: center;
-			background-repeat: no-repeat;
-			height: 28px;
-			width: 4px;
-			top: -2px;
-			left: -2px;
-			z-index: 2;
-		}
-	}
-
 	.proposer-container,
 	.party-container {
 		display: grid;
