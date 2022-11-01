@@ -309,6 +309,7 @@
 		align-items: center;
 
 		overflow-y: auto;
+		overscroll-behavior: contain;
 
 		.row {
 			display: flex;
