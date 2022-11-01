@@ -100,6 +100,10 @@
 			</div>
 		</div>
 	</div>
+	<p class="stats-footnote wv-b7">
+		* นับจากปีที่เริ่มยื่นเสนอร่างกฎหมาย<br />
+		** มีร่างกฎหมายที่ถูกเสนอตั้งแต่ ปี พศ. 2561 กินระยะเวลานานรวมอยู่ด้วย 3 ฉบับ
+	</p>
 </section>
 
 <style lang="scss">
@@ -249,5 +253,10 @@
 	.first-year-wrapper {
 		width: 100%;
 		position: relative;
+	}
+
+	.stats-footnote {
+		margin-top: 16px;
+		width: calc(100% - 96px);
 	}
 </style>
