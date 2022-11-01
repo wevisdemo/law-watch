@@ -16,6 +16,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1219,
     "Law_Merge_Head": false
   },
   {
@@ -33,6 +34,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 1161,
     "Law_Merge_Head": false
   },
   {
@@ -50,6 +52,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 909,
     "Law_Merge_Head": false
   },
   {
@@ -67,6 +70,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 22,
     "Law_Merge_Head": false
   },
   {
@@ -84,6 +88,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 22,
     "Law_Merge_Head": false
   },
   {
@@ -110,6 +115,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 1180,
     "Law_Merge_Head": false
   },
   {
@@ -129,6 +135,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 826,
     "Law_Merge_Head": false
   },
   {
@@ -149,6 +156,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 831,
     "Law_Merge_Head": false
   },
   {
@@ -168,6 +176,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 1144,
     "Law_Merge_Head": false
   },
   {
@@ -187,6 +196,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 644,
     "Law_Merge_Head": false
   },
   {
@@ -206,6 +216,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 1144,
     "Law_Merge_Head": false
   },
   {
@@ -225,6 +236,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 1144,
     "Law_Merge_Head": false
   },
   {
@@ -244,6 +256,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -263,6 +276,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 1144,
     "Law_Merge_Head": false
   },
   {
@@ -282,6 +296,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1144,
     "Law_Merge_Head": false
   },
   {
@@ -301,6 +316,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1144,
     "Law_Merge_Head": false
   },
   {
@@ -320,6 +336,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 811,
     "Law_Merge_Head": false
   },
   {
@@ -339,6 +356,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 776,
     "Law_Merge_Head": false
   },
   {
@@ -358,6 +376,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1144,
     "Law_Merge_Head": false
   },
   {
@@ -377,6 +396,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 817,
     "Law_Merge_Head": false
   },
   {
@@ -396,6 +416,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 301,
     "Law_Merge_Head": false
   },
   {
@@ -415,6 +436,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 0,
     "Law_Merge_Head": false
   },
   {
@@ -432,6 +454,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 272,
     "Law_Merge_Head": false
   },
   {
@@ -451,6 +474,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 362,
     "Law_Merge_Head": false
   },
   {
@@ -468,6 +492,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 132,
     "Law_Merge_Head": false
   },
   {
@@ -487,6 +512,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 380,
     "Law_Merge_Head": false
   },
   {
@@ -511,6 +537,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 111,
     "Law_Merge_Head": false
   },
   {
@@ -530,6 +557,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 419,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -548,6 +576,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 307,
     "Law_Merge_Head": true
   },
   {
@@ -567,6 +596,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 8,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -592,6 +622,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 20,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -612,6 +643,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 16,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -632,6 +664,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 596,
     "Law_Merge_Head": false
   },
   {
@@ -649,6 +682,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 314,
     "Law_Merge_Head": false
   },
   {
@@ -666,6 +700,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 314,
     "Law_Merge_Head": false
   },
   {
@@ -692,6 +727,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 818,
     "Law_Merge_Head": false
   },
   {
@@ -711,6 +747,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 322,
     "Law_Merge_Head": false
   },
   {
@@ -734,6 +771,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 966,
     "Law_Merge_Head": false
   },
   {
@@ -753,6 +791,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 455,
     "Law_Merge_Head": false
   },
   {
@@ -777,6 +816,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 784,
     "Law_Merge_Head": false
   },
   {
@@ -796,6 +836,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 36,
     "Law_Merge_Head": false
   },
   {
@@ -815,6 +856,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1,
     "Law_Merge_Head": false
   },
   {
@@ -834,6 +876,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 270,
     "Law_Merge_Head": false
   },
   {
@@ -853,6 +896,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 368,
     "Law_Merge_Head": false
   },
   {
@@ -870,6 +914,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 397,
     "Law_Merge_Head": false
   },
   {
@@ -890,6 +935,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 7,
     "Law_Merge_Head": false
   },
   {
@@ -909,6 +955,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1006,
     "Law_Merge_Head": false
   },
   {
@@ -926,6 +973,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 13,
     "Law_Merge_Head": false
   },
   {
@@ -945,6 +993,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1006,
     "Law_Merge_Head": false
   },
   {
@@ -964,6 +1013,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 645,
     "Law_Merge_Head": false
   },
   {
@@ -983,6 +1033,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 999,
     "Law_Merge_Head": false
   },
   {
@@ -1003,6 +1054,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 440,
     "Law_Merge_Head": false
   },
   {
@@ -1022,6 +1074,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 999,
     "Law_Merge_Head": false
   },
   {
@@ -1041,6 +1094,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 211,
     "Law_Merge_Head": false
   },
   {
@@ -1063,6 +1117,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 154,
     "Law_Merge_Head": false
   },
   {
@@ -1082,6 +1137,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 154,
     "Law_Merge_Head": false
   },
   {
@@ -1099,6 +1155,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1,
     "Law_Merge_Head": false
   },
   {
@@ -1121,6 +1178,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 145,
     "Law_Merge_Head": false
   },
   {
@@ -1138,6 +1196,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 62,
     "Law_Merge_Head": false
   },
   {
@@ -1160,6 +1219,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 260,
     "Law_Merge_Head": false
   },
   {
@@ -1179,6 +1239,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 885,
     "Law_Merge_Head": false
   },
   {
@@ -1196,6 +1257,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 246,
     "Law_Merge_Head": false
   },
   {
@@ -1213,6 +1275,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 337,
     "Law_Merge_Head": false
   },
   {
@@ -1232,6 +1295,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 749,
     "Law_Merge_Head": false
   },
   {
@@ -1251,6 +1315,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 749,
     "Law_Merge_Head": false
   },
   {
@@ -1270,6 +1335,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 713,
     "Law_Merge_Head": false
   },
   {
@@ -1289,6 +1355,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 538,
     "Law_Merge_Head": false
   },
   {
@@ -1309,6 +1376,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 750,
     "Law_Merge_Head": false
   },
   {
@@ -1328,6 +1396,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 777,
     "Law_Merge_Head": false
   },
   {
@@ -1345,6 +1414,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 231,
     "Law_Merge_Head": false
   },
   {
@@ -1366,6 +1436,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 224,
     "Law_Merge_Head": false
   },
   {
@@ -1388,6 +1459,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 448,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "ออกเป็นกฎหมาย"
   },
@@ -1408,6 +1480,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 435,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "ออกเป็นกฎหมาย"
   },
@@ -1433,6 +1506,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 434,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "ออกเป็นกฎหมาย"
   },
@@ -1451,6 +1525,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 433,
     "Law_Merge_Head": true
   },
   {
@@ -1468,6 +1543,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 98,
     "Law_Merge_Head": false
   },
   {
@@ -1485,6 +1561,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 210,
     "Law_Merge_Head": false
   },
   {
@@ -1502,6 +1579,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 210,
     "Law_Merge_Head": false
   },
   {
@@ -1519,6 +1597,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 376,
     "Law_Merge_Head": false
   },
   {
@@ -1536,6 +1615,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 376,
     "Law_Merge_Head": false
   },
   {
@@ -1555,6 +1635,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 315,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "ออกเป็นกฎหมาย"
   },
@@ -1573,6 +1654,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 285,
     "Law_Merge_Head": true
   },
   {
@@ -1592,6 +1674,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 114,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "ออกเป็นกฎหมาย"
   },
@@ -1612,6 +1695,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 201,
     "Law_Merge_Head": false
   },
   {
@@ -1631,6 +1715,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 795,
     "Law_Merge_Head": false
   },
   {
@@ -1650,6 +1735,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 750,
     "Law_Merge_Head": false
   },
   {
@@ -1667,6 +1753,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 451,
     "Law_Merge_Head": false
   },
   {
@@ -1684,6 +1771,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 328,
     "Law_Merge_Head": false
   },
   {
@@ -1703,6 +1791,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 860,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -1721,6 +1810,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 804,
     "Law_Merge_Head": true
   },
   {
@@ -1740,6 +1830,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1006,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -1766,6 +1857,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 699,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -1784,6 +1876,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 1539,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -1804,6 +1897,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 651,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -1824,6 +1918,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 638,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -1850,6 +1945,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 615,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -1870,6 +1966,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 790,
     "Law_Merge_Head": false
   },
   {
@@ -1889,6 +1986,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 218,
     "Law_Merge_Head": false
   },
   {
@@ -1906,6 +2004,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 272,
     "Law_Merge_Head": false
   },
   {
@@ -1932,6 +2031,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 188,
     "Law_Merge_Head": false
   },
   {
@@ -1951,6 +2051,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 347,
     "Law_Merge_Head": false
   },
   {
@@ -1968,6 +2069,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 425,
     "Law_Merge_Head": false
   },
   {
@@ -1987,6 +2089,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 773,
     "Law_Merge_Head": false
   },
   {
@@ -2006,6 +2109,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 773,
     "Law_Merge_Head": false
   },
   {
@@ -2036,6 +2140,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 355,
     "Law_Merge_Head": false
   },
   {
@@ -2055,6 +2160,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 767,
     "Law_Merge_Head": false
   },
   {
@@ -2072,6 +2178,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 314,
     "Law_Merge_Head": false
   },
   {
@@ -2089,6 +2196,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 720,
     "Law_Merge_Head": false
   },
   {
@@ -2110,6 +2218,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 719,
     "Law_Merge_Head": false
   },
   {
@@ -2131,6 +2240,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 14,
     "Law_Merge_Head": false
   },
   {
@@ -2150,6 +2260,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 6,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "ออกเป็นกฎหมาย"
   },
@@ -2171,6 +2282,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 192,
     "Law_Merge_Head": false
   },
   {
@@ -2188,6 +2300,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 449,
     "Law_Merge_Head": false
   },
   {
@@ -2216,6 +2329,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 256,
     "Law_Merge_Head": false
   },
   {
@@ -2233,6 +2347,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 52,
     "Law_Merge_Head": true
   },
   {
@@ -2252,6 +2367,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สิ่งแวดล้อม",
     "VoteLog_ID": null,
+    "Date_Diff": 190,
     "Law_Merge_Head": false
   },
   {
@@ -2269,6 +2385,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 517,
     "Law_Merge_Head": false
   },
   {
@@ -2294,6 +2411,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 198,
     "Law_Merge_Head": false
   },
   {
@@ -2311,6 +2429,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -2328,6 +2447,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 586,
     "Law_Merge_Head": false
   },
   {
@@ -2347,6 +2467,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 245,
     "Law_Merge_Head": false
   },
   {
@@ -2364,6 +2485,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 393,
     "Law_Merge_Head": true
   },
   {
@@ -2383,6 +2505,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 7,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "ออกเป็นกฎหมาย"
   },
@@ -2401,6 +2524,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 643,
     "Law_Merge_Head": true
   },
   {
@@ -2420,6 +2544,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 14,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -2442,6 +2567,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 641,
     "Law_Merge_Head": false
   },
   {
@@ -2459,6 +2585,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 458,
     "Law_Merge_Head": false
   },
   {
@@ -2476,6 +2603,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 566,
     "Law_Merge_Head": false
   },
   {
@@ -2493,6 +2621,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 439,
     "Law_Merge_Head": false
   },
   {
@@ -2513,6 +2642,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 476,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -2533,6 +2663,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 289,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -2553,6 +2684,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 230,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -2573,6 +2705,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 229,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -2593,6 +2726,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 635,
     "Law_Merge_Head": true
   },
   {
@@ -2619,6 +2753,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 218,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -2639,6 +2774,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 628,
     "Law_Merge_Head": false
   },
   {
@@ -2664,6 +2800,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 627,
     "Law_Merge_Head": false
   },
   {
@@ -2683,6 +2820,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 622,
     "Law_Merge_Head": false
   },
   {
@@ -2700,6 +2838,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 614,
     "Law_Merge_Head": false
   },
   {
@@ -2717,6 +2856,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 614,
     "Law_Merge_Head": false
   },
   {
@@ -2736,6 +2876,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 608,
     "Law_Merge_Head": false
   },
   {
@@ -2753,6 +2894,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 124,
     "Law_Merge_Head": false
   },
   {
@@ -2772,6 +2914,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 516,
     "Law_Merge_Head": false
   },
   {
@@ -2791,6 +2934,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 509,
     "Law_Merge_Head": false
   },
   {
@@ -2808,6 +2952,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 398,
     "Law_Merge_Head": false
   },
   {
@@ -2825,6 +2970,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 433,
     "Law_Merge_Head": false
   },
   {
@@ -2842,6 +2988,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 325,
     "Law_Merge_Head": false
   },
   {
@@ -2861,6 +3008,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สิ่งแวดล้อม",
     "VoteLog_ID": null,
+    "Date_Diff": 502,
     "Law_Merge_Head": false
   },
   {
@@ -2880,6 +3028,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สิ่งแวดล้อม",
     "VoteLog_ID": null,
+    "Date_Diff": 502,
     "Law_Merge_Head": false
   },
   {
@@ -2899,6 +3048,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สิ่งแวดล้อม",
     "VoteLog_ID": null,
+    "Date_Diff": 502,
     "Law_Merge_Head": false
   },
   {
@@ -2918,6 +3068,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 500,
     "Law_Merge_Head": false
   },
   {
@@ -2937,6 +3088,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 26,
     "Law_Merge_Head": false
   },
   {
@@ -2956,6 +3108,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 174,
     "Law_Merge_Head": false
   },
   {
@@ -2975,6 +3128,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 480,
     "Law_Merge_Head": false
   },
   {
@@ -2992,6 +3146,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -3009,6 +3164,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -3026,6 +3182,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -3043,6 +3200,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 314,
     "Law_Merge_Head": false
   },
   {
@@ -3060,6 +3218,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 314,
     "Law_Merge_Head": false
   },
   {
@@ -3077,6 +3236,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 313,
     "Law_Merge_Head": false
   },
   {
@@ -3094,6 +3254,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 313,
     "Law_Merge_Head": false
   },
   {
@@ -3113,6 +3274,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 203,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "ออกเป็นกฎหมาย"
   },
@@ -3131,6 +3293,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 301,
     "Law_Merge_Head": true
   },
   {
@@ -3148,6 +3311,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 335,
     "Law_Merge_Head": false
   },
   {
@@ -3165,6 +3329,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 432,
     "Law_Merge_Head": false
   },
   {
@@ -3182,6 +3347,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 83,
     "Law_Merge_Head": false
   },
   {
@@ -3205,6 +3371,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 410,
     "Law_Merge_Head": false
   },
   {
@@ -3224,6 +3391,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 378,
     "Law_Merge_Head": true
   },
   {
@@ -3243,6 +3411,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 362,
     "Law_Merge_Head": false
   },
   {
@@ -3260,6 +3429,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 354,
     "Law_Merge_Head": false
   },
   {
@@ -3277,6 +3447,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 354,
     "Law_Merge_Head": false
   },
   {
@@ -3294,6 +3465,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 186,
     "Law_Merge_Head": false
   },
   {
@@ -3311,6 +3483,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 321,
     "Law_Merge_Head": true
   },
   {
@@ -3336,6 +3509,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 26,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -3354,6 +3528,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 334,
     "Law_Merge_Head": false
   },
   {
@@ -3371,6 +3546,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 334,
     "Law_Merge_Head": false
   },
   {
@@ -3393,6 +3569,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 333,
     "Law_Merge_Head": false
   },
   {
@@ -3412,6 +3589,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 332,
     "Law_Merge_Head": false
   },
   {
@@ -3429,6 +3607,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 266,
     "Law_Merge_Head": false
   },
   {
@@ -3448,6 +3627,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สิ่งแวดล้อม",
     "VoteLog_ID": null,
+    "Date_Diff": 313,
     "Law_Merge_Head": false
   },
   {
@@ -3471,6 +3651,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 635,
     "Law_Merge_Head": false
   },
   {
@@ -3491,6 +3672,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สิ่งแวดล้อม",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3511,6 +3693,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3531,6 +3714,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3551,6 +3735,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3578,6 +3763,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 270,
     "Law_Merge_Head": false
   },
   {
@@ -3607,6 +3793,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 270,
     "Law_Merge_Head": false
   },
   {
@@ -3635,6 +3822,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 270,
     "Law_Merge_Head": false
   },
   {
@@ -3657,6 +3845,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 265,
     "Law_Merge_Head": false
   },
   {
@@ -3674,6 +3863,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 265,
     "Law_Merge_Head": false
   },
   {
@@ -3697,6 +3887,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 265,
     "Law_Merge_Head": false
   },
   {
@@ -3719,6 +3910,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 265,
     "Law_Merge_Head": false
   },
   {
@@ -3738,6 +3930,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สิ่งแวดล้อม",
     "VoteLog_ID": null,
+    "Date_Diff": 278,
     "Law_Merge_Head": false
   },
   {
@@ -3757,6 +3950,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3776,6 +3970,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3795,6 +3990,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3814,6 +4010,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3833,6 +4030,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3852,6 +4050,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3875,6 +4074,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 277,
     "Law_Merge_Head": false
   },
   {
@@ -3894,6 +4094,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 248,
     "Law_Merge_Head": false
   },
   {
@@ -3913,6 +4114,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 116,
     "Law_Merge_Head": false
   },
   {
@@ -3939,6 +4141,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 109,
     "Law_Merge_Head": false
   },
   {
@@ -3962,6 +4165,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 104,
     "Law_Merge_Head": false
   },
   {
@@ -3986,6 +4190,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 271,
     "Law_Merge_Head": false
   },
   {
@@ -4016,6 +4221,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 96,
     "Law_Merge_Head": false
   },
   {
@@ -4046,6 +4252,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 83,
     "Law_Merge_Head": false
   },
   {
@@ -4076,6 +4283,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 96,
     "Law_Merge_Head": false
   },
   {
@@ -4095,6 +4303,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 265,
     "Law_Merge_Head": false
   },
   {
@@ -4114,6 +4323,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "กระบวนการยุติธรรม",
     "VoteLog_ID": null,
+    "Date_Diff": 264,
     "Law_Merge_Head": false
   },
   {
@@ -4133,6 +4343,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 7,
     "Law_Merge_Head": false
   },
   {
@@ -4152,6 +4363,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 255,
     "Law_Merge_Head": false
   },
   {
@@ -4171,6 +4383,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 255,
     "Law_Merge_Head": false
   },
   {
@@ -4190,6 +4403,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 255,
     "Law_Merge_Head": false
   },
   {
@@ -4209,6 +4423,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 127,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -4241,6 +4456,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 250,
     "Law_Merge_Head": false
   },
   {
@@ -4260,6 +4476,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 250,
     "Law_Merge_Head": false
   },
   {
@@ -4277,6 +4494,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 249,
     "Law_Merge_Head": false
   },
   {
@@ -4297,6 +4515,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 248,
     "Law_Merge_Head": false
   },
   {
@@ -4326,6 +4545,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 248,
     "Law_Merge_Head": false
   },
   {
@@ -4346,6 +4566,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 248,
     "Law_Merge_Head": false
   },
   {
@@ -4363,6 +4584,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 973,
     "Law_Merge_Head": false
   },
   {
@@ -4382,6 +4604,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 229,
     "Law_Merge_Head": false
   },
   {
@@ -4405,6 +4628,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 223,
     "Law_Merge_Head": false
   },
   {
@@ -4424,6 +4648,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 727,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -4442,6 +4667,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 144,
     "Law_Merge_Head": true
   },
   {
@@ -4459,6 +4685,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 6,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -4479,6 +4706,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 143,
     "Law_Merge_Head": true
   },
   {
@@ -4496,6 +4724,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 121,
     "Law_Merge_Head": false
   },
   {
@@ -4513,6 +4742,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 160,
     "Law_Merge_Head": false
   },
   {
@@ -4530,6 +4760,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 160,
     "Law_Merge_Head": false
   },
   {
@@ -4549,6 +4780,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 28,
     "Law_Merge_Head": false,
     "Law_Merge_Status": "อยู่ในกระบวนการ"
   },
@@ -4567,6 +4799,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 132,
     "Law_Merge_Head": false
   },
   {
@@ -4592,6 +4825,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 132,
     "Law_Merge_Head": false
   },
   {
@@ -4611,6 +4845,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 131,
     "Law_Merge_Head": false
   },
   {
@@ -4630,6 +4865,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 131,
     "Law_Merge_Head": false
   },
   {
@@ -4649,6 +4885,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 131,
     "Law_Merge_Head": false
   },
   {
@@ -4668,6 +4905,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 7,
     "Law_Merge_Head": false
   },
   {
@@ -4685,6 +4923,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "การศึกษา",
     "VoteLog_ID": null,
+    "Date_Diff": 125,
     "Law_Merge_Head": false
   },
   {
@@ -4702,6 +4941,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 118,
     "Law_Merge_Head": false
   },
   {
@@ -4719,6 +4959,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4736,6 +4977,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4753,6 +4995,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4770,6 +5013,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4787,6 +5031,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4804,6 +5049,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4821,6 +5067,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4838,6 +5085,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4855,6 +5103,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4872,6 +5121,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4889,6 +5139,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4906,6 +5157,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -4923,6 +5175,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 85,
     "Law_Merge_Head": false
   },
   {
@@ -4940,6 +5193,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "บริหารราชการ",
     "VoteLog_ID": null,
+    "Date_Diff": 16,
     "Law_Merge_Head": false
   },
   {
@@ -4957,6 +5211,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 4,
     "Law_Merge_Head": false
   },
   {
@@ -4974,6 +5229,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 4,
     "Law_Merge_Head": false
   },
   {
@@ -4991,6 +5247,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 4,
     "Law_Merge_Head": false
   },
   {
@@ -5008,6 +5265,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 4,
     "Law_Merge_Head": false
   },
   {
@@ -5025,6 +5283,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 38,
     "Law_Merge_Head": false
   },
   {
@@ -5042,6 +5301,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 38,
     "Law_Merge_Head": false
   },
   {
@@ -5059,6 +5319,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 10,
     "Law_Merge_Head": false
   },
   {
@@ -5076,6 +5337,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "เศรษฐกิจ",
     "VoteLog_ID": null,
+    "Date_Diff": 43,
     "Law_Merge_Head": false
   },
   {
@@ -5093,6 +5355,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "สังคม",
     "VoteLog_ID": null,
+    "Date_Diff": 15,
     "Law_Merge_Head": false
   },
   {
@@ -5112,6 +5375,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 78,
     "Law_Merge_Head": false
   },
   {
@@ -5129,6 +5393,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 57,
     "Law_Merge_Head": false
   },
   {
@@ -5150,6 +5415,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 158,
     "Law_Merge_Head": false
   },
   {
@@ -5172,6 +5438,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 8,
     "Law_Merge_Head": false
   },
   {
@@ -5194,6 +5461,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 8,
     "Law_Merge_Head": false
   },
   {
@@ -5216,6 +5484,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 63,
     "Law_Merge_Head": false
   },
   {
@@ -5238,6 +5507,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 8,
     "Law_Merge_Head": false
   },
   {
@@ -5261,6 +5531,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 69,
     "Law_Merge_Head": false
   },
   {
@@ -5283,6 +5554,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 8,
     "Law_Merge_Head": false
   },
   {
@@ -5306,6 +5578,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 69,
     "Law_Merge_Head": false
   },
   {
@@ -5328,6 +5601,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 8,
     "Law_Merge_Head": false
   },
   {
@@ -5351,6 +5625,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 69,
     "Law_Merge_Head": false
   },
   {
@@ -5373,6 +5648,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 7,
     "Law_Merge_Head": false
   },
   {
@@ -5392,6 +5668,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -5414,6 +5691,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 7,
     "Law_Merge_Head": false
   },
   {
@@ -5441,6 +5719,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -5464,6 +5743,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 8,
     "Law_Merge_Head": false
   },
   {
@@ -5494,6 +5774,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 78,
     "Law_Merge_Head": false
   },
   {
@@ -5514,6 +5795,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 195,
     "Law_Merge_Head": false
   },
   {
@@ -5539,6 +5821,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 8,
     "Law_Merge_Head": false
   },
   {
@@ -5558,6 +5841,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 195,
     "Law_Merge_Head": false
   },
   {
@@ -5583,6 +5867,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 8,
     "Law_Merge_Head": false
   },
   {
@@ -5602,6 +5887,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 122,
     "Law_Merge_Head": false
   },
   {
@@ -5624,6 +5910,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 196,
     "Law_Merge_Head": false
   },
   {
@@ -5647,6 +5934,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": false,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": null,
     "Law_Merge_Head": false
   },
   {
@@ -5670,6 +5958,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 212,
     "Law_Merge_Head": false
   },
   {
@@ -5687,6 +5976,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 140,
     "Law_Merge_Head": false
   },
   {
@@ -5704,6 +5994,7 @@ export const data: RawDataType[] = [
     "Law_in_Parliament": true,
     "Law_Type": "รัฐธรรมนูญ",
     "VoteLog_ID": null,
+    "Date_Diff": 196,
     "Law_Merge_Head": false
   }
 ]

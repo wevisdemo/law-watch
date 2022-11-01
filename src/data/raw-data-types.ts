@@ -10,6 +10,7 @@ export type RawDataType = {
 	Law_Name: string;
 	Start_Date: number | null;
 	End_Date: number | null;
+	Date_Diff: number | null;
 	Law_Status: 'กฎหมายที่ถูกรวมร่าง' | 'ตกไป' | 'อยู่ในกระบวนการ' | 'ออกเป็นกฎหมาย';
 	Status_Description: string;
 	Law_Merge: number | null;
