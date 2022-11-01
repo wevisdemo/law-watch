@@ -56,7 +56,7 @@
 		<Paper type="pass" stacked noMargin noHover />
 		<span>กฎหมายที่ถูกรวมร่าง</span>
 	</div>
-	<div class="law-status-type law-line" class:always_show_line>
+	<div class="law-line" class:always_show_line>
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 130 44" width="130" height="44"
 			><g clip-path="url(#a)"
 				><path fill="#000" d="M0 0h130v44H0z" /><path
