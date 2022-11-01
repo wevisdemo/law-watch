@@ -1,17 +1,19 @@
 <script lang="ts">
-	import Paper from 'components/Paper.svelte';
 	import type { PartyChoiceType, SideChoiceType } from 'data/filter-choices';
 
-	import type { RawDataType } from 'data/raw-data-types';
-	import { stats } from 'data/stats-cache';
 	import { ALL_PARTY } from 'data/parties';
+	import type { RawDataType } from 'data/raw-data-types';
 
 	import {
-		sort_order_when_status,
 		current_group_choice,
+		current_party_choice,
 		current_side_choice,
-		current_party_choice
+		sort_order_when_status
 	} from 'stores/filterOptionStore';
+
+	import GeneralVis from './GeneralVis.svelte';
+	import PartyVis from './PartyVis.svelte';
+	import PurposerVis from './PurposerVis.svelte';
 
 	export let data: RawDataType[];
 
@@ -26,15 +28,6 @@
 	const sortByName = (a: any, z: any) => {
 		return a.Law_Name.localeCompare(z.Law_Name);
 	};
-
-	const textTypeToPaperType = (text_type: string) =>
-		((
-			{
-				ตกไป: '',
-				อยู่ในกระบวนการ: 'process',
-				ออกเป็นกฎหมาย: 'pass'
-			} as const
-		)[text_type] ?? '');
 
 	const groupDataByStatus = (
 		data: RawDataType[]
@@ -88,8 +81,6 @@
 			: [catg_json[specific_group]];
 	};
 
-	const LAW_COUNT_WO_STACK = stats.all_law_len - stats.merged_law_len;
-
 	const groupDataByParty = (
 		data: RawDataType[],
 		specific_party: PartyChoiceType
@@ -99,8 +90,6 @@
 			? by_party
 			: [by_party[ALL_PARTY.indexOf(specific_party)]];
 	};
-
-	const PROPOSER = ['คณะรัฐมนตรี', 'ประชาชน', 'ฝ่ายรัฐบาล', 'ฝ่ายค้าน', 'ผสม', 'ไม่ทราบฝ่าย'];
 
 	// https://twitter.com/dtinth/status/1315714173242728448/photo/1
 	const removeNull = (element: any): element is Exclude<typeof element, null> => !!element;
@@ -170,125 +159,11 @@
 
 <div id="vis-playground">
 	{#if $current_group_choice === 'ไม่แบ่งกลุ่ม'}
-		<div class="general-vis-container">
-			{#each general_visdata as dom_catg}
-				<div class="row">
-					{#each dom_catg as [out_sapa, in_sapa]}
-						{#each out_sapa as doc, i (doc.Law_ID)}
-							<Paper
-								law_id={doc.Law_ID}
-								category={doc.Law_Type}
-								type={textTypeToPaperType(doc.Law_Status)}
-								stacked={doc.Law_Merge_Head}
-								title={doc.Law_Name}
-								marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length
-									? 'left'
-									: null}
-							/>
-						{/each}
-						{#each in_sapa as doc, i (doc.Law_ID)}
-							<Paper
-								law_id={doc.Law_ID}
-								category={doc.Law_Type}
-								type={textTypeToPaperType(doc.Law_Status)}
-								stacked={doc.Law_Merge_Head}
-								title={doc.Law_Name}
-								marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
-							/>
-						{/each}
-					{/each}
-				</div>
-			{/each}
-		</div>
+		<GeneralVis data={general_visdata} />
 	{:else if $current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย'}
-		<div class="proposer-container">
-			{#each proposer_visdata as proposer, i}
-				<div class="nw text-right">
-					{$current_side_choice === 'เลือกทุกฝ่าย' ? PROPOSER[i] : $current_side_choice}
-				</div>
-				<div>
-					{#each proposer as dom_catg}
-						<div class="row">
-							{#each dom_catg as [out_sapa, in_sapa]}
-								{#each out_sapa as doc, i (doc.Law_ID)}
-									<Paper
-										law_id={doc.Law_ID}
-										category={doc.Law_Type}
-										type={textTypeToPaperType(doc.Law_Status)}
-										stacked={doc.Law_Merge_Head}
-										title={doc.Law_Name}
-										marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length
-											? 'left'
-											: null}
-									/>
-								{/each}
-								{#each in_sapa as doc, i (doc.Law_ID)}
-									<Paper
-										law_id={doc.Law_ID}
-										category={doc.Law_Type}
-										type={textTypeToPaperType(doc.Law_Status)}
-										stacked={doc.Law_Merge_Head}
-										title={doc.Law_Name}
-										marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
-									/>
-								{/each}
-							{/each}
-							<div class="number">
-								<span class="wv-font-semibold">{dom_catg.flat(2).length} ฉบับ</span>
-								<span class="number-back sep">
-									{((dom_catg.flat(2).length / LAW_COUNT_WO_STACK) * 100).toFixed(1)}%
-								</span>
-							</div>
-						</div>
-					{/each}
-				</div>
-			{/each}
-		</div>
+		<PurposerVis data={proposer_visdata} />
 	{:else if $current_group_choice === 'พรรคที่เสนอร่างกฎหมาย'}
-		<div class="party-container">
-			{#each party_visdata as party, i}
-				<div class="nw text-right">
-					{$current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[i] : $current_party_choice}
-				</div>
-				<div class="row">
-					{#each party as dom_catg}
-						{#each dom_catg as [out_sapa, in_sapa]}
-							{#each out_sapa as doc, i (doc.Law_ID)}
-								<Paper
-									law_id={doc.Law_ID}
-									category={doc.Law_Type}
-									type={textTypeToPaperType(doc.Law_Status)}
-									stacked={doc.Law_Merge_Head}
-									title={doc.Law_Name}
-									marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length
-										? 'left'
-										: null}
-								/>
-							{/each}
-							{#each in_sapa as doc, i (doc.Law_ID)}
-								<Paper
-									law_id={doc.Law_ID}
-									category={doc.Law_Type}
-									type={textTypeToPaperType(doc.Law_Status)}
-									stacked={doc.Law_Merge_Head}
-									title={doc.Law_Name}
-									marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
-								/>
-							{/each}
-						{/each}
-					{/each}
-					<div class="number">
-						<span class="wv-font-semibold">{party.flat(3).length} ฉบับ</span>
-						<span class="number-back">
-							{party
-								.map((e) => e.flat(2).length)
-								.filter((e) => e)
-								.join(' | ')}
-						</span>
-					</div>
-				</div>
-			{/each}
-		</div>
+		<PartyVis data={party_visdata} />
 	{/if}
 </div>
 
@@ -310,52 +185,5 @@
 
 		overflow-y: auto;
 		overscroll-behavior: contain;
-
-		.row {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 8px 0;
-			margin-bottom: 8px;
-		}
-	}
-
-	.general-vis-container {
-		max-width: 370px;
-		margin: auto;
-	}
-
-	.proposer-container,
-	.party-container {
-		display: grid;
-		grid-template-columns: auto auto;
-		align-items: center;
-		gap: 24px 48px;
-		margin: auto;
-	}
-
-	.party-container {
-		gap: 16px 16px;
-	}
-
-	.text-right {
-		text-align: right;
-	}
-
-	.number {
-		margin-left: 20px;
-
-		display: flex;
-		align-items: baseline;
-	}
-
-	.number-back {
-		font-size: 0.8em;
-
-		margin-left: 1ch;
-
-		&.sep {
-			border-left: 1px #fff solid;
-			padding-left: 1ch;
-		}
 	}
 </style>
