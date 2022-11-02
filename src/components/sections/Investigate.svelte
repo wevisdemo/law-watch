@@ -2,8 +2,6 @@
 	import { inView } from 'motion';
 	import { onMount } from 'svelte';
 
-	import { data } from 'data/raw-data';
-
 	import {
 		current_group_choice,
 		current_party_choice,
@@ -63,7 +61,7 @@
 
 <section bind:this={el_section} id="investigate-section" class="h100">
 	<h2 class="title wv-b4 tc nw">{@html label}</h2>
-	<LawVis {data} />
+	<LawVis />
 	<FilterBox />
 	<Sidebar />
 	<HelpOverlay />

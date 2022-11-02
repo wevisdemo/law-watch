@@ -2,6 +2,7 @@
 	import type { PartyChoiceType, SideChoiceType } from 'data/filter-choices';
 
 	import { ALL_PARTY } from 'data/parties';
+	import { data } from 'data/raw-data';
 	import type { RawDataType } from 'data/raw-data-types';
 
 	import {
@@ -17,8 +18,6 @@
 	import PartyVis from './PartyVis.svelte';
 	import PurposerVis from './PurposerVis.svelte';
 	import TimelineVis from './TimelineVis.svelte';
-
-	export let data: RawDataType[];
 
 	// #region [ --- HELPER FUNCTIONS --- ]
 	// https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore
