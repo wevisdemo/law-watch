@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { textTypeToPaperType } from 'components/lawvis/utils';
-	import Paper from 'components/Paper.svelte';
+	import Paper from 'components/papers/StaticPaper.svelte';
 	import { LAW_TYPE_METADATA } from 'data/law-types';
 	import type { RawDataType } from 'data/raw-data-types';
 	import { stats } from 'data/stats-cache';
@@ -10,22 +10,18 @@
 
 <div class="longpaper-container">
 	<Paper
-		law_id={doc.Law_ID}
 		category={doc.Law_Type}
 		type={textTypeToPaperType(doc.Law_Status)}
 		stacked={doc.Law_Merge_Head}
-		title={doc.Law_Name}
 	/>
 	<div
 		class="line {LAW_TYPE_METADATA[doc.Law_Type].color}"
 		style:--length={((doc.Date_Diff ?? 0) / stats.longest_diff) * 100}
 	/>
 	<Paper
-		law_id={doc.Law_ID}
 		category={doc.Law_Type}
 		type={textTypeToPaperType(doc.Law_Status)}
 		stacked={doc.Law_Merge_Head}
-		title={doc.Law_Name}
 	/>
 </div>
 
@@ -36,10 +32,11 @@
 
 		margin-bottom: -8px;
 
-		transition: transform 0.1s, opacity 0.1s;
+		transition: transform 0.1s, z-index 0.1s;
 
 		&:hover {
 			transform: translateY(-4px);
+			z-index: 2;
 		}
 	}
 

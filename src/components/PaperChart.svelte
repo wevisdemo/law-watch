@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Paper from './Paper.svelte';
+	import Paper from 'components/papers/StaticPaper.svelte';
 	export let data: [[number, number], [number, number], [0, number]] = [
 		[0, 0],
 		[0, 0],
@@ -9,25 +9,25 @@
 
 <div class="paper-container">
 	{#each Array(data[0][0]) as _, i}
-		<Paper noHover marked={i + 1 === data[0][0] ? 'left' : null} />
+		<Paper marked={i + 1 === data[0][0] ? 'left' : null} />
 	{/each}
 	{#each Array(data[0][1]) as _, i}
-		<Paper noHover marked={i === 0 ? 'right' : null} />
+		<Paper marked={i === 0 ? 'right' : null} />
 	{/each}
 	<div class="number wv-b5" data-num={data[0][0] + data[0][1]} />
 </div>
 <div class="paper-container">
 	{#each Array(data[1][0]) as _, i}
-		<Paper type="process" noHover marked={i + 1 === data[1][0] ? 'left' : null} />
+		<Paper type="process" marked={i + 1 === data[1][0] ? 'left' : null} />
 	{/each}
 	{#each Array(data[1][1]) as _, i}
-		<Paper type="process" noHover marked={i === 0 ? 'right' : null} />
+		<Paper type="process" marked={i === 0 ? 'right' : null} />
 	{/each}
 	<div class="number wv-b5" data-num={data[1][0] + data[1][1]} />
 </div>
 <div class="paper-container">
 	{#each Array(data[2][1]) as _}
-		<Paper type="pass" noHover />
+		<Paper type="pass" />
 	{/each}
 	<div class="number wv-b5" data-num={data[2][1]} />
 </div>

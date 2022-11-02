@@ -5,16 +5,8 @@
 
 	import { current_selected_paper_id } from 'stores/paperHighlightStore';
 
-	import Paper from './Paper.svelte';
-
-	const textTypeToPaperType = (text_type: string) =>
-		((
-			{
-				ตกไป: '',
-				อยู่ในกระบวนการ: 'process',
-				ออกเป็นกฎหมาย: 'pass'
-			} as const
-		)[text_type] ?? '');
+	import Paper from 'components/papers/StaticPaper.svelte';
+	import { textTypeToPaperType } from 'components/lawvis/utils';
 
 	const date_formatter = new Intl.DateTimeFormat('th-TH', {
 		dateStyle: 'short'
@@ -83,12 +75,13 @@
 		<div class="status">
 			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
 			<Paper
-				noHover
 				noMargin
 				whiteBg
 				type={textTypeToPaperType(relative_law?.[current_law_index]?.Law_Status ?? '')}
 				stacked={relative_law?.[current_law_index]?.Law_Merge_Head}
-				style="display:inline-block;margin-left:4px;height:16px;width:13.33px"
+				width={13}
+				height={16}
+				style="display:inline-block;margin-left:4px"
 			/>
 			<span style="line-height:1">{relative_law?.[current_law_index]?.Law_Status}</span>
 		</div>

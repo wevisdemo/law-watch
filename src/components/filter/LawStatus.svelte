@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Paper from 'components/Paper.svelte';
+	import Paper from 'components/papers/StaticPaper.svelte';
 
 	import { stats } from 'data/stats-cache';
 
@@ -38,22 +38,22 @@
 		class="law-status-type"
 		class:highlight={typeof highlight === 'string' && ['one', 'two'].includes(highlight)}
 	>
-		<Paper noMargin noHover />
+		<Paper noMargin />
 		<span>ตกไป</span>
 		<span class="number">{data.reject}</span>
 	</div>
 	<div class="law-status-type" class:highlight={highlight === 'two'}>
-		<Paper type="process" noMargin noHover />
+		<Paper type="process" noMargin />
 		<span>อยู่ในกระบวนการ</span>
 		<span class="number">{data.progress}</span>
 	</div>
 	<div class="law-status-type">
-		<Paper type="pass" noMargin noHover />
+		<Paper type="pass" noMargin />
 		<span>ออกเป็นกฎหมาย</span>
 		<span class="number">{data.pass}</span>
 	</div>
 	<div class="law-status-type merge-type">
-		<Paper type="pass" stacked noMargin noHover />
+		<Paper type="pass" stacked noMargin />
 		<span>กฎหมายที่ถูกรวมร่าง</span>
 	</div>
 	<div class="law-line" class:always_show_line>
