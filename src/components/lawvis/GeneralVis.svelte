@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Paper from 'components/Paper.svelte';
+	import Paper from 'components/papers/DynamicPaper.svelte';
 	import type { RawDataType } from 'data/raw-data-types';
-	import { textTypeToPaperType } from './utils';
 
 	export let data: [RawDataType[], RawDataType[]][][];
 </script>
@@ -12,21 +11,13 @@
 			{#each dom_catg as [out_sapa, in_sapa]}
 				{#each out_sapa as doc, i (doc.Law_ID)}
 					<Paper
-						law_id={doc.Law_ID}
-						category={doc.Law_Type}
-						type={textTypeToPaperType(doc.Law_Status)}
-						stacked={doc.Law_Merge_Head}
-						title={doc.Law_Name}
+						id={doc.Law_ID}
 						marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length ? 'left' : null}
 					/>
 				{/each}
 				{#each in_sapa as doc, i (doc.Law_ID)}
 					<Paper
-						law_id={doc.Law_ID}
-						category={doc.Law_Type}
-						type={textTypeToPaperType(doc.Law_Status)}
-						stacked={doc.Law_Merge_Head}
-						title={doc.Law_Name}
+						id={doc.Law_ID}
 						marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
 					/>
 				{/each}

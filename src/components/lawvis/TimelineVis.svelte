@@ -3,7 +3,7 @@
 	// 0	365	731	1096	1461
 	// 0	+365	+366	+365	+365
 
-	import Paper from 'components/Paper.svelte';
+	import Paper from 'components/papers/DynamicPaper.svelte';
 	import type { RawDataType } from 'data/raw-data-types';
 	import { textTypeToPaperType } from './utils';
 	import LongPaper from 'components/LongPaper.svelte';
@@ -19,13 +19,7 @@
 		{/if}
 		{#each data[type] as doc}
 			{#if doc.Date_Diff === null}
-				<Paper
-					law_id={doc.Law_ID}
-					category={doc.Law_Type}
-					type={textTypeToPaperType(doc.Law_Status)}
-					stacked={doc.Law_Merge_Head}
-					title={doc.Law_Name}
-				/>
+				<Paper id={doc.Law_ID} />
 			{:else}
 				<LongPaper {doc} />
 			{/if}
