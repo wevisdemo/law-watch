@@ -41,7 +41,7 @@
 
 	const prevLaw = () => {
 		if (relative_law) {
-			current_law_index = (current_law_index - 1) % relative_law.length;
+			current_law_index = (current_law_index + relative_law.length - 1) % relative_law.length;
 		}
 	};
 
@@ -76,7 +76,6 @@
 			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
 			<Paper
 				noMargin
-				whiteBg
 				type={textTypeToPaperType(relative_law?.[current_law_index]?.Law_Status ?? '')}
 				stacked={relative_law?.[current_law_index]?.Law_Merge_Head}
 				small
@@ -85,9 +84,9 @@
 			<span style="line-height:1">{relative_law?.[current_law_index]?.Law_Status}</span>
 		</div>
 		<div class="timeline">
-			<div class="active">ร่างกฎหมาย</div>
+			<div class="active" data-days="100">ร่างกฎหมาย</div>
 			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
-			<div class="active">ส.ส.</div>
+			<div class="active" data-days="100">ส.ส.</div>
 			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
 			<div>ส.ว.</div>
 			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
@@ -153,44 +152,6 @@
 				<li style="--bar-color:#aaa">12 งดออกเสียง</li>
 				<li class="border" style="--bar-color:#fff">10 ไม่ลงคะแนน</li>
 			</ul>
-			<details>
-				<summary>
-					<span class="wv-font-semibold">
-						<img src="/law-watch/checked.svg" alt="" width="12" height="12" />
-						พรรคที่ให้ผ่าน
-						<img class="caret" src="/law-watch/carets/db.svg" alt="" width="14" height="8" />
-					</span>
-				</summary>
-				<ul class="theywork-ul wv-b7">
-					<li>ชาติไทยพัฒนา</li>
-					<li>เพื่อไทย</li>
-					<li>พลังประชารัฐ</li>
-					<li>อนาคตใหม่</li>
-					<li>ประชาธิปไตยใหม่</li>
-					<li>ไทยศรีวิไลย์</li>
-					<li>พลังท้องถิ่นไทย</li>
-					<li>ภูมิใจไทย</li>
-				</ul>
-			</details>
-			<details>
-				<summary>
-					<span class="wv-font-semibold">
-						<img src="/law-watch/cross.svg" alt="" width="12" height="12" />
-						พรรคที่ไม่ให้ผ่าน
-						<img class="caret" src="/law-watch/carets/db.svg" alt="" width="14" height="8" />
-					</span>
-				</summary>
-				<ul class="theywork-ul wv-b7">
-					<li>ชาติไทยพัฒนา</li>
-					<li>เพื่อไทย</li>
-					<li>พลังประชารัฐ</li>
-					<li>อนาคตใหม่</li>
-					<li>ประชาธิปไตยใหม่</li>
-					<li>ไทยศรีวิไลย์</li>
-					<li>พลังท้องถิ่นไทย</li>
-					<li>ภูมิใจไทย</li>
-				</ul>
-			</details>
 		</section>
 	</div>
 	<a href="#top" class="theywork-link wv-b6">
@@ -291,6 +252,8 @@
 		display: flex;
 		align-items: center;
 
+		margin-bottom: 12px;
+
 		> div {
 			border: 1px solid #000;
 			padding: 0 4px;
@@ -301,6 +264,18 @@
 				background: #000;
 				color: #fff;
 			}
+
+			&[data-days]::after {
+				content: attr(data-days) ' วัน';
+
+				color: #000;
+				white-space: nowrap;
+
+				position: absolute;
+				left: 50%;
+				bottom: -4px;
+				transform: translateX(-50%) translateY(100%);
+			}
 		}
 	}
 
@@ -308,6 +283,10 @@
 		display: flex;
 		align-items: center;
 		gap: 4px;
+
+		padding: 8px;
+		background: #000;
+		color: #fff;
 	}
 
 	dl {
@@ -343,9 +322,14 @@
 		list-style: none;
 		margin: 2px 24px 0;
 
-		> li::before {
-			content: '•';
-			margin-right: 0.5ch;
+		> li {
+			text-indent: -1.2ch;
+			margin-left: 1.2ch;
+
+			&::before {
+				content: '•';
+				margin-right: 0.5ch;
+			}
 		}
 	}
 
@@ -353,7 +337,7 @@
 		border: 1px dashed #000000;
 		border-radius: 2px;
 		padding: 8px;
-		flex: 1 1 0;
+		margin-top: auto;
 	}
 
 	.theywork-barchart {
@@ -393,44 +377,6 @@
 			&.border::before {
 				border: 1px #000 solid;
 			}
-		}
-	}
-
-	details {
-		margin: 8px 0;
-
-		> summary {
-			cursor: pointer;
-			list-style: none;
-
-			&::-webkit-details-marker {
-				display: none;
-			}
-
-			> span {
-				display: flex;
-				align-items: center;
-				width: 100%;
-				gap: 4px;
-
-				> .caret {
-					margin-left: auto;
-				}
-			}
-		}
-
-		&[open] .caret {
-			transform: rotate(180deg);
-		}
-	}
-
-	.theywork-ul {
-		columns: 2;
-		list-style: none;
-
-		> li::before {
-			content: '•';
-			margin-right: 0.5ch;
 		}
 	}
 
