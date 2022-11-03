@@ -33,12 +33,14 @@
 			{/each}
 			<div class="number">
 				<span class="wv-font-semibold">{party.flat(3).length} ฉบับ</span>
-				<span class="number-back">
-					{party
-						.map((e) => e.flat(2).length)
-						.filter((e) => e)
-						.join(' | ')}
-				</span>
+				{#if party.map((e) => e.flat(2).length).filter((e) => e).length > 1}
+					<span class="number-back">
+						{party
+							.map((e) => e.flat(2).length)
+							.filter((e) => e)
+							.join(' | ')}
+					</span>
+				{/if}
 			</div>
 		</div>
 	{/each}
@@ -75,8 +77,5 @@
 	.number-back {
 		font-size: 0.8em;
 		margin-left: 1ch;
-
-		border-left: 1px #fff solid;
-		padding-left: 1ch;
 	}
 </style>
