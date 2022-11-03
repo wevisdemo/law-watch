@@ -244,13 +244,13 @@
 			width: calc(100% - 616px);
 
 			transition-property: inset, width;
-			transition-duration: 0.3s;
+			transition-duration: 0.45s;
 			transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 			will-change: inset, width;
 
 			&.timeline_wide {
-				inset: 96px 96px 64px 308px;
-				width: calc(100% - 404px);
+				inset: 96px 144px 64px 308px;
+				width: calc(100% - 144px - 308px);
 
 				transition-delay: 0.05s;
 				transition-duration: 0.5s;

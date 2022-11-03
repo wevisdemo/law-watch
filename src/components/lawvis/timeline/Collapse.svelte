@@ -46,8 +46,6 @@
 
 <style lang="scss">
 	.timeline-collapse {
-		margin-right: 48px;
-
 		display: flex;
 	}
 
