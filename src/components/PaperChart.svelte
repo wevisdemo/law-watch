@@ -60,6 +60,7 @@
 	@media (max-width: 767.5px) {
 		.paper-container {
 			width: 110px;
+			margin-bottom: 0;
 		}
 
 		.number {
