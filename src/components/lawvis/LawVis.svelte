@@ -2,6 +2,7 @@
 	import type { PartyChoiceType, SideChoiceType } from 'data/filter-choices';
 
 	import { ALL_PARTY } from 'data/parties';
+	import { SIDE_CHOICES } from 'data/filter-choices';
 	import { data } from 'data/raw-data';
 	import type { RawDataType } from 'data/raw-data-types';
 
@@ -13,6 +14,7 @@
 		sort_order_when_timeline,
 		view_timeline
 	} from 'stores/filterOptionStore';
+	import { current_selected_paper_id, highlighted_paper_ids } from 'stores/paperHighlightStore';
 
 	import GeneralVis from './GeneralVis.svelte';
 	import PartyVis from './PartyVis.svelte';
@@ -106,9 +108,15 @@
 			let temp: Record<string, RawDataType[]>;
 			// Split into base catg
 			if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
-				temp = groupBy(data, (d) => d.Proposer_Type);
-				if ($current_side_choice !== 'เลือกทุกฝ่าย')
-					temp = { [$current_side_choice]: temp[$current_side_choice] };
+				// temp = groupBy(data, (d) => d.Proposer_Type);
+				// if ($current_side_choice !== 'เลือกทุกฝ่าย')
+				// 	temp = { [$current_side_choice]: temp[$current_side_choice] };
+				temp = Object.fromEntries(
+					($current_side_choice === 'เลือกทุกฝ่าย'
+						? SIDE_CHOICES.slice(1)
+						: [$current_side_choice]
+					).map((side) => [side, data.filter((d) => d.Proposer_Type === side)])
+				);
 			} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
 				temp = Object.fromEntries(
 					($current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY : [$current_party_choice]).map(
@@ -213,7 +221,7 @@
 	}
 </script>
 
-<div id="vis-playground">
+<div id="vis-playground" class:timeline_wide={$view_timeline && !$current_selected_paper_id}>
 	{#if $view_timeline === true}
 		<TimelineVis data={timeline_visdata} />
 	{:else if $current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย'}
@@ -232,11 +240,25 @@
 		width: calc(100% - 48px);
 
 		@media (min-width: 768px) {
-			inset: 128px 308px 64px;
+			inset: 96px 308px 64px;
 			width: calc(100% - 616px);
+
+			transition-property: inset, width;
+			transition-duration: 0.3s;
+			transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+			will-change: inset, width;
+
+			&.timeline_wide {
+				inset: 96px 96px 64px 308px;
+				width: calc(100% - 404px);
+
+				transition-delay: 0.05s;
+				transition-duration: 0.5s;
+				transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+			}
 		}
 
-		// margin: auto;
+		margin: auto;
 
 		display: flex;
 		flex-direction: column;
@@ -246,8 +268,7 @@
 		overscroll-behavior: contain;
 
 		// Webkit Scrollbar
-		margin-right: -6px;
-		padding: 8px 4px;
+		padding: 8px 32px;
 
 		overflow-y: scroll;
 
@@ -263,8 +284,6 @@
 		@supports (-moz-appearance: none) {
 			scrollbar-color: #ffffff40 #ffffff00;
 			scrollbar-width: thin;
-			margin-right: -12px;
-			padding-right: 4px;
 		}
 	}
 </style>
