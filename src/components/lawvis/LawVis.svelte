@@ -228,14 +228,15 @@
 <style lang="scss">
 	#vis-playground {
 		position: absolute;
-		inset: 128px 0;
+		inset: 128px 0 64px;
 		width: calc(100% - 48px);
+
 		@media (min-width: 768px) {
-			inset: 128px 308px;
+			inset: 128px 308px 64px;
 			width: calc(100% - 616px);
 		}
 
-		margin: auto;
+		// margin: auto;
 
 		display: flex;
 		flex-direction: column;
@@ -243,5 +244,27 @@
 
 		overflow-y: auto;
 		overscroll-behavior: contain;
+
+		// Webkit Scrollbar
+		margin-right: -6px;
+		padding: 8px 4px;
+
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar {
+			width: 2px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #ffffff40;
+			border-radius: 1px;
+		}
+
+		@supports (-moz-appearance: none) {
+			scrollbar-color: #ffffff40 #ffffff00;
+			scrollbar-width: thin;
+			margin-right: -12px;
+			padding-right: 4px;
+		}
 	}
 </style>

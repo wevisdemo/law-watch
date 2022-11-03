@@ -79,8 +79,7 @@
 				whiteBg
 				type={textTypeToPaperType(relative_law?.[current_law_index]?.Law_Status ?? '')}
 				stacked={relative_law?.[current_law_index]?.Law_Merge_Head}
-				width={13}
-				height={16}
+				small
 				style="display:inline-block;margin-left:4px"
 			/>
 			<span style="line-height:1">{relative_law?.[current_law_index]?.Law_Status}</span>

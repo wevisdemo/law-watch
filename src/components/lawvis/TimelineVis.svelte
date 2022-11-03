@@ -3,10 +3,10 @@
 	// 0	365	731	1096	1461
 	// 0	+365	+366	+365	+365
 
-	import Paper from 'components/papers/DynamicPaper.svelte';
 	import type { RawDataType } from 'data/raw-data-types';
-	import { textTypeToPaperType } from './utils';
+
 	import LongPaper from 'components/LongPaper.svelte';
+	import Paper from 'components/papers/DynamicPaper.svelte';
 
 	export let data: Record<string, RawDataType[]>;
 	$: data_keys = Object.keys(data);
@@ -19,7 +19,7 @@
 		{/if}
 		{#each data[type] as doc}
 			{#if doc.Date_Diff === null}
-				<Paper id={doc.Law_ID} />
+				<Paper id={doc.Law_ID} small />
 			{:else}
 				<LongPaper {doc} />
 			{/if}

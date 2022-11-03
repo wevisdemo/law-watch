@@ -21,10 +21,7 @@
 	export let noMargin = false;
 	export let marked: null | 'left' | 'right' = null;
 	export let whiteBg = false;
-	export let width: number | null = null;
-	export let height: number | null = null;
-	export let mwidth: number | null = null;
-	export let mheight: number | null = null;
+	export let small = false;
 
 	const setSelectedPaper = () => {
 		$current_selected_paper_id = id;
@@ -40,64 +37,36 @@
 		class:noMargin
 		class:has-lawid={id && $highlighted_paper_ids}
 		class:highlight={id && $highlighted_paper_ids?.includes(id)}
-		style:--width={width}
-		style:--height={height}
-		style:--mwidth={mwidth}
-		style:--mheight={mheight}
+		class:small
 		data-title={title}
 		on:click={setSelectedPaper}
-		on:mouseenter={showTooltip}
+		on:mouseenter={showTooltip()}
 		on:mouseleave={hideTooltip}
 	>
-		<StaticPaper
-			{type}
-			{category}
-			{whiteBg}
-			{width}
-			{height}
-			{mwidth}
-			{mheight}
-			style="position:absolute;top:6px;left:6px"
-		/>
+		<StaticPaper {type} {category} {whiteBg} {small} style="position:absolute;top:6px;left:6px" />
 		<StaticPaper
 			{type}
 			{category}
 			{marked}
 			{whiteBg}
-			{width}
-			{height}
-			{mwidth}
-			{mheight}
+			{small}
 			style="position:absolute;top:3px;left:3px"
 		/>
-		<StaticPaper
-			{type}
-			{category}
-			{marked}
-			{whiteBg}
-			{width}
-			{height}
-			{mwidth}
-			{mheight}
-			style="position:absolute"
-		/>
+		<StaticPaper {type} {category} {marked} {whiteBg} {small} style="position:absolute" />
 	</div>
 {:else}
 	<div
 		class="paper {type} {color_class}"
 		class:noMargin
 		class:whiteBg
+		class:small
 		class:paper-mark-left={marked === 'left'}
 		class:paper-mark-right={marked === 'right'}
-		class:has-lawid={id && $highlighted_paper_ids}
-		class:highlight={id && $highlighted_paper_ids?.includes(id)}
-		style:--width={width}
-		style:--height={height}
-		style:--mwidth={mwidth}
-		style:--mheight={mheight}
+		class:has-lawid={$highlighted_paper_ids}
+		class:highlight={$highlighted_paper_ids?.includes(id)}
 		data-title={title}
 		on:click={setSelectedPaper}
-		on:mouseenter={showTooltip}
+		on:mouseenter={showTooltip()}
 		on:mouseleave={hideTooltip}
 		{...$$restProps}
 	>
@@ -127,12 +96,11 @@
 {/if}
 
 <style lang="scss">
-	.stack-paper-container {
-		z-index: 1;
-
-		width: calc(var(--width, 20) * 1px);
-		height: calc(var(--height, 24) * 1px);
-		flex: 0 0 calc(var(--width, 20) * 1px);
+	.stack-paper-container,
+	.paper {
+		width: 13px;
+		height: 16px;
+		flex: 0 0 13px;
 
 		cursor: pointer;
 
@@ -160,21 +128,12 @@
 	.paper {
 		--paper-bg: #000;
 		--default-color: #fff;
-		z-index: 1;
-
-		width: calc(var(--width, 20) * 1px);
-		height: calc(var(--height, 24) * 1px);
-		flex: 0 0 calc(var(--width, 20) * 1px);
 
 		background: var(--paper-bg);
 		border: 1px var(--law-color, var(--default-color)) solid;
 
 		font-size: 0;
 		line-height: 0;
-
-		margin-right: -8px;
-
-		cursor: pointer;
 
 		&.whiteBg {
 			--paper-bg: #fff;
@@ -194,24 +153,6 @@
 			border: 1px var(--paper-bg) solid;
 			background: var(--law-color, var(--default-color));
 		}
-
-		&.noMargin {
-			margin-right: 0;
-		}
-
-		&.has-lawid {
-			opacity: 0.25;
-		}
-
-		&.has-lawid.highlight {
-			opacity: 1;
-		}
-
-		transition: transform 0.1s, opacity 0.1s;
-
-		&:hover {
-			transform: translateY(-4px);
-		}
 	}
 
 	.mark-left {
@@ -220,7 +161,7 @@
 		width: 7px;
 		height: 7px;
 		border: 3px var(--law-color, #fff) solid;
-		right: 7px;
+		right: 5px;
 		border-right: 3px #000 solid;
 		border-top: 3px #000 solid;
 	}
@@ -236,16 +177,16 @@
 		border-top: 3px #000 solid;
 	}
 
-	@media (max-width: 767.5px) {
-		.stack-paper-container,
-		.paper {
-			width: calc(var(--mwidth, 13) * 1px);
-			height: calc(var(--mheight, 16) * 1px);
-			flex: 0 0 calc(var(--mwidth, 13) * 1px);
+	@media (min-width: 768px) {
+		.stack-paper-container:not(.small),
+		.paper:not(.small) {
+			width: 20px;
+			height: 24px;
+			flex: 0 0 20px;
 		}
 
 		.mark-left {
-			right: 5px;
+			right: 7px;
 		}
 	}
 </style>

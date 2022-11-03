@@ -18,7 +18,7 @@
 	export let law_id: number | null = null;
 	export let title = '';
 
-	let showTooltip = noHover ? () => {} : _showTooltip;
+	let showTooltip = noHover ? () => {} : _showTooltip();
 	let hideTooltip = noHover ? () => {} : _hideTooltip;
 
 	const setSelectedPaper = () => {
