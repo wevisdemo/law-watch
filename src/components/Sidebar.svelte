@@ -10,11 +10,31 @@
 	import { textTypeToPaperType } from 'components/lawvis/utils';
 
 	const date_formatter = new Intl.DateTimeFormat('th-TH', {
-		dateStyle: 'short'
+		dateStyle: 'medium'
 	});
 	const formatDate = (date: number | null | undefined) => {
 		if (!date) return 'ไม่พบข้อมูล';
 		return date_formatter.format(new Date(date));
+	};
+
+	// TODO: Refactor this; Brain rot.
+	const formatDuration = (duration: number) => {
+		if (duration < 365) return `${duration} วัน`;
+		duration -= 365;
+		let year = 1;
+		for (;;) {
+			if (duration < 366) break;
+			duration -= 366;
+			year++;
+			if (duration < 365) break;
+			duration -= 365;
+			year++;
+			if (duration < 365) break;
+			duration -= 365;
+			year++;
+			break;
+		}
+		return `${year} ปี ${duration} วัน`;
 	};
 
 	let open_sidebar = false;
@@ -64,17 +84,6 @@
 			<img src="/law-watch/card-close.svg" alt="ปิด" width="16" height="16" />
 		</button>
 	</header>
-	{#if relative_law.length > 1}
-		<div class="merged-doc">
-			<button type="button" on:click={prevLaw}>
-				<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
-			</button>
-			<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง {current_law_index + 1}/{relative_law.length} ฉบับ</span>
-			<button type="button" on:click={nextLaw}>
-				<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
-			</button>
-		</div>
-	{/if}
 	<div class="detail-wrapper">
 		<div class="status">
 			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
@@ -103,6 +112,20 @@
 			<div class:active={relative_law[current_law_index]?.Law_Stage === 'กษัตริย์'}>กษัตริย์</div>
 		</div>
 		<span>{relative_law[current_law_index]?.Status_Description}</span>
+		{#if relative_law.length > 1}
+			<hr />
+			<div class="merged-doc">
+				<button type="button" on:click={prevLaw}>
+					<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
+				</button>
+				<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง {current_law_index + 1}/{relative_law.length} ฉบับ</span
+				>
+				<button type="button" on:click={nextLaw}>
+					<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
+				</button>
+			</div>
+			<hr />
+		{/if}
 		<section>
 			<dl>
 				<dt class="wv-font-semibold">หมวดกฎหมาย</dt>
@@ -115,16 +138,28 @@
 						{relative_law[current_law_index]?.Law_Type}
 					</div>
 				</dd>
+				{#if relative_law[current_law_index]?.Date_Diff}
+					<dt class="wv-font-semibold">
+						<img src="/law-watch/calendar.svg" alt="" class="addon" />
+						รวมระยะเวลา
+					</dt>
+					<dd>{formatDuration(relative_law[current_law_index]?.Date_Diff ?? 0)}</dd>
+				{/if}
 				<dt class="wv-font-semibold">
-					<img src="/law-watch/calendar.svg" alt="" class="addon" />
+					{#if relative_law[current_law_index]?.Date_Diff}
+						<div class="addon" />
+					{:else}
+						<img src="/law-watch/calendar.svg" alt="" class="addon" />
+					{/if}
 					วันที่เสนอ
 				</dt>
 				<dd>{formatDate(relative_law[current_law_index]?.Start_Date)}</dd>
 				<dt class="wv-font-semibold">
-					<img src="/law-watch/calendar.svg" alt="" class="addon" />
+					<div class="addon" />
 					วันที่สิ้นสุด
 				</dt>
 				<dd>{formatDate(relative_law[current_law_index]?.End_Date)}</dd>
+
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/person.svg" alt="" class="addon" />
 					ชื่อผู้เสนอ
@@ -150,23 +185,16 @@
 			<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
 			<p>วาระที่ {relative_law[current_law_index]?.VoteLog_Term}</p>
 			<div class="wv-font-kondolar wv-font-black wv-h10">
-				{Math.floor(
-					((votelog_data.approve + votelog_data.special) / votelog_data.total_people) * 100
-				)}% ผ่าน
+				{Math.floor((votelog_data.approve / votelog_data.total_voter) * 100)}% ผ่าน
 			</div>
 			<div class="theywork-barchart" style="--total:{votelog_data.total_people}">
-				<div
-					class="bar"
-					style="--bar-color:#1dc7a8;--bar-value:{votelog_data.approve + votelog_data.special}"
-				/>
+				<div class="bar" style="--bar-color:#1dc7a8;--bar-value:{votelog_data.approve}" />
 				<div class="bar" style="--bar-color:#e63a64;--bar-value:{votelog_data.disprove}" />
 				<div class="bar" style="--bar-color:#aaa;--bar-value:{votelog_data.abstained}" />
 				<div class="bar border" style="--bar-color:#fff;--bar-value:{votelog_data.absent}" />
 			</div>
 			<ul class="theywork-chart-desc wv-b7">
-				<li style="--bar-color:#1dc7a8">
-					{votelog_data.approve + votelog_data.special} เห็นด้วย
-				</li>
+				<li style="--bar-color:#1dc7a8">{votelog_data.approve} เห็นด้วย</li>
 				<li style="--bar-color:#e63a64">{votelog_data.disprove} ไม่เห็นด้วย</li>
 				<li style="--bar-color:#aaa">{votelog_data.abstained} งดออกเสียง</li>
 				<li class="border" style="--bar-color:#fff">{votelog_data.absent} ไม่ลงคะแนน</li>
@@ -242,6 +270,11 @@
 		}
 	}
 
+	hr {
+		border: none;
+		border-top: 1px #000 solid;
+	}
+
 	.merged-doc {
 		display: flex;
 		align-items: center;
@@ -255,6 +288,8 @@
 			padding: 0;
 			display: flex;
 			align-items: center;
+			justify-content: center;
+			width: 14px;
 		}
 	}
 

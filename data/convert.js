@@ -310,8 +310,6 @@ csv()
 					b.abstained = vl.abstained;
 					b.absent = vl.absent;
 					b.total_voter = vl.total_voter;
-					b.special = vl.special;
-					b.total_people = vl.total_people;
 
 					return b;
 				})
