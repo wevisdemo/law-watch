@@ -299,26 +299,29 @@ csv()
 
 		const votelog_file = fs.readFileSync('data/votelog.yaml', 'utf8');
 
-		const votelog_object = YAML.parse(votelog_file)
-			.map((vl) => {
-				const b = {};
+		const votelog_object = Object.fromEntries(
+			YAML.parse(votelog_file)
+				.map((vl) => {
+					const b = {};
 
-				b.id = vl.id ? +vl.id : null;
-				b.approve = vl.approve;
-				b.disprove = vl.disprove;
-				b.abstained = vl.abstained;
-				b.absent = vl.absent;
-				b.total_voter = vl.total_voter;
-				b.special = vl.special;
-				b.total_people = vl.total_people;
+					b.id = +vl.id;
+					b.approve = vl.approve;
+					b.disprove = vl.disprove;
+					b.abstained = vl.abstained;
+					b.absent = vl.absent;
+					b.total_voter = vl.total_voter;
+					b.special = vl.special;
+					b.total_people = vl.total_people;
 
-				return b;
-			})
-			.filter((vl) => LAW_WITH_VOTELOG.includes(vl.id));
+					return b;
+				})
+				.filter((vl) => LAW_WITH_VOTELOG.includes(vl.id))
+				.map((e) => [e.id, e])
+		);
 
 		fs.writeFileSync(
 			'src/data/votelog.ts',
-			"import type { VotelogType } from './data-types';\n\nexport const votelog: VotelogType[] = " +
+			"import type { VotelogType } from './data-types';\n\nexport const votelog: Record<string, VotelogType> = " +
 				JSON.stringify(votelog_object)
 					.replace(/\u200b/g, '')
 					.replace(/\u00a0/g, ' ')

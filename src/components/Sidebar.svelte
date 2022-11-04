@@ -2,6 +2,7 @@
 	import { LAW_TYPE_METADATA } from 'data/law-types';
 	import { data } from 'data/raw-data';
 	import type { RawDataType } from 'data/data-types';
+	import { votelog } from 'data/votelog';
 
 	import { current_selected_paper_id } from 'stores/paperHighlightStore';
 
@@ -19,7 +20,7 @@
 	let open_sidebar = false;
 
 	let current_law_index = 0;
-	let relative_law: undefined | RawDataType[] = undefined;
+	let relative_law: RawDataType[] = [];
 	$: {
 		if ($current_selected_paper_id) {
 			relative_law = data
@@ -39,38 +40,36 @@
 	}
 
 	const nextLaw = () => {
-		if (relative_law) {
-			current_law_index = (current_law_index + 1) % relative_law.length;
-		}
+		current_law_index = (current_law_index + 1) % relative_law.length;
 	};
 
 	const prevLaw = () => {
-		if (relative_law) {
-			current_law_index = (current_law_index + relative_law.length - 1) % relative_law.length;
-		}
+		current_law_index = (current_law_index + relative_law.length - 1) % relative_law.length;
 	};
 
 	const close = () => {
 		open_sidebar = false;
 		$current_selected_paper_id = null;
 	};
+
+	$: votelog_data = relative_law[current_law_index]?.VoteLog_ID
+		? votelog[relative_law[current_law_index]?.VoteLog_ID ?? ''] ?? null
+		: null;
 </script>
 
 <article class="law-detail wv-b6" class:open={open_sidebar}>
 	<header>
-		<h3 class="wv-font-semibold wv-h10">{relative_law?.[current_law_index]?.Law_Name}</h3>
+		<h3 class="wv-font-semibold wv-h10">{relative_law[current_law_index]?.Law_Name}</h3>
 		<button type="button" class="close-btn" on:click={close}>
 			<img src="/law-watch/card-close.svg" alt="ปิด" width="16" height="16" />
 		</button>
 	</header>
-	{#if (relative_law?.length ?? 0) > 1}
+	{#if relative_law.length > 1}
 		<div class="merged-doc">
 			<button type="button" on:click={prevLaw}>
 				<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
 			</button>
-			<span
-				>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง {current_law_index + 1}/{relative_law?.length ?? 0} ฉบับ</span
-			>
+			<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง {current_law_index + 1}/{relative_law.length} ฉบับ</span>
 			<button type="button" on:click={nextLaw}>
 				<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
 			</button>
@@ -81,88 +80,106 @@
 			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
 			<Paper
 				noMargin
-				type={textTypeToPaperType(relative_law?.[0]?.Law_Status ?? '')}
-				stacked={!!relative_law?.[current_law_index]?.Law_Merge}
+				type={textTypeToPaperType(relative_law[0]?.Law_Status ?? '')}
+				stacked={!!relative_law[current_law_index]?.Law_Merge}
 				small
 				style="display:inline-block;margin-left:4px"
 			/>
-			<span style="line-height:1">{relative_law?.[current_law_index]?.Law_Status}</span>
+			<span style="line-height:1">{relative_law[current_law_index]?.Law_Status}</span>
 		</div>
 		<div class="timeline">
-			<div class="active" data-days="100">ร่างกฎหมาย</div>
+			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ร่างกฎหมาย'}>
+				ร่างกฎหมาย
+			</div>
 			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
-			<div class="active" data-days="100">ส.ส.</div>
+			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ส.ส.'}>ส.ส.</div>
 			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
-			<div>ส.ว.</div>
+			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ส.ว.'}>ส.ว.</div>
 			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
-			<div>ศาลรัฐธรรมนูญ</div>
+			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ศาลรัฐธรรมนูญ'}>
+				ศาลรัฐธรรมนูญ
+			</div>
 			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
-			<div>กษัตริย์</div>
+			<div class:active={relative_law[current_law_index]?.Law_Stage === 'กษัตริย์'}>กษัตริย์</div>
 		</div>
-		<span>{relative_law?.[current_law_index]?.Status_Description}</span>
+		<span>{relative_law[current_law_index]?.Status_Description}</span>
 		<section>
 			<dl>
 				<dt class="wv-font-semibold">หมวดกฎหมาย</dt>
 				<dd>
 					<div
 						class="law-type-pill {LAW_TYPE_METADATA[
-							relative_law?.[current_law_index]?.Law_Type ?? 'กระบวนการยุติธรรม'
+							relative_law[current_law_index]?.Law_Type ?? 'กระบวนการยุติธรรม'
 						].color}"
 					>
-						{relative_law?.[current_law_index]?.Law_Type}
+						{relative_law[current_law_index]?.Law_Type}
 					</div>
 				</dd>
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/calendar.svg" alt="" class="addon" />
 					วันที่เสนอ
 				</dt>
-				<dd>{formatDate(relative_law?.[current_law_index]?.Start_Date)}</dd>
+				<dd>{formatDate(relative_law[current_law_index]?.Start_Date)}</dd>
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/calendar.svg" alt="" class="addon" />
 					วันที่สิ้นสุด
 				</dt>
-				<dd>{formatDate(relative_law?.[current_law_index]?.End_Date)}</dd>
+				<dd>{formatDate(relative_law[current_law_index]?.End_Date)}</dd>
 				<dt class="wv-font-semibold">
 					<img src="/law-watch/person.svg" alt="" class="addon" />
 					ชื่อผู้เสนอ
 				</dt>
-				<dd>{relative_law?.[current_law_index]?.Proposer_Name}</dd>
+				<dd>{relative_law[current_law_index]?.Proposer_Name}</dd>
 				<dt class="wv-font-semibold">
 					<div class="addon" />
 					ประเภทผู้เสนอ
 				</dt>
-				<dd>{relative_law?.[current_law_index]?.Proposer_Type}</dd>
+				<dd>{relative_law[current_law_index]?.Proposer_Type}</dd>
 			</dl>
-			{#if relative_law?.[current_law_index]?.Proposer_Party?.length}
+			{#if relative_law[current_law_index]?.Proposer_Party?.length}
 				<ul class="party wv-b7">
-					{#each relative_law?.[current_law_index]?.Proposer_Party as party}
+					{#each relative_law[current_law_index]?.Proposer_Party as party}
 						<li>{party}</li>
 					{/each}
 				</ul>
 			{/if}
 		</section>
+	</div>
+	{#if votelog_data}
 		<section class="theywork">
 			<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
-			<p>วาระ xxxxx</p>
-			<div class="wv-font-kondolar wv-font-black wv-h10">50% ผ่าน</div>
-			<div class="theywork-barchart" style="--total:120+100+12+10">
-				<div class="bar" style="--bar-color:#1dc7a8;--bar-value:120" />
-				<div class="bar" style="--bar-color:#e63a64;--bar-value:100" />
-				<div class="bar" style="--bar-color:#aaa;--bar-value:12" />
-				<div class="bar border" style="--bar-color:#fff;--bar-value:10" />
+			<p>วาระที่ {relative_law[current_law_index]?.VoteLog_Term}</p>
+			<div class="wv-font-kondolar wv-font-black wv-h10">
+				{Math.floor(
+					((votelog_data.approve + votelog_data.special) / votelog_data.total_people) * 100
+				)}% ผ่าน
+			</div>
+			<div class="theywork-barchart" style="--total:{votelog_data.total_people}">
+				<div
+					class="bar"
+					style="--bar-color:#1dc7a8;--bar-value:{votelog_data.approve + votelog_data.special}"
+				/>
+				<div class="bar" style="--bar-color:#e63a64;--bar-value:{votelog_data.disprove}" />
+				<div class="bar" style="--bar-color:#aaa;--bar-value:{votelog_data.abstained}" />
+				<div class="bar border" style="--bar-color:#fff;--bar-value:{votelog_data.absent}" />
 			</div>
 			<ul class="theywork-chart-desc wv-b7">
-				<li style="--bar-color:#1dc7a8">120 เห็นด้วย</li>
-				<li style="--bar-color:#e63a64">100 ไม่เห็นด้วย</li>
-				<li style="--bar-color:#aaa">12 งดออกเสียง</li>
-				<li class="border" style="--bar-color:#fff">10 ไม่ลงคะแนน</li>
+				<li style="--bar-color:#1dc7a8">
+					{votelog_data.approve + votelog_data.special} เห็นด้วย
+				</li>
+				<li style="--bar-color:#e63a64">{votelog_data.disprove} ไม่เห็นด้วย</li>
+				<li style="--bar-color:#aaa">{votelog_data.abstained} งดออกเสียง</li>
+				<li class="border" style="--bar-color:#fff">{votelog_data.absent} ไม่ลงคะแนน</li>
 			</ul>
 		</section>
-	</div>
-	<a href="#top" class="theywork-link wv-b6">
-		ดูรายละเอียดการโหวตเพิ่มเติม
-		<img src="/law-watch/external-link.svg" alt="" width="14" height="14" />
-	</a>
+		<a
+			href="https://theyworkforus.wevis.info/votelog/{votelog_data.id}"
+			class="theywork-link wv-b6"
+		>
+			ดูรายละเอียดการโหวตเพิ่มเติม
+			<img src="/law-watch/external-link.svg" alt="" width="14" height="14" />
+		</a>
+	{/if}
 </article>
 
 <style lang="scss">
@@ -257,29 +274,17 @@
 		display: flex;
 		align-items: center;
 
-		margin-bottom: 12px;
-
 		> div {
 			border: 1px solid #000;
 			padding: 0 4px;
 			font-size: 0.625rem;
 			text-align: center;
+			background: #000;
+			color: #fff;
 
-			&.active {
-				background: #000;
-				color: #fff;
-			}
-
-			&[data-days]::after {
-				content: attr(data-days) ' วัน';
-
+			&.active ~ div {
+				background: #fff;
 				color: #000;
-				white-space: nowrap;
-
-				position: absolute;
-				left: 50%;
-				bottom: -4px;
-				transform: translateX(-50%) translateY(100%);
 			}
 		}
 	}
@@ -342,7 +347,6 @@
 		border: 1px dashed #000000;
 		border-radius: 2px;
 		padding: 8px;
-		margin-top: auto;
 	}
 
 	.theywork-barchart {
