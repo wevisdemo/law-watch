@@ -2,7 +2,7 @@ import fs from 'fs';
 import csv from 'csvtojson';
 
 csv()
-	.fromFile('./[Wevis-Law Watch] Data sheet - Data Sheet_for nocodb.csv')
+	.fromFile('data/[Wevis-Law Watch] Data sheet - Data Sheet_for nocodb.csv')
 	.then((arr) => {
 		const formattedArr = arr.map((a) => {
 			let b = { ...a };
@@ -39,12 +39,45 @@ csv()
 
 		const newArrStr =
 			"import type { RawDataType } from './raw-data-types';\n\nexport const data: RawDataType[] = " +
-			JSON.stringify(markedRefArr, null, 4)
+			JSON.stringify(markedRefArr)
 				.replace(/\u200b/g, '')
 				.replace(/\u00a0/g, ' ')
 				.replace(/ {2}/g, ' ');
 
-		fs.writeFileSync('../src/data/raw-data.ts', newArrStr);
+		fs.writeFileSync('src/data/raw-data.ts', newArrStr);
+
+		// ███╗   ███╗███████╗██████╗  ██████╗ ███████╗     ██████╗ █████╗  ██████╗██╗  ██╗███████╗
+		// ████╗ ████║██╔════╝██╔══██╗██╔════╝ ██╔════╝    ██╔════╝██╔══██╗██╔════╝██║  ██║██╔════╝
+		// ██╔████╔██║█████╗  ██████╔╝██║  ███╗█████╗      ██║     ███████║██║     ███████║█████╗
+		// ██║╚██╔╝██║██╔══╝  ██╔══██╗██║   ██║██╔══╝      ██║     ██╔══██║██║     ██╔══██║██╔══╝
+		// ██║ ╚═╝ ██║███████╗██║  ██║╚██████╔╝███████╗    ╚██████╗██║  ██║╚██████╗██║  ██║███████╗
+		// ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝     ╚═════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝
+
+		// Cache merge head index for easy lookup
+		// By caching from transformer, the index will always be right
+
+		const mergeCache = Object.fromEntries(
+			markedRefArr
+				.map((e, i) => ({ ...e, i }))
+				.filter((e) => e.Law_Merge_Head)
+				.map((e) => [e.Law_ID, e.i])
+		);
+
+		const mergeCacheStr =
+			'export const merge_cache: Record<number, number> = ' +
+			JSON.stringify(mergeCache)
+				.replace(/\u200b/g, '')
+				.replace(/\u00a0/g, ' ')
+				.replace(/ {2}/g, ' ');
+
+		fs.writeFileSync('src/data/merge-cache.ts', mergeCacheStr);
+
+		// ███████╗████████╗ █████╗ ████████╗███████╗     ██████╗ █████╗  ██████╗██╗  ██╗███████╗
+		// ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝    ██╔════╝██╔══██╗██╔════╝██║  ██║██╔════╝
+		// ███████╗   ██║   ███████║   ██║   ███████╗    ██║     ███████║██║     ███████║█████╗
+		// ╚════██║   ██║   ██╔══██║   ██║   ╚════██║    ██║     ██╔══██║██║     ██╔══██║██╔══╝
+		// ███████║   ██║   ██║  ██║   ██║   ███████║    ╚██████╗██║  ██║╚██████╗██║  ██║███████╗
+		// ╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝     ╚═════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝
 
 		// cache stats
 		const groupBy = (arr, groupFn) => {
@@ -231,9 +264,9 @@ csv()
 			.reduce((a, c) => a + c);
 
 		fs.writeFileSync(
-			'../src/data/stats-cache.ts',
+			'src/data/stats-cache.ts',
 			"import type { StatsCacheType } from './stats-cache-types';\n\nexport const stats: StatsCacheType = " +
-				JSON.stringify(statCache, null, 4)
+				JSON.stringify(statCache)
 					.replace(/\u200b/g, '')
 					.replace(/\u00a0/g, ' ')
 					.replace(/ {2}/g, ' ')

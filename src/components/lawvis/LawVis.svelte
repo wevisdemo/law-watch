@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { PartyChoiceType, SideChoiceType } from 'data/filter-choices';
 
-	import { ALL_PARTY } from 'data/parties';
 	import { SIDE_CHOICES } from 'data/filter-choices';
+	import { merge_cache } from 'data/merge-cache';
+	import { ALL_PARTY } from 'data/parties';
 	import { data as raw_data } from 'data/raw-data';
 	import type { RawDataType } from 'data/raw-data-types';
 
@@ -14,7 +15,7 @@
 		sort_order_when_timeline,
 		view_timeline
 	} from 'stores/filterOptionStore';
-	import { current_selected_paper_id, highlighted_paper_ids } from 'stores/paperHighlightStore';
+	import { current_selected_paper_id } from 'stores/paperHighlightStore';
 
 	import GeneralVis from './GeneralVis.svelte';
 	import PartyVis from './PartyVis.svelte';
@@ -38,7 +39,7 @@
 		(data: RawDataType[]): [RawDataType[], RawDataType[], RawDataType[]] => {
 			const transformed_data = keepMerged
 				? data.map((d) => {
-						if (d.Law_Merge) return raw_data.find((dd) => dd.Law_ID === d.Law_Merge) ?? d;
+						if (d.Law_Merge) return raw_data[merge_cache[d.Law_Merge]] ?? d;
 						return d;
 				  })
 				: data;
@@ -139,7 +140,7 @@
 				// not general vis, replace merged law with its head law
 				for (let group in temp) {
 					temp[group] = temp[group].map((d) => {
-						if (d.Law_Merge) return raw_data.find((dd) => dd.Law_ID === d.Law_Merge) ?? d;
+						if (d.Law_Merge) return raw_data[merge_cache[d.Law_Merge]] ?? d;
 						return d;
 					});
 				}
