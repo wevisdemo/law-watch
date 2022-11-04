@@ -3,7 +3,7 @@
 
 	import { ALL_PARTY } from 'data/parties';
 	import { SIDE_CHOICES } from 'data/filter-choices';
-	import { data } from 'data/raw-data';
+	import { data as raw_data } from 'data/raw-data';
 	import type { RawDataType } from 'data/raw-data-types';
 
 	import {
@@ -33,12 +33,18 @@
 		return a.Law_Name.localeCompare(z.Law_Name);
 	};
 
-	const groupDataByStatus = (
-		data: RawDataType[]
-	): [RawDataType[], RawDataType[], RawDataType[]] => {
-		const status_json = groupBy(data, (d) => d.Law_Status);
-		return [status_json.ตกไป, status_json.อยู่ในกระบวนการ, status_json.ออกเป็นกฎหมาย];
-	};
+	const groupDataByStatus =
+		(keepMerged = false) =>
+		(data: RawDataType[]): [RawDataType[], RawDataType[], RawDataType[]] => {
+			const transformed_data = keepMerged
+				? data.map((d) => {
+						if (d.Law_Merge) return raw_data.find((dd) => dd.Law_ID === d.Law_Merge) ?? d;
+						return d;
+				  })
+				: data;
+			const status_json = groupBy(transformed_data, (d) => d.Law_Status);
+			return [status_json.ตกไป, status_json.อยู่ในกระบวนการ, status_json.ออกเป็นกฎหมาย];
+		};
 
 	const groupDataByCatg = (
 		data: RawDataType[]
@@ -115,20 +121,28 @@
 					($current_side_choice === 'เลือกทุกฝ่าย'
 						? SIDE_CHOICES.slice(1)
 						: [$current_side_choice]
-					).map((side) => [side, data.filter((d) => d.Proposer_Type === side)])
+					).map((side) => [side, raw_data.filter((d) => d.Proposer_Type === side)])
 				);
 			} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
 				temp = Object.fromEntries(
 					($current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY : [$current_party_choice]).map(
-						(party) => [party, data.filter((d) => d.Proposer_Party.includes(party))]
+						(party) => [party, raw_data.filter((d) => d.Proposer_Party.includes(party))]
 					)
 				);
 			} else {
-				temp = { '0': data };
+				temp = { '0': raw_data };
 			}
-			// remove merged law
-			for (let group in temp) {
-				temp[group] = temp[group].filter((d) => d.Law_Status !== 'กฎหมายที่ถูกรวมร่าง');
+			// remove merged law in general vis
+			if ('0' in temp) {
+				temp['0'] = temp['0'].filter((d) => d.Law_Status !== 'กฎหมายที่ถูกรวมร่าง');
+			} else {
+				// not general vis, replace merged law with its head law
+				for (let group in temp) {
+					temp[group] = temp[group].map((d) => {
+						if (d.Law_Merge) return raw_data.find((dd) => dd.Law_ID === d.Law_Merge) ?? d;
+						return d;
+					});
+				}
 			}
 			// sort order
 			const STATUS_SORT_LOOKUP = {
@@ -165,30 +179,32 @@
 			}
 			timeline_visdata = temp;
 		} else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
-			proposer_visdata = groupDataByProposer(data, $current_side_choice).map((data_by_proposer) => {
-				const sort_step_functions =
-					$sort_order_when_status[0] === 'สถานะ'
-						? [groupDataByStatus, groupDataByCatg]
-						: [groupDataByCatg, groupDataByStatus];
-				return sort_step_functions[0](data_by_proposer)
-					.filter(removeNull)
-					.map((data_by_status) =>
-						sort_step_functions[1](data_by_status)
-							.filter(removeNull)
-							.map(
-								(data_by_catg) =>
-									groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
-										data_by_inout.sort(sortByName)
-									) as [RawDataType[], RawDataType[]]
-							)
-					);
-			});
+			proposer_visdata = groupDataByProposer(raw_data, $current_side_choice).map(
+				(data_by_proposer) => {
+					const sort_step_functions =
+						$sort_order_when_status[0] === 'สถานะ'
+							? [groupDataByStatus(true), groupDataByCatg]
+							: [groupDataByCatg, groupDataByStatus(true)];
+					return sort_step_functions[0](data_by_proposer)
+						.filter(removeNull)
+						.map((data_by_status) =>
+							sort_step_functions[1](data_by_status)
+								.filter(removeNull)
+								.map(
+									(data_by_catg) =>
+										groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
+											data_by_inout.sort(sortByName)
+										) as [RawDataType[], RawDataType[]]
+								)
+						);
+				}
+			);
 		} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
-			party_visdata = groupDataByParty(data, $current_party_choice).map((data_by_party) => {
+			party_visdata = groupDataByParty(raw_data, $current_party_choice).map((data_by_party) => {
 				const sort_step_functions =
 					$sort_order_when_status[0] === 'สถานะ'
-						? [groupDataByStatus, groupDataByCatg]
-						: [groupDataByCatg, groupDataByStatus];
+						? [groupDataByStatus(true), groupDataByCatg]
+						: [groupDataByCatg, groupDataByStatus(true)];
 				return sort_step_functions[0](data_by_party)
 					.filter(removeNull)
 					.map((data_by_status) =>
@@ -205,9 +221,9 @@
 		} else {
 			const sort_step_functions =
 				$sort_order_when_status[0] === 'สถานะ'
-					? [groupDataByStatus, groupDataByCatg]
-					: [groupDataByCatg, groupDataByStatus];
-			general_visdata = sort_step_functions[0](data).map((data_by_status) =>
+					? [groupDataByStatus(), groupDataByCatg]
+					: [groupDataByCatg, groupDataByStatus()];
+			general_visdata = sort_step_functions[0](raw_data).map((data_by_status) =>
 				sort_step_functions[1](data_by_status)
 					.filter(removeNull)
 					.map(

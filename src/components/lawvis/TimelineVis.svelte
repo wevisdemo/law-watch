@@ -137,5 +137,9 @@
 		font-size: 0.875rem;
 		display: block;
 		margin: 8px 0;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
 	}
 </style>

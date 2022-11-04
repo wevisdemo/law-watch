@@ -11,26 +11,26 @@
 </script>
 
 <div class="proposer-container">
-	{#each data as proposer, i}
+	{#each data as proposer, proposer_index}
 		<div class="nw text-right">
-			{$current_side_choice === 'เลือกทุกฝ่าย' ? PROPOSER[i] : $current_side_choice}
+			{$current_side_choice === 'เลือกทุกฝ่าย' ? PROPOSER[proposer_index] : $current_side_choice}
 		</div>
 		<div>
 			{#each proposer as dom_catg}
 				<div class="vis-row">
 					{#each dom_catg as [out_sapa, in_sapa]}
-						{#each out_sapa as doc, i (doc.Law_ID)}
+						{#each out_sapa as doc, doc_index}
 							<Paper
 								id={doc.Law_ID}
-								marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length
+								marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && doc_index + 1 === out_sapa.length
 									? 'left'
 									: null}
 							/>
 						{/each}
-						{#each in_sapa as doc, i (doc.Law_ID)}
+						{#each in_sapa as doc, doc_index}
 							<Paper
 								id={doc.Law_ID}
-								marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
+								marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && doc_index === 0 ? 'right' : null}
 							/>
 						{/each}
 					{/each}

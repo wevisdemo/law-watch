@@ -17,7 +17,7 @@
 </script>
 
 {#if stacked}
-	<div class="stack-paper-container" class:noMargin class:small>
+	<div class="stack-paper-container" class:noMargin class:small {...$$restProps}>
 		<svelte:self {type} {category} {whiteBg} {small} style="position:absolute;top:6px;left:6px" />
 		<svelte:self
 			{type}
@@ -74,7 +74,7 @@
 		margin-right: -8px;
 
 		&.noMargin {
-			margin-right: 0;
+			margin-right: 4px;
 		}
 	}
 
@@ -87,6 +87,10 @@
 
 		font-size: 0;
 		line-height: 0;
+
+		&.noMargin {
+			margin-right: 0;
+		}
 
 		&.whiteBg {
 			--paper-bg: #fff;

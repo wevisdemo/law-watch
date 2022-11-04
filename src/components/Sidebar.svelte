@@ -22,13 +22,18 @@
 	let relative_law: undefined | RawDataType[] = undefined;
 	$: {
 		if ($current_selected_paper_id) {
-			relative_law = data.filter(
-				(e) => e.Law_ID === $current_selected_paper_id || e.Law_Merge === $current_selected_paper_id
-			);
+			relative_law = data
+				.filter(
+					(e) =>
+						e.Law_ID === $current_selected_paper_id || e.Law_Merge === $current_selected_paper_id
+				)
+				.sort((a, z) => {
+					const a_head_val = +a.Law_Merge_Head;
+					const z_head_val = +z.Law_Merge_Head;
+					if (a_head_val === z_head_val) return a.Law_ID - z.Law_ID;
+					return z_head_val - a_head_val;
+				});
 			current_law_index = 0;
-			// if(current_law?.Law_Merge_Head === true){
-			// relative_law = data.filter(d => d.Law_Merge === current_law?.Law_ID)
-			// }
 			open_sidebar = true;
 		}
 	}
@@ -76,8 +81,8 @@
 			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
 			<Paper
 				noMargin
-				type={textTypeToPaperType(relative_law?.[current_law_index]?.Law_Status ?? '')}
-				stacked={relative_law?.[current_law_index]?.Law_Merge_Head}
+				type={textTypeToPaperType(relative_law?.[0]?.Law_Status ?? '')}
+				stacked={!!relative_law?.[current_law_index]?.Law_Merge}
 				small
 				style="display:inline-block;margin-left:4px"
 			/>

@@ -8,25 +8,25 @@
 </script>
 
 <div class="party-container">
-	{#each data as party, i}
+	{#each data as party, party_index}
 		<div class="nw text-right">
-			{$current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[i] : $current_party_choice}
+			{$current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[party_index] : $current_party_choice}
 		</div>
 		<div class="vis-row">
 			{#each party as dom_catg}
 				{#each dom_catg as [out_sapa, in_sapa]}
-					{#each out_sapa as doc, i (doc.Law_ID)}
+					{#each out_sapa as doc, doc_index}
 						<Paper
 							id={doc.Law_ID}
-							marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length
+							marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && doc_index + 1 === out_sapa.length
 								? 'left'
 								: null}
 						/>
 					{/each}
-					{#each in_sapa as doc, i (doc.Law_ID)}
+					{#each in_sapa as doc, doc_index}
 						<Paper
 							id={doc.Law_ID}
-							marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
+							marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && doc_index === 0 ? 'right' : null}
 						/>
 					{/each}
 				{/each}

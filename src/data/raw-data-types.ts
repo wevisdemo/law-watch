@@ -18,5 +18,5 @@ export type RawDataType = {
 	Law_Type: LawTypes;
 	VoteLog_ID: number | null;
 	Law_Merge_Head: boolean;
-	Law_Merge_Status?: string;
+	Law_Merge_Status?: 'กฎหมายที่ถูกรวมร่าง' | 'ตกไป' | 'อยู่ในกระบวนการ' | 'ออกเป็นกฎหมาย';
 };
