@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Paper from 'components/papers/DynamicPaper.svelte';
-	import type { RawDataType } from 'data/raw-data-types';
+	import type { RawDataType } from 'data/data-types';
 	import { stats } from 'data/stats-cache';
 	import { current_side_choice } from 'stores/filterOptionStore';
 

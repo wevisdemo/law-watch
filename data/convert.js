@@ -1,8 +1,19 @@
 import fs from 'fs';
 import csv from 'csvtojson';
+import YAML from 'yaml';
+
+// Global
+let LAW_WITH_VOTELOG = [];
+
+// ██████╗  █████╗ ████████╗ █████╗ ███████╗██╗  ██╗███████╗███████╗████████╗
+// ██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██╔════╝██║  ██║██╔════╝██╔════╝╚══██╔══╝
+// ██║  ██║███████║   ██║   ███████║███████╗███████║█████╗  █████╗     ██║
+// ██║  ██║██╔══██║   ██║   ██╔══██║╚════██║██╔══██║██╔══╝  ██╔══╝     ██║
+// ██████╔╝██║  ██║   ██║   ██║  ██║███████║██║  ██║███████╗███████╗   ██║
+// ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝
 
 csv()
-	.fromFile('data/[Wevis-Law Watch] Data sheet - Data Sheet_for nocodb.csv')
+	.fromFile('data/[Wevis-Law Watch] Data sheet - Data Sheet_for dev.csv')
 	.then((arr) => {
 		const formattedArr = arr.map((a) => {
 			let b = { ...a };
@@ -15,14 +26,20 @@ csv()
 			b.Law_Merge = b.Law_Merge ? +b.Law_Merge : null;
 			b.Law_in_Parliament = b.Law_in_Parliament === 'TRUE';
 			b.VoteLog_ID = b.VoteLog_ID ? +b.VoteLog_ID : null;
+			b.VoteLog_Term = b.VoteLog_Term ? +b.VoteLog_Term : null;
+
 			if (b.Start_Date && b.End_Date) {
 				// https://stackoverflow.com/a/7763364
-				b.Date_Diff = Math.floor((b.End_Date - b.Start_Date) / (24 * 3600 * 1000));
+				b.Date_Diff = Math.floor((b.End_Date - b.Start_Date) / (24 * 3600 * 1000)) + 1;
 			} else {
 				b.Date_Diff = null;
 			}
 			b.Start_Date = b.Start_Date ? +b.Start_Date : null;
 			b.End_Date = b.End_Date ? +b.End_Date : null;
+
+			if (b.VoteLog_ID) {
+				LAW_WITH_VOTELOG.push(b.VoteLog_ID);
+			}
 
 			return b;
 		});
@@ -38,7 +55,7 @@ csv()
 		});
 
 		const newArrStr =
-			"import type { RawDataType } from './raw-data-types';\n\nexport const data: RawDataType[] = " +
+			"import type { RawDataType } from './data-types';\n\nexport const data: RawDataType[] = " +
 			JSON.stringify(markedRefArr)
 				.replace(/\u200b/g, '')
 				.replace(/\u00a0/g, ' ')
@@ -265,8 +282,44 @@ csv()
 
 		fs.writeFileSync(
 			'src/data/stats-cache.ts',
-			"import type { StatsCacheType } from './stats-cache-types';\n\nexport const stats: StatsCacheType = " +
+			"import type { StatsCacheType } from './data-types';\n\nexport const stats: StatsCacheType = " +
 				JSON.stringify(statCache)
+					.replace(/\u200b/g, '')
+					.replace(/\u00a0/g, ' ')
+					.replace(/ {2}/g, ' ')
+		);
+	})
+	.then(() => {
+		// ██╗   ██╗ ██████╗ ████████╗███████╗██╗      ██████╗  ██████╗
+		// ██║   ██║██╔═══██╗╚══██╔══╝██╔════╝██║     ██╔═══██╗██╔════╝
+		// ██║   ██║██║   ██║   ██║   █████╗  ██║     ██║   ██║██║  ███╗
+		// ╚██╗ ██╔╝██║   ██║   ██║   ██╔══╝  ██║     ██║   ██║██║   ██║
+		//  ╚████╔╝ ╚██████╔╝   ██║   ███████╗███████╗╚██████╔╝╚██████╔╝
+		//   ╚═══╝   ╚═════╝    ╚═╝   ╚══════╝╚══════╝ ╚═════╝  ╚═════╝
+
+		const votelog_file = fs.readFileSync('data/votelog.yaml', 'utf8');
+
+		const votelog_object = YAML.parse(votelog_file)
+			.map((vl) => {
+				const b = {};
+
+				b.id = vl.id ? +vl.id : null;
+				b.approve = vl.approve;
+				b.disprove = vl.disprove;
+				b.abstained = vl.abstained;
+				b.absent = vl.absent;
+				b.total_voter = vl.total_voter;
+				b.special = vl.special;
+				b.total_people = vl.total_people;
+
+				return b;
+			})
+			.filter((vl) => LAW_WITH_VOTELOG.includes(vl.id));
+
+		fs.writeFileSync(
+			'src/data/votelog.ts',
+			"import type { VotelogType } from './data-types';\n\nexport const votelog: VotelogType[] = " +
+				JSON.stringify(votelog_object)
 					.replace(/\u200b/g, '')
 					.replace(/\u00a0/g, ' ')
 					.replace(/ {2}/g, ' ')

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { LAW_TYPE_METADATA } from 'data/law-types';
-	import type { RawDataType } from 'data/raw-data-types';
+	import type { RawDataType } from 'data/data-types';
 	import { stats } from 'data/stats-cache';
 
 	import { textTypeToPaperType } from 'components/lawvis/utils';

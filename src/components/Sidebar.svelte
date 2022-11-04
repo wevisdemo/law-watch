@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { LAW_TYPE_METADATA } from 'data/law-types';
 	import { data } from 'data/raw-data';
-	import type { RawDataType } from 'data/raw-data-types';
+	import type { RawDataType } from 'data/data-types';
 
 	import { current_selected_paper_id } from 'stores/paperHighlightStore';
 

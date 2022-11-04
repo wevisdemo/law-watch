@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Paper from 'components/papers/DynamicPaper.svelte';
 	import { ALL_PARTY } from 'data/parties';
-	import type { RawDataType } from 'data/raw-data-types';
+	import type { RawDataType } from 'data/data-types';
 	import { current_party_choice } from 'stores/filterOptionStore';
 
 	export let data: [RawDataType[], RawDataType[]][][][];

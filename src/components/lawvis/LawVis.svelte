@@ -4,7 +4,7 @@
 	import { merge_cache } from 'data/merge-cache';
 	import { ALL_PARTY } from 'data/parties';
 	import { data as raw_data } from 'data/raw-data';
-	import type { RawDataType } from 'data/raw-data-types';
+	import type { RawDataType } from 'data/data-types';
 
 	import {
 		current_group_choice,

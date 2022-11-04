@@ -3,7 +3,7 @@
 	// 0	365	731	1096	1461
 	// 0	+365	+366	+365	+365
 
-	import type { RawDataType } from 'data/raw-data-types';
+	import type { RawDataType } from 'data/data-types';
 	import { stats } from 'data/stats-cache';
 
 	import LongPaper from 'components/LongPaper.svelte';

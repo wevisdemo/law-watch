@@ -12,11 +12,50 @@ export type RawDataType = {
 	End_Date: number | null;
 	Date_Diff: number | null;
 	Law_Status: 'กฎหมายที่ถูกรวมร่าง' | 'ตกไป' | 'อยู่ในกระบวนการ' | 'ออกเป็นกฎหมาย';
+	Law_Stage: 'ร่างกฎหมาย' | 'ส.ส.' | 'ส.ว.' | 'ศาลรัฐธรรมนูญ' | 'กษัตริย์';
 	Status_Description: string;
 	Law_Merge: number | null;
 	Law_in_Parliament: boolean;
 	Law_Type: LawTypes;
+
+	// Votelog
 	VoteLog_ID: number | null;
+	VoteLog_Term: number | null;
+
+	// Custom
 	Law_Merge_Head: boolean;
 	Law_Merge_Status?: 'กฎหมายที่ถูกรวมร่าง' | 'ตกไป' | 'อยู่ในกระบวนการ' | 'ออกเป็นกฎหมาย';
+};
+
+export type StatsCacheType = {
+	all_law_len: number;
+	merged_law_len: number;
+	by_party_len: number;
+	by_cabinet_len: number;
+	by_people_len: number;
+	total_reject: number;
+	total_progress: number;
+	total_pass: number;
+	data: [[number, number], [number, number], [0, number]][];
+	type_len: {
+		เศรษฐกิจ: number;
+		สังคม: number;
+		กระบวนการยุติธรรม: number;
+		การศึกษา: number;
+		บริหารราชการ: number;
+		สิ่งแวดล้อม: number;
+		รัฐธรรมนูญ: number;
+	};
+	longest_diff: number;
+};
+
+export type VotelogType = {
+	id: number;
+	approve: number;
+	disprove: number;
+	abstained: number;
+	absent: number;
+	total_voter: number;
+	special: number;
+	total_people: number;
 };
