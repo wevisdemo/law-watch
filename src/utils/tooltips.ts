@@ -1,15 +1,7 @@
 import { computePosition, offset, shift, arrow } from '@floating-ui/dom';
 
 export const showTooltip =
-	(
-		options: {
-			middleware: (el: Element) => Element;
-			offset: number;
-		} = {
-			middleware: (e) => e,
-			offset: 16
-		}
-	) =>
+	(options: { middleware: (el: Element) => Element } = { middleware: (e) => e }) =>
 	(event: MouseEvent) => {
 		if (!event.target) return;
 
@@ -20,7 +12,7 @@ export const showTooltip =
 		computePosition(options.middleware(event.target as Element), window.el_tooltip, {
 			placement: 'top',
 			middleware: [
-				offset(options.offset),
+				offset(16),
 				shift({ padding: 8 }),
 				arrow({
 					element: window.el_tooltip_arrow

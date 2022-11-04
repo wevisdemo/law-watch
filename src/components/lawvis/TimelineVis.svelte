@@ -30,8 +30,8 @@
 		<div class="bar" style="--days:1096">
 			<span>1096<br /><small>(3 ปี)</small></span>
 		</div>
-		<!-- <div class="bar" style="--days:1219">
-			<span>1219<br /><small>(Max)</small></span>
+		<!-- <div class="bar" style="--days:1220">
+			<span>1220<br /><small>(Max)</small></span>
 		</div> -->
 	</div>
 	<div class="timeline-tools">

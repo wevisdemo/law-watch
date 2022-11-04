@@ -26,8 +26,7 @@
 	data-title={doc.Law_Name}
 	on:click={setSelectedPaper}
 	on:mouseenter={showTooltip({
-		middleware: (e) => e.children[+!!doc.Date_Diff],
-		offset: doc.Date_Diff ? 23.5 : 16
+		middleware: (e) => e.children[+!!doc.Date_Diff]
 	})}
 	on:mouseleave={hideTooltip}
 >
@@ -49,6 +48,7 @@
 			stacked={doc.Law_Merge_Head}
 			small
 			noMargin
+			style="margin-left:-13px"
 		/>
 	{/if}
 </div>
@@ -60,14 +60,14 @@
 
 		cursor: pointer;
 
-		transition-property: opacity, transform, z-index, margin-bottom;
-		transition-duration: 0.1s;
-
 		margin-bottom: -4px;
-		will-change: margin-bottom;
+
+		transition-property: opacity, z-index, padding;
+		transition-duration: 0.1s;
+		will-change: padding;
 
 		&.expanded {
-			margin-bottom: 8px;
+			padding: 6px 0;
 		}
 
 		&.has-lawid {
@@ -79,7 +79,7 @@
 		}
 
 		&:hover {
-			transform: translateY(-4px);
+			background: #ffffff1a;
 			z-index: 2;
 		}
 	}
@@ -88,7 +88,7 @@
 		--default-color: #fff;
 		background: var(--law-color, var(--default-color));
 
-		width: calc(1% * var(--length));
+		width: calc(1% * var(--length) - 13px);
 		height: 1px;
 	}
 </style>
