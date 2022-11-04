@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { LAW_TYPE_METADATA } from 'data/law-types';
 	import { data } from 'data/raw-data';
+	import type { RawDataType } from 'data/raw-data-types';
 
 	import StaticPaper from './StaticPaper.svelte';
 
@@ -10,13 +11,13 @@
 	import { textTypeToPaperType } from 'components/lawvis/utils';
 	import { hideTooltip, showTooltip } from 'utils/tooltips';
 
-	export let id: number;
+	export let doc: RawDataType;
 
-	const doc = data.find((e) => e.Law_ID === id);
-	const category = doc?.Law_Type ?? '';
-	const type = textTypeToPaperType(doc?.Law_Status ?? '');
-	const stacked = doc?.Law_Merge_Head;
-	const title = doc?.Law_Name ?? '';
+	const id = doc.Law_ID;
+	const category = doc.Law_Type;
+	const type = textTypeToPaperType(doc.Law_Status);
+	const stacked = doc.Law_Merge_Head;
+	const title = doc.Law_Name;
 
 	export let noMargin = false;
 	export let marked: null | 'left' | 'right' = null;

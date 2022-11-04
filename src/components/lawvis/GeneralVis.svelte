@@ -11,15 +11,12 @@
 			{#each dom_catg as [out_sapa, in_sapa]}
 				{#each out_sapa as doc, i (doc.Law_ID)}
 					<Paper
-						id={doc.Law_ID}
+						{doc}
 						marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i + 1 === out_sapa.length ? 'left' : null}
 					/>
 				{/each}
 				{#each in_sapa as doc, i (doc.Law_ID)}
-					<Paper
-						id={doc.Law_ID}
-						marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null}
-					/>
+					<Paper {doc} marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && i === 0 ? 'right' : null} />
 				{/each}
 			{/each}
 		</div>

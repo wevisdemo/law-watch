@@ -17,7 +17,7 @@
 				{#each dom_catg as [out_sapa, in_sapa]}
 					{#each out_sapa as doc, doc_index}
 						<Paper
-							id={doc.Law_ID}
+							{doc}
 							marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && doc_index + 1 === out_sapa.length
 								? 'left'
 								: null}
@@ -25,7 +25,7 @@
 					{/each}
 					{#each in_sapa as doc, doc_index}
 						<Paper
-							id={doc.Law_ID}
+							{doc}
 							marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && doc_index === 0 ? 'right' : null}
 						/>
 					{/each}
