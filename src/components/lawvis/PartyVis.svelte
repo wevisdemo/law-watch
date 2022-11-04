@@ -5,6 +5,8 @@
 	import { current_party_choice } from 'stores/filterOptionStore';
 
 	export let data: [RawDataType[], RawDataType[]][][][];
+
+	$: num_in_catg = data.map((party) => party.map((e) => e.flat(2).length).filter((e) => e));
 </script>
 
 <div class="party-container">
@@ -33,12 +35,9 @@
 			{/each}
 			<div class="number">
 				<span class="wv-font-semibold">{party.flat(3).length} ฉบับ</span>
-				{#if party.map((e) => e.flat(2).length).filter((e) => e).length > 1}
+				{#if num_in_catg[party_index].length > 1}
 					<span class="number-back">
-						{party
-							.map((e) => e.flat(2).length)
-							.filter((e) => e)
-							.join(' | ')}
+						{num_in_catg[party_index].join(' | ')}
 					</span>
 				{/if}
 			</div>
