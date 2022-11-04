@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { PartyChoiceType, SideChoiceType } from 'data/filter-choices';
 
-	import { SIDE_CHOICES } from 'data/filter-choices';
 	import { merge_cache } from 'data/merge-cache';
 	import { ALL_PARTY } from 'data/parties';
 	import { data as raw_data } from 'data/raw-data';
@@ -27,6 +26,16 @@
 	const groupBy = <T, K extends keyof any>(arr: T[], groupFn: (element: T) => K): Record<K, T[]> =>
 		arr.reduce(
 			(r, v, _i, _a, k = groupFn(v)) => ((r[k] || (r[k] = [])).push(v), r),
+			{} as Record<K, T[]>
+		);
+
+	// Groupping element when groupFn return array of overlapping group
+	const groupByIncludes = <T, K extends keyof any>(
+		arr: T[],
+		groupFn: (element: T) => K[]
+	): Record<K, T[]> =>
+		arr.reduce(
+			(r, v, _i, _a, g = groupFn(v)) => (g.forEach((k) => (r[k] || (r[k] = [])).push(v)), r),
 			{} as Record<K, T[]>
 		);
 
@@ -96,9 +105,10 @@
 		data: RawDataType[],
 		specific_party: PartyChoiceType
 	): RawDataType[][] => {
-		return (specific_party === 'เลือกทุกพรรค' ? ALL_PARTY : [specific_party]).map((party) =>
-			data.filter((d) => d.Proposer_Party.includes(party))
-		);
+		const party_json = groupByIncludes(data, (d) => d.Proposer_Party);
+		return specific_party === 'เลือกทุกพรรค'
+			? ALL_PARTY.map((p) => party_json[p])
+			: [party_json[specific_party]];
 	};
 
 	// https://twitter.com/dtinth/status/1315714173242728448/photo/1
@@ -115,21 +125,18 @@
 			let temp: Record<string, RawDataType[]>;
 			// Split into base catg
 			if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
-				// temp = groupBy(data, (d) => d.Proposer_Type);
-				// if ($current_side_choice !== 'เลือกทุกฝ่าย')
-				// 	temp = { [$current_side_choice]: temp[$current_side_choice] };
-				temp = Object.fromEntries(
-					($current_side_choice === 'เลือกทุกฝ่าย'
-						? SIDE_CHOICES.slice(1)
-						: [$current_side_choice]
-					).map((side) => [side, raw_data.filter((d) => d.Proposer_Type === side)])
-				);
+				temp = groupBy(raw_data, (d) => d.Proposer_Type);
+				temp = {
+					คณะรัฐมนตรี: temp.คณะรัฐมนตรี,
+					ประชาชน: temp.ประชาชน,
+					ฝ่ายรัฐบาล: temp.ฝ่ายรัฐบาล,
+					ฝ่ายค้าน: temp.ฝ่ายค้าน,
+					ผสม: temp.ผสม,
+					ไม่ทราบฝ่าย: temp.ไม่ทราบฝ่าย
+				};
 			} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
-				temp = Object.fromEntries(
-					($current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY : [$current_party_choice]).map(
-						(party) => [party, raw_data.filter((d) => d.Proposer_Party.includes(party))]
-					)
-				);
+				temp = groupByIncludes(raw_data, (d) => d.Proposer_Party);
+				temp = Object.fromEntries(ALL_PARTY.map((p) => [p, temp[p]]));
 			} else {
 				temp = { '0': raw_data };
 			}
