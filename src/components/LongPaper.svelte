@@ -36,6 +36,7 @@
 		stacked={doc.Law_Merge_Head}
 		small
 		noMargin
+		style="margin-right:0"
 	/>
 	{#if doc.Date_Diff}
 		<div
