@@ -1,10 +1,9 @@
 <script lang="ts">
+	import type { RawDataType } from 'data/data-types';
 	import type { PartyChoiceType, SideChoiceType } from 'data/filter-choices';
-
 	import { merge_cache } from 'data/merge-cache';
 	import { ALL_PARTY } from 'data/parties';
 	import { data as raw_data } from 'data/raw-data';
-	import type { RawDataType } from 'data/data-types';
 
 	import {
 		current_group_choice,
@@ -15,7 +14,9 @@
 		view_timeline
 	} from 'stores/filterOptionStore';
 	import { current_selected_paper_id } from 'stores/paperHighlightStore';
+	import { timeline_animation_finished, timeline_mounted } from 'stores/timelineOptionStore';
 
+	import ComponentTransitionManager from 'components/ComponentTransitionManager.svelte';
 	import GeneralVis from './GeneralVis.svelte';
 	import PartyVis from './PartyVis.svelte';
 	import PurposerVis from './PurposerVis.svelte';
@@ -243,18 +244,30 @@
 			);
 		}
 	}
+
+	let current_component = 0;
+	$: {
+		if ($view_timeline === true) current_component = 3;
+		else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') current_component = 1;
+		else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') current_component = 2;
+		else current_component = 0;
+	}
 </script>
 
-<div id="vis-playground" class:timeline_wide={$view_timeline && !$current_selected_paper_id}>
-	{#if $view_timeline === true}
-		<TimelineVis data={timeline_visdata} />
-	{:else if $current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย'}
-		<PurposerVis data={proposer_visdata} />
-	{:else if $current_group_choice === 'พรรคที่เสนอร่างกฎหมาย'}
-		<PartyVis data={party_visdata} />
-	{:else}
-		<GeneralVis data={general_visdata} />
-	{/if}
+<div
+	id="vis-playground"
+	class:timeline_wide={$timeline_mounted && !$current_selected_paper_id}
+	class:timeline_transition={$timeline_animation_finished}
+>
+	<ComponentTransitionManager
+		components_data_arr={[
+			{ component: GeneralVis, props: { data: general_visdata } },
+			{ component: PurposerVis, props: { data: proposer_visdata } },
+			{ component: PartyVis, props: { data: party_visdata } },
+			{ component: TimelineVis, props: { data: timeline_visdata } }
+		]}
+		{current_component}
+	/>
 </div>
 
 <style lang="scss">
@@ -266,19 +279,23 @@
 		@media (min-width: 768px) {
 			inset: 96px 308px 64px;
 			width: calc(100% - 616px);
-
-			transition-property: inset, width;
-			transition-duration: 0.45s;
-			transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 			will-change: inset, width;
 
 			&.timeline_wide {
 				inset: 96px 144px 64px 308px;
 				width: calc(100% - 144px - 308px);
+			}
 
-				transition-delay: 0.05s;
-				transition-duration: 0.5s;
-				transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+			&.timeline_transition {
+				transition-property: inset, width;
+				transition-duration: 0.45s;
+				transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+				&.timeline_wide {
+					transition-delay: 0.05s;
+					transition-duration: 0.5s;
+					transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+				}
 			}
 		}
 

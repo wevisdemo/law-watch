@@ -2,21 +2,44 @@
 	// 2019	2020	2021	2022	2023
 	// 0	365	731	1096	1461
 	// 0	+365	+366	+365	+365
+	import { onDestroy, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 
 	import type { RawDataType } from 'data/data-types';
 	import { stats } from 'data/stats-cache';
 
 	import LongPaper from 'components/LongPaper.svelte';
-	import ReverseSort from './timeline/ReverseSort.svelte';
 	import Collapse from './timeline/Collapse.svelte';
+	import ReverseSort from './timeline/ReverseSort.svelte';
 
-	import { reverse_sort } from 'stores/timelineOptionStore';
+	import {
+		reverse_sort,
+		timeline_animation_finished,
+		timeline_mounted
+	} from 'stores/timelineOptionStore';
 
 	export let data: Record<string, RawDataType[]>;
 	$: data_keys = Object.keys(data);
+
+	onMount(() => {
+		$timeline_mounted = true;
+	});
+
+	onDestroy(() => {
+		$timeline_mounted = false;
+	});
 </script>
 
-<div class="timeline-vis-container">
+<div
+	class="timeline-vis-container"
+	transition:fade={{ duration: 300 }}
+	on:outrostart={() => {
+		$timeline_animation_finished = false;
+	}}
+	on:introend={() => {
+		$timeline_animation_finished = true;
+	}}
+>
 	<div class="time-decor" style="--max-days:{stats.longest_diff}">
 		<div class="bar" style="--days:0">
 			<span>0<br /><small>&nbsp;</small></span>

@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+
 	import Paper from 'components/papers/DynamicPaper.svelte';
-	import { ALL_PARTY } from 'data/parties';
 	import type { RawDataType } from 'data/data-types';
+	import { ALL_PARTY } from 'data/parties';
 	import { current_party_choice } from 'stores/filterOptionStore';
 
 	export let data: [RawDataType[], RawDataType[]][][][];
@@ -9,7 +11,7 @@
 	$: num_in_catg = data.map((party) => party.map((e) => e.flat(2).length).filter((e) => e));
 </script>
 
-<div class="party-container">
+<div class="party-container" transition:fade={{ duration: 300 }}>
 	{#each data as party, party_index}
 		<div class="nw text-right">
 			{$current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[party_index] : $current_party_choice}

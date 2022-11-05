@@ -1,11 +1,13 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+
 	import Paper from 'components/papers/DynamicPaper.svelte';
 	import type { RawDataType } from 'data/data-types';
 
 	export let data: [RawDataType[], RawDataType[]][][];
 </script>
 
-<div class="general-vis-container">
+<div class="general-vis-container" transition:fade={{ duration: 300 }}>
 	{#each data as dom_catg}
 		<div class="vis-row">
 			{#each dom_catg as [out_sapa, in_sapa]}

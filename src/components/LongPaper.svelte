@@ -84,11 +84,24 @@
 		}
 	}
 
+	@keyframes span {
+		0% {
+			width: 0;
+		}
+
+		to {
+			width: calc(1% * var(--length) - 13px);
+		}
+	}
+
 	.line {
 		--default-color: #fff;
 		background: var(--law-color, var(--default-color));
 
-		width: calc(1% * var(--length) - 13px);
+		width: 0;
 		height: 1px;
+		will-change: width;
+
+		animation: span 0.5s 0.3s forwards;
 	}
 </style>

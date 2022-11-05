@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+
 	import Paper from 'components/papers/DynamicPaper.svelte';
 	import type { RawDataType } from 'data/data-types';
 	import { stats } from 'data/stats-cache';
@@ -10,7 +12,7 @@
 	export let data: [RawDataType[], RawDataType[]][][][];
 </script>
 
-<div class="proposer-container">
+<div class="proposer-container" transition:fade={{ duration: 300 }}>
 	{#each data as proposer, proposer_index}
 		<div class="nw text-right">
 			{$current_side_choice === 'เลือกทุกฝ่าย' ? PROPOSER[proposer_index] : $current_side_choice}

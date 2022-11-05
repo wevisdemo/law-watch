@@ -3,21 +3,21 @@
 
 	import {
 		GROUP_CHOICES,
-		SIDE_CHOICES,
-		PARTY_DROPDOWN_CHOICES
+		PARTY_DROPDOWN_CHOICES,
 		// VOTEPARTY_DROPDOWN_CHOICES
+		SIDE_CHOICES
 	} from 'data/filter-choices';
 	import {
-		view_timeline,
 		current_group_choice,
-		current_side_choice,
 		current_party_choice,
+		current_side_choice,
+		is_law_status_open,
+		is_mobile_drawer_open,
+		selected_law,
 		// current_voteparty_choice,
 		sort_order_when_status,
 		sort_order_when_timeline,
-		selected_law,
-		is_law_status_open,
-		is_mobile_drawer_open
+		view_timeline
 	} from 'stores/filterOptionStore';
 	import {
 		group_highlight,
@@ -25,12 +25,12 @@
 		mobile_filter_toggle_highlight
 	} from 'stores/highlightManager';
 
-	import SearchBox from './SearchBox.svelte';
 	import Dropdown from 'components/dropdown/Dropdown.svelte';
-	import VisType from './VisType.svelte';
-	import SortOrder from './SortOrder.svelte';
-	import LawType from './LawType.svelte';
 	import LawStatus from './LawStatus.svelte';
+	import LawType from './LawType.svelte';
+	import SearchBox from './SearchBox.svelte';
+	import SortOrder from './SortOrder.svelte';
+	import VisType from './VisType.svelte';
 
 	const toggleMobileDrawer = () => {
 		$is_mobile_drawer_open = !$is_mobile_drawer_open;
