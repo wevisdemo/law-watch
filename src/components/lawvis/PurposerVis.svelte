@@ -14,10 +14,10 @@
 
 <div class="proposer-container" transition:fade={{ duration: 300 }}>
 	{#each data as proposer, proposer_index}
-		<div class="nw text-right">
+		<div class="vis-text nw wv-b5">
 			{$current_side_choice === 'เลือกทุกฝ่าย' ? PROPOSER[proposer_index] : $current_side_choice}
 		</div>
-		<div>
+		<div style="margin-bottom:-8px">
 			{#each proposer as dom_catg}
 				<div class="vis-row">
 					{#each dom_catg as [out_sapa, in_sapa]}
@@ -36,7 +36,7 @@
 							/>
 						{/each}
 					{/each}
-					<div class="number">
+					<div class="number wv-b5">
 						<span class="wv-font-semibold">{dom_catg.flat(2).length} ฉบับ</span>
 						<span class="number-back">
 							{((dom_catg.flat(2).length / LAW_COUNT_WO_STACK) * 100).toFixed(1)}%
@@ -51,10 +51,15 @@
 <style lang="scss">
 	.proposer-container {
 		display: grid;
-		grid-template-columns: auto auto;
+		grid-template-columns: auto;
 		align-items: center;
-		gap: 24px 48px;
+		gap: 16px;
 		margin: auto;
+
+		@media (min-width: 768px) {
+			grid-template-columns: auto auto;
+			gap: 32px 48px;
+		}
 	}
 
 	.vis-row {
@@ -62,10 +67,14 @@
 		flex-wrap: wrap;
 		gap: 8px 0;
 		margin-bottom: 8px;
+
+		align-items: center;
 	}
 
-	.text-right {
-		text-align: right;
+	.vis-text {
+		@media (min-width: 768px) {
+			text-align: right;
+		}
 	}
 
 	.number {
@@ -73,6 +82,8 @@
 
 		display: flex;
 		align-items: baseline;
+
+		line-height: 1;
 	}
 
 	.number-back {

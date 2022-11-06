@@ -13,7 +13,7 @@
 
 <div class="party-container" transition:fade={{ duration: 300 }}>
 	{#each data as party, party_index}
-		<div class="nw text-right">
+		<div class="vis-text nw wv-b5">
 			{$current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[party_index] : $current_party_choice}
 		</div>
 		<div class="vis-row">
@@ -35,7 +35,7 @@
 					{/each}
 				{/each}
 			{/each}
-			<div class="number">
+			<div class="number wv-b5">
 				<span class="wv-font-semibold">{party.flat(3).length} ฉบับ</span>
 				{#if num_in_catg[party_index].length > 1}
 					<span class="number-back">
@@ -50,22 +50,27 @@
 <style lang="scss">
 	.party-container {
 		display: grid;
-		grid-template-columns: auto auto;
+		grid-template-columns: auto;
 		align-items: center;
-		gap: 24px 48px;
 		margin: auto;
-		gap: 16px 16px;
+		gap: 16px 24px;
+
+		@media (min-width: 768px) {
+			grid-template-columns: auto auto;
+		}
 	}
 
 	.vis-row {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px 0;
-		margin-bottom: 8px;
+		align-items: center;
 	}
 
-	.text-right {
-		text-align: right;
+	.vis-text {
+		@media (min-width: 768px) {
+			text-align: right;
+		}
 	}
 
 	.number {
@@ -73,6 +78,8 @@
 
 		display: flex;
 		align-items: baseline;
+
+		line-height: 1;
 	}
 
 	.number-back {

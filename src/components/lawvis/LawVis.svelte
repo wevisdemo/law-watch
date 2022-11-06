@@ -250,6 +250,7 @@
 	#vis-playground {
 		position: absolute;
 		inset: 128px 0 64px;
+		padding: 8px 32px;
 		width: calc(100% - 48px);
 
 		@media (min-width: 768px) {
@@ -281,13 +282,8 @@
 		flex-direction: column;
 		align-items: center;
 
-		overflow-y: auto;
-		overscroll-behavior: contain;
-
-		// Webkit Scrollbar
-		padding: 8px 32px;
-
 		overflow-y: scroll;
+		overscroll-behavior: contain;
 
 		&::-webkit-scrollbar {
 			width: 2px;

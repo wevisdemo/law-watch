@@ -74,12 +74,12 @@
 
 	.title {
 		position: absolute;
-		inset: 24px;
 		top: 64px;
+		left: 24px;
 		width: calc(100% - 48px);
 
 		@media (min-width: 768px) {
-			left: calc(308px);
+			left: 308px;
 			width: calc(100% - 616px);
 		}
 	}
