@@ -1,17 +1,20 @@
 <script lang="ts">
-	import { LAW_TYPE_METADATA } from 'data/law-types';
 	import type { RawDataType } from 'data/data-types';
+	import { LAW_TYPE_METADATA } from 'data/law-types';
 	import { stats } from 'data/stats-cache';
 
 	import { textTypeToPaperType } from 'components/lawvis/utils';
 	import Paper from 'components/papers/StaticPaper.svelte';
 
+	import { selected_law } from 'stores/filterOptionStore';
 	import { current_selected_paper_id, highlighted_paper_ids } from 'stores/paperHighlightStore';
 	import { expand_timeline } from 'stores/timelineOptionStore';
 
 	import { hideTooltip, showTooltip } from 'utils/tooltips';
 
 	export let doc: RawDataType;
+
+	$: color_class = $selected_law.includes(doc.Law_Type) && LAW_TYPE_METADATA[doc.Law_Type].color;
 
 	const setSelectedPaper = () => {
 		$current_selected_paper_id = doc.Law_ID;
@@ -39,10 +42,7 @@
 		style="margin-right:0"
 	/>
 	{#if doc.Date_Diff}
-		<div
-			class="line {LAW_TYPE_METADATA[doc.Law_Type].color}"
-			style:--length={(doc.Date_Diff / stats.longest_diff) * 100}
-		/>
+		<div class="line {color_class}" style:--length={(doc.Date_Diff / stats.longest_diff) * 100} />
 		<Paper
 			category={doc.Law_Type}
 			type={textTypeToPaperType(doc.Law_Status)}
