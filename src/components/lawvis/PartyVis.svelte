@@ -19,7 +19,7 @@
 		<div class="vis-row">
 			{#each party as dom_catg}
 				{#each dom_catg as [out_sapa, in_sapa]}
-					{#each out_sapa as doc, doc_index}
+					{#each out_sapa as doc, doc_index (($current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[party_index] : $current_party_choice) + doc.Law_ID + doc_index)}
 						<Paper
 							{doc}
 							marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && doc_index + 1 === out_sapa.length
@@ -27,7 +27,7 @@
 								: null}
 						/>
 					{/each}
-					{#each in_sapa as doc, doc_index}
+					{#each in_sapa as doc, doc_index (($current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[party_index] : $current_party_choice) + doc.Law_ID + doc_index)}
 						<Paper
 							{doc}
 							marked={doc.Law_Status !== 'ออกเป็นกฎหมาย' && doc_index === 0 ? 'right' : null}

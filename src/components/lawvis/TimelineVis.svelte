@@ -66,7 +66,7 @@
 			{#if type !== '0'}
 				<span class="type">{type}</span>
 			{/if}
-			{#each $reverse_sort ? [...data[type]].reverse() : data[type] as doc}
+			{#each $reverse_sort ? [...data[type]].reverse() : data[type] as doc, doc_index (type + doc.Law_ID + doc_index)}
 				<LongPaper {doc} />
 			{/each}
 		{/each}
