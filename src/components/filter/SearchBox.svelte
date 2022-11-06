@@ -28,7 +28,19 @@
 		placeholder="ค้นหาร่างกฎหมาย"
 		bind:value={$search_input}
 	/>
-	<img src="/law-watch/search.svg" alt="" width="14" height="14" />
+	{#if $search_input === ''}
+		<img src="/law-watch/search.svg" alt="" width="14" height="14" />
+	{:else}
+		<button
+			class="clear-btn"
+			type="button"
+			on:click={() => {
+				$search_input = '';
+			}}
+		>
+			<img src="/law-watch/close.svg" alt="" width="12" height="12" />
+		</button>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -53,5 +65,16 @@
 			color: #fff;
 			opacity: 0.5;
 		}
+	}
+
+	.clear-btn {
+		border: none;
+		background: transparent;
+
+		padding: 0;
+		height: 12px;
+
+		cursor: pointer;
+		display: flex;
 	}
 </style>
