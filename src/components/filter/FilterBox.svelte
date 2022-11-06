@@ -32,8 +32,18 @@
 	import SortOrder from './SortOrder.svelte';
 	import VisType from './VisType.svelte';
 
+	let transition_timeout: NodeJS.Timeout | null = null;
+	let enable_transition = false;
 	const toggleMobileDrawer = () => {
+		if (transition_timeout) clearTimeout(transition_timeout);
+		enable_transition = true;
+
 		$is_mobile_drawer_open = !$is_mobile_drawer_open;
+
+		transition_timeout = setTimeout(() => {
+			transition_timeout = null;
+			enable_transition = false;
+		}, 500);
 	};
 
 	const collapseStatusOnSmallHeight = () => {
@@ -48,7 +58,12 @@
 	});
 </script>
 
-<div class="filter-box">
+<div
+	class="filter-box"
+	class:filter-box-open={$is_mobile_drawer_open}
+	class:is_law_status_open={$is_law_status_open}
+	class:enable_transition
+>
 	<div class="search-mobile-aligner">
 		<button
 			type="button"
@@ -206,6 +221,52 @@
 			width: 100%;
 
 			gap: 8px;
+
+			clip-path: polygon(
+				100% 54px,
+				0 54px,
+				0 calc(100% - 64px),
+				100% calc(100% - 64px),
+				100% 100%,
+				0 100%,
+				0 0,
+				100% 0
+			);
+			will-change: clip-path;
+
+			&.enable_transition {
+				transition: clip-path 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+			}
+
+			&.is_law_status_open {
+				clip-path: polygon(
+					100% 54px,
+					0 54px,
+					0 calc(100% - 136px),
+					100% calc(100% - 136px),
+					100% 100%,
+					0 100%,
+					0 0,
+					100% 0
+				);
+			}
+
+			&.filter-box-open {
+				clip-path: polygon(
+					100% 54px,
+					100% 54px,
+					100% calc(100% - 136px),
+					100% calc(100% - 136px),
+					100% 100%,
+					0 100%,
+					0 0,
+					100% 0
+				);
+
+				&.enable_transition {
+					transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+				}
+			}
 		}
 
 		.drawer-backdrop {

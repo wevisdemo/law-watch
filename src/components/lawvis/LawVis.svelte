@@ -11,7 +11,8 @@
 		current_side_choice,
 		sort_order_when_status,
 		sort_order_when_timeline,
-		view_timeline
+		view_timeline,
+		is_law_status_open
 	} from 'stores/filterOptionStore';
 	import { current_selected_paper_id } from 'stores/paperHighlightStore';
 	import { timeline_animation_finished, timeline_mounted } from 'stores/timelineOptionStore';
@@ -234,6 +235,7 @@
 	id="vis-playground"
 	class:timeline_wide={$timeline_mounted && !$current_selected_paper_id}
 	class:timeline_transition={$timeline_animation_finished}
+	class:is_law_status_open={$is_law_status_open}
 >
 	<ComponentTransitionManager
 		components_data_arr={[
@@ -252,6 +254,12 @@
 		inset: 128px 0 64px;
 		padding: 8px 32px;
 		width: calc(100% - 48px);
+
+		@media (max-width: 767.5px) {
+			&.is_law_status_open {
+				inset: 128px 0 136px;
+			}
+		}
 
 		@media (min-width: 768px) {
 			inset: 96px 308px 64px;
