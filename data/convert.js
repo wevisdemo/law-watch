@@ -12,6 +12,10 @@ let LAW_WITH_VOTELOG = [];
 // ██████╔╝██║  ██║   ██║   ██║  ██║███████║██║  ██║███████╗███████╗   ██║
 // ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝
 
+const groupBy = (arr, groupFn) => {
+	return arr.reduce((r, v, _i, _a, k = groupFn(v)) => ((r[k] || (r[k] = [])).push(v), r), {});
+};
+
 csv()
 	.fromFile('data/[Wevis-Law Watch] Data sheet - Data Sheet_for dev.csv')
 	.then((arr) => {
@@ -37,6 +41,10 @@ csv()
 			b.Start_Date = b.Start_Date ? +b.Start_Date : null;
 			b.End_Date = b.End_Date ? +b.End_Date : null;
 
+			b.Law_Keyword = b.Law_Name + ' ' + b.Law_Nickname;
+
+			delete b.Law_Nickname;
+
 			if (b.VoteLog_ID) {
 				LAW_WITH_VOTELOG.push(b.VoteLog_ID);
 			}
@@ -44,10 +52,17 @@ csv()
 			return b;
 		});
 
-		const references = [...new Set(formattedArr.map((e) => e.Law_Merge).filter((e) => e))];
+		const references = formattedArr.map((e) => [e.Law_Merge, e.Law_Keyword]).filter((e) => e[0]);
+		const ref_id = [...new Set(references.map((e) => e[0]))].filter((e) => e);
+		const ref_keyword = groupBy(references, (e) => e[0]);
 
 		const markedRefArr = formattedArr.map((e) => {
-			e.Law_Merge_Head = references.includes(e.Law_ID);
+			e.Law_Merge_Head = ref_id.includes(e.Law_ID);
+			if (e.Law_Merge_Head) {
+				e.Law_Keyword = [e.Law_Keyword, ...ref_keyword[e.Law_ID].map((e) => e[1])].join(' ');
+				// remove duplicate keyword
+				e.Law_Keyword = [...new Set(...e.Law_Keyword.split(' '))].filter((e) => e).join(' ');
+			}
 			if (e.Law_Merge) {
 				e.Law_Merge_Status = formattedArr.find((d) => d.Law_ID === e.Law_Merge).Law_Status;
 			}
@@ -97,10 +112,6 @@ csv()
 		// ╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝     ╚═════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝
 
 		// cache stats
-		const groupBy = (arr, groupFn) => {
-			return arr.reduce((r, v, _i, _a, k = groupFn(v)) => ((r[k] || (r[k] = [])).push(v), r), {});
-		};
-
 		let statCache = {
 			all_law_len: markedRefArr.length
 		};

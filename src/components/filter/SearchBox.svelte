@@ -11,9 +11,7 @@
 		let trimmed_search = $search_input.trim();
 		if (trimmed_search) {
 			$manual_highlighted_paper_ids = data
-				.filter(
-					(d) => d.Law_Name.includes(trimmed_search) || d.Law_Nickname.includes(trimmed_search)
-				)
+				.filter((d) => d.Law_Keyword.includes(trimmed_search))
 				.map((d) => d.Law_ID);
 		} else {
 			$manual_highlighted_paper_ids = null;

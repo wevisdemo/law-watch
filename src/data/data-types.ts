@@ -6,7 +6,7 @@ export type RawDataType = {
 	Proposer_Name: string;
 	Proposer_Type: 'คณะรัฐมนตรี' | 'ประชาชน' | 'ผสม' | 'ฝ่ายค้าน' | 'ฝ่ายรัฐบาล' | 'ไม่ทราบฝ่าย';
 	Proposer_Party: PartyType[];
-	Law_Nickname: string;
+	Law_Keyword: string;
 	Law_Name: string;
 	Start_Date: number | null;
 	End_Date: number | null;
