@@ -45,7 +45,7 @@
 	};
 
 	const groupDataByStatus =
-		(keepMerged = false) =>
+		(keepMerged = true) =>
 		(data: RawDataType[]): [RawDataType[], RawDataType[], RawDataType[]] => {
 			const transformed_data = keepMerged
 				? data.map((d) => {
@@ -111,6 +111,27 @@
 			? ALL_PARTY.map((p) => party_json[p])
 			: [party_json[specific_party]];
 	};
+
+	const sortData =
+		(keepMerged = true) =>
+		(raw_data: RawDataType[]) => {
+			const GROUP_FUNCTION_LOOKUP = {
+				สถานะ: groupDataByStatus(keepMerged),
+				หมวดหมู่: groupDataByCatg
+			};
+			return GROUP_FUNCTION_LOOKUP[$sort_order_when_status[0]](raw_data)
+				.filter(removeNull)
+				.map((data_by_status) =>
+					GROUP_FUNCTION_LOOKUP[$sort_order_when_status[1]](data_by_status)
+						.filter(removeNull)
+						.map(
+							(data_by_catg) =>
+								groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
+									data_by_inout.sort(sortByName)
+								) as [RawDataType[], RawDataType[]]
+						)
+				);
+		};
 
 	// https://twitter.com/dtinth/status/1315714173242728448/photo/1
 	const removeNull = (element: any): element is Exclude<typeof element, null> => !!element;
@@ -178,9 +199,13 @@
 			const SORT_FUNCTION_LOOKUP = {
 				ระยะเวลา: sort_by_duration,
 				สถานะ: sort_by_status,
-				หมวดหมู่: sort_by_catg
+				หมวดหมู่: sort_by_catg,
+				ชื่อ: sortByName
 			};
-			const sort_type_arr = [...$sort_order_when_timeline].reverse();
+			const sort_type_arr = [...$sort_order_when_timeline, 'ชื่อ'].reverse() as (
+				| typeof $sort_order_when_timeline[number]
+				| 'ชื่อ'
+			)[];
 			for (let sort_type of sort_type_arr) {
 				for (let group in temp) {
 					temp[group] = temp[group].sort(SORT_FUNCTION_LOOKUP[sort_type]);
@@ -188,69 +213,20 @@
 			}
 			timeline_visdata = temp;
 		} else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
-			proposer_visdata = groupDataByProposer(raw_data, $current_side_choice).map(
-				(data_by_proposer) => {
-					const sort_step_functions =
-						$sort_order_when_status[0] === 'สถานะ'
-							? [groupDataByStatus(true), groupDataByCatg]
-							: [groupDataByCatg, groupDataByStatus(true)];
-					return sort_step_functions[0](data_by_proposer)
-						.filter(removeNull)
-						.map((data_by_status) =>
-							sort_step_functions[1](data_by_status)
-								.filter(removeNull)
-								.map(
-									(data_by_catg) =>
-										groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
-											data_by_inout.sort(sortByName)
-										) as [RawDataType[], RawDataType[]]
-								)
-						);
-				}
-			);
+			proposer_visdata = groupDataByProposer(raw_data, $current_side_choice).map(sortData());
 		} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
-			party_visdata = groupDataByParty(raw_data, $current_party_choice).map((data_by_party) => {
-				const sort_step_functions =
-					$sort_order_when_status[0] === 'สถานะ'
-						? [groupDataByStatus(true), groupDataByCatg]
-						: [groupDataByCatg, groupDataByStatus(true)];
-				return sort_step_functions[0](data_by_party)
-					.filter(removeNull)
-					.map((data_by_status) =>
-						sort_step_functions[1](data_by_status)
-							.filter(removeNull)
-							.map(
-								(data_by_catg) =>
-									groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
-										data_by_inout.sort(sortByName)
-									) as [RawDataType[], RawDataType[]]
-							)
-					);
-			});
+			party_visdata = groupDataByParty(raw_data, $current_party_choice).map(sortData());
 		} else {
-			const sort_step_functions =
-				$sort_order_when_status[0] === 'สถานะ'
-					? [groupDataByStatus(), groupDataByCatg]
-					: [groupDataByCatg, groupDataByStatus()];
-			general_visdata = sort_step_functions[0](raw_data).map((data_by_status) =>
-				sort_step_functions[1](data_by_status)
-					.filter(removeNull)
-					.map(
-						(data_by_catg) =>
-							groupDataByInOutSapa(data_by_catg).map((data_by_inout) =>
-								data_by_inout.sort(sortByName)
-							) as [RawDataType[], RawDataType[]]
-					)
-			);
+			general_visdata = sortData(false)(raw_data);
 		}
 	}
 
-	let current_component = 0;
+	let current_component_index = 0;
 	$: {
-		if ($view_timeline === true) current_component = 3;
-		else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') current_component = 1;
-		else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') current_component = 2;
-		else current_component = 0;
+		if ($view_timeline === true) current_component_index = 3;
+		else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') current_component_index = 1;
+		else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') current_component_index = 2;
+		else current_component_index = 0;
 	}
 </script>
 
@@ -266,7 +242,7 @@
 			{ component: PartyVis, props: { data: party_visdata } },
 			{ component: TimelineVis, props: { data: timeline_visdata } }
 		]}
-		{current_component}
+		{current_component_index}
 	/>
 </div>
 
