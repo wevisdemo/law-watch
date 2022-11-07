@@ -150,7 +150,7 @@
 		hideLabel={false}
 		light={false}
 		outline={false}
-		center={true}
+		center
 		allowCopyLink={false}
 	/>
 </WvContainer>

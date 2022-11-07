@@ -1,16 +1,6 @@
-<script lang="ts">
-	export let title = '';
-	export let dark = false;
-	export let homeHref = 'https://wevis.info/';
-	export let logoAddonSrc = '';
-	export let alwayShowSlot = false;
-
-	let isMobileMenuOpened = false;
-</script>
-
-<div class={`wv_navbar ${dark ? 'wv_navbar--black' : 'wv_navbar--white'}`}>
+<div class="wv_navbar wv_navbar--black" style="overflow:hidden">
 	<div class="wv_navbar__logo">
-		<a class="wv_navbar__logo__wevis" href={homeHref || '/'}>
+		<a class="wv_navbar__logo__wevis" href="https://wevis.info/" aria-label="Go to wevis.info">
 			<svg viewBox="0 0 110 37">
 				<path
 					d="M79.0175 35.3009V31.1026L80.3913 30.7904C80.7035 30.7568 80.7707 30.6511 80.7707 30.3101V16.8795C80.7707 16.6057 80.7035 16.5 80.3913 16.3991L79.0175 16.0581V11.8839H89.4843V16.0869L88.1057 16.4328C87.7982 16.5336 87.7262 16.6393 87.7262 16.9131V30.3293C87.7262 30.6367 87.7982 30.7087 88.072 30.8096L89.4843 31.1891V35.3201L79.0175 35.3009Z"
@@ -36,58 +26,22 @@
 					d="M84.4022 9.79911C86.4449 9.79911 88.1009 8.14315 88.1009 6.10042C88.1009 4.05769 86.4449 2.40173 84.4022 2.40173C82.3594 2.40173 80.7035 4.05769 80.7035 6.10042C80.7035 8.14315 82.3594 9.79911 84.4022 9.79911Z"
 				/>
 			</svg>
-
-			{#if logoAddonSrc}
-				<img class="wv_navbar__logo__addon" src={logoAddonSrc} alt="" />
-			{/if}
+			<img
+				class="wv_navbar__logo__addon"
+				src="/law-watch/101pub.png"
+				alt=""
+				width="44"
+				height="24"
+				loading="eager"
+				decoding="async"
+				style="width:auto;object-fit:contain"
+			/>
 		</a>
 	</div>
 
-	{#if title}
-		<div class="wv_navbar__title wv-font-kondolar wv-h9">{title}</div>
-	{/if}
+	<div class="wv_navbar__title wv-font-kondolar wv-h9">LAW WATCH</div>
 
-	<div
-		class={`wv_navbar__menu wv_navbar__menu--desktop ${
-			alwayShowSlot ? 'wv_navbar__menu--always-show' : 'wv_navbar__menu--hide-mobile'
-		}`}
-	>
+	<div class="wv_navbar__menu wv_navbar__menu--desktop wv_navbar__menu--always-show">
 		<slot />
 	</div>
-
-	{#if !alwayShowSlot}
-		<button
-			class="wv_navbar__hamburger-button"
-			on:click={() => (isMobileMenuOpened = !isMobileMenuOpened)}
-		>
-			{#if isMobileMenuOpened}
-				<svg width="13" height="14" viewBox="0 0 13 14">
-					<rect x="13" y="2.38806" width="15" height="2" transform="rotate(135 13 2.38806)" />
-
-					<rect
-						x="2.3934"
-						y="1.00525"
-						width="15"
-						height="2"
-						transform="rotate(45 2.3934 1.00525)"
-					/>
-				</svg>
-			{:else}
-				<svg width="15" height="12" viewBox="0 0 15 12">
-					<rect width="15" height="2" />
-					<rect y="5" width="15" height="2" />
-					<rect y="10" width="15" height="2" />
-				</svg>
-			{/if}
-		</button>
-	{/if}
-
-	{#if isMobileMenuOpened}
-		<div
-			class="wv_navbar__menu wv_navbar__menu--mobile"
-			on:click={() => (isMobileMenuOpened = false)}
-		>
-			<slot />
-		</div>
-	{/if}
 </div>

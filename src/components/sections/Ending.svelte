@@ -46,15 +46,7 @@
 	</section>
 	<section class="share-section c">
 		<span class="share-text wv-b5">Share</span>
-		<WvSharer
-			url=""
-			label=""
-			hideLabel={true}
-			light={true}
-			outline={false}
-			center={true}
-			allowCopyLink={false}
-		/>
+		<WvSharer url="" label="" hideLabel light outline={false} center allowCopyLink={false} />
 	</section>
 </section>
 <WvFooter dark={false} />
