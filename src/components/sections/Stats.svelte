@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { inView } from 'motion';
+	import { onMount } from 'svelte';
 
 	import LawStatus from 'components/filter/LawStatus.svelte';
 	import PaperChart from 'components/PaperChart.svelte';
@@ -81,6 +81,7 @@
 				</div>
 			</div>
 			<div>
+				<div class="year-label wv-b6">ปี พ.ศ.</div>
 				<LawStatus class="status" />
 			</div>
 		</div>
@@ -91,17 +92,14 @@
 				</div>
 			{/each}
 			<div class="wv-font-kondolar wv-font-black year">
-				<div class="first-year-wrapper">
-					<div class="year-label wv-b6">ปี พ.ศ.</div>
-					<img
-						src="/law-watch/stats/62.svg"
-						alt=""
-						width="88"
-						height="56"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
+				<img
+					src="/law-watch/stats/62.svg"
+					alt=""
+					width="88"
+					height="56"
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 			<div class="wv-font-kondolar wv-font-black year">
 				<img
@@ -267,13 +265,14 @@
 
 	.year-label {
 		position: absolute;
-		left: 0;
-		top: 50%;
-		transform: translateX(calc(-65% - 6px)) rotate(-90deg);
+		right: 0;
+		bottom: 0;
+
+		transform: translateX(calc(200% - 14px)) rotate(-90deg);
+		transform-origin: bottom left;
 
 		color: #fff;
-		font-weight: 400;
-		line-height: 0;
+		line-height: 1;
 	}
 
 	:global(.status-mobile),
@@ -327,11 +326,6 @@
 				padding-top: 16px;
 			}
 		}
-	}
-
-	.first-year-wrapper {
-		width: 100%;
-		position: relative;
 	}
 
 	.stats-footnote {
