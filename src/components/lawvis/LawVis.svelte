@@ -114,16 +114,16 @@
 	};
 
 	const sortData =
-		(keepMerged = true) =>
+		(sort_order_when_status: ('สถานะ' | 'หมวดหมู่')[], keepMerged = true) =>
 		(raw_data: RawDataType[]) => {
 			const GROUP_FUNCTION_LOOKUP = {
 				สถานะ: groupDataByStatus(keepMerged),
 				หมวดหมู่: groupDataByCatg
 			};
-			return GROUP_FUNCTION_LOOKUP[$sort_order_when_status[0]](raw_data)
+			return GROUP_FUNCTION_LOOKUP[sort_order_when_status[0]](raw_data)
 				.filter(removeNull)
 				.map((data_by_status) =>
-					GROUP_FUNCTION_LOOKUP[$sort_order_when_status[1]](data_by_status)
+					GROUP_FUNCTION_LOOKUP[sort_order_when_status[1]](data_by_status)
 						.filter(removeNull)
 						.map(
 							(data_by_catg) =>
@@ -214,11 +214,15 @@
 			}
 			timeline_visdata = temp;
 		} else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
-			proposer_visdata = groupDataByProposer(raw_data, $current_side_choice).map(sortData());
+			proposer_visdata = groupDataByProposer(raw_data, $current_side_choice).map(
+				sortData($sort_order_when_status)
+			);
 		} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
-			party_visdata = groupDataByParty(raw_data, $current_party_choice).map(sortData());
+			party_visdata = groupDataByParty(raw_data, $current_party_choice).map(
+				sortData($sort_order_when_status)
+			);
 		} else {
-			general_visdata = sortData(false)(raw_data);
+			general_visdata = sortData($sort_order_when_status, false)(raw_data);
 		}
 	}
 
