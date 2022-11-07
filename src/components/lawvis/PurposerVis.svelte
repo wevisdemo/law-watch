@@ -36,12 +36,12 @@
 							/>
 						{/each}
 					{/each}
-					<div class="number wv-b5">
+					<span class="number wv-b5">
 						<span class="wv-font-semibold">{dom_catg.flat(2).length} ฉบับ</span>
 						<span class="number-back">
 							{((dom_catg.flat(2).length / LAW_COUNT_WO_STACK) * 100).toFixed(1)}%
 						</span>
-					</div>
+					</span>
 				</div>
 			{/each}
 		</div>
@@ -64,11 +64,10 @@
 
 	.vis-row {
 		display: flex;
+		align-items: center;
 		flex-wrap: wrap;
 		gap: 8px 0;
 		margin-bottom: 8px;
-
-		align-items: center;
 	}
 
 	.vis-text {
@@ -78,8 +77,6 @@
 	}
 
 	.number {
-		margin-left: 20px;
-
 		display: flex;
 		align-items: baseline;
 

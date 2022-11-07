@@ -9,10 +9,10 @@
 		current_group_choice,
 		current_party_choice,
 		current_side_choice,
+		is_law_status_open,
 		sort_order_when_status,
 		sort_order_when_timeline,
-		view_timeline,
-		is_law_status_open
+		view_timeline
 	} from 'stores/filterOptionStore';
 	import { current_selected_paper_id } from 'stores/paperHighlightStore';
 	import { timeline_animation_finished, timeline_mounted } from 'stores/timelineOptionStore';
@@ -290,16 +290,21 @@
 		flex-direction: column;
 		align-items: center;
 
-		overflow-y: scroll;
+		overflow: scroll;
 		overscroll-behavior: contain;
 
 		&::-webkit-scrollbar {
 			width: 2px;
+			height: 2px;
 		}
 
 		&::-webkit-scrollbar-thumb {
 			background: #ffffff40;
 			border-radius: 1px;
+		}
+
+		&::-webkit-scrollbar-corner {
+			background: transparent;
 		}
 
 		@supports (-moz-appearance: none) {

@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { LAW_TYPE_METADATA } from 'data/law-types';
-	import { data } from 'data/raw-data';
 	import type { RawDataType } from 'data/data-types';
+	import { LAW_TYPE_METADATA } from 'data/law-types';
 
 	import StaticPaper from './StaticPaper.svelte';
 
@@ -145,6 +144,10 @@
 		&:hover {
 			transform: translateY(-4px);
 		}
+
+		&:last-of-type {
+			margin-right: 12px;
+		}
 	}
 
 	.paper {
@@ -203,8 +206,7 @@
 	.paper-mark-left {
 		clip-path: polygon(0px 0, 7px 7px, 7px 100%, 0 100%, 0 0);
 
-		&:last-of-type,
-		&:nth-last-of-type(2) {
+		&:last-of-type {
 			clip-path: polygon(6px 0, 20px 15px, 20px 100%, 0 100%, 0 0);
 
 			> .mark-left {
@@ -262,8 +264,7 @@
 		.paper-mark-left {
 			clip-path: polygon(5px 0, 12px 7px, 12px 100%, 0 100%, 0 0);
 
-			&:last-of-type,
-			&:nth-last-of-type(2) {
+			&:last-of-type {
 				clip-path: polygon(13px 0, 20px 7px, 20px 100%, 0 100%, 0 0);
 
 				> .mark-left {

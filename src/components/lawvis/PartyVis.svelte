@@ -35,14 +35,14 @@
 					{/each}
 				{/each}
 			{/each}
-			<div class="number wv-b5">
+			<span class="number wv-b5">
 				<span class="wv-font-semibold">{party.flat(3).length} ฉบับ</span>
 				{#if num_in_catg[party_index].length > 1}
 					<span class="number-back">
 						{num_in_catg[party_index].join(' | ')}
 					</span>
 				{/if}
-			</div>
+			</span>
 		</div>
 	{/each}
 </div>
@@ -62,9 +62,9 @@
 
 	.vis-row {
 		display: flex;
+		align-items: center;
 		flex-wrap: wrap;
 		gap: 8px 0;
-		align-items: center;
 	}
 
 	.vis-text {
@@ -74,8 +74,6 @@
 	}
 
 	.number {
-		margin-left: 20px;
-
 		display: flex;
 		align-items: baseline;
 
