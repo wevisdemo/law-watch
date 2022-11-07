@@ -40,15 +40,17 @@
 		transition: opacity 0s;
 	}
 
-	&.show {
-		font-size: 0.75rem;
-		opacity: 1;
-		pointer-events: auto;
-		transition: opacity 0.1s;
-
-		> .tooltip-arrow {
+	@media (hover) {
+		&.show {
+			font-size: 0.75rem;
 			opacity: 1;
+			pointer-events: auto;
 			transition: opacity 0.1s;
+
+			> .tooltip-arrow {
+				opacity: 1;
+				transition: opacity 0.1s;
+			}
 		}
 	}
 }
