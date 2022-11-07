@@ -42,11 +42,37 @@
 			<li>สรุปภาพรวมการเข้าชื่อเสนอกฎหมายตามรธน.60</li>
 		</ul>
 	</WvParagraphGroup>
+	<WvParagraphGroup small={false} heading="นโยบายการนำข้อมูลไปใช้ต่อ" children>
+		<p class="wv-font-baijamjuri">
+			ทางทีมมีความตั้งใจที่พัฒนาทุกโปรเจ็กต์ให้เป็น Open Source และเปิดข้อมูลเป็น Open Data
+			ภายใต้เงื่อนไข Creative Commons Attribution-ShareAlike License
+			คือสามารถนำไปเผยแพร่และดัดแปลงได้ โดยต้องระบุที่มา แต่ห้ามนำไปใช้เพื่อการค้า
+			และต้องเผยแพร่งานดัดแปลงโดยใช้สัญญาอนุญาตชนิดเดียวกัน
+		</p>
+		<p class="wv-font-baijamjuri">
+			หากมีข้อสงสัยต้องการสอบถามเพิ่มเติม ประสงค์แจ้งเปลี่ยนแปลงหรือเพิ่มเติมข้อมูลเพื่อความถูกต้อง
+			หรือมีข้อเสนอแนะใดๆ สามารถติดต่อได้ที่ team@punchup.world
+		</p>
+	</WvParagraphGroup>
 	<WvParagraphGroup small={false} heading="อาสาสมัครร่วมพัฒนา" children>
 		<WvParagraphGroup small="true" heading="เขียนโปรแกรม" children>
+			<p class="wv-font-baijamjuri">สุเทพ จันทร์ชูผล</p>
+		</WvParagraphGroup>
+		<WvParagraphGroup small="true" heading="ออกแบบ" children>
+			<p class="wv-font-baijamjuri">มนสิชา ศรีสวนแตง</p>
+		</WvParagraphGroup>
+		<WvParagraphGroup small="true" heading="สืบค้นและรวบรวมข้อมูล" children>
+			<p class="wv-font-baijamjuri">สิทธิกานต์ ธีระวัฒนชัย</p>
+		</WvParagraphGroup>
+		<WvParagraphGroup small="true" heading="บรรณาธิการ" children>
+			<p class="wv-font-baijamjuri">ธนิสรา เรืองเดช</p>
+		</WvParagraphGroup>
+		<WvParagraphGroup small="true" heading="ประสานงานและจัดการอื่นๆ" children>
 			<p class="wv-font-baijamjuri">
-				dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-				standard dummy text ever since the 1500s, when an unknown printer took a galley
+				Punch Up และ WeVis ในโปรเจกต์ Initiative law สำรวจเส้นทางกฎหมายของประชาชน
+				ยังได้รับการสนับสนุนทุนในการดำเนินงานจาก National Endowment for Democracy (NED)
+				ซึ่งนำมาใช้เป็นต้นทุนในการรวมรวมข้อมูล ออกแบบ พัฒนาเว็บไซต์ ประสานงาน บริหารจัดการ
+				ตลอดจนการจัด Meetup เพื่อดำเนินโครงการ
 			</p>
 		</WvParagraphGroup>
 	</WvParagraphGroup>
