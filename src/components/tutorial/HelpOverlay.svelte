@@ -351,8 +351,8 @@
 </div>
 {#if current_tutorial}
 	{#each TUTORIAL_BALLOONS[current_tutorial - 1] as { name, cssClass, style }}
-		<div class="help-tooltip wv-b6 nw {cssClass}" {style} transition:fade={{ duration: 300 }}>
-			{@html name}
+		<div class="help-tooltip wv-b6 {cssClass ?? ''}" {style} transition:fade={{ duration: 300 }}>
+			<span>{@html name}</span>
 		</div>
 	{/each}
 {/if}

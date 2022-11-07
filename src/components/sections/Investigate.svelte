@@ -36,11 +36,11 @@
 							เลือกทุกพรรค: 'ทุกพรรค'
 						}?.[$current_party_choice] ?? 'พรรค' + $current_party_choice;
 				}
-				return `แสดงการเสนอ<wbr>ร่างกฎหมาย${formatted_choice}<wbr>เรียงตาม${$sort_order[0]}`;
+				return `<span class="nw">แสดงการเสนอ</span><span class="nw">ร่างกฎหมาย${formatted_choice}</span><span class="nw">เรียงตาม${$sort_order[0]}</span>`;
 			// case 'ผลโหวตของพรรค':
-			// 	return `แสดงผลโหวต<wbr>ของพรรค${$current_voteparty_choice}<wbr>เรียงตาม${$sort_order[0]}`;
+			// 	return `<span class="nw">แสดงผลโหวต</span><span class="nw">ของพรรค${$current_voteparty_choice}</span><span class="nw">เรียงตาม${$sort_order[0]}</span>`;
 			default:
-				return `แสดงร่างกฎหมาย<wbr>ไม่แบ่งกลุ่ม<wbr>เรียงตาม${$sort_order[0]}`;
+				return `<span class="nw">แสดงร่างกฎหมาย</span><span class="nw">ไม่แบ่งกลุ่ม</span><span class="nw">เรียงตาม${$sort_order[0]}</span>`;
 		}
 	})();
 

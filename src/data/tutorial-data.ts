@@ -15,43 +15,43 @@ export const TUTORIAL_BALLOONS: TutorialBalloonType[][] = [
 	[
 		{
 			cssClass: 'mobile-top',
-			name: 'เลือก Filter',
+			name: '<span class="nw">เลือก Filter</span>',
 			style: '--m-t:12px'
 		},
 		{
-			name: 'เลือกดูภาพรวม',
+			name: '<span class="nw">เลือกดูภาพรวม</span>',
 			style: '--d-t:84px;--m-t:43px'
 		},
 		{
-			name: 'เลือกไม่แบ่งกลุ่ม<wbr class="no-desktop">เพื่อดูทั้งหมด',
+			name: '<span class="nw no-desktop">เลือกไม่แบ่งกลุ่ม</span><span class="nw no-desktop">เพื่อดูทั้งหมด</span>',
 			style: '--d-t:155px;--m-t:94px'
 		},
 		{
-			name: 'เลือกเรียงตาม<wbr class="no-desktop">สถานะ',
+			name: '<span class="nw no-desktop">เลือกเรียงตาม</span><span class="nw no-desktop">สถานะ</span>',
 			style: '--d-t:226px;--m-t:156px'
 		},
 		{
 			cssClass: 'bottom',
-			name: 'มองหาสัญลักษณ์ที่บอกว่า<wbr class="no-desktop">ตกไป/อยู่ในกระบวนการ<br>หรือดูจำนวนรวมเทียบกัน',
+			name: '<span class="nw no-desktop">มองหาสัญลักษณ์ที่บอกว่า</span><span class="nw no-desktop">ตกไป/อยู่ในกระบวนการ</span><br><span class="nw no-desktop">หรือดูจำนวนรวมเทียบกัน</span>',
 			style: '--d-b:211px;--m-b:130px'
 		}
 	],
 	[
 		{
 			cssClass: 'mobile-top',
-			name: 'เลือก Filter',
+			name: '<span class="nw">เลือก Filter</span>',
 			style: '--m-t:12px'
 		},
 		{
-			name: 'เลือกดูภาพรวม',
+			name: '<span class="nw">เลือกดูภาพรวม</span>',
 			style: '--d-t:84px;--m-t:43px'
 		},
 		{
-			name: 'เลือกดูฝ่ายที่เสนอ<wbr class="no-desktop">ร่างกฎหมาย',
+			name: '<span class="nw no-desktop">เลือกดูฝ่ายที่เสนอ</span><span class="nw no-desktop">ร่างกฎหมาย</span>',
 			style: '--d-t:155px;--m-t:94px'
 		},
 		{
-			name: 'เลือกทุกฝ่าย<wbr class="no-desktop">เพื่อเทียบกัน',
+			name: '<span class="nw no-desktop">เลือกทุกฝ่าย</span><span class="nw no-desktop">เพื่อเทียบกัน</span>',
 			style: '--d-t:235px;--m-t:165px'
 		},
 		{
@@ -63,51 +63,51 @@ export const TUTORIAL_BALLOONS: TutorialBalloonType[][] = [
 	[
 		{
 			cssClass: 'mobile-top',
-			name: 'เลือก Filter',
+			name: '<span class="nw">เลือก Filter</span>',
 			style: '--m-t:12px'
 		},
 		{
-			name: 'เลือกดูภาพรวม',
+			name: '<span class="nw">เลือกดูภาพรวม</span>',
 			style: '--d-t:84px;--m-t:43px'
 		},
 		{
-			name: 'เลือกดูพรรคที่<wbr class="no-desktop">เสนอร่างกฎหมาย',
+			name: '<span class="nw no-desktop">เลือกดูพรรคที่</span><span class="nw no-desktop">เสนอร่างกฎหมาย</span>',
 			style: '--d-t:155px;--m-t:94px'
 		},
 		{
-			name: 'เลือกทุกพรรค<wbr class="no-desktop">เพื่อเทียบกัน',
+			name: '<span class="nw no-desktop">เลือกทุกพรรค</span><span class="nw no-desktop">เพื่อเทียบกัน</span>',
 			style: '--d-t:235px;--m-t:165px'
 		},
 		{
-			name: 'เลือกเรียงตาม<wbr class="no-desktop">หมวดหมู่<wbr class="no-desktop">เพื่อดูประเด็น',
+			name: '<span class="nw no-desktop">เลือกเรียงตาม</span><span class="nw no-desktop">หมวดหมู่</span><span class="nw no-desktop">เพื่อดูประเด็น</span>',
 			style: '--d-t:306px;--m-t:218px'
 		},
 		{
-			name: 'เลือกหมวดหมู่<wbr class="no-desktop">ที่สนใจ',
+			name: '<span class="nw no-desktop">เลือกหมวดหมู่</span><span class="nw no-desktop">ที่สนใจ</span>',
 			style: '--d-t:423px;--m-t:327px'
 		}
 	],
 	[
 		{
 			cssClass: 'mobile-top',
-			name: 'เลือก Filter',
+			name: '<span class="nw">เลือก Filter</span>',
 			style: '--m-t:12px'
 		},
 		{
-			name: 'เลือกดูระยะเวลา',
+			name: '<span class="nw">เลือกดูระยะเวลา</span>',
 			style: '--d-t:84px;--m-t:43px'
 		},
 		{
-			name: 'เลือกไม่แบ่งกลุ่ม<wbr class="no-desktop">เพื่อดูทั้งหมด',
+			name: '<span class="nw no-desktop">เลือกไม่แบ่งกลุ่ม</span><span class="nw no-desktop">เพื่อดูทั้งหมด</span>',
 			style: '--d-t:155px;--m-t:94px'
 		},
 		{
-			name: 'เลือกเรียงตาม<wbr class="no-desktop">ระยะเวลา',
+			name: '<span class="nw no-desktop">เลือกเรียงตาม</span><span class="nw no-desktop">ระยะเวลา</span>',
 			style: '--d-t:226px;--m-t:156px'
 		},
 		{
 			cssClass: 'bottom',
-			name: 'มองหาสัญลักษณ์<wbr class="no-desktop">ที่บอกว่าตกไป',
+			name: '<span class="nw no-desktop">มองหาสัญลักษณ์</span><span class="nw no-desktop">ที่บอกว่าตกไป</span>',
 			style: '--d-b:221px;--m-b:130px'
 		}
 	]
