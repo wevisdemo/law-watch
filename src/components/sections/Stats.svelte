@@ -208,6 +208,25 @@
 
 		overflow: auto hidden;
 
+		&::-webkit-scrollbar {
+			width: 4px;
+			height: 4px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #ffffff40;
+			border-radius: 2px;
+		}
+
+		&::-webkit-scrollbar-corner {
+			background: transparent;
+		}
+
+		@supports (-moz-appearance: none) {
+			scrollbar-color: #ffffff40 #ffffff00;
+			scrollbar-width: thin;
+		}
+
 		> div {
 			border-left: 1px solid #373746;
 			padding: 12px 16px 12px 0;
