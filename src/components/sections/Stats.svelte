@@ -38,7 +38,14 @@
 	<LawStatus class="status-mobile" always_show_line />
 	<div class="chart-header-mobile">
 		<div class="wv-b7">เสนอโดย</div>
-		<img src="/law-watch/carets/rw.svg" alt="" width="8" height="14" />
+		<img
+			src="/law-watch/carets/rw.svg"
+			alt=""
+			width="8"
+			height="14"
+			loading="lazy"
+			decoding="async"
+		/>
 	</div>
 
 	<div class="chart-container">
@@ -86,17 +93,17 @@
 			<div class="wv-font-kondolar wv-font-black year">
 				<div class="first-year-wrapper">
 					<div class="year-label wv-b6">ปี พ.ศ.</div>
-					<img src="/law-watch/stats/62.svg" alt="" />
+					<img src="/law-watch/stats/62.svg" alt="" loading="lazy" decoding="async" />
 				</div>
 			</div>
 			<div class="wv-font-kondolar wv-font-black year">
-				<img src="/law-watch/stats/63.svg" alt="" />
+				<img src="/law-watch/stats/63.svg" alt="" loading="lazy" decoding="async" />
 			</div>
 			<div class="wv-font-kondolar wv-font-black year">
-				<img src="/law-watch/stats/64.svg" alt="" />
+				<img src="/law-watch/stats/64.svg" alt="" loading="lazy" decoding="async" />
 			</div>
 			<div class="wv-font-kondolar wv-font-black year">
-				<img src="/law-watch/stats/65.svg" alt="" />
+				<img src="/law-watch/stats/65.svg" alt="" loading="lazy" decoding="async" />
 			</div>
 		</div>
 	</div>

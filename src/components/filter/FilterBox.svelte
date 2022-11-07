@@ -71,7 +71,14 @@
 			class:highlight={$mobile_filter_toggle_highlight}
 			on:click={toggleMobileDrawer}
 		>
-			<img src="/law-watch/setting.svg" alt="แสดงตัวเลือก" width="20" height="20" />
+			<img
+				src="/law-watch/setting.svg"
+				alt="แสดงตัวเลือก"
+				width="20"
+				height="20"
+				loading="lazy"
+				decoding="async"
+			/>
 		</button>
 		<SearchBox class="search-flex" />
 	</div>

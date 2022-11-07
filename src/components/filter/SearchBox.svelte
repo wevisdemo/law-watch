@@ -27,7 +27,14 @@
 		bind:value={$search_input}
 	/>
 	{#if $search_input === ''}
-		<img src="/law-watch/search.svg" alt="" width="14" height="14" />
+		<img
+			src="/law-watch/search.svg"
+			alt=""
+			width="14"
+			height="14"
+			loading="lazy"
+			decoding="async"
+		/>
 	{:else}
 		<button
 			class="clear-btn"
@@ -36,7 +43,14 @@
 				$search_input = '';
 			}}
 		>
-			<img src="/law-watch/close.svg" alt="" width="12" height="12" />
+			<img
+				src="/law-watch/close.svg"
+				alt=""
+				width="12"
+				height="12"
+				loading="lazy"
+				decoding="async"
+			/>
 		</button>
 	{/if}
 </div>

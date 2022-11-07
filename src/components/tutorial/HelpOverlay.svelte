@@ -75,8 +75,8 @@
 
 	type setFilterOptionType = {
 		search_input?: string;
-		sort_order_when_timeline?: string[];
-		sort_order_when_status?: string[];
+		sort_order_when_timeline?: ('ระยะเวลา' | 'สถานะ' | 'หมวดหมู่')[];
+		sort_order_when_status?: ('สถานะ' | 'หมวดหมู่')[];
 		view_timeline?: boolean;
 		current_group_choice?: GroupChoiceType;
 		current_side_choice?: SideChoiceType;
@@ -204,7 +204,7 @@
 					<div>
 						{@html choice}
 					</div>
-					<img src="/law-watch/question.svg" alt="" />
+					<img src="/law-watch/question.svg" alt="" loading="lazy" decoding="async" />
 				</div>
 			{/each}
 		{:else if current_tutorial}
@@ -217,7 +217,7 @@
 				<div>
 					{@html TUTORIAL_CHOICES[current_tutorial - 1]}
 				</div>
-				<img src="/law-watch/question.svg" alt="" />
+				<img src="/law-watch/question.svg" alt="" loading="lazy" decoding="async" />
 			</div>
 		{:else}
 			<div class="balloon wv-b4">

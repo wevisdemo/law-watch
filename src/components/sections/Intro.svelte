@@ -87,6 +87,8 @@
 		alt="2562 ถึง 2565"
 		width="1280"
 		height="179"
+		loading="lazy"
+		decoding="async"
 	/>
 </section>
 

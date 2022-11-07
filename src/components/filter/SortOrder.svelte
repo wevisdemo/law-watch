@@ -21,7 +21,7 @@
 
 <div class={clazz} class:highlight={$order_highlight}>
 	<div class="header wv-b7">
-		<img src="/law-watch/sort.svg" alt="" width="16" height="16" />
+		<img src="/law-watch/sort.svg" alt="" width="16" height="16" loading="lazy" decoding="async" />
 		เรียงตาม
 	</div>
 	<div class="sort-order-container">
@@ -40,7 +40,14 @@
 				{#if i % 2 === 0}
 					{property}
 				{:else}
-					<img src="/law-watch/arrow_right.svg" alt="" width="10" height="8" />
+					<img
+						src="/law-watch/arrow_right.svg"
+						alt=""
+						width="10"
+						height="8"
+						loading="lazy"
+						decoding="async"
+					/>
 				{/if}
 			</button>
 		{/each}

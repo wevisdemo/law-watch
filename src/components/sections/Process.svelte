@@ -45,9 +45,24 @@
 		</div>
 		<div>
 			<Details title="ร่างกฎหมาย">
-				<img src="/law-watch/process/draft.png" alt="TODO: เขียน alt ตรงนี้" />
+				<img
+					src="/law-watch/process/draft.png"
+					alt="TODO: เขียน alt ตรงนี้"
+					width="131"
+					height="328"
+					loading="lazy"
+					decoding="async"
+				/>
 			</Details>
-			<img class="mem-tooltip" src="/law-watch/process/mem-present.png" alt="" />
+			<img
+				class="mem-tooltip"
+				src="/law-watch/process/mem-present.png"
+				alt=""
+				width="125"
+				height="68"
+				loading="lazy"
+				decoding="async"
+			/>
 		</div>
 	</section>
 	<div class="sep" />
@@ -58,20 +73,64 @@
 		</h3>
 		<div>
 			<Details title="ส.ส.">
-				<img src="/law-watch/process/member.png" alt="TODO: เขียน alt ตรงนี้" />
+				<img
+					src="/law-watch/process/member.png"
+					alt="TODO: เขียน alt ตรงนี้"
+					width="134"
+					height="311"
+					loading="lazy"
+					decoding="async"
+				/>
 			</Details>
-			<img class="mem-tooltip" src="/law-watch/process/mem-vote.png" alt="" />
+			<img
+				class="mem-tooltip"
+				src="/law-watch/process/mem-vote.png"
+				alt=""
+				width="124"
+				height="70"
+				loading="lazy"
+				decoding="async"
+			/>
 		</div>
 		<Details title="ส.ว.">
-			<img src="/law-watch/process/senate.png" alt="TODO: เขียน alt ตรงนี้" />
+			<img
+				src="/law-watch/process/senate.png"
+				alt="TODO: เขียน alt ตรงนี้"
+				width="162"
+				height="351"
+				loading="lazy"
+				decoding="async"
+			/>
 		</Details>
 		<Details title="ศาลรัฐธรรมนูญ">
-			<img src="/law-watch/process/court.png" alt="TODO: เขียน alt ตรงนี้" />
+			<img
+				src="/law-watch/process/court.png"
+				alt="TODO: เขียน alt ตรงนี้"
+				width="134"
+				height="180"
+				loading="lazy"
+				decoding="async"
+			/>
 		</Details>
 		<Details title="กษัตริย์">
-			<img src="/law-watch/process/king.png" alt="TODO: เขียน alt ตรงนี้" />
+			<img
+				src="/law-watch/process/king.png"
+				alt="TODO: เขียน alt ตรงนี้"
+				width="153"
+				height="198"
+				loading="lazy"
+				decoding="async"
+			/>
 		</Details>
-		<img class="passed-law" src="/law-watch/passed-law.png" alt="" />
+		<img
+			class="passed-law"
+			src="/law-watch/passed-law.png"
+			alt=""
+			width="22"
+			height="26"
+			loading="lazy"
+			decoding="async"
+		/>
 		<p class="wv-font-kondolar wv-h10 c-mint">
 			ประกาศในราชกิจจานุเบกษา<br />
 			บังคับใช้เป็นกฎหมาย
@@ -88,12 +147,28 @@
 			<span class="wv-h11 c-mint">ก่อนเข้าสภา</span>
 			<span class="wv-font-kondolar wv-h9">ร่างกฎหมาย</span>
 		</div>
-		<img class="rel-tooltip" src="/law-watch/process/mem-present.png" alt="" />
+		<img
+			class="rel-tooltip"
+			src="/law-watch/process/mem-present.png"
+			alt=""
+			width="125"
+			height="68"
+			loading="lazy"
+			decoding="async"
+		/>
 		<div class="rel-text">
 			<span class="wv-h11 c-mint">ในสภา</span>
 			<span class="wv-font-kondolar wv-h9">ส.ส.</span>
 		</div>
-		<img class="rel-tooltip" src="/law-watch/process/mem-vote.png" alt="" />
+		<img
+			class="rel-tooltip"
+			src="/law-watch/process/mem-vote.png"
+			alt=""
+			width="124"
+			height="70"
+			loading="lazy"
+			decoding="async"
+		/>
 	</div>
 </section>
 

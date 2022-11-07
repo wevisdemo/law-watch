@@ -10,7 +10,7 @@
 	in:scale={{ duration: 300, easing: cubicOut }}
 	out:scale={{ duration: 300, easing: cubicInOut }}
 >
-	<img src="/law-watch/question.svg" alt="" />
+	<img src="/law-watch/question.svg" alt="" loading="lazy" decoding="async" />
 </button>
 
 <style lang="scss">

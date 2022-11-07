@@ -31,7 +31,15 @@
 	>
 		<span>
 			สถานะกฎหมาย
-			<img class="caret" src="/law-watch/carets/dw.svg" alt="" width="14" height="8" />
+			<img
+				class="caret"
+				src="/law-watch/carets/dw.svg"
+				alt=""
+				width="14"
+				height="8"
+				loading="lazy"
+				decoding="async"
+			/>
 		</span>
 	</summary>
 	<div

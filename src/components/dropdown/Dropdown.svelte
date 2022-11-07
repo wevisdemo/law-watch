@@ -87,7 +87,7 @@
 <div class="dropdown-container {clazz}" class:highlight>
 	<span id="dropdown-{label}-label" class="select-label wv-b7">
 		{#if label_image}
-			<img src={label_image} alt="" width="12" height="12" />
+			<img src={label_image} alt="" width="12" height="12" loading="lazy" decoding="async" />
 		{/if}
 		{label}
 	</span>
@@ -102,10 +102,24 @@
 		aria-haspopup="listbox"
 	>
 		{#if isParty(current_choice)}
-			<img class="party-image" src={getPartyImage(current_choice)} alt={current_choice} />
+			<img
+				class="party-image"
+				src={getPartyImage(current_choice)}
+				alt={current_choice}
+				loading="lazy"
+				decoding="async"
+			/>
 		{/if}
 		{current_choice}
-		<img class="select-arrow" src="/law-watch/carets/dw.svg" alt="" width="14" height="8" />
+		<img
+			class="select-arrow"
+			src="/law-watch/carets/dw.svg"
+			alt=""
+			width="14"
+			height="8"
+			loading="lazy"
+			decoding="async"
+		/>
 	</button>
 </div>
 <div class="list-container" style="z-index:{menu_z}">
@@ -141,7 +155,13 @@
 						tabindex={is_list_opened ? 0 : -1}
 					>
 						{#if choice.image}
-							<img class="party-image" src={choice.image} alt={choice.text} />
+							<img
+								class="party-image"
+								src={choice.image}
+								alt={choice.text}
+								loading="lazy"
+								decoding="async"
+							/>
 						{/if}
 						{choice.text}
 					</li>

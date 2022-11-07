@@ -16,7 +16,14 @@
 
 <aside class="navigator">
 	<button type="button" title="กลับพาร์ทก่อนหน้า" on:click={prev} disabled={$current_section === 0}>
-		<img src="/law-watch/carets/uw.svg" alt="กลับพาร์ทก่อนหน้า" width="14" height="8" />
+		<img
+			src="/law-watch/carets/uw.svg"
+			alt="กลับพาร์ทก่อนหน้า"
+			width="14"
+			height="8"
+			loading="lazy"
+			decoding="async"
+		/>
 	</button>
 	<ul>
 		<li class="wv-b5" class:current={$current_section === 0}>
@@ -45,7 +52,14 @@
 		</li>
 	</ul>
 	<button type="button" title="ไปพาร์ทถัดไป" on:click={next} disabled={$current_section === 3}>
-		<img src="/law-watch/carets/dw.svg" alt="ไปพาร์ทถัดไป" width="14" height="8" />
+		<img
+			src="/law-watch/carets/dw.svg"
+			alt="ไปพาร์ทถัดไป"
+			width="14"
+			height="8"
+			loading="lazy"
+			decoding="async"
+		/>
 	</button>
 </aside>
 

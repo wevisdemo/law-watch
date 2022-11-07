@@ -81,7 +81,14 @@
 	<header>
 		<h3 class="wv-font-semibold wv-h10">{relative_law[current_law_index]?.Law_Name}</h3>
 		<button type="button" class="close-btn" on:click={close}>
-			<img src="/law-watch/card-close.svg" alt="ปิด" width="16" height="16" />
+			<img
+				src="/law-watch/card-close.svg"
+				alt="ปิด"
+				width="16"
+				height="16"
+				loading="lazy"
+				decoding="async"
+			/>
 		</button>
 	</header>
 	<div class="detail-wrapper">
@@ -100,15 +107,43 @@
 			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ร่างกฎหมาย'}>
 				ร่างกฎหมาย
 			</div>
-			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
+			<img
+				src="/law-watch/card-arrow.svg"
+				alt=""
+				width="9"
+				height="4"
+				loading="lazy"
+				decoding="async"
+			/>
 			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ส.ส.'}>ส.ส.</div>
-			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
+			<img
+				src="/law-watch/card-arrow.svg"
+				alt=""
+				width="9"
+				height="4"
+				loading="lazy"
+				decoding="async"
+			/>
 			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ส.ว.'}>ส.ว.</div>
-			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
+			<img
+				src="/law-watch/card-arrow.svg"
+				alt=""
+				width="9"
+				height="4"
+				loading="lazy"
+				decoding="async"
+			/>
 			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ศาลรัฐธรรมนูญ'}>
 				ศาลรัฐธรรมนูญ
 			</div>
-			<img src="/law-watch/card-arrow.svg" alt="" width="9" height="4" />
+			<img
+				src="/law-watch/card-arrow.svg"
+				alt=""
+				width="9"
+				height="4"
+				loading="lazy"
+				decoding="async"
+			/>
 			<div class:active={relative_law[current_law_index]?.Law_Stage === 'กษัตริย์'}>กษัตริย์</div>
 		</div>
 		<span>{relative_law[current_law_index]?.Status_Description}</span>
@@ -116,12 +151,26 @@
 			<hr />
 			<div class="merged-doc">
 				<button type="button" on:click={prevLaw}>
-					<img src="/law-watch/carets/lb.svg" alt="ดูฉบับก่อนหน้า" width="8" height="14" />
+					<img
+						src="/law-watch/carets/lb.svg"
+						alt="ดูฉบับก่อนหน้า"
+						width="8"
+						height="14"
+						loading="lazy"
+						decoding="async"
+					/>
 				</button>
 				<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง {current_law_index + 1}/{relative_law.length} ฉบับ</span
 				>
 				<button type="button" on:click={nextLaw}>
-					<img src="/law-watch/carets/rb.svg" alt="ดูฉบับถัดไป" width="8" height="14" />
+					<img
+						src="/law-watch/carets/rb.svg"
+						alt="ดูฉบับถัดไป"
+						width="8"
+						height="14"
+						loading="lazy"
+						decoding="async"
+					/>
 				</button>
 			</div>
 			<hr />
@@ -140,7 +189,13 @@
 				</dd>
 				{#if relative_law[current_law_index]?.Date_Diff}
 					<dt class="wv-font-semibold">
-						<img src="/law-watch/calendar.svg" alt="" class="addon" />
+						<img
+							src="/law-watch/calendar.svg"
+							alt=""
+							class="addon"
+							loading="lazy"
+							decoding="async"
+						/>
 						รวมระยะเวลา
 					</dt>
 					<dd>{formatDuration(relative_law[current_law_index]?.Date_Diff ?? 0)}</dd>
@@ -149,7 +204,13 @@
 					{#if relative_law[current_law_index]?.Date_Diff}
 						<div class="addon" />
 					{:else}
-						<img src="/law-watch/calendar.svg" alt="" class="addon" />
+						<img
+							src="/law-watch/calendar.svg"
+							alt=""
+							class="addon"
+							loading="lazy"
+							decoding="async"
+						/>
 					{/if}
 					วันที่เสนอ
 				</dt>
@@ -161,7 +222,7 @@
 				<dd>{formatDate(relative_law[current_law_index]?.End_Date)}</dd>
 
 				<dt class="wv-font-semibold">
-					<img src="/law-watch/person.svg" alt="" class="addon" />
+					<img src="/law-watch/person.svg" alt="" class="addon" loading="lazy" decoding="async" />
 					ชื่อผู้เสนอ
 				</dt>
 				<dd>{relative_law[current_law_index]?.Proposer_Name}</dd>
@@ -205,7 +266,14 @@
 			class="theywork-link wv-b6"
 		>
 			ดูรายละเอียดการโหวตเพิ่มเติม
-			<img src="/law-watch/external-link.svg" alt="" width="14" height="14" />
+			<img
+				src="/law-watch/external-link.svg"
+				alt=""
+				width="14"
+				height="14"
+				loading="lazy"
+				decoding="async"
+			/>
 		</a>
 	{/if}
 </article>
