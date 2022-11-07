@@ -10,6 +10,7 @@
 
 	import { weAreAlwaysHiring } from 'utils/we-are-hiring';
 
+	import WvFooter from '@wevisdemo/ui/components/footer.svelte';
 	import WvNavButton from '@wevisdemo/ui/components/nav-button.svelte';
 	import WvNavbar from 'components/wv/navbar.svelte';
 
@@ -31,4 +32,5 @@
 		>
 	</WvNavbar>
 	<slot />
+	<WvFooter dark={false} />
 </body>

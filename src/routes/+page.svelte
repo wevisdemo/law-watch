@@ -6,13 +6,13 @@
 	import Loader from 'components/Loader.svelte';
 	import Navigator from 'components/Navigator.svelte';
 
-	import Intro from 'components/sections/Intro.svelte';
-	import Importance from 'components/sections/Importance.svelte';
-	import Process from 'components/sections/Process.svelte';
-	import Stats from 'components/sections/Stats.svelte';
-	import Investigate from 'components/sections/Investigate.svelte';
 	import Conclusion from 'components/sections/Conclusion.svelte';
 	import Ending from 'components/sections/Ending.svelte';
+	import Importance from 'components/sections/Importance.svelte';
+	import Intro from 'components/sections/Intro.svelte';
+	import Investigate from 'components/sections/Investigate.svelte';
+	import Process from 'components/sections/Process.svelte';
+	import Stats from 'components/sections/Stats.svelte';
 
 	let state: null | 'transitioning' | 'end' = null;
 	let el_tooltip: HTMLElement;

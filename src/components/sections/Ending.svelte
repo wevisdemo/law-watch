@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { inView } from 'motion';
+	import { onMount } from 'svelte';
+
 	import { is_ending_inview } from 'stores/sectionScrollManager';
 
 	import WvSharer from '@wevisdemo/ui/components/sharer.svelte';
-	import WvFooter from '@wevisdemo/ui/components/footer.svelte';
-
 	import Eyes from 'components/eyes/Eyes.svelte';
 
 	let el_section: Element;
@@ -49,7 +48,6 @@
 		<WvSharer url="" label="" hideLabel light outline={false} center allowCopyLink={false} />
 	</section>
 </section>
-<WvFooter dark={false} />
 
 <style lang="scss">
 	.outro-container {
