@@ -41,6 +41,7 @@
 	}}
 >
 	<div class="time-decor" style="--max-days:{stats.longest_diff}">
+		<div class="legend">วัน</div>
 		<div class="bar" style="--days:0">
 			<span>0<br /><small>&nbsp;</small></span>
 		</div>
@@ -85,6 +86,16 @@
 
 		@supports (-moz-appearance: none) {
 			inset: 0 14.5px 0 6.5px;
+		}
+
+		> .legend {
+			position: absolute;
+			bottom: 14px;
+			left: -30px;
+
+			font-size: 0.875rem;
+			line-height: 1;
+			text-align: center;
 		}
 
 		> .bar {
