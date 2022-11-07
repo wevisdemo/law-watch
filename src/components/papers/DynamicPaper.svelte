@@ -206,6 +206,14 @@
 	.paper-mark-left {
 		clip-path: polygon(0px 0, 7px 7px, 7px 100%, 0 100%, 0 0);
 
+		&:hover {
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+
+			> .mark-left {
+				transform: translateX(8px) scale(0);
+			}
+		}
+
 		&:last-of-type {
 			clip-path: polygon(6px 0, 20px 15px, 20px 100%, 0 100%, 0 0);
 
@@ -215,23 +223,15 @@
 		}
 	}
 
-	.paper-mark-left:hover {
-		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
-
-		> .mark-left {
-			transform: translateX(8px) scale(0);
-		}
-	}
-
 	.paper-mark-right {
 		clip-path: polygon(7px 0, 100% 0, 100% 100%, 0 100%, 0 7px);
-	}
 
-	.paper-mark-right:hover {
-		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+		&:hover {
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
 
-		> .mark-right {
-			transform: scale(0);
+			> .mark-right {
+				transform: scale(0);
+			}
 		}
 	}
 
@@ -266,6 +266,10 @@
 
 			&:last-of-type {
 				clip-path: polygon(13px 0, 20px 7px, 20px 100%, 0 100%, 0 0);
+
+				&:hover {
+					clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+				}
 
 				> .mark-left {
 					right: -1px;
