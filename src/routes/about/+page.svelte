@@ -16,31 +16,47 @@
 <WvContainer heading="เกี่ยวกับโครงการ" children>
 	<WvParagraphGroup small={false} heading="เป้าหมาย" children>
 		<p class="wv-font-baijamjuri">
-			ตั้งแต่รัฐธรรมนูญปี 2540 เปิดโอกาสให้ประชาชนสามารถลงชื่อเสนอกฎหมายได้ และผ่านมา 20 กว่าปี
-			จนถึงรัฐธรรมนูญปี 2560 หลายคนตั้งคำถามว่าการลงชื่อแต่ละครั้ง
-			สุดท้ายแล้วกฎหมายที่ลงชื่อไปแต่เส้นทางกฎหมายของประชาชนในการเสนอกฎหมายแต่ละฉบับไปสิ้นสุดที่ตรงไหน
+			เมื่อกฎหมายคือกติกาของการอยู่ร่วมกันในสังคมของรัฐหนึ่ง
+			กฎหมายจึงควรต้องมีที่มาจากกระบวนการอันมีส่วนยึดโยงประชาชนผู้เป็นองค์ประกอบหนึ่งของรัฐ
+			ไม่ว่าจะโดยทางตรงหรือทางอ้อม ซึ่งตามกลไกทางประชาธิปไตยในระบบรัฐธรรมนูญของหลายประเทศ
+			รวมถึงประเทศไทย สมาชิกสภาผู้แทนราษฎรของพรรคการเมืองที่ได้รับการเลือกตั้งเข้าสู่รัฐสภา
+			คือผู้ที่มีส่วนเกี่ยวข้องกับกระบวนการร่างกฎหมายในทุกเส้นทางเสมอ
 		</p>
 		<p class="wv-font-baijamjuri">
-			ทางทีม WeVis จึงพยายามรวบรวมข้อมูลตั้งรัฐธรรมนูญปี 2540 ถึงรัฐธรรมนูญปี 2560
-			ที่ผ่านมามีร่างกฎหมายที่ประชาชนเสนอไปทั้งหมดกี่ฉบับ และเส้นทางกระบวนการของกฎหมายเป็นอย่างไร
-			สุดท้ายแล้ว กว่าจะผ่านแต่ละเส้นทางมาได้ ร่างกฎหมายตกอยู่ที่กระบวนการไหนบ้าง
-			สุดท้ายสามารถปรับอะไรกับเส้นทางนี้ได้
+			ทาง WeVis ร่วมกับ 101 PUB
+			ขอชวนทุกคนดูข้อมูลร่างกฎหมายที่เข้าสู่กระบวนการรัฐสภาไทยในรัฐบาลยุคประยุทธ์ จันทร์โอชา 2
+			เพื่อพิจารณาว่า ส.ส. ที่คนไทยเลือกตั้งไปนั้น ทำการเสนอ และพิจารณาร่างกฎหมายอะไร และอย่างไรบ้าง
+			เพื่อตอบประเด็นสำคัญที่ว่า &ldquo;ผู้แทนของเราในสภาชุดปัจจุบัน ทำงาน (ด้านกฎหมาย)
+			เพื่อประชาชนอย่างเรา ๆ ได้มากน้อยเพียงใด&rdquo;
 		</p>
-		<p class="wv-font-baijamjuri">ขอชวนทุกคนมาร่วมสำรวจเส้นทางของกฎหมายประชาชนไปพร้อมๆกัน</p>
 	</WvParagraphGroup>
 	<WvParagraphGroup small={false} heading="ที่มาของข้อมูล" children>
-		<p class="wv-font-baijamjuri">
-			ข้อมูลจากกลุ่มงานเข้าชื่อเสนอกฎหมาย สำนักการประชุม สำนักเลขาธิการสภาผู้แทนราษฎร
-			<em style="font-style:normal;white-space:nowrap"> *ข้อมูล ณ วันที่ 28 มีนาคม 2565 </em>
-		</p>
-		<ul class="wv-font-baijamjuri" style="list-style:inside">
-			<li>สำนักงานเลขาธิการสภา.pdf</li>
-			<li>คุณสมบัติและจำนวนของผู้มีสิทธิเข้าชื่อเสนอกฎหมาย.pdf</li>
-			<li>แผนงานการเข้าชื่อเสนอกฎหมาย พ.ศ 2564</li>
-			<li>การเข้าเสนอชื่อกฎหมาย สำนักงานเลขาธิการสภาผู้แทนราษฎร</li>
-			<li>TROPICO Comparative case studies on e-participation</li>
-			<li>สรุปภาพรวมการเข้าชื่อเสนอกฎหมายตามรธน.60</li>
-		</ul>
+		<ol class="wv-font-baijamjuri" style="padding-left:1rem">
+			<li>
+				สำหรับข้อมูลร่างกฎหมายทั้งหมดที่ถูกเสนอและพิจารณาในสภาสมัยรัฐบาลประยุทธ์ จันทร์โอชา 2 ทาง
+				WeVis ขอขอบคุณ <a
+					href="https://the101percent.com/works/101pub/"
+					target="_blank"
+					rel="nofollow noopener noreferrer">101 PUB &ndash; 101 Public Policy Think Tank</a
+				>
+				สำหรับการค้นคว้า และสนับสนุนข้อมูลที่เป็นประโยชน์กับโปรเจกต์นี้อย่างละเอียด และครบถ้วนที่สุดเท่าที่จะเป็นไปได้
+				โดยข้อมูลที่ได้มาจากการสืบค้นใน
+				<a
+					href="https://lis.parliament.go.th/index/index.php"
+					target="_blank"
+					rel="nofollow noopener noreferrer"
+					>ระบบสารสนเทศด้านนิติบัญญัติของสำนักงานเลขาธิการสภาผู้แทนราษฎร</a
+				>
+			</li>
+			<li>
+				สำหรับข้อมูลการลงมติของสมาชิกสภาผู้แทนราษฎร (ส.ส.) พรรคการเมืองต่าง ๆ
+				ต่อร่างกฎหมายที่ถูกเสนอและพิจารณาในสภาสมัยรัฐบาลประยุทธ์ จันทร์โอชา 2
+				มาจากการใช้ข้อมูลของโปรเจกต์ WeVis ที่ชื่อว่า &ldquo;<a
+					href="https://theyworkforus.wevis.info/"
+					>They work for us - ใครคือผู้แทนของเรา ค้นหา ตรวจสอบ โปร่งใส</a
+				>&rdquo;
+			</li>
+		</ol>
 	</WvParagraphGroup>
 	<WvParagraphGroup small={false} heading="นโยบายการนำข้อมูลไปใช้ต่อ" children>
 		<p class="wv-font-baijamjuri">
@@ -56,25 +72,46 @@
 	</WvParagraphGroup>
 	<WvParagraphGroup small={false} heading="อาสาสมัครร่วมพัฒนา" children>
 		<WvParagraphGroup small="true" heading="เขียนโปรแกรม" children>
-			<p class="wv-font-baijamjuri">สุเทพ จันทร์ชูผล</p>
+			<p class="wv-font-baijamjuri">
+				<a href="https://rootenginear.github.io/" target="_blank" rel="nofollow noopener noreferrer"
+					>สุเทพ จันทร์ชูผล</a
+				>
+			</p>
 		</WvParagraphGroup>
 		<WvParagraphGroup small="true" heading="ออกแบบ" children>
-			<p class="wv-font-baijamjuri">มนสิชา ศรีสวนแตง</p>
+			<p class="wv-font-baijamjuri">
+				<a
+					href="https://pearwawa.myportfolio.com/"
+					target="_blank"
+					rel="nofollow noopener noreferrer">มนสิชา ศรีสวนแตง</a
+				>
+			</p>
 		</WvParagraphGroup>
 		<WvParagraphGroup small="true" heading="สืบค้นและรวบรวมข้อมูล" children>
-			<p class="wv-font-baijamjuri">สิทธิกานต์ ธีระวัฒนชัย</p>
+			<p class="wv-font-baijamjuri">
+				สิทธิกานต์ ธีระวัฒนชัย, <a
+					href="https://the101percent.com/works/101pub/"
+					target="_blank"
+					rel="nofollow noopener noreferrer">101 PUB</a
+				>
+			</p>
 		</WvParagraphGroup>
 		<WvParagraphGroup small="true" heading="บรรณาธิการ" children>
 			<p class="wv-font-baijamjuri">ธนิสรา เรืองเดช</p>
 		</WvParagraphGroup>
 		<WvParagraphGroup small="true" heading="ประสานงานและจัดการอื่นๆ" children>
 			<p class="wv-font-baijamjuri">
-				Punch Up และ WeVis ในโปรเจกต์ Initiative law สำรวจเส้นทางกฎหมายของประชาชน
-				ยังได้รับการสนับสนุนทุนในการดำเนินงานจาก National Endowment for Democracy (NED)
-				ซึ่งนำมาใช้เป็นต้นทุนในการรวมรวมข้อมูล ออกแบบ พัฒนาเว็บไซต์ ประสานงาน บริหารจัดการ
-				ตลอดจนการจัด Meetup เพื่อดำเนินโครงการ
+				<a href="https://punchup.world/" target="_blank" rel="nofollow noopener noreferrer"
+					>Punch Up</a
+				>
 			</p>
 		</WvParagraphGroup>
+		<p class="wv-font-baijamjuri">
+			โปรเจกต์ <strong
+				>&ldquo;ส่องผลงานผ่านสภายุคตู่สอง ส.ส. เสนอ และ/หรือ โหวต กฎหมายอะไรกันบ้าง ?&rdquo;</strong
+			> ได้รับการสนับสนุนทุนในการดำเนินงานจาก National Endowment for Democracy (NED) ซึ่งนำมาใช้เป็นต้นทุนในการรวมรวมข้อมูล
+			ออกแบบ พัฒนาเว็บไซต์ ประสานงาน บริหารจัดการ ตลอดจนการจัด Meetup เพื่อดำเนินโครงการ
+		</p>
 	</WvParagraphGroup>
 
 	<WvButtonGroup center={true} children>
