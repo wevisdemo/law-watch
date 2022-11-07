@@ -327,11 +327,11 @@
 		flex-direction: column;
 		gap: 8px;
 
-		// Webkit Scrollbar
 		margin-right: -6px;
 		padding-right: 4px;
 
 		overflow-y: scroll;
+		overscroll-behavior: contain;
 
 		&::-webkit-scrollbar {
 			width: 2px;

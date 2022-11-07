@@ -139,7 +139,7 @@
 		padding: 8px 8px 8px 0;
 
 		overflow-y: scroll;
-		overscroll-behavior: contain;
+		overscroll-behavior: auto;
 
 		&::-webkit-scrollbar {
 			width: 2px;
