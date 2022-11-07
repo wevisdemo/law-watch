@@ -56,7 +56,7 @@ export const TUTORIAL_BALLOONS: TutorialBalloonType[][] = [
 		},
 		{
 			cssClass: 'bottom special-bottom',
-			name: 'มองหาสัญลักษณ์ที่บอกว่าผ่าน<br>หรือดูจำนวนรวมเทียบกัน',
+			name: '<span class="nw">มองหาสัญลักษณ์ที่บอกว่าผ่าน</span><br><span class="nw">หรือดูจำนวนรวมเทียบกัน</span>',
 			style: '--d-st:530px;--d-b:211px;--m-b:130px'
 		}
 	],
