@@ -60,7 +60,7 @@
 </script>
 
 <section bind:this={el_section} id="investigate-section" class="h100">
-	<h2 class="title wv-b4 tc nw">{@html label}</h2>
+	<h2 class="title wv-b4 tc">{@html label}</h2>
 	<LawVis />
 	<FilterBox />
 	<Sidebar />
