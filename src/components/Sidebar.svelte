@@ -17,22 +17,17 @@
 		return date_formatter.format(new Date(date));
 	};
 
-	// TODO: Refactor this; Brain rot.
 	const formatDuration = (duration: number) => {
 		if (duration < 365) return `${duration} วัน`;
-		duration -= 365;
-		let year = 1;
-		for (;;) {
-			if (duration < 366) break;
-			duration -= 366;
-			year++;
-			if (duration < 365) break;
-			duration -= 365;
-			year++;
-			if (duration < 365) break;
-			duration -= 365;
-			year++;
-			break;
+		let year = 0;
+		switch (true) {
+			case (year++, (duration -= 365)) < 366:
+				break;
+			case (year++, (duration -= 366)) < 365:
+				break;
+			default:
+				year++;
+				duration -= 365;
 		}
 		return `${year} ปี ${duration} วัน`;
 	};
