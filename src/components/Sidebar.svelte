@@ -192,6 +192,8 @@
 						<img
 							src="/law-watch/calendar.svg"
 							alt=""
+							width="16"
+							height="16"
 							class="addon"
 							loading="lazy"
 							decoding="async"
@@ -207,6 +209,8 @@
 						<img
 							src="/law-watch/calendar.svg"
 							alt=""
+							width="16"
+							height="16"
 							class="addon"
 							loading="lazy"
 							decoding="async"
@@ -222,7 +226,15 @@
 				<dd>{formatDate(relative_law[current_law_index]?.End_Date)}</dd>
 
 				<dt class="wv-font-semibold">
-					<img src="/law-watch/person.svg" alt="" class="addon" loading="lazy" decoding="async" />
+					<img
+						src="/law-watch/person.svg"
+						alt=""
+						class="addon"
+						width="16"
+						height="16"
+						loading="lazy"
+						decoding="async"
+					/>
 					ชื่อผู้เสนอ
 				</dt>
 				<dd>{relative_law[current_law_index]?.Proposer_Name}</dd>

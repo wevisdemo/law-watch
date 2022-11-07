@@ -106,6 +106,8 @@
 				class="party-image"
 				src={getPartyImage(current_choice)}
 				alt={current_choice}
+				width="20"
+				height="20"
 				loading="lazy"
 				decoding="async"
 			/>
@@ -159,6 +161,8 @@
 								class="party-image"
 								src={choice.image}
 								alt={choice.text}
+								width="20"
+								height="20"
 								loading="lazy"
 								decoding="async"
 							/>

@@ -204,7 +204,14 @@
 					<div>
 						{@html choice}
 					</div>
-					<img src="/law-watch/question.svg" alt="" loading="lazy" decoding="async" />
+					<img
+						src="/law-watch/question.svg"
+						alt=""
+						width="34"
+						height="48"
+						loading="lazy"
+						decoding="async"
+					/>
 				</div>
 			{/each}
 		{:else if current_tutorial}
@@ -217,7 +224,14 @@
 				<div>
 					{@html TUTORIAL_CHOICES[current_tutorial - 1]}
 				</div>
-				<img src="/law-watch/question.svg" alt="" loading="lazy" decoding="async" />
+				<img
+					src="/law-watch/question.svg"
+					alt=""
+					width="34"
+					height="48"
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 		{:else}
 			<div class="balloon wv-b4">

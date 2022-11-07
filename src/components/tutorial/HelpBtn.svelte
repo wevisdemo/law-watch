@@ -10,7 +10,14 @@
 	in:scale={{ duration: 300, easing: cubicOut }}
 	out:scale={{ duration: 300, easing: cubicInOut }}
 >
-	<img src="/law-watch/question.svg" alt="" loading="lazy" decoding="async" />
+	<img
+		src="/law-watch/question.svg"
+		alt=""
+		width="16"
+		height="23"
+		loading="lazy"
+		decoding="async"
+	/>
 </button>
 
 <style lang="scss">
@@ -37,10 +44,5 @@
 		}
 
 		cursor: pointer;
-
-		> img {
-			height: auto;
-			width: 16px;
-		}
 	}
 </style>

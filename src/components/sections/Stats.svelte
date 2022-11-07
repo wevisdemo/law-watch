@@ -93,17 +93,45 @@
 			<div class="wv-font-kondolar wv-font-black year">
 				<div class="first-year-wrapper">
 					<div class="year-label wv-b6">ปี พ.ศ.</div>
-					<img src="/law-watch/stats/62.svg" alt="" loading="lazy" decoding="async" />
+					<img
+						src="/law-watch/stats/62.svg"
+						alt=""
+						width="88"
+						height="56"
+						loading="lazy"
+						decoding="async"
+					/>
 				</div>
 			</div>
 			<div class="wv-font-kondolar wv-font-black year">
-				<img src="/law-watch/stats/63.svg" alt="" loading="lazy" decoding="async" />
+				<img
+					src="/law-watch/stats/63.svg"
+					alt=""
+					width="89"
+					height="56"
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 			<div class="wv-font-kondolar wv-font-black year">
-				<img src="/law-watch/stats/64.svg" alt="" loading="lazy" decoding="async" />
+				<img
+					src="/law-watch/stats/64.svg"
+					alt=""
+					width="89"
+					height="56"
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 			<div class="wv-font-kondolar wv-font-black year">
-				<img src="/law-watch/stats/65.svg" alt="" loading="lazy" decoding="async" />
+				<img
+					src="/law-watch/stats/65.svg"
+					alt=""
+					width="88"
+					height="56"
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 		</div>
 	</div>
@@ -212,6 +240,7 @@
 
 		img {
 			width: 80%;
+			height: auto;
 			max-width: 175px;
 			display: block;
 		}

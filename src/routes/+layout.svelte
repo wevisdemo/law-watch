@@ -20,17 +20,14 @@
 
 <body class="wv-font-anuphan" class:bg-white={$page.routeId === 'about'}>
 	<WvNavbar logoAddonSrc="/law-watch/101pub.png" title="LAW WATCH" dark={true}>
-		<WvNavButton
-			active={$page.routeId === ''}
-			dark={true}
-			onClick={() => goto(`${base}/`)}
-			children={null}>Home</WvNavButton
+		<WvNavButton active={$page.routeId === ''} dark={true} onClick={() => goto(`${base}/`)} children
+			>Home</WvNavButton
 		>
 		<WvNavButton
 			active={$page.routeId === 'about'}
 			dark={true}
 			onClick={() => goto(`${base}/about`)}
-			children={null}>About</WvNavButton
+			children>About</WvNavButton
 		>
 	</WvNavbar>
 	<slot />
