@@ -76,7 +76,6 @@
 				<div class="mark-right" />
 			{/if}
 		</div>
-		<!-- <StaticPaper {type} {category} {marked} {whiteBg} {small} style="position:absolute" /> -->
 	</div>
 {:else}
 	<div
@@ -158,11 +157,6 @@
 		font-size: 0;
 		line-height: 0;
 
-		&.whiteBg {
-			--paper-bg: #fff;
-			--default-color: #000;
-		}
-
 		&.process {
 			color: var(--law-color, var(--default-color));
 
@@ -183,10 +177,10 @@
 		top: -1px;
 		width: 7px;
 		height: 7px;
-		border: 3px var(--law-color, #fff) solid;
+		border: 3.5px var(--law-color, #fff) solid;
 		right: 5px;
-		border-right: 3px #0000 solid;
-		border-top: 3px #0000 solid;
+		border-right: 3.5px #0000 solid;
+		border-top: 3.5px #0000 solid;
 
 		transform-origin: top right;
 		transition: transform 0.1s;
@@ -197,21 +191,21 @@
 		top: -1px;
 		width: 7px;
 		height: 7px;
-		border: 3px var(--law-color, #fff) solid;
+		border: 3.5px var(--law-color, #fff) solid;
 		left: -1px;
-		border-left: 3px #0000 solid;
-		border-top: 3px #0000 solid;
+		border-left: 3.5px #0000 solid;
+		border-top: 3.5px #0000 solid;
 
 		transform-origin: top left;
 		transition: transform 0.1s;
 	}
 
 	.paper-mark-left {
-		clip-path: polygon(5px 0, 12px 7px, 12px 100%, 0 100%, 0 0);
+		clip-path: polygon(0px 0, 7px 7px, 7px 100%, 0 100%, 0 0);
 
 		&:last-of-type,
 		&:nth-last-of-type(2) {
-			clip-path: polygon(13px 0, 20px 7px, 20px 100%, 0 100%, 0 0);
+			clip-path: polygon(6px 0, 20px 15px, 20px 100%, 0 100%, 0 0);
 
 			> .mark-left {
 				right: -1px;
@@ -263,6 +257,19 @@
 
 		.mark-left {
 			right: 7px;
+		}
+
+		.paper-mark-left {
+			clip-path: polygon(5px 0, 12px 7px, 12px 100%, 0 100%, 0 0);
+
+			&:last-of-type,
+			&:nth-last-of-type(2) {
+				clip-path: polygon(13px 0, 20px 7px, 20px 100%, 0 100%, 0 0);
+
+				> .mark-left {
+					right: -1px;
+				}
+			}
 		}
 	}
 </style>

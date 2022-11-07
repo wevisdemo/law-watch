@@ -9,7 +9,6 @@
 	export let stacked = false;
 	export let noMargin = false;
 	export let marked: null | 'left' | 'right' = null;
-	export let whiteBg = false;
 	export let small = false;
 
 	$: color_class =
@@ -18,24 +17,15 @@
 
 {#if stacked}
 	<div class="stack-paper-container" class:noMargin class:small {...$$restProps}>
-		<svelte:self {type} {category} {whiteBg} {small} style="position:absolute;top:6px;left:6px" />
-		<svelte:self
-			{type}
-			{category}
-			{marked}
-			{whiteBg}
-			{small}
-			style="position:absolute;top:3px;left:3px"
-		/>
-		<svelte:self {type} {category} {marked} {whiteBg} {small} style="position:absolute" />
+		<svelte:self {type} {category} {small} style="position:absolute;top:6px;left:6px" />
+		<svelte:self {type} {category} {marked} {small} style="position:absolute;top:3px;left:3px" />
+		<svelte:self {type} {category} {marked} {small} style="position:absolute" />
 	</div>
 {:else}
 	<div
 		class="paper {type} {color_class}"
 		class:noMargin
-		class:whiteBg
 		class:paper-mark-left={marked === 'left'}
-		class:paper-mark-right={marked === 'right'}
 		class:small
 		{...$$restProps}
 	>
@@ -92,11 +82,6 @@
 			margin-right: 0;
 		}
 
-		&.whiteBg {
-			--paper-bg: #fff;
-			--default-color: #000;
-		}
-
 		&.process {
 			color: var(--law-color, var(--default-color));
 
@@ -117,10 +102,10 @@
 		top: -1px;
 		width: 7px;
 		height: 7px;
-		border: 3px var(--law-color, #fff) solid;
+		border: 3.5px var(--law-color, #fff) solid;
 		right: 5px;
-		border-right: 3px #000 solid;
-		border-top: 3px #000 solid;
+		border-right: 3.5px #000 solid;
+		border-top: 3.5px #000 solid;
 	}
 
 	.mark-right {
@@ -128,10 +113,14 @@
 		top: -1px;
 		width: 7px;
 		height: 7px;
-		border: 3px var(--law-color, #fff) solid;
+		border: 3.5px var(--law-color, #fff) solid;
 		left: -1px;
-		border-left: 3px #000 solid;
-		border-top: 3px #000 solid;
+		border-left: 3.5px #000 solid;
+		border-top: 3.5px #000 solid;
+	}
+
+	.paper-mark-right:first-of-type {
+		clip-path: polygon(7px 0, 100% 0, 100% 100%, 0 100%, 0 7px);
 	}
 
 	@media (min-width: 768px) {
