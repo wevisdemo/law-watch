@@ -27,14 +27,12 @@
 <section bind:this={el_section} class="outro-container c tc">
 	<section class="outro-section c">
 		<p class="outro-1 wv-b3">
-			<span class="nw">ดังนั้น การทำงานกระบวนการ</span><span class="nw">
-				ออกกฎหมาย<br class="hide-br" />
-				ของบรรดา ส.ส.
-			</span>
-			<span class="nw">จากพรรคการเมืองต่าง ๆ ในสภา</span><span class="nw">
-				ชุดนี้<br class="hide-br" />
-				คือตัวช่วยตัดสินใจอย่างหนึ่ง
-			</span>
+			<span class="nw">ดังนั้น การทำงานกระบวนการ</span><span class="nw"> ออกกฎหมาย</span><br
+				class="hide-br"
+			/><span class="nw"> ของบรรดา ส.ส. </span>
+			<span class="nw">จากพรรคการเมืองต่าง ๆ ในสภา</span><span class="nw"> ชุดนี้</span><br
+				class="hide-br"
+			/><span class="nw"> คือตัวช่วยตัดสินใจอย่างหนึ่ง </span>
 			<span class="nw">สำหรับประชาชนว่า</span>
 		</p>
 		<Eyes margin="40px 0" />
