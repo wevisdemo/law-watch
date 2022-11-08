@@ -14,7 +14,7 @@
 
 <div class="proposer-container" transition:fade={{ duration: 300 }}>
 	{#each data as proposer, proposer_index}
-		<div class="vis-text nw wv-b5">
+		<div class="vis-text wv-b5">
 			{$current_side_choice === 'เลือกทุกฝ่าย' ? PROPOSER[proposer_index] : $current_side_choice}
 		</div>
 		<div style="margin-bottom:-8px">
@@ -71,6 +71,8 @@
 	}
 
 	.vis-text {
+		white-space: nowrap;
+
 		@media (min-width: 768px) {
 			text-align: right;
 		}

@@ -67,7 +67,8 @@ section {
 	border: 0 !important;
 }
 
-.nw {
+:is(span, strong).nw {
+	display: inline-block;
 	white-space: nowrap;
 }
 

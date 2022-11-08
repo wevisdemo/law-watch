@@ -13,7 +13,7 @@
 
 <div class="party-container" transition:fade={{ duration: 300 }}>
 	{#each data as party, party_index}
-		<div class="vis-text nw wv-b5">
+		<div class="vis-text wv-b5">
 			{$current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[party_index] : $current_party_choice}
 		</div>
 		<div class="vis-row">
@@ -68,6 +68,8 @@
 	}
 
 	.vis-text {
+		white-space: nowrap;
+
 		@media (min-width: 768px) {
 			text-align: right;
 		}
