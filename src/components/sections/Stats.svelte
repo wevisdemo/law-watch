@@ -35,7 +35,7 @@
 		</span>
 	</h2>
 
-	<LawStatus class="status-mobile" always_show_line />
+	<LawStatus class="status-mobile" />
 	<div class="chart-header-mobile">
 		<div class="wv-b7">เสนอโดย</div>
 		<img
