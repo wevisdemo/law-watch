@@ -261,7 +261,7 @@
 
 		@media (max-width: 767.5px) {
 			&.is_law_status_open {
-				inset: 128px 0 136px;
+				inset: 128px 0 192px;
 			}
 		}
 

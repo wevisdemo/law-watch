@@ -250,8 +250,8 @@
 				clip-path: polygon(
 					100% 54px,
 					0 54px,
-					0 calc(100% - 136px),
-					100% calc(100% - 136px),
+					0 calc(100% - 192px),
+					100% calc(100% - 192px),
 					100% 100%,
 					0 100%,
 					0 0,
@@ -263,8 +263,8 @@
 				clip-path: polygon(
 					100% 54px,
 					100% 54px,
-					100% calc(100% - 136px),
-					100% calc(100% - 136px),
+					100% calc(100% - 192px),
+					100% calc(100% - 192px),
 					100% 100%,
 					0 100%,
 					0 0,
@@ -296,7 +296,7 @@
 		}
 
 		:global(.alone) {
-			width: 200px;
+			width: 160px;
 		}
 	}
 
