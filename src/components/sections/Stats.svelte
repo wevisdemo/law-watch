@@ -80,7 +80,7 @@
 					</div>
 				</div>
 			</div>
-			<div>
+			<div class="law-status">
 				<div class="year-label wv-b6">ปี พ.ศ.</div>
 				<LawStatus class="status" />
 			</div>
@@ -324,6 +324,14 @@
 
 			&:nth-child(-n + 4) {
 				padding-top: 16px;
+			}
+		}
+
+		.law-status {
+			height: 64px;
+
+			> .year-label {
+				transform: translateX(calc(150% - 14px)) rotate(-90deg);
 			}
 		}
 	}
