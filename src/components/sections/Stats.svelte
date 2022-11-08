@@ -229,7 +229,7 @@
 
 		> div {
 			border-left: 1px solid #373746;
-			padding: 12px 16px 12px 0;
+			padding: 12px 32px 12px 0;
 
 			&:nth-child(n + 13) {
 				padding-bottom: 0;
