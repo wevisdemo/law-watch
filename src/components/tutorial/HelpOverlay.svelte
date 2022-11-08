@@ -437,6 +437,8 @@
 		margin-bottom: 16px;
 
 		width: 260px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
 		user-select: none;
 
 		> img {

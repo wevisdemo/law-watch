@@ -207,6 +207,8 @@
 		align-items: center;
 		width: 100%;
 
+		-webkit-user-select: none;
+		-moz-user-select: none;
 		user-select: none;
 		cursor: pointer;
 
@@ -255,6 +257,8 @@
 		display: flex;
 		align-items: center;
 
+		-webkit-user-select: none;
+		-moz-user-select: none;
 		user-select: none;
 		cursor: pointer;
 

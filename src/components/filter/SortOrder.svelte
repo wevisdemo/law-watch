@@ -42,7 +42,7 @@
 				{:else}
 					<img
 						src="/law-watch/arrow_right.svg"
-						alt=""
+						alt="ลูกศรขวา"
 						width="10"
 						height="8"
 						loading="lazy"
@@ -76,6 +76,8 @@
 		color: #fff;
 
 		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
 		user-select: none;
 
 		position: relative;

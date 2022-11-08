@@ -57,6 +57,8 @@
 		display: flex;
 
 		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
 		user-select: none;
 
 		background: rgba(var(--law-color), 0);

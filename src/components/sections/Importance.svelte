@@ -245,6 +245,8 @@
 			color: #fff;
 
 			pointer-events: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
 			user-select: none;
 
 			opacity: 0;

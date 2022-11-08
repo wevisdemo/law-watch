@@ -20,6 +20,8 @@
 		align-items: center;
 		gap: 10px;
 
+		-webkit-user-select: none;
+		-moz-user-select: none;
 		user-select: none;
 		cursor: pointer;
 	}

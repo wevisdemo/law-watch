@@ -61,6 +61,8 @@
 
 		> summary {
 			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
 			user-select: none;
 			padding: 16px;
 
