@@ -25,7 +25,7 @@
 	<div
 		class="paper {type} {color_class}"
 		class:noMargin
-		class:paper-mark-left={marked === 'left'}
+		class:paper-mark-right={marked === 'right'}
 		class:small
 		{...$$restProps}
 	>
