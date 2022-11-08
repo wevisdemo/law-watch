@@ -135,7 +135,9 @@
 	</div>
 	<p class="stats-footnote wv-b7">
 		* นับจากปีที่เริ่มยื่นเสนอร่างกฎหมาย<br />
-		** มีร่างกฎหมายที่ถูกเสนอตั้งแต่ ปี พ.ศ. 2561 กินระยะเวลานานรวมอยู่ด้วย 3 ฉบับ
+		<span class="indent">
+			** มีร่างกฎหมายที่ถูกเสนอตั้งแต่ ปี พ.ศ. 2561 กินระยะเวลานานรวมอยู่ด้วย 3 ฉบับ
+		</span>
 	</p>
 </section>
 
@@ -339,5 +341,11 @@
 	.stats-footnote {
 		margin-top: 16px;
 		width: calc(100% - 96px);
+	}
+
+	.indent {
+		display: inline-block;
+		margin-left: 1.9ch;
+		text-indent: -1.9ch;
 	}
 </style>
