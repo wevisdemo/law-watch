@@ -26,8 +26,9 @@
 
 <section bind:this={el_section} id="stats-section" class="c">
 	<h2 class="wv-font-kondolar wv-h9 tc" style="padding:0 16px">
-		<span class="nw">ร่างกฎหมายทั้งหมดที่ถูกเสนอ</span><span class="nw">เพื่อพิจารณาในสมัย</span
-		><span class="nw">รัฐบาลประยุทธ์ จันทร์โอชา 2</span><br />
+		<span class="nw">ร่างกฎหมายที่ถูกเสนอ</span><span class="nw">เพื่อพิจารณาในสมัย</span><span
+			class="nw">รัฐบาลประยุทธ์ จันทร์โอชา 2</span
+		><br />
 		<span class="header-line2">
 			ทั้งหมด
 			<span class="wv-font-kondolar wv-h4 wv-font-black c-mint">{stats.all_law_len}</span>
@@ -133,12 +134,13 @@
 			</div>
 		</div>
 	</div>
-	<p class="stats-footnote wv-b7">
-		* นับจากปีที่เริ่มยื่นเสนอร่างกฎหมาย<br />
-		<span class="indent">
+	<ol class="stats-footnote wv-b7">
+		<li>* นับจากปีที่เริ่มยื่นเสนอร่างกฎหมาย</li>
+		<li class="indent">
 			** มีร่างกฎหมายที่ถูกเสนอตั้งแต่ ปี พ.ศ. 2561 กินระยะเวลานานรวมอยู่ด้วย 3 ฉบับ
-		</span>
-	</p>
+		</li>
+		<li>*** Update ข้อมูลร่างกฎหมายล่าสุดวันที่ 5 พ.ย. 2565</li>
+	</ol>
 </section>
 
 <style lang="scss">
@@ -341,10 +343,10 @@
 	.stats-footnote {
 		margin-top: 16px;
 		width: calc(100% - 96px);
+		list-style: none;
 	}
 
 	.indent {
-		display: inline-block;
 		margin-left: 1.9ch;
 		text-indent: -1.9ch;
 	}
