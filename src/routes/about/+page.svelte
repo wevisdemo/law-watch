@@ -155,9 +155,18 @@
 	/>
 </WvContainer>
 
-<style>
+<style lang="scss">
 	p,
 	li {
 		line-height: 1.5;
+	}
+
+	a {
+		color: #3904e9;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 </style>
