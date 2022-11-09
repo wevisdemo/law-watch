@@ -33,7 +33,7 @@ export const TUTORIAL_BALLOONS: TutorialBalloonType[][] = [
 		{
 			cssClass: 'bottom',
 			name: '<span class="nw no-desktop">มองหาสัญลักษณ์ที่บอกว่า</span><span class="nw no-desktop">ตกไป/อยู่ในกระบวนการ</span><br><span class="nw no-desktop">หรือดูจำนวนรวมเทียบกัน</span>',
-			style: '--d-b:211px;--m-b:130px'
+			style: '--d-b:211px;--m-b:192px'
 		}
 	],
 	[
@@ -57,7 +57,7 @@ export const TUTORIAL_BALLOONS: TutorialBalloonType[][] = [
 		{
 			cssClass: 'bottom special-bottom',
 			name: '<span class="nw">มองหาสัญลักษณ์ที่บอกว่าผ่าน</span><br><span class="nw">หรือดูจำนวนรวมเทียบกัน</span>',
-			style: '--d-st:530px;--d-b:211px;--m-b:130px'
+			style: '--d-st:530px;--d-b:211px;--m-b:160px'
 		}
 	],
 	[
@@ -108,7 +108,7 @@ export const TUTORIAL_BALLOONS: TutorialBalloonType[][] = [
 		{
 			cssClass: 'bottom',
 			name: '<span class="nw no-desktop">มองหาสัญลักษณ์</span><span class="nw no-desktop">ที่บอกว่าตกไป</span>',
-			style: '--d-b:221px;--m-b:130px'
+			style: '--d-b:221px;--m-b:192px'
 		}
 	]
 ];

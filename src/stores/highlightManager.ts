@@ -2,6 +2,8 @@ import { writable } from 'svelte/store';
 
 export type LawStatusHighlightType = false | 'two' | 'all' | 'one';
 
+export const is_help_show = writable(true);
+
 export const vis_type_highlight = writable(false);
 export const group_highlight = writable(false);
 export const order_highlight = writable(false);

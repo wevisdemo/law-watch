@@ -1,41 +1,37 @@
 <script lang="ts">
 	import { tick } from 'svelte';
-	import { fly, fade } from 'svelte/transition';
-	import { LAW_TYPES } from 'data/law-types';
+	import { fade, fly } from 'svelte/transition';
+
+	import type { GroupChoiceType, PartyChoiceType, SideChoiceType } from 'data/filter-choices';
 	import type { LawTypes } from 'data/law-types';
-	import type {
-		GroupChoiceType,
-		PartyChoiceType,
-		SideChoiceType,
-		VotepartyChoiceType
-	} from 'data/filter-choices';
+	import { LAW_TYPES } from 'data/law-types';
+	import { TUTORIAL_BALLOONS, TUTORIAL_CHOICES } from 'data/tutorial-data';
 	import {
-		search_input,
-		view_timeline,
 		current_group_choice,
-		current_side_choice,
 		current_party_choice,
+		current_side_choice,
+		is_law_status_open,
+		is_mobile_drawer_open,
+		search_input,
+		selected_law,
 		// current_voteparty_choice,
 		sort_order_when_status,
 		sort_order_when_timeline,
-		selected_law,
-		is_law_status_open,
-		is_mobile_drawer_open
+		view_timeline
 	} from 'stores/filterOptionStore';
-	import {
-		vis_type_highlight,
-		group_highlight,
-		order_highlight,
-		law_type_highlight,
-		law_status_highlight,
-		mobile_filter_toggle_highlight
-	} from 'stores/highlightManager';
 	import type { LawStatusHighlightType } from 'stores/highlightManager';
-	import { TUTORIAL_BALLOONS, TUTORIAL_CHOICES } from 'data/tutorial-data';
+	import {
+		group_highlight,
+		is_help_show,
+		law_status_highlight,
+		law_type_highlight,
+		mobile_filter_toggle_highlight,
+		order_highlight,
+		vis_type_highlight
+	} from 'stores/highlightManager';
 
 	import HelpBtn from './HelpBtn.svelte';
 
-	let is_help_show = true;
 	let is_intro_dismiss = false;
 	let current_tutorial: 1 | 2 | 3 | 4 | null = null;
 
@@ -44,7 +40,7 @@
 	};
 
 	const closeHelp = () => {
-		is_help_show = false;
+		$is_help_show = false;
 		if (!is_intro_dismiss) setTimeout(dismissIntro, 500);
 		setTimeout(resetCurrentTutorial, 500);
 	};
@@ -183,10 +179,10 @@
 	};
 </script>
 
-{#if !is_help_show}
-	<HelpBtn on:click={() => (is_help_show = true)} />
+{#if !$is_help_show}
+	<HelpBtn on:click={() => ($is_help_show = true)} />
 {/if}
-<div class="help-overlay" class:show={is_help_show}>
+<div class="help-overlay" class:show={$is_help_show}>
 	<div class="help-backdrop" />
 	<div
 		class="help-content c"
@@ -219,7 +215,6 @@
 				class="balloon wv-b5"
 				class:shift-tut1={current_tutorial === 1}
 				class:shift-tut2={current_tutorial === 2}
-				class:shift-tut4={current_tutorial === 4}
 			>
 				<div>
 					{@html TUTORIAL_CHOICES[current_tutorial - 1]}
@@ -451,15 +446,11 @@
 
 		@media (max-width: 767.5px) {
 			&.shift-tut1 {
-				margin-top: 37px;
+				margin-top: -18px;
 			}
 
 			&.shift-tut2 {
-				margin-top: 67px;
-			}
-
-			&.shift-tut4 {
-				margin-top: 58px;
+				margin-top: 42px;
 			}
 		}
 

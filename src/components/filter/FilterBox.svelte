@@ -21,6 +21,7 @@
 	} from 'stores/filterOptionStore';
 	import {
 		group_highlight,
+		is_help_show,
 		law_status_highlight,
 		mobile_filter_toggle_highlight
 	} from 'stores/highlightManager';
@@ -71,6 +72,7 @@
 	class="filter-box"
 	class:filter-box-open={$is_mobile_drawer_open}
 	class:is_law_status_open={$is_law_status_open}
+	class:is_help_shown={$is_help_show}
 	class:enable_transition
 >
 	<div class="search-mobile-aligner">
@@ -191,6 +193,11 @@
 			scrollbar-width: thin;
 			margin-right: -12px;
 			padding-right: 4px;
+		}
+
+		&.is_help_shown {
+			clip-path: unset !important;
+			will-change: unset !important;
 		}
 	}
 
