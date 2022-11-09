@@ -252,7 +252,7 @@
 	#vis-playground {
 		position: absolute;
 		inset: 128px 0 64px;
-		padding: 8px 32px;
+		padding: 8px 16px 8px 8px;
 		width: calc(100% - 48px);
 
 		@media (max-width: 767.5px) {
@@ -268,6 +268,7 @@
 
 			&.timeline_wide {
 				inset: 96px 144px 64px 308px;
+				padding: 8px;
 				width: calc(100% - 144px - 308px);
 			}
 
