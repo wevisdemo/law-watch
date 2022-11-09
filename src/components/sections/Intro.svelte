@@ -115,6 +115,7 @@
 		transform: translateY(100%);
 		width: 100%;
 		height: 14vw;
+		bottom: calc(env(safe-area-inset-bottom, 0px));
 
 		object-fit: cover;
 		object-position: center;
