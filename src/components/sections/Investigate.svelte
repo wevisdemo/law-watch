@@ -69,9 +69,8 @@
 
 <style lang="scss">
 	#investigate-section {
-		scroll-snap-align: center;
-
 		height: 100vh;
+		height: 100dvh;
 
 		@supports (-webkit-touch-callout: none) {
 			height: -webkit-fill-available;
