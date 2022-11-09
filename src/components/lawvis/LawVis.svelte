@@ -143,96 +143,92 @@
 	let proposer_visdata: [RawDataType[], RawDataType[]][][][];
 	let party_visdata: [RawDataType[], RawDataType[]][][][];
 	let timeline_visdata: any;
-	$: {
-		if ($view_timeline) {
-			let temp: Record<string, RawDataType[]>;
-			// Split into base catg
-			if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
-				temp = groupBy(raw_data, (d) => d.Proposer_Type);
-				temp = {
-					คณะรัฐมนตรี: temp.คณะรัฐมนตรี,
-					ประชาชน: temp.ประชาชน,
-					ฝ่ายรัฐบาล: temp.ฝ่ายรัฐบาล,
-					ฝ่ายค้าน: temp.ฝ่ายค้าน,
-					ผสม: temp.ผสม,
-					ไม่ทราบฝ่าย: temp.ไม่ทราบฝ่าย
-				};
-			} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
-				temp = groupByIncludes(raw_data, (d) => d.Proposer_Party);
-				temp = Object.fromEntries(ALL_PARTY.map((p) => [p, temp[p]]));
-			} else {
-				temp = { '0': raw_data };
-			}
-			// remove merged law in general vis
-			if ('0' in temp) {
-				temp['0'] = temp['0'].filter((d) => d.Law_Status !== 'กฎหมายที่ถูกรวมร่าง');
-			} else {
-				// not general vis, replace merged law with its head law
-				for (let group in temp) {
-					temp[group] = temp[group].map((d) => {
-						if (d.Law_Merge) return raw_data[merge_cache[d.Law_Merge]] ?? d;
-						return d;
-					});
-				}
-			}
-			// sort order
-			const STATUS_SORT_LOOKUP = {
-				กฎหมายที่ถูกรวมร่าง: 0,
-				ตกไป: 1,
-				อยู่ในกระบวนการ: 2,
-				ออกเป็นกฎหมาย: 3
-			} as const;
-			const CATG_SORT_LOOKUP = {
-				บริหารราชการ: 0,
-				การศึกษา: 1,
-				เศรษฐกิจ: 2,
-				สังคม: 3,
-				สิ่งแวดล้อม: 4,
-				รัฐธรรมนูญ: 5,
-				กระบวนการยุติธรรม: 6
+	$: if ($view_timeline) {
+		let temp: Record<string, RawDataType[]>;
+		// Split into base catg
+		if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
+			temp = groupBy(raw_data, (d) => d.Proposer_Type);
+			temp = {
+				คณะรัฐมนตรี: temp.คณะรัฐมนตรี,
+				ประชาชน: temp.ประชาชน,
+				ฝ่ายรัฐบาล: temp.ฝ่ายรัฐบาล,
+				ฝ่ายค้าน: temp.ฝ่ายค้าน,
+				ผสม: temp.ผสม,
+				ไม่ทราบฝ่าย: temp.ไม่ทราบฝ่าย
 			};
-			const sort_by_duration = (a: RawDataType, z: RawDataType) =>
-				(z.Date_Diff ?? 0) - (a.Date_Diff ?? 0);
-			const sort_by_status = (a: RawDataType, z: RawDataType) =>
-				STATUS_SORT_LOOKUP[a.Law_Status] - STATUS_SORT_LOOKUP[z.Law_Status];
-			const sort_by_catg = (a: RawDataType, z: RawDataType) =>
-				CATG_SORT_LOOKUP[a.Law_Type] - CATG_SORT_LOOKUP[z.Law_Type];
-			const SORT_FUNCTION_LOOKUP = {
-				ระยะเวลา: sort_by_duration,
-				สถานะ: sort_by_status,
-				หมวดหมู่: sort_by_catg,
-				ชื่อ: sortByName
-			};
-			const sort_type_arr = [...$sort_order_when_timeline, 'ชื่อ'].reverse() as (
-				| typeof $sort_order_when_timeline[number]
-				| 'ชื่อ'
-			)[];
-			for (let sort_type of sort_type_arr) {
-				for (let group in temp) {
-					temp[group] = temp[group].sort(SORT_FUNCTION_LOOKUP[sort_type]);
-				}
-			}
-			timeline_visdata = temp;
-		} else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
-			proposer_visdata = groupDataByProposer(raw_data, $current_side_choice).map(
-				sortData($sort_order_when_status)
-			);
 		} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
-			party_visdata = groupDataByParty(raw_data, $current_party_choice).map(
-				sortData($sort_order_when_status)
-			);
+			temp = groupByIncludes(raw_data, (d) => d.Proposer_Party);
+			temp = Object.fromEntries(ALL_PARTY.map((p) => [p, temp[p]]));
 		} else {
-			general_visdata = sortData($sort_order_when_status, false)(raw_data);
+			temp = { '0': raw_data };
 		}
+		// remove merged law in general vis
+		if ('0' in temp) {
+			temp['0'] = temp['0'].filter((d) => d.Law_Status !== 'กฎหมายที่ถูกรวมร่าง');
+		} else {
+			// not general vis, replace merged law with its head law
+			for (let group in temp) {
+				temp[group] = temp[group].map((d) => {
+					if (d.Law_Merge) return raw_data[merge_cache[d.Law_Merge]] ?? d;
+					return d;
+				});
+			}
+		}
+		// sort order
+		const STATUS_SORT_LOOKUP = {
+			กฎหมายที่ถูกรวมร่าง: 0,
+			ตกไป: 1,
+			อยู่ในกระบวนการ: 2,
+			ออกเป็นกฎหมาย: 3
+		} as const;
+		const CATG_SORT_LOOKUP = {
+			บริหารราชการ: 0,
+			การศึกษา: 1,
+			เศรษฐกิจ: 2,
+			สังคม: 3,
+			สิ่งแวดล้อม: 4,
+			รัฐธรรมนูญ: 5,
+			กระบวนการยุติธรรม: 6
+		};
+		const sort_by_duration = (a: RawDataType, z: RawDataType) =>
+			(z.Date_Diff ?? 0) - (a.Date_Diff ?? 0);
+		const sort_by_status = (a: RawDataType, z: RawDataType) =>
+			STATUS_SORT_LOOKUP[a.Law_Status] - STATUS_SORT_LOOKUP[z.Law_Status];
+		const sort_by_catg = (a: RawDataType, z: RawDataType) =>
+			CATG_SORT_LOOKUP[a.Law_Type] - CATG_SORT_LOOKUP[z.Law_Type];
+		const SORT_FUNCTION_LOOKUP = {
+			ระยะเวลา: sort_by_duration,
+			สถานะ: sort_by_status,
+			หมวดหมู่: sort_by_catg,
+			ชื่อ: sortByName
+		};
+		const sort_type_arr = [...$sort_order_when_timeline, 'ชื่อ'].reverse() as (
+			| typeof $sort_order_when_timeline[number]
+			| 'ชื่อ'
+		)[];
+		for (let sort_type of sort_type_arr) {
+			for (let group in temp) {
+				temp[group] = temp[group].sort(SORT_FUNCTION_LOOKUP[sort_type]);
+			}
+		}
+		timeline_visdata = temp;
+	} else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') {
+		proposer_visdata = groupDataByProposer(raw_data, $current_side_choice).map(
+			sortData($sort_order_when_status)
+		);
+	} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
+		party_visdata = groupDataByParty(raw_data, $current_party_choice).map(
+			sortData($sort_order_when_status)
+		);
+	} else {
+		general_visdata = sortData($sort_order_when_status, false)(raw_data);
 	}
 
 	let current_component_index = 0;
-	$: {
-		if ($view_timeline === true) current_component_index = 3;
-		else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') current_component_index = 1;
-		else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') current_component_index = 2;
-		else current_component_index = 0;
-	}
+	$: if ($view_timeline === true) current_component_index = 3;
+	else if ($current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย') current_component_index = 1;
+	else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') current_component_index = 2;
+	else current_component_index = 0;
 </script>
 
 <div

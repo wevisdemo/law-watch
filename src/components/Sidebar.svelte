@@ -36,22 +36,19 @@
 
 	let current_law_index = 0;
 	let relative_law: RawDataType[] = [];
-	$: {
-		if ($current_selected_paper_id) {
-			relative_law = data
-				.filter(
-					(e) =>
-						e.Law_ID === $current_selected_paper_id || e.Law_Merge === $current_selected_paper_id
-				)
-				.sort((a, z) => {
-					const a_head_val = +a.Law_Merge_Head;
-					const z_head_val = +z.Law_Merge_Head;
-					if (a_head_val === z_head_val) return a.Law_ID - z.Law_ID;
-					return z_head_val - a_head_val;
-				});
-			current_law_index = 0;
-			open_sidebar = true;
-		}
+	$: if ($current_selected_paper_id) {
+		relative_law = data
+			.filter(
+				(e) => e.Law_ID === $current_selected_paper_id || e.Law_Merge === $current_selected_paper_id
+			)
+			.sort((a, z) => {
+				const a_head_val = +a.Law_Merge_Head;
+				const z_head_val = +z.Law_Merge_Head;
+				if (a_head_val === z_head_val) return a.Law_ID - z.Law_ID;
+				return z_head_val - a_head_val;
+			});
+		current_law_index = 0;
+		open_sidebar = true;
 	}
 
 	const nextLaw = () => {

@@ -9,16 +9,14 @@
 	let hide_component = false;
 	let transition_timeout: NodeJS.Timeout | null = null;
 
-	$: {
-		if (current_component_index !== displaying_component_index) {
-			if (transition_timeout) clearTimeout(transition_timeout);
-			hide_component = true;
-			transition_timeout = setTimeout(() => {
-				transition_timeout = null;
-				displaying_component_index = current_component_index;
-				hide_component = false;
-			}, transition_time);
-		}
+	$: if (current_component_index !== displaying_component_index) {
+		if (transition_timeout) clearTimeout(transition_timeout);
+		hide_component = true;
+		transition_timeout = setTimeout(() => {
+			transition_timeout = null;
+			displaying_component_index = current_component_index;
+			hide_component = false;
+		}, transition_time);
 	}
 </script>
 
