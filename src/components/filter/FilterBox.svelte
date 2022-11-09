@@ -47,15 +47,24 @@
 	};
 
 	const collapseStatusOnSmallHeight = () => {
-		$is_law_status_open =
-			Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) >= 800;
+		$is_law_status_open = !window.matchMedia('(max-width: 768px)').matches;
 	};
 
+	let mounted = false;
 	onMount(() => {
+		mounted = true;
 		window.addEventListener('resize', collapseStatusOnSmallHeight);
 
 		return () => window.removeEventListener('resize', collapseStatusOnSmallHeight);
 	});
+
+	$: if (mounted) {
+		if (!$is_mobile_drawer_open) {
+			if (window.matchMedia('(max-width: 768px)').matches) {
+				$is_law_status_open = false;
+			}
+		}
+	}
 </script>
 
 <div
@@ -230,6 +239,8 @@
 
 			gap: 8px;
 
+			overflow-y: hidden;
+
 			clip-path: polygon(
 				100% 54px,
 				0 54px,
@@ -274,6 +285,11 @@
 				&.enable_transition {
 					transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
 				}
+
+				:global(.alone) {
+					position: relative;
+					bottom: 0;
+				}
 			}
 		}
 
@@ -297,6 +313,9 @@
 
 		:global(.alone) {
 			width: 160px;
+
+			position: absolute;
+			bottom: 18px;
 		}
 	}
 
