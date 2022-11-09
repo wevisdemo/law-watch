@@ -173,9 +173,9 @@
 			<g
 				bind:this={el_people_circle}
 				on:click={() => {
-					is_part1_finished && (popup_status = 'people');
+					is_part1_finished && !is_part3_leaving && !is_part1_leaving && (popup_status = 'people');
 				}}
-				style={is_part1_finished ? 'cursor:pointer' : ''}
+				style={is_part1_finished && !is_part3_leaving && !is_part1_leaving ? 'cursor:pointer' : ''}
 			>
 				<rect width="120" height="120" x="420" y="360" fill="#fff" rx="60" />
 				<path
@@ -197,9 +197,9 @@
 			<g
 				bind:this={el_party_circle}
 				on:click={() => {
-					is_part2_finished && (popup_status = 'party');
+					is_part2_finished && !is_part3_leaving && !is_part1_leaving && (popup_status = 'party');
 				}}
-				style={is_part2_finished ? 'cursor:pointer' : ''}
+				style={is_part2_finished && !is_part3_leaving && !is_part1_leaving ? 'cursor:pointer' : ''}
 			>
 				<rect width="120" height="120" y="360" fill="#fff" rx="60" />
 				<path
