@@ -1,13 +1,14 @@
 <script lang="ts">
+	import type { RawDataType } from 'data/data-types';
 	import { LAW_TYPE_METADATA } from 'data/law-types';
 	import { data } from 'data/raw-data';
-	import type { RawDataType } from 'data/data-types';
 	import { votelog } from 'data/votelog';
 
-	import { current_selected_paper_id } from 'stores/paperHighlightStore';
-
-	import Paper from 'components/papers/StaticPaper.svelte';
 	import { textTypeToPaperType } from 'components/lawvis/utils';
+	import Paper from 'components/papers/StaticPaper.svelte';
+
+	import { current_selected_paper_id } from 'stores/paperHighlightStore';
+	import { current_section } from 'stores/sectionScrollManager';
 
 	const date_formatter = new Intl.DateTimeFormat('th-TH', {
 		dateStyle: 'medium'
@@ -67,6 +68,10 @@
 	$: votelog_data = relative_law[current_law_index]?.VoteLog_ID
 		? votelog[relative_law[current_law_index]?.VoteLog_ID ?? ''] ?? null
 		: null;
+
+	$: if ($current_section !== 2 && open_sidebar) {
+		close();
+	}
 </script>
 
 <article class="law-detail wv-b6" class:open={open_sidebar}>

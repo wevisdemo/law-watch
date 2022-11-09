@@ -25,6 +25,7 @@
 		law_status_highlight,
 		mobile_filter_toggle_highlight
 	} from 'stores/highlightManager';
+	import { current_section } from 'stores/sectionScrollManager';
 
 	import Dropdown from 'components/dropdown/Dropdown.svelte';
 	import LawStatus from './LawStatus.svelte';
@@ -36,6 +37,7 @@
 	let transition_timeout: NodeJS.Timeout | null = null;
 	let enable_transition = false;
 	const toggleMobileDrawer = () => {
+		if ($current_section !== 2) return;
 		if (transition_timeout) clearTimeout(transition_timeout);
 		enable_transition = true;
 
@@ -65,6 +67,10 @@
 				$is_law_status_open = false;
 			}
 		}
+	}
+
+	$: if ($current_section !== 2 && $is_mobile_drawer_open) {
+		$is_mobile_drawer_open = false;
 	}
 </script>
 
