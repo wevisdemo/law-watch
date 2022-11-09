@@ -175,7 +175,7 @@
 				on:click={() => {
 					is_part1_finished && (popup_status = 'people');
 				}}
-				style="cursor:pointer"
+				style={is_part1_finished ? 'cursor:pointer' : ''}
 			>
 				<rect width="120" height="120" x="420" y="360" fill="#fff" rx="60" />
 				<path
@@ -199,7 +199,7 @@
 				on:click={() => {
 					is_part2_finished && (popup_status = 'party');
 				}}
-				style="cursor:pointer"
+				style={is_part2_finished ? 'cursor:pointer' : ''}
 			>
 				<rect width="120" height="120" y="360" fill="#fff" rx="60" />
 				<path

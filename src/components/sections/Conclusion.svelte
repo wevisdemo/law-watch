@@ -152,9 +152,9 @@
 			<g
 				bind:this={el_people_circle}
 				on:click={() => {
-					popup_status = 'people';
+					is_scroll_half && (popup_status = 'people');
 				}}
-				style="cursor:pointer"
+				style={is_scroll_half ? 'cursor:pointer' : ''}
 			>
 				<rect width="120" height="120" x="420" y="360" fill="#fff" rx="60" />
 				<path
