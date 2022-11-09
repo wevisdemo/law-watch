@@ -292,7 +292,7 @@
 		align-items: center;
 
 		overflow: scroll;
-		overscroll-behavior: auto;
+		overscroll-behavior: contain;
 
 		&::-webkit-scrollbar {
 			width: 2px;
