@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { tick } from 'svelte';
-	import { isParty, getPartyImage } from 'data/parties';
 	import type { DropdownChoiceType } from 'data/filter-choices';
+	import { getPartyImage, isParty } from 'data/parties';
+	import { is_mobile_drawer_open } from 'stores/filterOptionStore';
+	import { tick } from 'svelte';
 
 	export let label_image: string | null = null;
 	export let label = 'แบ่งกลุ่มตาม';
@@ -22,6 +23,10 @@
 	const closeSelect = () => {
 		is_list_opened = false;
 	};
+
+	$: if (!$is_mobile_drawer_open) {
+		closeSelect();
+	}
 
 	const selectChoice = (choice: DropdownChoiceType) => () => {
 		if (typeof choice !== 'string') {
