@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { animate, scroll, ScrollOffset } from 'motion';
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	let el_trigger1: Element;
 	let el_path1: Element;
@@ -237,7 +237,7 @@
 		</span>
 	</div>
 	{#if popup_status}
-		<article class="popup" id="party-popup" transition:fade={{ duration: 100 }}>
+		<article class="popup" id="party-popup" transition:fly={{ y: 10, duration: 300 }}>
 			<header>
 				<img
 					src="/law-watch/info.svg"

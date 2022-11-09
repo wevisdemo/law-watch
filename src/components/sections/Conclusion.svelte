@@ -2,7 +2,7 @@
 	import { animate, inView, scroll, ScrollOffset, timeline } from 'motion';
 	import { is_conclusion_inview } from 'stores/sectionScrollManager';
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	let el_trigger1: Element;
 	let el_trigger2: Element;
@@ -206,7 +206,7 @@
 		<span class="nw">คะแนนเสียงของ <strong>ประชาชน</strong></span>
 	</div>
 	{#if popup_status}
-		<article class="popup" id="party-popup" transition:fade={{ duration: 100 }}>
+		<article class="popup" id="party-popup" transition:fly={{ y: 10, duration: 300 }}>
 			<header>
 				<img
 					src="/law-watch/info.svg"
