@@ -18,5 +18,7 @@ declare global {
 	interface Window {
 		el_tooltip: HTMLElement;
 		el_tooltip_arrow: HTMLElement;
+		el_suggest: HTMLElement;
+		el_searchbox: HTMLInputElement;
 	}
 }

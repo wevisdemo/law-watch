@@ -14,6 +14,8 @@
 	import Process from 'components/sections/Process.svelte';
 	import Stats from 'components/sections/Stats.svelte';
 
+	import SearchSuggest from 'components/filter/SearchSuggest.svelte';
+
 	let state: null | 'transitioning' | 'end' = null;
 	let el_tooltip: HTMLElement;
 	let el_tooltip_arrow: HTMLElement;
@@ -43,3 +45,4 @@
 	<span />
 	<div bind:this={el_tooltip_arrow} class="tooltip-arrow" />
 </div>
+<SearchSuggest />
