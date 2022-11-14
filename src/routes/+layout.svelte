@@ -18,12 +18,12 @@
 	});
 </script>
 
-<body class="wv-font-anuphan" class:bg-white={$page.routeId === 'about'}>
+<body class="wv-font-anuphan" class:bg-white={$page.route.id === 'about'}>
 	<WvNavbar>
-		<WvNavButton active={$page.routeId === ''} dark onClick={() => goto(`${base}/`)}
+		<WvNavButton active={$page.route.id === ''} dark onClick={() => goto(`${base}/`)}
 			>Home</WvNavButton
 		>
-		<WvNavButton active={$page.routeId === 'about'} dark onClick={() => goto(`${base}/about`)}
+		<WvNavButton active={$page.route.id === 'about'} dark onClick={() => goto(`${base}/about`)}
 			>About</WvNavButton
 		>
 	</WvNavbar>
