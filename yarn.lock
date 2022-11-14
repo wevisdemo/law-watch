@@ -326,10 +326,10 @@
     "@typescript-eslint/types" "5.39.0"
     eslint-visitor-keys "^3.3.0"
 
-"@wevisdemo/ui@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@wevisdemo/ui/-/ui-4.1.0.tgz#87ddb2f75d3cc2ca6570c4f58dcac926466cb359"
-  integrity sha512-c0oSDh/now+Q9fUM2Y2y0u/B8Nj6pwAdT6DH3i9eapPIXcrNw91/Ws5mDXA9OqPevfmt8ua3OKqJzrY9khWnKA==
+"@wevisdemo/ui@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@wevisdemo/ui/-/ui-5.0.0.tgz#f2d34355a0ce43edae9678480df4534d8f3f1909"
+  integrity sha512-e9FcswNHvk/AUcIDP+ROrQa8QSnNwW627Lk7MbR6ogQdQp5zaMowvyqMGbbfACbJF5VKJBhhbZahYajMy5LPUg==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"

@@ -4,7 +4,7 @@
 
 	import { is_ending_inview } from 'stores/sectionScrollManager';
 
-	import WvSharer from '@wevisdemo/ui/components/sharer.svelte';
+	import WvSharer from '@wevisdemo/ui/svelte/sharer.svelte';
 	import Eyes from 'components/eyes/Eyes.svelte';
 
 	let el_section: Element;
