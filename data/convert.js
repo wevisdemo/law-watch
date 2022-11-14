@@ -82,7 +82,7 @@ csv()
 		fs.writeFileSync('src/data/raw-data.ts', newArrStr);
 		fs.writeFileSync(
 			'src/data/keywords.ts',
-			'export const keywords: string[] = ' + JSON.stringify(nickname_arr)
+			'export const keywords: string[] = ' + JSON.stringify([...new Set(nickname_arr)])
 		);
 
 		// ███╗   ███╗███████╗██████╗  ██████╗ ███████╗     ██████╗ █████╗  ██████╗██╗  ██╗███████╗
