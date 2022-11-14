@@ -43,3 +43,4 @@ export const sort_order = derived(
 export const is_mobile_drawer_open = writable(false);
 
 export const is_law_status_open = writable(true);
+export const show_filterbox = writable(false);

@@ -7,6 +7,14 @@
 		// VOTEPARTY_DROPDOWN_CHOICES
 		SIDE_CHOICES
 	} from 'data/filter-choices';
+
+	import Dropdown from 'components/dropdown/Dropdown.svelte';
+	import LawStatus from './LawStatus.svelte';
+	import LawType from './LawType.svelte';
+	import SearchBox from './SearchBox.svelte';
+	import SortOrder from './SortOrder.svelte';
+	import VisType from './VisType.svelte';
+
 	import {
 		current_group_choice,
 		current_party_choice,
@@ -14,6 +22,7 @@
 		is_law_status_open,
 		is_mobile_drawer_open,
 		selected_law,
+		show_filterbox,
 		// current_voteparty_choice,
 		sort_order_when_status,
 		sort_order_when_timeline,
@@ -26,13 +35,6 @@
 		mobile_filter_toggle_highlight
 	} from 'stores/highlightManager';
 	import { current_section } from 'stores/sectionScrollManager';
-
-	import Dropdown from 'components/dropdown/Dropdown.svelte';
-	import LawStatus from './LawStatus.svelte';
-	import LawType from './LawType.svelte';
-	import SearchBox from './SearchBox.svelte';
-	import SortOrder from './SortOrder.svelte';
-	import VisType from './VisType.svelte';
 
 	let transition_timeout: NodeJS.Timeout | null = null;
 	let enable_transition = false;
@@ -56,6 +58,7 @@
 	let mounted = false;
 	onMount(() => {
 		mounted = true;
+		$show_filterbox = window.matchMedia('(max-width: 768px)').matches;
 		window.addEventListener('resize', collapseStatusOnSmallHeight);
 
 		return () => window.removeEventListener('resize', collapseStatusOnSmallHeight);
@@ -81,58 +84,59 @@
 	class:is_help_shown={$is_help_show}
 	class:enable_transition
 >
-	<div class="search-mobile-aligner">
-		<button
-			type="button"
-			class="mobile-toggle-drawer"
-			class:highlight={$mobile_filter_toggle_highlight}
-			on:click={toggleMobileDrawer}
-		>
-			<img
-				src="/law-watch/setting.svg"
-				alt="แสดงตัวเลือก"
-				width="20"
-				height="20"
-				loading="lazy"
-				decoding="async"
+	{#if $show_filterbox}
+		<div class="search-mobile-aligner">
+			<button
+				type="button"
+				class="mobile-toggle-drawer"
+				class:highlight={$mobile_filter_toggle_highlight}
+				on:click={toggleMobileDrawer}
+			>
+				<img
+					src="/law-watch/setting.svg"
+					alt="แสดงตัวเลือก"
+					width="20"
+					height="20"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button>
+			<SearchBox class="search-flex" />
+		</div>
+		<div class="drawer-backdrop drawer-partner" class:dw-open={$is_mobile_drawer_open} />
+		<VisType
+			class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
+			bind:view_timeline={$view_timeline}
+		/>
+		<Dropdown
+			class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
+			label_image="/law-watch/group.svg"
+			choices={GROUP_CHOICES}
+			highlight={$group_highlight}
+			menu_z={5}
+			bind:current_choice={$current_group_choice}
+		/>
+		{#if $current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย'}
+			<Dropdown
+				class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
+				label_image="/law-watch/filter.svg"
+				label="ตัวกรอง"
+				choices={SIDE_CHOICES}
+				highlight={$group_highlight}
+				bind:current_choice={$current_side_choice}
 			/>
-		</button>
-		<SearchBox class="search-flex" />
-	</div>
-	<div class="drawer-backdrop drawer-partner" class:dw-open={$is_mobile_drawer_open} />
-	<VisType
-		class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
-		bind:view_timeline={$view_timeline}
-	/>
-	<Dropdown
-		class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
-		label_image="/law-watch/group.svg"
-		choices={GROUP_CHOICES}
-		highlight={$group_highlight}
-		menu_z={5}
-		bind:current_choice={$current_group_choice}
-	/>
-	{#if $current_group_choice === 'ฝ่ายที่เสนอร่างกฎหมาย'}
-		<Dropdown
-			class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
-			label_image="/law-watch/filter.svg"
-			label="ตัวกรอง"
-			choices={SIDE_CHOICES}
-			highlight={$group_highlight}
-			bind:current_choice={$current_side_choice}
-		/>
-	{/if}
-	{#if $current_group_choice === 'พรรคที่เสนอร่างกฎหมาย'}
-		<Dropdown
-			class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
-			label_image="/law-watch/filter.svg"
-			label="ตัวกรอง"
-			choices={PARTY_DROPDOWN_CHOICES}
-			highlight={$group_highlight}
-			bind:current_choice={$current_party_choice}
-		/>
-	{/if}
-	<!-- {#if $current_group_choice === 'ผลโหวตของพรรค'}
+		{/if}
+		{#if $current_group_choice === 'พรรคที่เสนอร่างกฎหมาย'}
+			<Dropdown
+				class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
+				label_image="/law-watch/filter.svg"
+				label="ตัวกรอง"
+				choices={PARTY_DROPDOWN_CHOICES}
+				highlight={$group_highlight}
+				bind:current_choice={$current_party_choice}
+			/>
+		{/if}
+		<!-- {#if $current_group_choice === 'ผลโหวตของพรรค'}
 		<Dropdown
 			class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
 			label_image="/law-watch/filter.svg"
@@ -142,21 +146,22 @@
 			bind:current_choice={$current_voteparty_choice}
 		/>
 	{/if} -->
-	{#if $view_timeline}
-		<SortOrder
+		{#if $view_timeline}
+			<SortOrder
+				class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
+				bind:sort_order={$sort_order_when_timeline}
+			/>
+		{:else}
+			<SortOrder
+				class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
+				bind:sort_order={$sort_order_when_status}
+			/>
+		{/if}
+		<LawType
 			class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
-			bind:sort_order={$sort_order_when_timeline}
-		/>
-	{:else}
-		<SortOrder
-			class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
-			bind:sort_order={$sort_order_when_status}
+			bind:selected_law={$selected_law}
 		/>
 	{/if}
-	<LawType
-		class="drawer-partner {$is_mobile_drawer_open ? 'dw-open' : ''}"
-		bind:selected_law={$selected_law}
-	/>
 	<LawStatus class="alone" bind:is_open={$is_law_status_open} highlight={$law_status_highlight} />
 </div>
 

@@ -6,6 +6,9 @@
 	import type { LawTypes } from 'data/law-types';
 	import { LAW_TYPES } from 'data/law-types';
 	import { TUTORIAL_BALLOONS, TUTORIAL_CHOICES } from 'data/tutorial-data';
+
+	import HelpBtn from './HelpBtn.svelte';
+
 	import {
 		current_group_choice,
 		current_party_choice,
@@ -14,6 +17,7 @@
 		is_mobile_drawer_open,
 		search_input,
 		selected_law,
+		show_filterbox,
 		// current_voteparty_choice,
 		sort_order_when_status,
 		sort_order_when_timeline,
@@ -30,8 +34,6 @@
 		vis_type_highlight
 	} from 'stores/highlightManager';
 
-	import HelpBtn from './HelpBtn.svelte';
-
 	let is_intro_dismiss = false;
 	let current_tutorial: 1 | 2 | 3 | 4 | null = null;
 
@@ -41,6 +43,7 @@
 
 	const closeHelp = () => {
 		$is_help_show = false;
+		$show_filterbox = true;
 		if (!is_intro_dismiss) setTimeout(dismissIntro, 500);
 		setTimeout(resetCurrentTutorial, 500);
 	};
@@ -100,6 +103,7 @@
 
 	const showTutorial1 = () => {
 		current_tutorial = 1;
+		$show_filterbox = true;
 
 		setHighlight({
 			mobile_filter_toggle_highlight: true,
@@ -118,6 +122,7 @@
 
 	const showTutorial2 = () => {
 		current_tutorial = 2;
+		$show_filterbox = true;
 
 		setHighlight({
 			mobile_filter_toggle_highlight: true,
@@ -138,6 +143,7 @@
 
 	const showTutorial3 = () => {
 		current_tutorial = 3;
+		$show_filterbox = true;
 
 		setHighlight({
 			mobile_filter_toggle_highlight: true,
@@ -160,6 +166,7 @@
 
 	const showTutorial4 = () => {
 		current_tutorial = 4;
+		$show_filterbox = true;
 
 		setHighlight({
 			mobile_filter_toggle_highlight: true,
