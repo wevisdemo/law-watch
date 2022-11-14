@@ -19,9 +19,7 @@
 			$manual_highlighted_paper_ids = data
 				.filter((d) => d.Law_Keyword.includes(trimmed_search))
 				.map((d) => d.Law_ID);
-			$suggest_list = keywords
-				.filter((k) => k.toLocaleLowerCase().includes(trimmed_search))
-				.slice(0, 5);
+			$suggest_list = keywords.filter((k) => k.toLocaleLowerCase().includes(trimmed_search));
 		} else {
 			$manual_highlighted_paper_ids = null;
 			$suggest_list = DEFAULT_SUGGEST_LIST;

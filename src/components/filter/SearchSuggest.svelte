@@ -30,7 +30,6 @@
 	.search-suggest {
 		position: absolute;
 		width: 260px;
-		height: 30vh;
 		pointer-events: none;
 		z-index: 9;
 	}
@@ -51,6 +50,7 @@
 	}
 
 	:global(.search-suggest.show) {
+		height: 30vh;
 		pointer-events: auto;
 
 		> .select-list {
