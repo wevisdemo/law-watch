@@ -245,35 +245,33 @@
 			</div>
 		{/if}
 		<div class="btn-container" class:right={is_intro_dismiss}>
-			{#if !current_tutorial}
-				<button type="button" class="wv-font-anuphan wv-b4 tut-btn primary" on:click={closeHelp}>
-					สำรวจเอง
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						><rect
-							width="16.388"
-							height="1.366"
-							x="5.908"
-							y="17.346"
-							fill="currentColor"
-							rx=".683"
-							transform="rotate(-45 5.908 17.346)"
-						/><rect
-							width="16.388"
-							height="1.366"
-							x="6.873"
-							y="5.867"
-							fill="currentColor"
-							rx=".683"
-							transform="rotate(45 6.873 5.867)"
-						/></svg
-					>
-				</button>
-			{/if}
+			<button type="button" class="wv-font-anuphan wv-b4 tut-btn primary" on:click={closeHelp}>
+				สำรวจเอง
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					><rect
+						width="16.388"
+						height="1.366"
+						x="5.908"
+						y="17.346"
+						fill="currentColor"
+						rx=".683"
+						transform="rotate(-45 5.908 17.346)"
+					/><rect
+						width="16.388"
+						height="1.366"
+						x="6.873"
+						y="5.867"
+						fill="currentColor"
+						rx=".683"
+						transform="rotate(45 6.873 5.867)"
+					/></svg
+				>
+			</button>
 			{#if !is_intro_dismiss}
 				<button type="button" class="wv-font-anuphan wv-b4 tut-btn" on:click={dismissIntro}>
 					ช่วยนำทางที
