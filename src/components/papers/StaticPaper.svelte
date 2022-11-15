@@ -102,7 +102,7 @@
 		top: -1px;
 		width: 7px;
 		height: 7px;
-		border: 3.5px var(--law-color, #fff) solid;
+		border: 3.5px var(--law-color, var(--default-color)) solid;
 		right: 5px;
 		border-right: 3.5px #000 solid;
 		border-top: 3.5px #000 solid;
@@ -113,7 +113,7 @@
 		top: -1px;
 		width: 7px;
 		height: 7px;
-		border: 3.5px var(--law-color, #fff) solid;
+		border: 3.5px var(--law-color, var(--default-color)) solid;
 		left: -1px;
 		border-left: 3.5px #000 solid;
 		border-top: 3.5px #000 solid;
