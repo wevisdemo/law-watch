@@ -100,49 +100,51 @@
 			/>
 			<span style="line-height:1">{relative_law[current_law_index]?.Law_Status}</span>
 		</div>
-		<div class="timeline">
-			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ร่างกฎหมาย'}>
-				ร่างกฎหมาย
+		{#if relative_law[0]?.Law_Status !== 'ออกเป็นกฎหมาย'}
+			<div class="timeline">
+				<div class:active={relative_law[current_law_index]?.Law_Stage === 'ร่างกฎหมาย'}>
+					ร่างกฎหมาย
+				</div>
+				<img
+					src="/law-watch/card-arrow.svg"
+					alt=""
+					width="10"
+					height="4"
+					loading="lazy"
+					decoding="async"
+				/>
+				<div class:active={relative_law[current_law_index]?.Law_Stage === 'ส.ส.'}>ส.ส.</div>
+				<img
+					src="/law-watch/card-arrow.svg"
+					alt=""
+					width="10"
+					height="4"
+					loading="lazy"
+					decoding="async"
+				/>
+				<div class:active={relative_law[current_law_index]?.Law_Stage === 'ส.ว.'}>ส.ว.</div>
+				<img
+					src="/law-watch/card-arrow.svg"
+					alt=""
+					width="10"
+					height="4"
+					loading="lazy"
+					decoding="async"
+				/>
+				<div class:active={relative_law[current_law_index]?.Law_Stage === 'ศาลรัฐธรรมนูญ'}>
+					ศาลรัฐธรรมนูญ
+				</div>
+				<img
+					src="/law-watch/card-arrow.svg"
+					alt=""
+					width="10"
+					height="4"
+					loading="lazy"
+					decoding="async"
+				/>
+				<div class:active={relative_law[current_law_index]?.Law_Stage === 'กษัตริย์'}>กษัตริย์</div>
 			</div>
-			<img
-				src="/law-watch/card-arrow.svg"
-				alt=""
-				width="9"
-				height="4"
-				loading="lazy"
-				decoding="async"
-			/>
-			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ส.ส.'}>ส.ส.</div>
-			<img
-				src="/law-watch/card-arrow.svg"
-				alt=""
-				width="9"
-				height="4"
-				loading="lazy"
-				decoding="async"
-			/>
-			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ส.ว.'}>ส.ว.</div>
-			<img
-				src="/law-watch/card-arrow.svg"
-				alt=""
-				width="9"
-				height="4"
-				loading="lazy"
-				decoding="async"
-			/>
-			<div class:active={relative_law[current_law_index]?.Law_Stage === 'ศาลรัฐธรรมนูญ'}>
-				ศาลรัฐธรรมนูญ
-			</div>
-			<img
-				src="/law-watch/card-arrow.svg"
-				alt=""
-				width="9"
-				height="4"
-				loading="lazy"
-				decoding="async"
-			/>
-			<div class:active={relative_law[current_law_index]?.Law_Stage === 'กษัตริย์'}>กษัตริย์</div>
-		</div>
+		{/if}
 		<span>{relative_law[current_law_index]?.Status_Description}</span>
 		{#if relative_law.length > 1}
 			<hr />
@@ -387,16 +389,19 @@
 		align-items: center;
 
 		> div {
-			border: 1px solid #000;
-			padding: 0 4px;
-			font-size: 0.625rem;
-			text-align: center;
-			background: #000;
-			color: #fff;
+			border-bottom: 1px solid transparent;
+			padding: 1px 4px 0;
 
-			&.active ~ div {
-				background: #fff;
-				color: #000;
+			font-size: 0.625rem;
+			font-weight: 600;
+			text-align: center;
+
+			opacity: 0.5;
+
+			&.active {
+				border-bottom-color: #000;
+				font-weight: 700;
+				opacity: 1;
 			}
 		}
 	}
