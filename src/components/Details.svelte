@@ -46,7 +46,9 @@
 
 <details bind:this={el_details} on:click={onClick} on:keypress={onClick} aria-expanded="false">
 	<summary class="wv-font-kondolar wv-h10" tabindex="0">
-		<span>{title}<span class="cross" aria-hidden="true" class:expanded={!was_closing} /></span>
+		<span class="f"
+			>{title}<span class="cross" aria-hidden="true" class:expanded={!was_closing} /></span
+		>
 	</summary>
 	<div bind:this={el_body} class="details-body">
 		<slot />
@@ -72,10 +74,8 @@
 			}
 
 			> span {
-				display: flex;
 				justify-content: space-between;
 				line-height: 1;
-				align-items: center;
 
 				width: 100%;
 			}

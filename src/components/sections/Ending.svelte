@@ -24,8 +24,8 @@
 	});
 </script>
 
-<section bind:this={el_section} class="outro-container c tc">
-	<section class="outro-section c">
+<section bind:this={el_section} class="outro-container f c tc">
+	<section class="outro-section f c">
 		<p class="outro-1 wv-b3">
 			<span class="nw">ดังนั้น การทำงานกระบวนการ</span><span class="nw"> ออกกฎหมาย</span><br
 				class="hide-br"
@@ -41,7 +41,7 @@
 			<span class="nw">ในการเลือกตั้งครั้งถัดไป</span>
 		</p>
 	</section>
-	<section class="share-section c">
+	<section class="share-section f c">
 		<span class="share-text wv-b5">Share</span>
 		<WvSharer url="" label="" hideLabel light center />
 	</section>

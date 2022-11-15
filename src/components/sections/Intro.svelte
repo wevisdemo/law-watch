@@ -64,8 +64,8 @@
 </script>
 
 <section>
-	<div bind:this={el_header_container} class="c jumbo-container">
-		<div class="c tc">
+	<div bind:this={el_header_container} class="f c jumbo-container">
+		<div class="f c tc">
 			<Eyes animation="awake" />
 			<header>
 				<h1 bind:this={el_h1} class="wv-h2 wv-font-kondolar wv-font-black">

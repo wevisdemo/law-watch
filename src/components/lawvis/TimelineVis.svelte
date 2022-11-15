@@ -42,23 +42,23 @@
 >
 	<div class="time-decor" style="--max-days:{stats.longest_diff}">
 		<div class="legend">วัน</div>
-		<div class="bar" style="--days:0">
+		<div class="bar f" style="--days:0">
 			<span>0<br /><small>&nbsp;</small></span>
 		</div>
-		<div class="bar" style="--days:365">
+		<div class="bar f" style="--days:365">
 			<span>365<br /><small>(1 ปี)</small></span>
 		</div>
-		<div class="bar" style="--days:731">
+		<div class="bar f" style="--days:731">
 			<span>731<br /><small>(2 ปี)</small></span>
 		</div>
-		<div class="bar" style="--days:1096">
+		<div class="bar f" style="--days:1096">
 			<span>1096<br /><small>(3 ปี)</small></span>
 		</div>
 		<!-- <div class="bar" style="--days:1220">
 			<span>1220<br /><small>(Max)</small></span>
 		</div> -->
 	</div>
-	<div class="timeline-tools">
+	<div class="timeline-tools f">
 		<ReverseSort />
 		<Collapse />
 	</div>
@@ -105,9 +105,7 @@
 
 			height: 100%;
 
-			display: flex;
 			flex-direction: column;
-			align-items: center;
 
 			&::before {
 				content: '';
@@ -135,8 +133,6 @@
 	}
 
 	.timeline-tools {
-		display: flex;
-		align-items: center;
 		justify-content: space-between;
 
 		margin-bottom: 8px;

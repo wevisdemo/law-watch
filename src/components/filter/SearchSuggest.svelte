@@ -14,7 +14,7 @@
 		<ul class="select-list">
 			{#each $suggest_list as suggest}
 				<li
-					class="wv-b7 select-list-option"
+					class="wv-b7 select-list-option f"
 					on:click={() => {
 						$search_input = suggest;
 					}}
@@ -64,9 +64,6 @@
 	.select-list-option {
 		height: 40px;
 		padding: 8px 16px;
-
-		display: flex;
-		align-items: center;
 
 		-webkit-user-select: none;
 		-moz-user-select: none;

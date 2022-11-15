@@ -89,7 +89,7 @@
 		</button>
 	</header>
 	<div class="detail-wrapper">
-		<div class="status">
+		<div class="status f">
 			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
 			<Paper
 				noMargin
@@ -101,7 +101,7 @@
 			<span style="line-height:1">{relative_law[current_law_index]?.Law_Status}</span>
 		</div>
 		{#if relative_law[0]?.Law_Status !== 'ออกเป็นกฎหมาย'}
-			<div class="timeline">
+			<div class="timeline f">
 				<div class:active={relative_law[current_law_index]?.Law_Stage === 'ร่างกฎหมาย'}>
 					ร่างกฎหมาย
 				</div>
@@ -148,8 +148,8 @@
 		<span>{relative_law[current_law_index]?.Status_Description}</span>
 		{#if relative_law.length > 1}
 			<hr />
-			<div class="merged-doc">
-				<button type="button" on:click={prevLaw}>
+			<div class="merged-doc f">
+				<button class="f" type="button" on:click={prevLaw}>
 					<img
 						src="/law-watch/carets/lb.svg"
 						alt="ดูฉบับก่อนหน้า"
@@ -161,7 +161,7 @@
 				</button>
 				<span>ดูร่างกฎหมายอื่นที่ถูกรวมร่าง {current_law_index + 1}/{relative_law.length} ฉบับ</span
 				>
-				<button type="button" on:click={nextLaw}>
+				<button class="f" type="button" on:click={nextLaw}>
 					<img
 						src="/law-watch/carets/rb.svg"
 						alt="ดูฉบับถัดไป"
@@ -176,7 +176,7 @@
 		{/if}
 		<section>
 			<dl>
-				<dt class="wv-font-semibold">หมวดกฎหมาย</dt>
+				<dt class="wv-font-semibold f">หมวดกฎหมาย</dt>
 				<dd>
 					<div
 						class="law-type-pill {LAW_TYPE_METADATA[
@@ -187,7 +187,7 @@
 					</div>
 				</dd>
 				{#if relative_law[current_law_index]?.Date_Diff}
-					<dt class="wv-font-semibold">
+					<dt class="wv-font-semibold f">
 						<img
 							src="/law-watch/calendar.svg"
 							alt=""
@@ -201,7 +201,7 @@
 					</dt>
 					<dd>{formatDuration(relative_law[current_law_index]?.Date_Diff ?? 0)}</dd>
 				{/if}
-				<dt class="wv-font-semibold">
+				<dt class="wv-font-semibold f">
 					{#if relative_law[current_law_index]?.Date_Diff}
 						<div class="addon" />
 					{:else}
@@ -218,13 +218,13 @@
 					วันที่เสนอ
 				</dt>
 				<dd>{formatDate(relative_law[current_law_index]?.Start_Date)}</dd>
-				<dt class="wv-font-semibold">
+				<dt class="wv-font-semibold f">
 					<div class="addon" />
 					วันที่สิ้นสุด
 				</dt>
 				<dd>{formatDate(relative_law[current_law_index]?.End_Date)}</dd>
 
-				<dt class="wv-font-semibold">
+				<dt class="wv-font-semibold f">
 					<img
 						src="/law-watch/person.svg"
 						alt=""
@@ -237,7 +237,7 @@
 					ชื่อผู้เสนอ
 				</dt>
 				<dd>{relative_law[current_law_index]?.Proposer_Name}</dd>
-				<dt class="wv-font-semibold">
+				<dt class="wv-font-semibold f">
 					<div class="addon" />
 					ประเภทผู้เสนอ
 				</dt>
@@ -266,15 +266,15 @@
 				<div class="bar border" style="--bar-color:#fff;--bar-value:{votelog_data.absent}" />
 			</div>
 			<ul class="theywork-chart-desc wv-b7">
-				<li style="--bar-color:#1dc7a8">{votelog_data.approve} เห็นด้วย</li>
-				<li style="--bar-color:#e63a64">{votelog_data.disprove} ไม่เห็นด้วย</li>
-				<li style="--bar-color:#aaa">{votelog_data.abstained} งดออกเสียง</li>
-				<li class="border" style="--bar-color:#fff">{votelog_data.absent} ไม่ลงคะแนน</li>
+				<li class="f" style="--bar-color:#1dc7a8">{votelog_data.approve} เห็นด้วย</li>
+				<li class="f" style="--bar-color:#e63a64">{votelog_data.disprove} ไม่เห็นด้วย</li>
+				<li class="f" style="--bar-color:#aaa">{votelog_data.abstained} งดออกเสียง</li>
+				<li class="f border" style="--bar-color:#fff">{votelog_data.absent} ไม่ลงคะแนน</li>
 			</ul>
 		</section>
 		<a
 			href="https://theyworkforus.wevis.info/votelog/{votelog_data.id}"
-			class="theywork-link wv-b6"
+			class="theywork-link f wv-b6"
 		>
 			ดูรายละเอียดการโหวตเพิ่มเติม
 			<img
@@ -355,8 +355,6 @@
 	}
 
 	.merged-doc {
-		display: flex;
-		align-items: center;
 		justify-content: space-between;
 
 		> button {
@@ -365,8 +363,6 @@
 			cursor: pointer;
 
 			padding: 0;
-			display: flex;
-			align-items: center;
 			justify-content: center;
 			width: 14px;
 		}
@@ -384,31 +380,24 @@
 		cursor: pointer;
 	}
 
-	.timeline {
-		display: flex;
-		align-items: center;
+	.timeline > div {
+		border-bottom: 1px solid transparent;
+		padding: 1px 4px 0;
 
-		> div {
-			border-bottom: 1px solid transparent;
-			padding: 1px 4px 0;
+		font-size: 0.625rem;
+		font-weight: 600;
+		text-align: center;
 
-			font-size: 0.625rem;
-			font-weight: 600;
-			text-align: center;
+		opacity: 0.5;
 
-			opacity: 0.5;
-
-			&.active {
-				border-bottom-color: #000;
-				font-weight: 700;
-				opacity: 1;
-			}
+		&.active {
+			border-bottom-color: #000;
+			font-weight: 700;
+			opacity: 1;
 		}
 	}
 
 	.status {
-		display: flex;
-		align-items: center;
 		gap: 4px;
 
 		padding: 8px;
@@ -424,8 +413,6 @@
 	}
 
 	dt {
-		display: flex;
-		align-items: center;
 		margin-bottom: auto;
 	}
 
@@ -488,8 +475,6 @@
 		grid-template-columns: 1fr 1fr;
 
 		> li {
-			display: flex;
-			align-items: center;
 			gap: 8px;
 
 			&::before {
@@ -519,8 +504,6 @@
 		color: #000;
 		text-decoration: none;
 
-		display: flex;
-		align-items: center;
 		justify-content: center;
 		gap: 6px;
 	}

@@ -29,9 +29,12 @@ section {
 	min-height: var(--h);
 }
 
-.c {
+.f {
 	display: flex;
 	align-items: center;
+}
+
+.c {
 	justify-content: center;
 	flex-direction: column;
 }

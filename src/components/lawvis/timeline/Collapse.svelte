@@ -11,7 +11,7 @@
 </script>
 
 <div class="timeline-collapse">
-	<button class="collapse-btn" class:active={$expand_timeline} type="button" on:click={expand}>
+	<button class="collapse-btn f" class:active={$expand_timeline} type="button" on:click={expand}>
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 16" width="10" height="16">
 			<path
 				fill="currentColor"
@@ -20,7 +20,7 @@
 		</svg>
 	</button>
 	<button
-		class="collapse-btn right"
+		class="collapse-btn f right"
 		class:active={!$expand_timeline}
 		type="button"
 		on:click={collapse}
@@ -59,8 +59,6 @@
 		padding: 0;
 		cursor: pointer;
 
-		display: flex;
-		align-items: center;
 		justify-content: center;
 
 		color: #fff;

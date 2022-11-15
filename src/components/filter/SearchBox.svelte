@@ -32,7 +32,7 @@
 	});
 </script>
 
-<div class="searchbox-container {clazz}" {...$$restProps}>
+<div class="searchbox-container f {clazz}" {...$$restProps}>
 	<input
 		bind:this={el_searchbox}
 		class="search-input wv-font-anuphan wv-b6"
@@ -73,8 +73,6 @@
 
 <style lang="scss">
 	.searchbox-container {
-		display: flex;
-		align-items: center;
 		border-bottom: 1px #fff solid;
 		gap: 8px;
 	}

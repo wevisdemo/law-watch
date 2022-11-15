@@ -24,7 +24,7 @@
 	});
 </script>
 
-<section bind:this={el_section} id="stats-section" class="c">
+<section bind:this={el_section} id="stats-section" class="f c">
 	<h2 class="wv-font-kondolar wv-h9 tc" style="padding:0 16px">
 		<span class="nw">ร่างกฎหมายที่ถูกเสนอ</span><span class="nw">เพื่อพิจารณาในสมัย</span><span
 			class="nw">รัฐบาลประยุทธ์ จันทร์โอชา 2</span
@@ -55,7 +55,7 @@
 			<div class="chart-presenter-container party-header">
 				<div class="chart-presenter-header">
 					<span class="wv-b4">พรรคการเมือง</span><br />
-					<div class="number-aligner">
+					<div class="number-aligner f">
 						<span class="wv-font-kondolar wv-h5 wv-font-black">{stats.by_party_len}</span>
 						<span class="wv-b5">ฉบับ</span>
 					</div>
@@ -65,7 +65,7 @@
 				<div class="chart-presenter-header">
 					<div class="number-container">
 						<span class="wv-b4">คณะรัฐมนตรี</span><br />
-						<div class="number-aligner">
+						<div class="number-aligner f">
 							<span class="wv-font-kondolar wv-h5 wv-font-black">{stats.by_cabinet_len}</span>
 							<span class="wv-b5">ฉบับ</span>
 						</div>
@@ -75,7 +75,7 @@
 			<div class="chart-presenter-container people-header">
 				<div class="chart-presenter-header">
 					<span class="wv-b4">ประชาชน</span><br />
-					<div class="number-aligner">
+					<div class="number-aligner f">
 						<span class="wv-font-kondolar wv-h5 wv-font-black">{stats.by_people_len}</span>
 						<span class="wv-b5">ฉบับ</span>
 					</div>
@@ -244,9 +244,7 @@
 	}
 
 	.number-aligner {
-		display: flex;
 		gap: 10px;
-		align-items: center;
 	}
 
 	.year {

@@ -18,7 +18,7 @@
 		</div>
 		<div style="margin-bottom:-8px">
 			{#each proposer as dom_catg}
-				<div class="vis-row">
+				<div class="vis-row f">
 					{#each dom_catg as [out_sapa, in_sapa]}
 						{#each out_sapa as doc, doc_index (($current_side_choice === 'เลือกทุกฝ่าย' ? PROPOSER[proposer_index] : $current_side_choice) + doc.Law_ID + doc_index)}
 							<Paper
@@ -62,8 +62,6 @@
 	}
 
 	.vis-row {
-		display: flex;
-		align-items: center;
 		flex-wrap: wrap;
 		gap: 8px 0;
 		margin-bottom: 8px;

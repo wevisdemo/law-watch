@@ -192,14 +192,14 @@
 <div class="help-overlay" class:show={$is_help_show}>
 	<div class="help-backdrop" />
 	<div
-		class="help-content c"
+		class="help-content f c"
 		class:right={current_tutorial}
 		class:shift-tut3={current_tutorial === 3}
 	>
 		{#if is_intro_dismiss && !current_tutorial}
 			{#each TUTORIAL_CHOICES as choice, i}
 				<div
-					class="balloon wv-b5"
+					class="balloon f wv-b5"
 					class:clickable={!current_tutorial}
 					on:click={[showTutorial1, showTutorial2, showTutorial3, showTutorial4][i]}
 					on:keypress={[showTutorial1, showTutorial2, showTutorial3, showTutorial4][i]}
@@ -220,7 +220,7 @@
 			{/each}
 		{:else if current_tutorial}
 			<div
-				class="balloon wv-b5"
+				class="balloon f wv-b5"
 				class:shift-tut1={current_tutorial === 1}
 				class:shift-tut2={current_tutorial === 2}
 			>
@@ -237,7 +237,7 @@
 				/>
 			</div>
 		{:else}
-			<div class="balloon wv-b4">
+			<div class="balloon f wv-b4">
 				<div>
 					<strong>ลองมาสำรวจกัน</strong> ว่าร่างกฎหมาย<br />
 					ที่ผ่านเข้ารัฐสภาในรัฐบาลนี้สะท้อน<br />
@@ -245,8 +245,8 @@
 				</div>
 			</div>
 		{/if}
-		<div class="btn-container" class:right={is_intro_dismiss}>
-			<button type="button" class="wv-font-anuphan wv-b4 tut-btn primary" on:click={closeHelp}>
+		<div class="btn-container f" class:right={is_intro_dismiss}>
+			<button type="button" class="wv-font-anuphan wv-b4 tut-btn f primary" on:click={closeHelp}>
 				สำรวจเอง
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -274,7 +274,7 @@
 				>
 			</button>
 			{#if !is_intro_dismiss}
-				<button type="button" class="wv-font-anuphan wv-b4 tut-btn" on:click={dismissIntro}>
+				<button type="button" class="wv-font-anuphan wv-b4 tut-btn f" on:click={dismissIntro}>
 					ช่วยนำทางที
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +294,7 @@
 			{#if current_tutorial}
 				<button
 					type="button"
-					class="wv-font-anuphan wv-b4 tut-btn"
+					class="wv-font-anuphan wv-b4 tut-btn f"
 					style="width:80px;padding:8px 12px 8px 8px"
 					on:click={resetCurrentTutorial}
 				>
@@ -352,7 +352,7 @@
 </div>
 {#if current_tutorial}
 	{#each TUTORIAL_BALLOONS[current_tutorial - 1] as { name, cssClass, style }}
-		<div class="help-tooltip wv-b6 {cssClass ?? ''}" {style} transition:fade={{ duration: 300 }}>
+		<div class="help-tooltip f wv-b6 {cssClass ?? ''}" {style} transition:fade={{ duration: 300 }}>
 			<span>{@html name}</span>
 		</div>
 	{/each}
@@ -426,8 +426,6 @@
 	}
 
 	.balloon {
-		display: flex;
-		align-items: center;
 		justify-content: space-between;
 
 		background: #fff;
@@ -467,8 +465,6 @@
 	}
 
 	.btn-container {
-		display: flex;
-		align-items: center;
 		justify-content: center;
 		gap: 8px;
 
@@ -489,8 +485,6 @@
 		border: none;
 		color: #3904e9;
 
-		display: flex;
-		align-items: center;
 		justify-content: space-between;
 
 		cursor: pointer;
@@ -523,8 +517,6 @@
 		max-width: 140px;
 		z-index: 4;
 
-		display: flex;
-		align-items: center;
 		gap: 6px;
 
 		&::before {

@@ -118,7 +118,7 @@
 	}
 </script>
 
-<section bind:this={el_section} id="conclusion-section" class="c tc">
+<section bind:this={el_section} id="conclusion-section" class="f c tc">
 	<div class="diagram" aria-hidden="true">
 		<!-- keep svg: dom manipulation -->
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 540 567">
@@ -193,27 +193,27 @@
 			</g>
 		</svg>
 	</div>
-	<div bind:this={el_trigger1} class="c conclusion-content wv-b4" style="margin-top:-70vh">
+	<div bind:this={el_trigger1} class="f c conclusion-content wv-b4" style="margin-top:-70vh">
 		<strong class="nw">ส.ส. จากพรรคการเมือง</strong>
 		<span class="nw">เกี่ยวข้องกับกระบวนการ</span>
 		<span class="nw">ออกกฎหมายทั้งหมด</span>
 		<span class="nw">ในระยะเวลา 3 ปีกว่า</span>
 		<span class="nw">ของสภาชุดนี้</span>
 	</div>
-	<div bind:this={el_trigger2} class="c conclusion-content wv-b4">
+	<div bind:this={el_trigger2} class="f c conclusion-content wv-b4">
 		<span class="nw">เรื่องนี้สะท้อนว่าการทำ</span>
 		<span class="nw">หน้าที่ของ ส.ส. ที่ถูกเลือกตั้ง</span>
 		<span class="nw">เข้าสภา เกี่ยวข้องกับ</span>
 		<span class="nw"><strong>ประชาชน</strong> อย่างเรา ๆ</span>
 		<span class="nw">มาตลอด</span>
 	</div>
-	<div bind:this={el_trigger3} class="c conclusion-content wv-b4" style="margin-bottom:30vh">
+	<div bind:this={el_trigger3} class="f c conclusion-content wv-b4" style="margin-bottom:30vh">
 		<span class="nw">ซึ่ง ส.ส. ทุกคนมาจาก</span>
 		<span class="nw">คะแนนเสียงของ <strong>ประชาชน</strong></span>
 	</div>
 	{#if popup_status}
 		<article class="popup" id="party-popup" transition:fly={{ y: 10, duration: 300 }}>
-			<header>
+			<header class="f">
 				<img
 					src="/law-watch/info.svg"
 					alt=""
@@ -357,8 +357,6 @@
 		text-align: left;
 
 		> header {
-			display: flex;
-			align-items: center;
 			gap: 8px;
 
 			> button {

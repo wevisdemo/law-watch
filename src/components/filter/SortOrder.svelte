@@ -20,11 +20,11 @@
 </script>
 
 <div class={clazz} class:highlight={$order_highlight}>
-	<div class="header wv-b7">
+	<div class="header f wv-b7">
 		<img src="/law-watch/sort.svg" alt="" width="16" height="16" loading="lazy" decoding="async" />
 		เรียงตาม
 	</div>
-	<div class="sort-order-container">
+	<div class="f">
 		{#each arrow_inbetween as property, i (property)}
 			<button
 				type="button"
@@ -33,6 +33,7 @@
 				class:sort-property={i % 2 === 0}
 				class:wv-b6={i % 2 === 0}
 				class:arrow={i % 2 === 1}
+				class:f={i % 2 === 1}
 				tabindex={-(i % 2)}
 				on:click={i % 2 === 1 ? () => {} : setSortOrder(property)}
 				animate:flip={{ duration: 300 }}
@@ -56,15 +57,8 @@
 
 <style lang="scss">
 	.header {
-		display: flex;
-		align-items: center;
 		gap: 4px;
 		margin-bottom: 8px;
-	}
-
-	.sort-order-container {
-		display: flex;
-		align-items: center;
 	}
 
 	.sort-property {
@@ -102,8 +96,6 @@
 		background: transparent;
 		border: none;
 		padding: 0;
-		display: flex;
-		align-items: center;
 	}
 
 	.highlight {

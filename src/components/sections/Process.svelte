@@ -21,7 +21,7 @@
 	});
 </script>
 
-<section bind:this={el_section} id="process-section" class="c tc">
+<section bind:this={el_section} id="process-section" class="f c tc">
 	<h2 class="wv-h9 wv-font-kondolar">
 		<span class="nw">การที่ร่างกฎหมายจะออกเป็นกฎหมายได้</span>
 		<span class="nw">ต้องผ่าน <strong class="c-mint">กระบวนการทางสภา</strong> ดังนี้</span>

@@ -28,7 +28,7 @@
 		class="header wv-font-semibold"
 		class:highlight={typeof highlight === 'string' && ['one', 'two'].includes(highlight)}
 	>
-		<span>
+		<span class="f">
 			สถานะกฎหมาย
 			<img
 				class="caret"
@@ -42,24 +42,24 @@
 		</span>
 	</summary>
 	<div
-		class="law-status-type"
+		class="law-status-type f"
 		class:highlight={typeof highlight === 'string' && ['one', 'two'].includes(highlight)}
 	>
 		<Paper noMargin />
 		<span>ตกไป</span>
 		<span class="number">{data.reject}</span>
 	</div>
-	<div class="law-status-type" class:highlight={highlight === 'two'}>
+	<div class="law-status-type f" class:highlight={highlight === 'two'}>
 		<Paper type="process" noMargin />
 		<span>อยู่ในกระบวนการ</span>
 		<span class="number">{data.progress}</span>
 	</div>
-	<div class="law-status-type">
+	<div class="law-status-type f">
 		<Paper type="pass" noMargin />
 		<span>ออกเป็นกฎหมาย</span>
 		<span class="number">{data.pass}</span>
 	</div>
-	<div class="law-status-type merge-type">
+	<div class="law-status-type f merge-type">
 		<Paper type="pass" stacked noMargin />
 		<span>กฎหมายที่ถูกรวมร่าง</span>
 	</div>
@@ -104,8 +104,6 @@
 
 		> span {
 			margin-bottom: 8px;
-			display: flex;
-			align-items: center;
 			> .caret {
 				margin-left: auto;
 				transform: rotate(180deg);
@@ -118,9 +116,7 @@
 	}
 
 	.law-status-type {
-		display: flex;
 		gap: 10px;
-		align-items: center;
 		margin-bottom: 8px;
 		white-space: nowrap;
 

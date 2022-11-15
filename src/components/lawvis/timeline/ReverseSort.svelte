@@ -6,7 +6,7 @@
 	};
 </script>
 
-<button class="reverse-timeline" type="button" on:click={reverse}>
+<button class="reverse-timeline f" type="button" on:click={reverse}>
 	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 25">
 		{#if $reverse_sort}
 			<path
@@ -32,8 +32,6 @@
 		padding: 0;
 		cursor: pointer;
 
-		display: flex;
-		align-items: center;
 		justify-content: center;
 	}
 </style>

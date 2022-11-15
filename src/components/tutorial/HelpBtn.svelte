@@ -5,7 +5,7 @@
 
 <button
 	type="button"
-	class="help-btn"
+	class="help-btn f"
 	on:click
 	in:scale={{ duration: 300, easing: cubicOut }}
 	out:scale={{ duration: 300, easing: cubicInOut }}
@@ -22,8 +22,6 @@
 
 <style lang="scss">
 	.help-btn {
-		display: flex;
-		align-items: center;
 		justify-content: center;
 
 		background: #ffffff;

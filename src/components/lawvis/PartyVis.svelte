@@ -14,7 +14,7 @@
 		<div class="vis-text wv-b5">
 			{$current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[party_index] : $current_party_choice}
 		</div>
-		<div class="vis-row">
+		<div class="vis-row f">
 			{#each party as dom_catg}
 				{#each dom_catg as [out_sapa, in_sapa]}
 					{#each out_sapa as doc, doc_index (($current_party_choice === 'เลือกทุกพรรค' ? ALL_PARTY[party_index] : $current_party_choice) + doc.Law_ID + doc_index)}
@@ -54,8 +54,6 @@
 	}
 
 	.vis-row {
-		display: flex;
-		align-items: center;
 		flex-wrap: wrap;
 		gap: 8px 0;
 	}

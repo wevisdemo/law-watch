@@ -7,7 +7,7 @@
 	export { clazz as class };
 </script>
 
-<label class="vistype-container wv-b6 {clazz}" class:highlight={$vis_type_highlight}>
+<label class="vistype-container f wv-b6 {clazz}" class:highlight={$vis_type_highlight}>
 	<span>ภาพรวม</span>
 	<input id="vistype-check" class="switch-input" type="checkbox" bind:checked={view_timeline} />
 	<span class="switch-decor" />
@@ -16,8 +16,6 @@
 
 <style lang="scss">
 	.vistype-container {
-		display: flex;
-		align-items: center;
 		gap: 10px;
 
 		-webkit-user-select: none;

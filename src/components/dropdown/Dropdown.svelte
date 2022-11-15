@@ -90,7 +90,7 @@
 </script>
 
 <div class="dropdown-container {clazz}" class:highlight>
-	<span id="dropdown-{label}-label" class="select-label wv-b7">
+	<span id="dropdown-{label}-label" class="select-label f wv-b7">
 		{#if label_image}
 			<img src={label_image} alt="" width="12" height="12" loading="lazy" decoding="async" />
 		{/if}
@@ -98,7 +98,7 @@
 	</span>
 	<button
 		type="button"
-		class="select-control wv-font-anuphan wv-b7"
+		class="select-control f wv-font-anuphan wv-b7"
 		tabindex="0"
 		on:click={toggleSelect}
 		on:keydown={selectKeyManager}
@@ -142,7 +142,7 @@
 			{#if typeof choice !== 'string'}
 				{#if choice.readonly}
 					<li
-						class="wv-b7 select-list-option readonly"
+						class="wv-b7 select-list-option f readonly"
 						class:bold={choice.bold}
 						class:border={choice.border}
 						id="dropdown-{label}-{choice.text}"
@@ -151,7 +151,7 @@
 					</li>
 				{:else}
 					<li
-						class="wv-b7 select-list-option"
+						class="wv-b7 select-list-option f"
 						class:bold={choice.bold}
 						class:border={choice.border}
 						on:click={selectChoice(choice)}
@@ -177,7 +177,7 @@
 				{/if}
 			{:else}
 				<li
-					class="wv-b7 select-list-option"
+					class="wv-b7 select-list-option f"
 					on:click={selectChoice(choice)}
 					on:keydown={selectChoiceKbd(choice)}
 					role="option"
@@ -194,9 +194,7 @@
 
 <style lang="scss">
 	.select-label {
-		display: flex;
 		gap: 4px;
-		align-items: center;
 		margin-bottom: 8px;
 	}
 
@@ -208,8 +206,6 @@
 		padding: 8px 16px;
 		height: 40px;
 
-		display: flex;
-		align-items: center;
 		width: 100%;
 
 		-webkit-user-select: none;
@@ -258,9 +254,6 @@
 	.select-list-option {
 		height: 40px;
 		padding: 8px 16px;
-
-		display: flex;
-		align-items: center;
 
 		-webkit-user-select: none;
 		-moz-user-select: none;

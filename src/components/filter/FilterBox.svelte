@@ -85,10 +85,10 @@
 	class:enable_transition
 >
 	{#if $show_filterbox}
-		<div class="search-mobile-aligner">
+		<div class="search-mobile-aligner f">
 			<button
 				type="button"
-				class="mobile-toggle-drawer"
+				class="mobile-toggle-drawer f"
 				class:highlight={$mobile_filter_toggle_highlight}
 				on:click={toggleMobileDrawer}
 			>
@@ -217,8 +217,6 @@
 	}
 
 	.search-mobile-aligner {
-		display: flex;
-		align-items: center;
 		gap: 16px;
 
 		@media (min-width: 768px) {
@@ -237,8 +235,6 @@
 		padding: 0;
 		width: 20px;
 		height: 20px;
-		display: flex;
-		align-items: center;
 		justify-content: center;
 		cursor: pointer;
 		z-index: 1;

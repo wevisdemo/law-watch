@@ -233,6 +233,7 @@
 
 <div
 	id="vis-playground"
+	class="f"
 	class:timeline_wide={$timeline_mounted && !$current_selected_paper_id}
 	class:timeline_transition={$timeline_animation_finished}
 	class:is_law_status_open={$is_law_status_open}
@@ -287,9 +288,7 @@
 
 		margin: auto;
 
-		display: flex;
 		flex-direction: column;
-		align-items: center;
 
 		overflow: scroll;
 		overscroll-behavior: contain;

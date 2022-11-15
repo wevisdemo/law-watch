@@ -27,25 +27,25 @@
 	</button>
 	<ul>
 		<li class="wv-b5" class:current={$current_section === 0}>
-			<a href="#importance-section"
+			<a class="f" href="#importance-section"
 				><span class="text">ความสำคัญ</span>
 				<span class="indicator" /></a
 			>
 		</li>
 		<li class="wv-b5" class:current={$current_section === 1}>
-			<a href="#process-section"
+			<a class="f" href="#process-section"
 				><span class="text">ขั้นตอนการเสนอ</span>
 				<span class="indicator" /></a
 			>
 		</li>
 		<li class="wv-b5" class:current={$current_section === 2}>
-			<a href="#investigate-section">
+			<a class="f" href="#investigate-section">
 				<span class="text">สำรวจ</span>
 				<span class="indicator" />
 			</a>
 		</li>
 		<li class="wv-b5" class:current={$current_section === 3}>
-			<a href="#conclusion-section">
+			<a class="f" href="#conclusion-section">
 				<span class="text">บทสรุป</span>
 				<span class="indicator" />
 			</a>
@@ -107,8 +107,6 @@
 			margin: 8px 0;
 
 			> a {
-				display: flex;
-				align-items: center;
 				justify-content: flex-end;
 				gap: 12px;
 
