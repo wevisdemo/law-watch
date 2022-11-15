@@ -32,8 +32,8 @@
 	<Loader />
 {/if}
 {#if state}
-	<Intro />
 	<Navigator />
+	<Intro />
 {/if}
 <Importance />
 <Process />
