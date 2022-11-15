@@ -202,6 +202,7 @@
 					class="balloon wv-b5"
 					class:clickable={!current_tutorial}
 					on:click={[showTutorial1, showTutorial2, showTutorial3, showTutorial4][i]}
+					on:keypress={[showTutorial1, showTutorial2, showTutorial3, showTutorial4][i]}
 					in:fly={{ y: 10, duration: 300, delay: i * 100 }}
 				>
 					<div>

@@ -14,7 +14,7 @@
 		el_details.ariaExpanded = '' + state;
 	};
 
-	const onClick = (event: MouseEvent) => {
+	const onClick = (event: MouseEvent | KeyboardEvent) => {
 		event.preventDefault();
 		if (current_animation?.playState === 'running') {
 			current_animation.stop();
@@ -44,7 +44,7 @@
 	};
 </script>
 
-<details bind:this={el_details} on:click={onClick} aria-expanded="false">
+<details bind:this={el_details} on:click={onClick} on:keypress={onClick} aria-expanded="false">
 	<summary class="wv-font-kondolar wv-h10" tabindex="0">
 		<span>{title}<span class="cross" aria-hidden="true" class:expanded={!was_closing} /></span>
 	</summary>

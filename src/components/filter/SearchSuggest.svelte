@@ -10,12 +10,15 @@
 </script>
 
 <div bind:this={el_suggest} class="search-suggest">
-	{#if $suggest_list.length > 0}
+	{#if $suggest_list.length}
 		<ul class="select-list">
 			{#each $suggest_list as suggest}
 				<li
 					class="wv-b7 select-list-option"
 					on:click={() => {
+						$search_input = suggest;
+					}}
+					on:keypress={() => {
 						$search_input = suggest;
 					}}
 				>

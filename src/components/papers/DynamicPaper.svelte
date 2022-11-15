@@ -39,6 +39,7 @@
 		class:small
 		data-title={title}
 		on:click={setSelectedPaper}
+		on:keypress={setSelectedPaper}
 		on:mouseenter={showTooltip()}
 		on:mouseleave={hideTooltip}
 		{...$$restProps}
@@ -87,6 +88,7 @@
 		class:highlight={$highlighted_paper_ids?.includes(id)}
 		data-title={title}
 		on:click={setSelectedPaper}
+		on:keypress={setSelectedPaper}
 		on:mouseenter={showTooltip()}
 		on:mouseleave={hideTooltip}
 		{...$$restProps}

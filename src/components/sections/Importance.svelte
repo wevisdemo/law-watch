@@ -175,6 +175,9 @@
 				on:click={() => {
 					is_part1_finished && !is_part3_leaving && !is_part1_leaving && (popup_status = 'people');
 				}}
+				on:keypress={() => {
+					is_part1_finished && !is_part3_leaving && !is_part1_leaving && (popup_status = 'people');
+				}}
 				style={is_part1_finished && !is_part3_leaving && !is_part1_leaving ? 'cursor:pointer' : ''}
 			>
 				<rect width="120" height="120" x="420" y="360" fill="#fff" rx="60" />
@@ -197,6 +200,9 @@
 			<g
 				bind:this={el_party_circle}
 				on:click={() => {
+					is_part2_finished && !is_part3_leaving && !is_part1_leaving && (popup_status = 'party');
+				}}
+				on:keypress={() => {
 					is_part2_finished && !is_part3_leaving && !is_part1_leaving && (popup_status = 'party');
 				}}
 				style={is_part2_finished && !is_part3_leaving && !is_part1_leaving ? 'cursor:pointer' : ''}
@@ -250,7 +256,12 @@
 				<h2 class="wv-font-kondolar wv-h9">
 					{popup_status === 'party' ? 'พรรคการเมือง' : 'ประชาชน'}
 				</h2>
-				<button type="button">
+				<button
+					type="button"
+					on:click={() => {
+						popup_status = false;
+					}}
+				>
 					<img
 						src="/law-watch/close.svg"
 						alt="ปิด"
@@ -258,9 +269,6 @@
 						height="16"
 						loading="lazy"
 						decoding="async"
-						on:click={() => {
-							popup_status = false;
-						}}
 					/>
 				</button>
 			</header>
