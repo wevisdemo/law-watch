@@ -35,6 +35,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px 0;
-		margin-bottom: 8px;
+		margin-bottom: 16px;
 	}
 </style>
