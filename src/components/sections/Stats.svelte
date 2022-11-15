@@ -161,6 +161,9 @@
 
 	.chart-header {
 		padding-right: 32px;
+
+		display: flex;
+		flex-direction: column;
 	}
 
 	.chart-present-by {
@@ -241,6 +244,10 @@
 				padding-top: 35px;
 			}
 		}
+	}
+
+	.law-status {
+		margin-top: auto;
 	}
 
 	.number-aligner {
