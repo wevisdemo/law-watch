@@ -28,5 +28,5 @@
 		>
 	</WvNavbar>
 	<slot />
-	<WvFooter dark={false} />
+	<WvFooter />
 </body>

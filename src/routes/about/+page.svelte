@@ -14,7 +14,7 @@
 </script>
 
 <WvContainer heading="เกี่ยวกับโครงการ">
-	<WvParagraphGroup small={false} heading="เป้าหมาย">
+	<WvParagraphGroup heading="เป้าหมาย">
 		<p class="wv-font-baijamjuri">
 			เมื่อกฎหมายคือกติกาของการอยู่ร่วมกันในสังคมของรัฐหนึ่ง
 			กฎหมายจึงควรต้องมีที่มาจากกระบวนการอันมีส่วนยึดโยงประชาชนผู้เป็นองค์ประกอบหนึ่งของรัฐ
@@ -30,7 +30,7 @@
 			เพื่อประชาชนอย่างเรา ๆ ได้มากน้อยเพียงใด&rdquo;
 		</p>
 	</WvParagraphGroup>
-	<WvParagraphGroup small={false} heading="ที่มาของข้อมูล">
+	<WvParagraphGroup heading="ที่มาของข้อมูล">
 		<ol class="wv-font-baijamjuri" style="padding-left:1rem">
 			<li>
 				สำหรับข้อมูลร่างกฎหมายทั้งหมดที่ถูกเสนอและพิจารณาในสภาสมัยรัฐบาลประยุทธ์ จันทร์โอชา 2 ทาง
@@ -58,7 +58,7 @@
 			</li>
 		</ol>
 	</WvParagraphGroup>
-	<WvParagraphGroup small={false} heading="นโยบายการนำข้อมูลไปใช้ต่อ">
+	<WvParagraphGroup heading="นโยบายการนำข้อมูลไปใช้ต่อ">
 		<p class="wv-font-baijamjuri">
 			ทางทีมมีความตั้งใจที่พัฒนาทุกโปรเจ็กต์ให้เป็น Open Source และเปิดข้อมูลเป็น Open Data
 			ภายใต้เงื่อนไข Creative Commons Attribution-ShareAlike License
@@ -70,15 +70,15 @@
 			หรือมีข้อเสนอแนะใดๆ สามารถติดต่อได้ที่ team@punchup.world
 		</p>
 	</WvParagraphGroup>
-	<WvParagraphGroup small={false} heading="อาสาสมัครร่วมพัฒนา">
-		<WvParagraphGroup small={true} heading="เขียนโปรแกรม">
+	<WvParagraphGroup heading="อาสาสมัครร่วมพัฒนา">
+		<WvParagraphGroup small heading="เขียนโปรแกรม">
 			<p class="wv-font-baijamjuri">
 				<a href="https://rootenginear.github.io/" target="_blank" rel="nofollow noopener noreferrer"
 					>สุเทพ จันทร์ชูผล</a
 				>
 			</p>
 		</WvParagraphGroup>
-		<WvParagraphGroup small={true} heading="ออกแบบ">
+		<WvParagraphGroup small heading="ออกแบบ">
 			<p class="wv-font-baijamjuri">
 				<a
 					href="https://pearwawa.myportfolio.com/"
@@ -87,7 +87,7 @@
 				>
 			</p>
 		</WvParagraphGroup>
-		<WvParagraphGroup small={true} heading="สืบค้นและรวบรวมข้อมูล">
+		<WvParagraphGroup small heading="สืบค้นและรวบรวมข้อมูล">
 			<p class="wv-font-baijamjuri">
 				สิทธิกานต์ ธีระวัฒนชัย, <a
 					href="https://the101percent.com/works/101pub/"
@@ -96,10 +96,10 @@
 				>
 			</p>
 		</WvParagraphGroup>
-		<WvParagraphGroup small={true} heading="บรรณาธิการ">
+		<WvParagraphGroup small heading="บรรณาธิการ">
 			<p class="wv-font-baijamjuri">ธนิสรา เรืองเดช</p>
 		</WvParagraphGroup>
-		<WvParagraphGroup small={true} heading="ประสานงานและจัดการอื่นๆ">
+		<WvParagraphGroup small heading="ประสานงานและจัดการอื่นๆ">
 			<p class="wv-font-baijamjuri">
 				<a href="https://punchup.world/" target="_blank" rel="nofollow noopener noreferrer"
 					>Punch Up</a
@@ -108,16 +108,15 @@
 		</WvParagraphGroup>
 		<p class="wv-font-baijamjuri">
 			โปรเจกต์ <strong
-				>&ldquo;ส่องผลงานผ่านสภายุคตู่สอง ส.ส. เสนอ และ/หรือ โหวต กฎหมายอะไรกันบ้าง ?&rdquo;</strong
+				>&ldquo;ส่องผลงานผ่านสภายุคประยุทธ์สอง ส.ส. เสนอ และ/หรือ โหวต กฎหมายอะไรกันบ้าง ?&rdquo;</strong
 			> ได้รับการสนับสนุนทุนในการดำเนินงานจาก National Endowment for Democracy (NED) ซึ่งนำมาใช้เป็นต้นทุนในการรวมรวมข้อมูล
 			ออกแบบ พัฒนาเว็บไซต์ ประสานงาน บริหารจัดการ ตลอดจนการจัด Meetup เพื่อดำเนินโครงการ
 		</p>
 	</WvParagraphGroup>
 
-	<WvButtonGroup center={true}>
+	<WvButtonGroup center>
 		<WvButton
 			color="blue"
-			small={false}
 			onClick={() =>
 				(location.href =
 					'https://docs.google.com/spreadsheets/d/1lM0yXZQ6aWDvrI7qSlDTsT2kkXcAv1D4t2r1KabHL6w/edit#gid=1118124179')}
@@ -139,7 +138,6 @@
 		</WvButton>
 		<WvButton
 			color="blue"
-			small={false}
 			onClick={() => (location.href = 'https://airtable.com/shryu4errnlj1LWsM')}
 		>
 			<img
@@ -154,15 +152,7 @@
 		</WvButton>
 	</WvButtonGroup>
 
-	<WvSharer
-		url=""
-		label="Share"
-		hideLabel={false}
-		light={false}
-		outline={false}
-		center
-		allowCopyLink={false}
-	/>
+	<WvSharer url="" center />
 </WvContainer>
 
 <style lang="scss">
