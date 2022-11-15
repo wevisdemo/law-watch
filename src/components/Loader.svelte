@@ -9,7 +9,7 @@
 </script>
 
 <section class="loader-container c" class:ready>
-	<Eyes animation="close" playOnMount={false} play={ready} margin="0 0 25px" />
+	<Eyes animation="close" dontPlayOnMount play={ready} margin="0 0 25px" />
 	<p class="wv-b4">Loading...</p>
 </section>
 

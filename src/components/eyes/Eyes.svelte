@@ -5,11 +5,11 @@
 
 	export let margin = '0 0 64px';
 	export let animation: AnimationType = null;
-	export let playOnMount = true;
+	export let dontPlayOnMount = false;
 	export let play = false;
 
 	onMount(() => {
-		playOnMount && (play = true);
+		!dontPlayOnMount && (play = true);
 	});
 </script>
 
