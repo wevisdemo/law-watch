@@ -8,7 +8,7 @@
 	import type { RawDataType } from 'data/data-types';
 	import { stats } from 'data/stats-cache';
 
-	import LongPaper from 'components/LongPaper.svelte';
+	import LongPaper from 'components/papers/LongPaper.svelte';
 	import Collapse from './timeline/Collapse.svelte';
 	import ReverseSort from './timeline/ReverseSort.svelte';
 

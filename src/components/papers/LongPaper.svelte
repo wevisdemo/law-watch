@@ -28,6 +28,7 @@
 	class:expanded={$expand_timeline}
 	data-title={doc.Law_Name}
 	on:click={setSelectedPaper}
+	on:keypress={setSelectedPaper}
 	on:mouseenter={showTooltip({
 		middleware: (e) => e.children[+!!doc.Date_Diff]
 	})}
