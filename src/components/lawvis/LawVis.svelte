@@ -269,7 +269,7 @@
 
 			&.timeline_wide {
 				inset: 96px 144px 64px 308px;
-				padding: 8px;
+				padding: 8px 36px 8px 28px;
 				width: calc(100% - 144px - 308px);
 			}
 
