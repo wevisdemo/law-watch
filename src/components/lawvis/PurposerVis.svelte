@@ -7,7 +7,6 @@
 	import { current_side_choice } from 'stores/filterOptionStore';
 
 	const PROPOSER = ['คณะรัฐมนตรี', 'ประชาชน', 'ฝ่ายรัฐบาล', 'ฝ่ายค้าน', 'ผสม', 'ไม่ทราบฝ่าย'];
-	const LAW_COUNT_WO_STACK = stats.all_law_len - stats.merged_law_len;
 
 	export let data: [RawDataType[], RawDataType[]][][][];
 </script>
@@ -39,7 +38,7 @@
 					<span class="number wv-b5">
 						<span class="wv-font-semibold">{dom_catg.flat(2).length} ฉบับ</span>
 						<span class="number-back">
-							{((dom_catg.flat(2).length / LAW_COUNT_WO_STACK) * 100).toFixed(1)}%
+							{((dom_catg.flat(2).length / stats.all_law_len) * 100).toFixed(1)}%
 						</span>
 					</span>
 				</div>
