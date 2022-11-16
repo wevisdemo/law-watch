@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { RawDataType } from 'data/data-types';
+	import type { RawDataType } from 'data/generated/data-types';
 	import { LAW_TYPE_METADATA } from 'data/law-types';
-	import { stats } from 'data/stats-cache';
+	import { stats } from 'data/generated/stats';
 
 	import { textTypeToPaperType } from 'components/lawvis/utils';
 	import Paper from 'components/papers/StaticPaper.svelte';

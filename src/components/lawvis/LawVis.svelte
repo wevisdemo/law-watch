@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { RawDataType } from 'data/data-types';
+	import type { RawDataType } from 'data/generated/data-types';
 	import type { PartyChoiceType, SideChoiceType } from 'data/filter-choices';
-	import { merge_cache } from 'data/merge-cache';
-	import { ALL_PARTY } from 'data/parties';
-	import { data as raw_data } from 'data/raw-data';
+	import { merge_cache } from 'data/generated/merge-cache';
+	import { ALL_PARTIES } from 'data/generated/all-parties';
+	import { data as raw_data } from 'data/generated/data';
 
 	import {
 		current_group_choice,
@@ -109,7 +109,7 @@
 	): RawDataType[][] => {
 		const party_json = groupByIncludes(data, (d) => d.Proposer_Party);
 		return specific_party === 'เลือกทุกพรรค'
-			? ALL_PARTY.map((p) => party_json[p])
+			? ALL_PARTIES.map((p) => party_json[p])
 			: [party_json[specific_party]];
 	};
 
@@ -158,7 +158,7 @@
 			};
 		} else if ($current_group_choice === 'พรรคที่เสนอร่างกฎหมาย') {
 			temp = groupByIncludes(raw_data, (d) => d.Proposer_Party);
-			temp = Object.fromEntries(ALL_PARTY.map((p) => [p, temp[p]]));
+			temp = Object.fromEntries(ALL_PARTIES.map((p) => [p, temp[p]]));
 		} else {
 			temp = { '0': raw_data };
 		}

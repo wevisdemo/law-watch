@@ -1,3 +1,5 @@
+import { ALL_PARTIES } from './generated/all-parties';
+
 export const GOV_PARTY = [
 	'ครูไทยเพื่อประชาชน',
 	'ชาติไทยพัฒนา',
@@ -32,43 +34,10 @@ export const OPP_PARTY = [
 	'อนาคตใหม่'
 ] as const;
 
-// export const ALL_PARTY = [...GOV_PARTY, ...OPP_PARTY].sort((a, z) => a.localeCompare(z));
-// TODO: find way to sort later
-export const ALL_PARTY = [
-	'เพื่อไทย',
-	'ภูมิใจไทย',
-	'ก้าวไกล',
-	'ประชาธิปัตย์',
-	'พลังประชารัฐ',
-	'เสรีรวมไทย',
-	'เพื่อชาติ',
-	'ประชาชาติ',
-	'ชาติไทยพัฒนา',
-	'พลังปวงชนไทย',
-	'พลังท้องถิ่นไท',
-	'ครูไทยเพื่อประชาชน',
-	'ชาติพัฒนา',
-	'ไทรักธรรม',
-	'ไทยศรีวิไลย์',
-	'รักษ์ผืนป่าประเทศไทย',
-	'เศรษฐกิจใหม่',
-	'ประชาธิปไตยใหม่',
-	'พลังชาติไทย',
-	'อนาคตใหม่',
-	'พลังธรรมใหม่',
-	'พลเมืองไทย',
-	'เพื่อชาติไทย',
-	'ประชาธรรมไทย',
-	'เศรษฐกิจไทย',
-	'ประชานิยม',
-	'ประชาภิวัฒน์',
-	'รวมพลังประชาชาติไทย'
-];
-
-export type PartyType = typeof ALL_PARTY[number];
+export type PartyType = typeof ALL_PARTIES[number];
 
 export const isParty = (string: string) => {
-	return (ALL_PARTY as string[]).includes(string);
+	return (ALL_PARTIES as string[]).includes(string);
 };
 
 export const getPartyImage = (party: string) => {

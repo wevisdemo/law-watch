@@ -5,8 +5,8 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	import type { RawDataType } from 'data/data-types';
-	import { stats } from 'data/stats-cache';
+	import type { RawDataType } from 'data/generated/data-types';
+	import { stats } from 'data/generated/stats';
 
 	import LongPaper from 'components/papers/LongPaper.svelte';
 	import Collapse from './timeline/Collapse.svelte';

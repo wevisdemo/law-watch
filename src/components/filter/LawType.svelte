@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { LawTypes } from 'data/law-types';
 	import { LAW_TYPES, LAW_TYPE_METADATA } from 'data/law-types';
-	import { stats } from 'data/stats-cache';
+	import { stats } from 'data/generated/stats';
 
 	import { law_type_highlight } from 'stores/highlightManager';
 

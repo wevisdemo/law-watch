@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	import { keywords } from 'data/keywords';
-	import { data } from 'data/raw-data';
+	import { keywords } from 'data/generated/keywords';
+	import { data } from 'data/generated/data';
 
 	import { search_input } from 'stores/filterOptionStore';
 	import { manual_highlighted_paper_ids } from 'stores/paperHighlightStore';

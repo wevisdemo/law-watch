@@ -1,5 +1,5 @@
-import type { PartyType } from './parties';
-import type { LawTypes } from './law-types';
+import type { PartyType } from '../parties';
+import type { LawTypes } from '../law-types';
 
 export type RawDataType = {
 	Law_ID: number;
@@ -56,6 +56,4 @@ export type VotelogType = {
 	abstained: number;
 	absent: number;
 	total_voter: number;
-	special: number;
-	total_people: number;
 };

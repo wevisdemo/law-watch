@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 
 	import Paper from 'components/papers/DynamicPaper.svelte';
-	import type { RawDataType } from 'data/data-types';
+	import type { RawDataType } from 'data/generated/data-types';
 
 	export let data: [RawDataType[], RawDataType[]][][];
 </script>

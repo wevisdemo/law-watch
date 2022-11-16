@@ -5,7 +5,7 @@
 	import LawStatus from 'components/filter/LawStatus.svelte';
 	import PaperChart from 'components/PaperChart.svelte';
 
-	import { stats } from 'data/stats-cache';
+	import { stats } from 'data/generated/stats';
 
 	import { is_stats_inview } from 'stores/sectionScrollManager';
 

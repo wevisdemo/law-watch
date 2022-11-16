@@ -73,16 +73,51 @@ csv()
 		});
 
 		const newArrStr =
-			"import type { RawDataType } from './data-types';\n\nexport const data: RawDataType[] = " +
+			"import type{RawDataType}from'./data-types';export const data:RawDataType[]=" +
 			JSON.stringify(markedRefArr)
 				.replace(/\u200b/g, '')
 				.replace(/\u00a0/g, ' ')
 				.replace(/ {2}/g, ' ');
 
-		fs.writeFileSync('src/data/raw-data.ts', newArrStr);
+		fs.writeFileSync('src/data/generated/data.ts', newArrStr);
 		fs.writeFileSync(
-			'src/data/keywords.ts',
-			'export const keywords: string[] = ' + JSON.stringify([...new Set(nickname_arr)])
+			'src/data/generated/keywords.ts',
+			'export const keywords=' + JSON.stringify([...new Set(nickname_arr)])
+		);
+
+		// ██████╗  █████╗ ██████╗ ████████╗██╗   ██╗    ██╗     ██╗███████╗████████╗
+		// ██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝╚██╗ ██╔╝    ██║     ██║██╔════╝╚══██╔══╝
+		// ██████╔╝███████║██████╔╝   ██║    ╚████╔╝     ██║     ██║███████╗   ██║
+		// ██╔═══╝ ██╔══██║██╔══██╗   ██║     ╚██╔╝      ██║     ██║╚════██║   ██║
+		// ██║     ██║  ██║██║  ██║   ██║      ██║       ███████╗██║███████║   ██║
+		// ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝      ╚═╝       ╚══════╝╚═╝╚══════╝   ╚═╝
+
+		let partyStat = {};
+		for (let d of markedRefArr) {
+			if (d.Proposer_Party.length) {
+				for (let p of d.Proposer_Party) {
+					if (p in partyStat) {
+						partyStat[p] = partyStat[p] + 1;
+					} else {
+						partyStat[p] = 1;
+					}
+				}
+			}
+		}
+		let partyByLawQuantity = Object.keys(partyStat);
+		partyByLawQuantity.sort((a, z) => {
+			const pz = partyStat[z];
+			const pa = partyStat[a];
+			if (pa === pz) {
+				return a.localeCompare(z);
+			} else {
+				return pz - pa;
+			}
+		});
+
+		fs.writeFileSync(
+			'src/data/generated/all-parties.ts',
+			'export const ALL_PARTIES=' + JSON.stringify(partyByLawQuantity)
 		);
 
 		// ███╗   ███╗███████╗██████╗  ██████╗ ███████╗     ██████╗ █████╗  ██████╗██╗  ██╗███████╗
@@ -103,13 +138,13 @@ csv()
 		);
 
 		const mergeCacheStr =
-			'export const merge_cache: Record<number, number> = ' +
+			'export const merge_cache:Record<number,number>=' +
 			JSON.stringify(mergeCache)
 				.replace(/\u200b/g, '')
 				.replace(/\u00a0/g, ' ')
 				.replace(/ {2}/g, ' ');
 
-		fs.writeFileSync('src/data/merge-cache.ts', mergeCacheStr);
+		fs.writeFileSync('src/data/generated/merge-cache.ts', mergeCacheStr);
 
 		// ███████╗████████╗ █████╗ ████████╗███████╗     ██████╗ █████╗  ██████╗██╗  ██╗███████╗
 		// ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝    ██╔════╝██╔══██╗██╔════╝██║  ██║██╔════╝
@@ -299,8 +334,8 @@ csv()
 			.reduce((a, c) => a + c);
 
 		fs.writeFileSync(
-			'src/data/stats-cache.ts',
-			"import type { StatsCacheType } from './data-types';\n\nexport const stats: StatsCacheType = " +
+			'src/data/generated/stats.ts',
+			"import type{StatsCacheType}from'./data-types';export const stats:StatsCacheType=" +
 				JSON.stringify(statCache)
 					.replace(/\u200b/g, '')
 					.replace(/\u00a0/g, ' ')
@@ -336,8 +371,8 @@ csv()
 		);
 
 		fs.writeFileSync(
-			'src/data/votelog.ts',
-			"import type { VotelogType } from './data-types';\n\nexport const votelog: Record<string, VotelogType> = " +
+			'src/data/generated/votelog.ts',
+			"import type{VotelogType}from'./data-types';export const votelog:Record<number,VotelogType>=" +
 				JSON.stringify(votelog_object)
 					.replace(/\u200b/g, '')
 					.replace(/\u00a0/g, ' ')

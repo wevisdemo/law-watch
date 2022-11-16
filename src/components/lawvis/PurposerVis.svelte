@@ -2,8 +2,8 @@
 	import { fade } from 'svelte/transition';
 
 	import Paper from 'components/papers/DynamicPaper.svelte';
-	import type { RawDataType } from 'data/data-types';
-	import { stats } from 'data/stats-cache';
+	import type { RawDataType } from 'data/generated/data-types';
+	import { stats } from 'data/generated/stats';
 	import { current_side_choice } from 'stores/filterOptionStore';
 
 	const PROPOSER = ['คณะรัฐมนตรี', 'ประชาชน', 'ฝ่ายรัฐบาล', 'ฝ่ายค้าน', 'ผสม', 'ไม่ทราบฝ่าย'];

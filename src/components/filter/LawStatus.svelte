@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Paper from 'components/papers/StaticPaper.svelte';
 
-	import { stats } from 'data/stats-cache';
+	import { stats } from 'data/generated/stats';
 
 	import type { LawStatusHighlightType } from 'stores/highlightManager';
 

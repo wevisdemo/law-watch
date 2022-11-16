@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RawDataType } from 'data/data-types';
+	import type { RawDataType } from 'data/generated/data-types';
 	import { LAW_TYPE_METADATA } from 'data/law-types';
 
 	import StaticPaper from './StaticPaper.svelte';
