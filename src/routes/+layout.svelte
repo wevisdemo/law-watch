@@ -15,7 +15,7 @@
 	import WvNavbar from 'components/wv/navbar.svelte';
 
 	const onCookieAccept = (option: Record<string, boolean>) => {
-		if ('Analytics' in option && option['Analytics']) {
+		if ('Performance' in option && option['Performance']) {
 			// TODO: Add analytics
 		}
 	};
@@ -27,9 +27,9 @@
 
 <body class="wv-font-anuphan" class:bg-white={$page.route.id === '/about'}>
 	<WvCookieConsent
-		policyUrl="https://wevis.info/cookies_3/"
+		policyUrl="https://wevis.info/cookies_1-3/"
 		hasStrictlyNecessaryCookies
-		cookieOptions={['Analytics']}
+		cookieOptions={['Performance']}
 		onAccept={onCookieAccept}
 	/>
 	<WvNavbar>
