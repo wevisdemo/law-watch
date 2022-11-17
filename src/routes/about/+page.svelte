@@ -37,7 +37,7 @@
 				WeVis ขอขอบคุณ <a
 					href="https://the101percent.com/works/101pub/"
 					target="_blank"
-					rel="nofollow noopener noreferrer">101 PUB &ndash; 101 Public Policy Think Tank</a
+					rel="noopener noreferrer">101 PUB &ndash; 101 Public Policy Think Tank</a
 				>
 				สำหรับการค้นคว้า และสนับสนุนข้อมูลที่เป็นประโยชน์กับโปรเจกต์นี้อย่างละเอียด และครบถ้วนที่สุดเท่าที่จะเป็นไปได้
 				โดยข้อมูลที่ได้มาจากการสืบค้นใน
@@ -73,17 +73,15 @@
 	<WvParagraphGroup heading="อาสาสมัครร่วมพัฒนา">
 		<WvParagraphGroup small heading="เขียนโปรแกรม">
 			<p class="wv-font-baijamjuri">
-				<a href="https://rootenginear.github.io/" target="_blank" rel="nofollow noopener noreferrer"
+				<a href="https://rootenginear.github.io/" target="_blank" rel="noopener noreferrer"
 					>สุเทพ จันทร์ชูผล</a
 				>
 			</p>
 		</WvParagraphGroup>
 		<WvParagraphGroup small heading="ออกแบบ">
 			<p class="wv-font-baijamjuri">
-				<a
-					href="https://pearwawa.myportfolio.com/"
-					target="_blank"
-					rel="nofollow noopener noreferrer">มนสิชา ศรีสวนแตง</a
+				<a href="https://pearwawa.myportfolio.com/" target="_blank" rel="noopener noreferrer"
+					>มนสิชา ศรีสวนแตง</a
 				>
 			</p>
 		</WvParagraphGroup>
