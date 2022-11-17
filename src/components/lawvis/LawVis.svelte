@@ -41,7 +41,7 @@
 			{} as Record<K, T[]>
 		);
 
-	const sortByName = (a: any, z: any) => {
+	const sortByName = (a: RawDataType, z: RawDataType) => {
 		return a.Law_Name.localeCompare(z.Law_Name);
 	};
 
@@ -142,7 +142,7 @@
 	let general_visdata: [RawDataType[], RawDataType[]][][];
 	let proposer_visdata: [RawDataType[], RawDataType[]][][][];
 	let party_visdata: [RawDataType[], RawDataType[]][][][];
-	let timeline_visdata: any;
+	let timeline_visdata: Record<string, RawDataType[]>;
 	$: if ($view_timeline) {
 		let temp: Record<string, RawDataType[]>;
 		// Split into base catg
@@ -190,16 +190,16 @@
 			รัฐธรรมนูญ: 5,
 			กระบวนการยุติธรรม: 6
 		};
-		const sort_by_duration = (a: RawDataType, z: RawDataType) =>
+		const sortByDuration = (a: RawDataType, z: RawDataType) =>
 			(z.Date_Diff ?? 0) - (a.Date_Diff ?? 0);
-		const sort_by_status = (a: RawDataType, z: RawDataType) =>
+		const sortByStatus = (a: RawDataType, z: RawDataType) =>
 			STATUS_SORT_LOOKUP[a.Law_Status] - STATUS_SORT_LOOKUP[z.Law_Status];
-		const sort_by_catg = (a: RawDataType, z: RawDataType) =>
+		const sortByCatg = (a: RawDataType, z: RawDataType) =>
 			CATG_SORT_LOOKUP[a.Law_Type] - CATG_SORT_LOOKUP[z.Law_Type];
 		const SORT_FUNCTION_LOOKUP = {
-			ระยะเวลา: sort_by_duration,
-			สถานะ: sort_by_status,
-			หมวดหมู่: sort_by_catg,
+			ระยะเวลา: sortByDuration,
+			สถานะ: sortByStatus,
+			หมวดหมู่: sortByCatg,
 			ชื่อ: sortByName
 		};
 		const sort_type_arr = [...$sort_order_when_timeline, 'ชื่อ'].reverse() as (

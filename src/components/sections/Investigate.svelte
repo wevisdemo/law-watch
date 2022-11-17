@@ -17,24 +17,26 @@
 	import Sidebar from 'components/Sidebar.svelte';
 
 	$: label = (() => {
-		let formatted_choice;
+		let formatted_choice: string | undefined;
 		switch ($current_group_choice) {
 			case 'ฝ่ายที่เสนอร่างกฎหมาย':
 				formatted_choice =
-					// @ts-expect-error ตรงนี้ fallback แล้วด้วย `??`
-					{
-						เลือกทุกฝ่าย: 'ทุกฝ่าย',
-						คณะรัฐมนตรี: 'ฝ่ายคณะรัฐมนตรี',
-						ประชาชน: 'ฝ่ายประชาชน',
-						ผสม: 'ฝ่ายผสม'
-					}?.[$current_side_choice] ?? $current_side_choice;
+					(
+						{
+							เลือกทุกฝ่าย: 'ทุกฝ่าย',
+							คณะรัฐมนตรี: 'ฝ่ายคณะรัฐมนตรี',
+							ประชาชน: 'ฝ่ายประชาชน',
+							ผสม: 'ฝ่ายผสม'
+						} as Record<string, string | undefined>
+					)[$current_side_choice] ?? $current_side_choice;
 			case 'พรรคที่เสนอร่างกฎหมาย':
 				if (!formatted_choice) {
 					formatted_choice =
-						// @ts-expect-error ตรงนี้ fallback แล้วด้วย `??`
-						{
-							เลือกทุกพรรค: 'ทุกพรรค'
-						}?.[$current_party_choice] ?? 'พรรค' + $current_party_choice;
+						(
+							{
+								เลือกทุกพรรค: 'ทุกพรรค'
+							} as Record<string, string | undefined>
+						)[$current_party_choice] ?? 'พรรค' + $current_party_choice;
 				}
 				return `<span class="nw">แสดงการเสนอ</span><span class="nw">ร่างกฎหมาย${formatted_choice}</span><span class="nw">เรียงตาม${$sort_order[0]}</span>`;
 			// case 'ผลโหวตของพรรค':
