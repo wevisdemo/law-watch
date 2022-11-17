@@ -66,7 +66,7 @@
 	};
 
 	$: votelog_data = relative_law[current_law_index]?.VoteLog_ID
-		? votelog[relative_law[current_law_index]?.VoteLog_ID ?? ''] ?? null
+		? votelog[relative_law[current_law_index]?.VoteLog_ID ?? 0] ?? null
 		: null;
 
 	$: if ($current_section !== 2 && open_sidebar) {
@@ -255,11 +255,13 @@
 	{#if votelog_data}
 		<section class="theywork">
 			<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
-			<p>วาระที่ {relative_law[current_law_index]?.VoteLog_Term}</p>
+			{#if relative_law[current_law_index]?.VoteLog_Term}
+				<p>วาระที่ {relative_law[current_law_index]?.VoteLog_Term}</p>
+			{/if}
 			<div class="wv-font-kondolar wv-font-black wv-h10">
 				{Math.floor((votelog_data.approve / votelog_data.total_voter) * 100)}% ผ่าน
 			</div>
-			<div class="theywork-barchart" style="--total:{votelog_data.total_people}">
+			<div class="theywork-barchart">
 				<div class="bar" style="--bar-color:#1dc7a8;--bar-value:{votelog_data.approve}" />
 				<div class="bar" style="--bar-color:#e63a64;--bar-value:{votelog_data.disprove}" />
 				<div class="bar" style="--bar-color:#aaa;--bar-value:{votelog_data.abstained}" />
