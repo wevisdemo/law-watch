@@ -43,7 +43,7 @@
 	</section>
 	<section class="share-section f c">
 		<span class="share-text wv-b5">Share</span>
-		<WvSharer url="" label="" hideLabel light center />
+		<WvSharer label="" hideLabel light center />
 	</section>
 </section>
 
