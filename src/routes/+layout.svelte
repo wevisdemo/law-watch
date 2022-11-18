@@ -30,7 +30,13 @@
 		cookieOptions={['Performance']}
 		onAccept={onCookieAccept}
 	/>
-	<WvNavbar title="LAW WATCH" logoAddonSrc="/law-watch/101pub.png" alwayShowSlot dark>
+	<WvNavbar
+		title="LAW WATCH"
+		logoAddonSrc="/law-watch/101pub.png"
+		homeHref="https://wevis.info/"
+		alwayShowSlot
+		dark
+	>
 		<WvNavButton active={$page.route.id === '/'} dark onClick={() => goto(`${base}/`)}
 			>Home</WvNavButton
 		>
