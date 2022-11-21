@@ -11,12 +11,14 @@ export const showSuggest = () => {
 	computePosition(el_ref, window.el_suggest, {
 		placement: 'bottom',
 		middleware: [offset(16), shift({ padding: 8 })]
-	}).then(({ x, y }) => {
-		Object.assign(window.el_suggest.style, {
-			left: `${x}px`,
-			top: `${y}px`
-		});
-	});
+	})
+		.then(({ x, y }) => {
+			Object.assign(window.el_suggest.style, {
+				left: `${x}px`,
+				top: `${y}px`
+			});
+		})
+		.catch(() => undefined);
 };
 
 export const hideSuggest = () => {

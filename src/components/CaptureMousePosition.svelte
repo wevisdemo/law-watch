@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { scroll } from 'motion';
-	import { mouseX, mouseY, scrollY } from 'stores/mousePositionStore';
+	import { mouse_x, mouse_y, scroll_y } from 'stores/mousePositionStore';
 	import { onMount } from 'svelte';
 
 	const handleMousemove = (event: MouseEvent) => {
-		mouseX.set(event.clientX);
-		mouseY.set(event.clientY);
+		mouse_x.set(event.clientX);
+		mouse_y.set(event.clientY);
 	};
 
 	onMount(() => {
-		scroll(({ y }) => scrollY.set(y.current));
+		scroll(({ y }) => scroll_y.set(y.current));
 	});
 </script>
 

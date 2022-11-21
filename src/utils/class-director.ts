@@ -1,7 +1,7 @@
-const htmlStyleLog = [];
+const html_style_log = [];
 
 const addLog = (name: string, method: string) => {
-	htmlStyleLog.push({ name, method });
+	html_style_log.push({ name, method });
 };
 
 export const addClass = (classname: string, target: HTMLElement = document.documentElement) => {

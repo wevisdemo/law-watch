@@ -37,7 +37,7 @@ export const OPP_PARTY = [
 export type PartyType = typeof ALL_PARTIES[number];
 
 export const isParty = (string: string) => {
-	return (ALL_PARTIES as string[]).includes(string);
+	return ([...ALL_PARTIES] as string[]).includes(string);
 };
 
 export const getPartyImage = (party: string) => {

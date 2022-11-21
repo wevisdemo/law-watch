@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { mouse_x, mouse_y, scroll_y } from 'stores/mousePositionStore';
 	import { onDestroy, onMount } from 'svelte';
 	import type { AnimationType } from './AnimationType';
-	import { mouseX, mouseY, scrollY } from 'stores/mousePositionStore';
 
 	export let play = false;
 	export let animation: AnimationType;
@@ -22,7 +22,7 @@
 		}
 	};
 
-	const unsub = scrollY.subscribe(() => updateEyePositions());
+	const unsub = scroll_y.subscribe(() => updateEyePositions());
 	onDestroy(unsub);
 
 	let x = '0';
@@ -34,8 +34,8 @@
 		// shift origin
 		const x0 = eye_x + eye_w / 2;
 		const y0 = eye_y + eye_h / 2;
-		const mxs = $mouseX - x0;
-		const mys = $mouseY - y0;
+		const mxs = $mouse_x - x0;
+		const mys = $mouse_y - y0;
 
 		const dist = Math.hypot(mxs, mys);
 

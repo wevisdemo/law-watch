@@ -18,21 +18,23 @@ export const showTooltip =
 					element: window.el_tooltip_arrow
 				})
 			]
-		}).then(({ x, y, middlewareData }) => {
-			Object.assign(window.el_tooltip.style, {
-				left: `${x}px`,
-				top: `${y}px`
-			});
-
-			if (middlewareData.arrow) {
-				const { x, y } = middlewareData.arrow;
-
-				Object.assign(window.el_tooltip_arrow.style, {
-					left: x != null ? `${x}px` : '',
-					top: y != null ? `${y}px` : ''
+		})
+			.then(({ x, y, middlewareData }) => {
+				Object.assign(window.el_tooltip.style, {
+					left: `${x}px`,
+					top: `${y}px`
 				});
-			}
-		});
+
+				if (middlewareData.arrow) {
+					const { x, y } = middlewareData.arrow;
+
+					Object.assign(window.el_tooltip_arrow.style, {
+						left: x != null ? `${x}px` : '',
+						top: y != null ? `${y}px` : ''
+					});
+				}
+			})
+			.catch(() => undefined);
 	};
 
 export const hideTooltip = () => {
