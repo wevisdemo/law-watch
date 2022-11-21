@@ -82,7 +82,11 @@ csv()
 		fs.writeFileSync('src/data/generated/data.ts', newArrStr);
 		fs.writeFileSync(
 			'src/data/generated/keywords.ts',
-			'export const keywords=' + JSON.stringify([...new Set(nickname_arr)])
+			'export const keywords=' +
+				JSON.stringify([...new Set(nickname_arr)])
+					.replace(/\u200b/g, '')
+					.replace(/\u00a0/g, ' ')
+					.replace(/ {2}/g, ' ')
 		);
 
 		// ██████╗  █████╗ ██████╗ ████████╗██╗   ██╗    ██╗     ██╗███████╗████████╗
@@ -117,7 +121,12 @@ csv()
 
 		fs.writeFileSync(
 			'src/data/generated/all-parties.ts',
-			'export const ALL_PARTIES=' + JSON.stringify(partyByLawQuantity)
+			'export const ALL_PARTIES=' +
+				JSON.stringify(partyByLawQuantity)
+					.replace(/\u200b/g, '')
+					.replace(/\u00a0/g, ' ')
+					.replace(/ {2}/g, ' ') +
+				' as const'
 		);
 
 		// ███╗   ███╗███████╗██████╗  ██████╗ ███████╗     ██████╗ █████╗  ██████╗██╗  ██╗███████╗
