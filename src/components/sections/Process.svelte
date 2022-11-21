@@ -1,5 +1,4 @@
 <script lang="ts">
-	// TODO: เขียน alt
 	import { onMount } from 'svelte';
 	import { inView } from 'motion';
 	import { is_process_inview } from 'stores/sectionScrollManager';
@@ -47,7 +46,7 @@
 			<Details title="ร่างกฎหมาย">
 				<img
 					src="/law-watch/process/draft.png"
-					alt="TODO: เขียน alt ตรงนี้"
+					alt="ขั้นที่ 1: หากร่างกฎหมายถูกริเริ่มเสนอโดย ส.ส. หรือประชาชน เมื่อตรวจสอบความเรียบร้อย ต้องถูกการพิจารณาความเป็นกฎหมายที่เกี่ยวกับการเงินโดยนายกรัฐมนตรี หากพิจารณาแล้วว่าไม่เป็น หรือเป็นแต่ให้คำรับรอง ร่างกฎหมายก็จะผ่านเข้าสภา แต่หากพิจารณาแล้วว่าเป็นและถูกไม่ให้คำรับรอง ร่างกฎหมายจะตกไป"
 					width="131"
 					height="328"
 					loading="lazy"
@@ -68,14 +67,13 @@
 	<div class="sep" />
 	<section>
 		<h3 class="wv-b6 c-mint">
-			<span class="sr-only">เมื่อเข้ามา</span>ในสภา
-			<span class="sr-only">ร่างกฎหมายจะต้องผ่านการโหวต</span>
+			<span class="sr-only">ต่อมาก็จะผ่านเข้ามา</span>ในสภา
 		</h3>
 		<div>
 			<Details title="ส.ส.">
 				<img
 					src="/law-watch/process/member.png"
-					alt="TODO: เขียน alt ตรงนี้"
+					alt="ขั้นที่ 2: การพิจารณาร่างกฎหมายในสภาผู้แทนราษฎร พื้นฐานจะพิจารณาทั้งหมด 3 วาระ โดย ส.ส. มีอำนาจหลักพิจารณาร่างกฎหมาย"
 					width="134"
 					height="311"
 					loading="lazy"
@@ -95,7 +93,7 @@
 		<Details title="ส.ว.">
 			<img
 				src="/law-watch/process/senate.png"
-				alt="TODO: เขียน alt ตรงนี้"
+				alt="ขั้นที่ 3: การพิจารณาร่างกฎหมายในวุฒิสภา พื้นฐานจะพิจารณาทั้งหมด 3 วาระ โดย ส.ว. สามารถยับยั้งหรือแก้ไขเพิ่มเติมร่างกฎหมายได้ แต่ไม่สามารถปัดตกร่างกฎหมาย"
 				width="162"
 				height="351"
 				loading="lazy"
@@ -105,7 +103,7 @@
 		<Details title="ศาลรัฐธรรมนูญ">
 			<img
 				src="/law-watch/process/court.png"
-				alt="TODO: เขียน alt ตรงนี้"
+				alt="ขั้นที่ 4: กรณีสงสัยว่าร่างกฎหมายใดขัดหรือแย้งต่อรัฐธรรมนูญ มีขั้นตอนให้ส่งศาลรัฐธรรมนูญเพื่อวินิจฉัย ซึ่งหากขัดหรือแย้งทั้งหมด ร่างกฎหมายจะตกไป หากขัดหรือแย้งบางส่วน ร่างกฎหมายจะถูกตีกลับไปให้สภาแก้ไขเพิ่มเติม หากไม่ขัดหรือแย้ง ร่างกฎหมายจะเข้าสู่กระบวนการต่อไป"
 				width="134"
 				height="180"
 				loading="lazy"
@@ -115,7 +113,7 @@
 		<Details title="กษัตริย์">
 			<img
 				src="/law-watch/process/king.png"
-				alt="TODO: เขียน alt ตรงนี้"
+				alt="ขั้นที่ 5: หากร่างกฎหมายไม่มีปัญหาใดแล้ว นายกรัฐมนตรีนำทูลเกล้าเพื่อทรงลงพระปรมาภิไธย หากทรงลงพระปรมาภิไธยแล้ว จะประกาศลงราชกิจจานุเบกษาบังคับใช้เป็นกฎหมาย แต่หากไม่ทรงลงพระปรมาภิไธยภายใน 90 วัน รัฐสภาต้องนำร่างกฎหมายนั้นมาปรึกษาใหม่ เพื่อหาทางว่าจะดำเนินการอย่างไร หากประสงค์ยืนยันให้ผ่านร่าง ต้องใช้มติไม่น้อยกว่าสองในสามของสมาชิกสองสภาทั้งหมดเท่าที่มีอยู่"
 				width="153"
 				height="198"
 				loading="lazy"
@@ -132,12 +130,13 @@
 			decoding="async"
 		/>
 		<p class="wv-font-kondolar wv-h10 c-mint">
-			ประกาศในราชกิจจานุเบกษา<br />
+			<span class="sr-only">แล้วก็จะ</span>ประกาศในราชกิจจานุเบกษา<br />
 			บังคับใช้เป็นกฎหมาย
 		</p>
 	</section>
 	<p class="mem-detail wv-b5">
-		<span class="wv-font-bold">ส.ส. จากพรรคการเมือง</span><br />
+		<span class="wv-font-bold"><span class="sr-only">สังเกตได้ว่า</span> ส.ส. จากพรรคการเมือง</span
+		><br />
 		ที่ได้รับเลือกตั้งจากประชาชน<br />
 		มีส่วนเกี่ยวข้องกับกระบวนการ<br />
 		ออกกฎหมายทุกช่องทาง
@@ -145,7 +144,7 @@
 	<div class="mem-relation">
 		<div class="rel-text">
 			<span class="wv-h11 c-mint">ก่อนเข้าสภา</span>
-			<span class="wv-font-kondolar wv-h9">ร่างกฎหมาย</span>
+			<span class="wv-font-kondolar wv-h9"><span class="sr-only">ทำการเสนอ</span>ร่างกฎหมาย</span>
 		</div>
 		<img
 			class="rel-tooltip"
@@ -158,7 +157,7 @@
 		/>
 		<div class="rel-text">
 			<span class="wv-h11 c-mint">ในสภา</span>
-			<span class="wv-font-kondolar wv-h9">ส.ส.</span>
+			<span class="wv-font-kondolar wv-h9">ส.ส. <span class="sr-only">ทำการโหวต</span></span>
 		</div>
 		<img
 			class="rel-tooltip"
