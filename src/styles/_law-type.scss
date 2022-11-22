@@ -1,0 +1,34 @@
+.law-blue {
+	--law-color: #676dff;
+	--law-color-alpha: rgba(102, 107, 255, var(--law-alpha, 1));
+}
+
+.law-sky {
+	--law-color: #9feeff;
+	--law-color-alpha: rgba(159, 238, 255, var(--law-alpha, 1));
+}
+
+.law-yellow {
+	--law-color: #fff173;
+	--law-color-alpha: rgba(255, 241, 115, var(--law-alpha, 1));
+}
+
+.law-orange {
+	--law-color: #ff8a00;
+	--law-color-alpha: rgba(255, 138, 0, var(--law-alpha, 1));
+}
+
+.law-green {
+	--law-color: #1dc775;
+	--law-color-alpha: rgba(29, 199, 117, var(--law-alpha, 1));
+}
+
+.law-red {
+	--law-color: #ff3767;
+	--law-color-alpha: rgba(255, 55, 103, var(--law-alpha, 1));
+}
+
+.law-magenta {
+	--law-color: #d252ff;
+	--law-color-alpha: rgba(210, 82, 255, var(--law-alpha, 1));
+}
