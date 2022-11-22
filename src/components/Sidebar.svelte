@@ -254,30 +254,28 @@
 			{/if}
 		</section>
 	</div>
-	{#if votelog_data}
-		{#if votelog_data.total_voter !== 0}
-			<section class="theywork">
-				<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
-				{#if relative_law[current_law_index]?.VoteLog_Term}
-					<p>วาระที่ {relative_law[current_law_index]?.VoteLog_Term}</p>
-				{/if}
-				<div class="wv-font-kondolar wv-font-black wv-h10">
-					{Math.floor((votelog_data.approve / votelog_data.total_voter) * 100)}% ผ่าน
-				</div>
-				<div class="theywork-barchart">
-					<div class="bar" style="--bar-color:#1dc7a8;--bar-value:{votelog_data.approve}" />
-					<div class="bar" style="--bar-color:#e63a64;--bar-value:{votelog_data.disprove}" />
-					<div class="bar" style="--bar-color:#aaa;--bar-value:{votelog_data.abstained}" />
-					<div class="bar border" style="--bar-color:#fff;--bar-value:{votelog_data.absent}" />
-				</div>
-				<ul class="theywork-chart-desc wv-b7">
-					<li class="f" style="--bar-color:#1dc7a8">{votelog_data.approve} เห็นด้วย</li>
-					<li class="f" style="--bar-color:#e63a64">{votelog_data.disprove} ไม่เห็นด้วย</li>
-					<li class="f" style="--bar-color:#aaa">{votelog_data.abstained} งดออกเสียง</li>
-					<li class="f border" style="--bar-color:#fff">{votelog_data.absent} ไม่ลงคะแนน</li>
-				</ul>
-			</section>
-		{/if}
+	{#if votelog_data && votelog_data.total_voter !== 0}
+		<section class="theywork">
+			<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
+			{#if relative_law[current_law_index]?.VoteLog_Term}
+				<p>วาระที่ {relative_law[current_law_index]?.VoteLog_Term}</p>
+			{/if}
+			<div class="wv-font-kondolar wv-font-black wv-h10">
+				{Math.floor((votelog_data.approve / votelog_data.total_voter) * 100)}% ผ่าน
+			</div>
+			<div class="theywork-barchart">
+				<div class="bar" style="--bar-color:#1dc7a8;--bar-value:{votelog_data.approve}" />
+				<div class="bar" style="--bar-color:#e63a64;--bar-value:{votelog_data.disprove}" />
+				<div class="bar" style="--bar-color:#aaa;--bar-value:{votelog_data.abstained}" />
+				<div class="bar border" style="--bar-color:#fff;--bar-value:{votelog_data.absent}" />
+			</div>
+			<ul class="theywork-chart-desc wv-b7">
+				<li class="f" style="--bar-color:#1dc7a8">{votelog_data.approve} เห็นด้วย</li>
+				<li class="f" style="--bar-color:#e63a64">{votelog_data.disprove} ไม่เห็นด้วย</li>
+				<li class="f" style="--bar-color:#aaa">{votelog_data.abstained} งดออกเสียง</li>
+				<li class="f border" style="--bar-color:#fff">{votelog_data.absent} ไม่ลงคะแนน</li>
+			</ul>
+		</section>
 		<a
 			href="https://theyworkforus.wevis.info/votelog/{votelog_data.id}"
 			class="theywork-link f wv-b6"
@@ -464,7 +462,7 @@
 	.theywork-barchart {
 		display: flex;
 		height: 8px;
-		margin-top: 8px;
+		margin: 1px 0 5px;
 
 		> .bar {
 			background: var(--bar-color);
