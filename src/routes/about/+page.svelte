@@ -53,7 +53,8 @@
 				ต่อร่างกฎหมายที่ถูกเสนอและพิจารณาในสภาสมัยรัฐบาลประยุทธ์ จันทร์โอชา 2
 				มาจากการใช้ข้อมูลของโปรเจกต์ WeVis ที่ชื่อว่า &ldquo;<a
 					href="https://theyworkforus.wevis.info/"
-					>They work for us - ใครคือผู้แทนของเรา ค้นหา ตรวจสอบ โปร่งใส</a
+					target="_blank"
+					rel="noopener noreferrer">They work for us - ใครคือผู้แทนของเรา ค้นหา ตรวจสอบ โปร่งใส</a
 				>&rdquo;
 			</li>
 		</ol>

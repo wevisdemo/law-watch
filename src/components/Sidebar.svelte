@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RawDataType } from 'data/generated/data-types';
-	import { LAW_TYPE_METADATA } from 'data/law-types';
 	import { data } from 'data/generated/data';
+	import type { RawDataType, VotelogType } from 'data/generated/data-types';
 	import { votelog } from 'data/generated/votelog';
+	import { LAW_TYPE_METADATA } from 'data/law-types';
 
 	import { textTypeToPaperType } from 'components/lawvis/utils';
 	import Paper from 'components/papers/StaticPaper.svelte';
@@ -65,9 +65,11 @@
 		$current_selected_paper_id = null;
 	};
 
-	$: votelog_data = relative_law[current_law_index]?.VoteLog_ID
-		? votelog[relative_law[current_law_index]?.VoteLog_ID ?? 0] ?? null
-		: null;
+	let votelog_data: VotelogType | null = null;
+	$: {
+		const votelogId = relative_law[current_law_index]?.VoteLog_ID;
+		votelog_data = votelogId ? votelog[votelogId] ?? null : null;
+	}
 
 	$: if ($current_section !== 2 && open_sidebar) {
 		close();
@@ -253,30 +255,34 @@
 		</section>
 	</div>
 	{#if votelog_data}
-		<section class="theywork">
-			<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
-			{#if relative_law[current_law_index]?.VoteLog_Term}
-				<p>วาระที่ {relative_law[current_law_index]?.VoteLog_Term}</p>
-			{/if}
-			<div class="wv-font-kondolar wv-font-black wv-h10">
-				{Math.floor((votelog_data.approve / votelog_data.total_voter) * 100)}% ผ่าน
-			</div>
-			<div class="theywork-barchart">
-				<div class="bar" style="--bar-color:#1dc7a8;--bar-value:{votelog_data.approve}" />
-				<div class="bar" style="--bar-color:#e63a64;--bar-value:{votelog_data.disprove}" />
-				<div class="bar" style="--bar-color:#aaa;--bar-value:{votelog_data.abstained}" />
-				<div class="bar border" style="--bar-color:#fff;--bar-value:{votelog_data.absent}" />
-			</div>
-			<ul class="theywork-chart-desc wv-b7">
-				<li class="f" style="--bar-color:#1dc7a8">{votelog_data.approve} เห็นด้วย</li>
-				<li class="f" style="--bar-color:#e63a64">{votelog_data.disprove} ไม่เห็นด้วย</li>
-				<li class="f" style="--bar-color:#aaa">{votelog_data.abstained} งดออกเสียง</li>
-				<li class="f border" style="--bar-color:#fff">{votelog_data.absent} ไม่ลงคะแนน</li>
-			</ul>
-		</section>
+		{#if votelog_data.total_voter !== 0}
+			<section class="theywork">
+				<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
+				{#if relative_law[current_law_index]?.VoteLog_Term}
+					<p>วาระที่ {relative_law[current_law_index]?.VoteLog_Term}</p>
+				{/if}
+				<div class="wv-font-kondolar wv-font-black wv-h10">
+					{Math.floor((votelog_data.approve / votelog_data.total_voter) * 100)}% ผ่าน
+				</div>
+				<div class="theywork-barchart">
+					<div class="bar" style="--bar-color:#1dc7a8;--bar-value:{votelog_data.approve}" />
+					<div class="bar" style="--bar-color:#e63a64;--bar-value:{votelog_data.disprove}" />
+					<div class="bar" style="--bar-color:#aaa;--bar-value:{votelog_data.abstained}" />
+					<div class="bar border" style="--bar-color:#fff;--bar-value:{votelog_data.absent}" />
+				</div>
+				<ul class="theywork-chart-desc wv-b7">
+					<li class="f" style="--bar-color:#1dc7a8">{votelog_data.approve} เห็นด้วย</li>
+					<li class="f" style="--bar-color:#e63a64">{votelog_data.disprove} ไม่เห็นด้วย</li>
+					<li class="f" style="--bar-color:#aaa">{votelog_data.abstained} งดออกเสียง</li>
+					<li class="f border" style="--bar-color:#fff">{votelog_data.absent} ไม่ลงคะแนน</li>
+				</ul>
+			</section>
+		{/if}
 		<a
 			href="https://theyworkforus.wevis.info/votelog/{votelog_data.id}"
 			class="theywork-link f wv-b6"
+			target="_blank"
+			rel="noopener noreferrer"
 		>
 			ดูรายละเอียดการโหวตเพิ่มเติม
 			<img
