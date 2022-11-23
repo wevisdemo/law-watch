@@ -50,12 +50,18 @@
 
 		scroll(
 			({ y }) => {
-				if (y.progress === 1 && !is_part1_finished)
-					return (is_part1_finished = true), (is_part1_leaving = false);
-				if (y.progress >= 0.1 && is_part1_leaving)
-					return (is_part1_finished = false), (is_part1_leaving = false);
-				if (y.progress < 0.1 && !is_part1_leaving)
-					return (is_part1_finished = false), (is_part1_leaving = true);
+				if (y.progress === 1) {
+					if (!is_part1_finished) is_part1_finished = true;
+					if (is_part1_leaving) is_part1_leaving = false;
+					return;
+				}
+				if (is_part1_finished) is_part1_finished = false;
+				if (y.progress >= 0.1) {
+					if (is_part1_leaving) is_part1_leaving = false;
+				} else {
+					if (!is_part1_leaving) is_part1_leaving = true;
+				}
+				return;
 			},
 			{ target: el_trigger1, offset: [...ScrollOffset.Enter] }
 		);
