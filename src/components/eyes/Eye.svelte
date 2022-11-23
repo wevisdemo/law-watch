@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { inView } from 'motion';
 	import { mouse_x, mouse_y, scroll_y } from 'stores/mousePositionStore';
 	import { onDestroy, onMount } from 'svelte';
 	import type { AnimationType } from './AnimationType';
 
 	export let play = false;
 	export let animation: AnimationType;
+	let allow_update = animation !== 'close';
 
 	let eye_el: Element;
 	let eye_x = 0;
@@ -13,7 +15,7 @@
 	let eye_h = 0;
 
 	const updateEyePositions = () => {
-		if (eye_el) {
+		if (allow_update && eye_el) {
 			const { top, left, width, height } = eye_el.getBoundingClientRect();
 			eye_x = left;
 			eye_y = top;
@@ -28,9 +30,19 @@
 	let x = '0';
 	let y = '0';
 
-	onMount(() => updateEyePositions());
+	onMount(() => {
+		inView(eye_el, () => {
+			allow_update = true;
 
-	$: {
+			return () => {
+				allow_update = false;
+			};
+		});
+
+		updateEyePositions();
+	});
+
+	$: if (allow_update) {
 		// shift origin
 		const x0 = eye_x + eye_w / 2;
 		const y0 = eye_y + eye_h / 2;
@@ -54,7 +66,11 @@
 	class:awake={animation === 'awake' && play}
 	class:close={animation === 'close' && play}
 >
-	<div class="pupil" style:--x={x} style:--y={y} />
+	{#if animation === 'close'}
+		<div class="pupil" style:--x="0" style:--y="0" />
+	{:else}
+		<div class="pupil" style:--x={x} style:--y={y} />
+	{/if}
 </div>
 
 <style lang="scss">
