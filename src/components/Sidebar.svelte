@@ -463,14 +463,11 @@
 		display: flex;
 		height: 8px;
 		margin: 1px 0 5px;
+		border: 1px #000 solid;
 
 		> .bar {
 			background: var(--bar-color);
 			flex: var(--bar-value) var(--bar-value) 0;
-
-			&.border {
-				border: 1px #000 solid;
-			}
 		}
 	}
 
