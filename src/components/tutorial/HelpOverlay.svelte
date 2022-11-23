@@ -304,7 +304,7 @@
 						width="20"
 						height="20"
 						viewBox="0 0 20 21"
-						><g clip-path="url(#a)" filter="url(#b)"
+						><g clip-path="url(#aa)" filter="url(#b)"
 							><path
 								fill="#3904E9"
 								fill-rule="evenodd"
@@ -312,7 +312,7 @@
 								clip-rule="evenodd"
 							/></g
 						><defs
-							><clipPath id="a"
+							><clipPath id="aa"
 								><path
 									fill="#fff"
 									d="M0 0h20v20H0z"
