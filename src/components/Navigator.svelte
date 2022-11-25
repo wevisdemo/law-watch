@@ -70,7 +70,7 @@
 		@media (min-width: 768px) {
 			position: sticky;
 			top: 48px;
-			margin: 48px 48px calc(-128px - 48px) auto;
+			margin: 48px 48px -180px auto;
 			width: max-content;
 			z-index: 10;
 

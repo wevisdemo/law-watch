@@ -72,12 +72,12 @@ Contact: https://tinyurl.com/joinpunchup
 		integrity="sha512-gCJkkUMGTe73+FMwog6gIBCVJIMXRoc21l6/IPCuzxCex/1sxvO8ctb6Zd4/WWs2UMqmtnDrAdhJht5pEY0LXg=="
 		crossorigin="anonymous"
 		media="print"
-		onload="this.media='all'">
+		data-lazy>
 	<link
 		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;600;700&display=swap"
 		rel="stylesheet"
 		media="print"
-		onload="this.media='all'">
+		data-lazy>
 	<noscript>
 		<link
 			rel="stylesheet"
@@ -90,8 +90,13 @@ Contact: https://tinyurl.com/joinpunchup
 	</noscript>
 	<script defer data-domain="wevis.info/law-watch"
 		src="https://analytics.punchup.world/js/plausible.js"></script>
+	<script defer>
+		[...document.querySelectorAll("[data-lazy]")].forEach(l=>l.media="all")
+	</script>
 </head>
 
-%sveltekit.body%
+<body class="wv-font-anuphan">
+	<div style="position:static">%sveltekit.body%</div>
+</body>
 
 </html>

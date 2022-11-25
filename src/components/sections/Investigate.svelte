@@ -72,7 +72,10 @@
 <style lang="scss">
 	#investigate-section {
 		height: 100vh;
-		height: 100dvh;
+
+		@supports (height: 100dvh) {
+			height: 100dvh;
+		}
 	}
 
 	.title {
