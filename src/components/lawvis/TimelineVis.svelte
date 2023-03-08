@@ -54,8 +54,8 @@
 		<div class="bar f" style="--days:1096">
 			<span>1096<br /><small>(3 ปี)</small></span>
 		</div>
-		<!-- <div class="bar" style="--days:1220">
-			<span>1220<br /><small>(Max)</small></span>
+		<!-- <div class="bar" style="--days:1461">
+			<span>1461<br /><small>(4 ปี)</small></span>
 		</div> -->
 	</div>
 	<div class="timeline-tools f">
