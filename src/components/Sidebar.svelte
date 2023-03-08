@@ -253,6 +253,25 @@
 				</ul>
 			{/if}
 		</section>
+		{#if relative_law[current_law_index]?.Law_Link}
+			<a
+				href={relative_law[current_law_index]?.Law_Link}
+				class="theywork-link f wv-b6"
+				target="_blank"
+				rel="noopener noreferrer"
+				style="position:sticky;bottom:0"
+			>
+				ดูกฎหมายฉบับเต็ม
+				<img
+					src="/law-watch/external-link.svg"
+					alt=""
+					width="14"
+					height="14"
+					loading="lazy"
+					decoding="async"
+				/>
+			</a>
+		{/if}
 	</div>
 	{#if votelog_data && votelog_data.total_voter !== 0}
 		<section class="theywork">
