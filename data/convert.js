@@ -44,6 +44,7 @@ csv()
 			b.End_Date = b.End_Date ? +b.End_Date : null;
 
 			b.Law_Keyword = (b.Law_Name + ' ' + b.Law_Nickname).toLocaleLowerCase();
+			b.Law_Link = b.Law_Link ? b.Law_Link : null;
 
 			nickname_arr.push(b.Law_Nickname);
 			delete b.Law_Nickname;

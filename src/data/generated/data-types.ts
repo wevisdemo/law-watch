@@ -17,6 +17,7 @@ export type RawDataType = {
 	Law_Merge: number | null;
 	Law_in_Parliament: boolean;
 	Law_Type: LawTypes;
+	Law_Link: string | null;
 
 	// Votelog
 	VoteLog_ID: number | null;
