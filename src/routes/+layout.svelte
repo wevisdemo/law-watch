@@ -22,6 +22,7 @@
 
 	let is_mounted = false;
 	onMount(() => {
+		[...document.querySelectorAll('[data-lazy]')].forEach((l) => l.setAttribute('media', 'all'));
 		weAreAlwaysHiring();
 		is_mounted = true;
 	});
