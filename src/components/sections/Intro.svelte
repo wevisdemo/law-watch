@@ -84,7 +84,7 @@
 		bind:this={el_svg}
 		class="intro-year"
 		src="/law-watch/intro-year.svg"
-		alt="2562 ถึง 2565"
+		alt="2562 ถึง 2566"
 		width="1280"
 		height="175"
 		loading="lazy"
