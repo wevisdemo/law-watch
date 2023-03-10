@@ -134,9 +134,9 @@
 			</div>
 			<div class="wv-font-kondolar wv-font-black year">
 				<img
-					src="/law-watch/stats/65.svg"
+					src="/law-watch/stats/66.svg"
 					alt=""
-					width="88"
+					width="89"
 					height="56"
 					loading="lazy"
 					decoding="async"
@@ -166,7 +166,8 @@
 
 	.chart-container {
 		display: flex;
-		width: calc(100% - 96px);
+		width: calc(100% - 48px);
+		margin-left: 48px;
 	}
 
 	.chart-header {
@@ -186,7 +187,7 @@
 	}
 
 	.party-header {
-		padding: 50px 0;
+		padding: 82px 0;
 	}
 
 	.cab-header {
@@ -194,12 +195,12 @@
 	}
 
 	.people-header {
-		padding: 24px 0;
+		padding: 66px 0;
 	}
 
 	@media (max-width: 767.5px) {
 		.party-header {
-			padding: 76px 0;
+			padding: 100px 0;
 		}
 
 		.cab-header {
@@ -207,7 +208,7 @@
 		}
 
 		.people-header {
-			padding: 44px 0;
+			padding: 76px 0;
 		}
 	}
 
@@ -310,7 +311,8 @@
 		}
 
 		.chart-container {
-			width: calc(100% - 32px);
+			width: calc(100% - 16px);
+			margin-left: 16px;
 		}
 
 		.chart-header-mobile {

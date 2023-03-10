@@ -49,7 +49,7 @@
 		animate(
 			el_svg,
 			{
-				transform: ['translateY(100%)', 'translateY(0)']
+				transform: ['translateY(100%)', 'translateY(0.6vh)']
 			},
 			{
 				duration: 1,
@@ -86,7 +86,7 @@
 		src="/law-watch/intro-year.svg"
 		alt="2562 ถึง 2565"
 		width="1280"
-		height="179"
+		height="175"
 		loading="lazy"
 		decoding="async"
 	/>

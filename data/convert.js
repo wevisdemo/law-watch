@@ -46,6 +46,13 @@ csv()
 			b.Law_Keyword = (b.Law_Name + ' ' + b.Law_Nickname).toLocaleLowerCase();
 			b.Law_Link = b.Law_Link ? b.Law_Link : null;
 
+			if (
+				b.Law_Link ===
+				'https://ratchakitcha.soc.go.th/documents/138A082N0010000000100.pdf, https://ratchakitcha.soc.go.th/documents/138A082N0020000000100.pdf'
+			) {
+				b.Law_Link = '/law-watch/docs/138A082N0010000000100_138A082N0020000000100.pdf';
+			}
+
 			nickname_arr.push(b.Law_Nickname);
 			delete b.Law_Nickname;
 
