@@ -25,6 +25,7 @@
 	<div
 		class="paper {type} {color_class}"
 		class:noMargin
+		class:paper-mark-left={marked === 'left'}
 		class:paper-mark-right={marked === 'right'}
 		class:small
 		{...$$restProps}
@@ -121,6 +122,10 @@
 
 	.paper-mark-right:first-of-type {
 		clip-path: polygon(7px 0, 100% 0, 100% 100%, 0 100%, 0 7px);
+	}
+
+	.paper-mark-left:nth-last-of-type(2) > .mark-left {
+		right: -1px;
 	}
 
 	@media (min-width: 768px) {
