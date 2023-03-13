@@ -27,8 +27,8 @@ csv()
 			b.Proposer_Party = b.Proposer_Party.split(',')
 				.map((e) => e.trim())
 				.filter((e) => e);
-			b.Start_Date = b.Start_Date ? new Date(b.Start_Date) : null;
-			b.End_Date = b.End_Date ? new Date(b.End_Date) : null;
+			b.Start_Date = b.Start_Date && b.Start_Date !== '?' ? new Date(b.Start_Date) : null;
+			b.End_Date = b.End_Date && b.End_Date !== '?' ? new Date(b.End_Date) : null;
 			b.Law_Merge = b.Law_Merge ? +b.Law_Merge : null;
 			b.Law_in_Parliament = b.Law_in_Parliament === 'TRUE';
 			b.VoteLog_ID = b.VoteLog_ID ? +b.VoteLog_ID : null;
@@ -44,6 +44,14 @@ csv()
 			b.End_Date = b.End_Date ? +b.End_Date : null;
 
 			b.Law_Keyword = (b.Law_Name + ' ' + b.Law_Nickname).toLocaleLowerCase();
+			b.Law_Link = b.Law_Link ? b.Law_Link : null;
+
+			if (
+				b.Law_Link ===
+				'https://ratchakitcha.soc.go.th/documents/138A082N0010000000100.pdf, https://ratchakitcha.soc.go.th/documents/138A082N0020000000100.pdf'
+			) {
+				b.Law_Link = '/law-watch/docs/138A082N0010000000100_138A082N0020000000100.pdf';
+			}
 
 			nickname_arr.push(b.Law_Nickname);
 			delete b.Law_Nickname;
@@ -185,7 +193,9 @@ csv()
 		}));
 
 		statCache.longest_diff = Math.max(
-			...minimal_data.filter((e) => e.original_status !== 'กฎหมายที่ถูกรวมร่าง').map((e) => e.diff)
+			...minimal_data
+				.filter((e) => e.original_status !== 'กฎหมายที่ถูกรวมร่าง' && e.diff)
+				.map((e) => e.diff)
 		);
 
 		const law_by_type = groupBy(minimal_data, (e) => e.type);
@@ -265,6 +275,7 @@ csv()
 		// statCache.by_people = by_people;
 
 		let data = [
+			// PARTY
 			[
 				by_party?.[2019]?.ตกไป ?? [0, 0],
 				by_party?.[2019]?.อยู่ในกระบวนการ ?? [0, 0],
@@ -286,6 +297,12 @@ csv()
 				by_party?.[2022]?.ออกเป็นกฎหมาย ?? [0, 0]
 			],
 			[
+				by_party?.[2023]?.ตกไป ?? [0, 0],
+				by_party?.[2023]?.อยู่ในกระบวนการ ?? [0, 0],
+				by_party?.[2023]?.ออกเป็นกฎหมาย ?? [0, 0]
+			],
+			// CABINET
+			[
 				by_cabinet?.[2019]?.ตกไป ?? [0, 0],
 				by_cabinet?.[2019]?.อยู่ในกระบวนการ ?? [0, 0],
 				by_cabinet?.[2019]?.ออกเป็นกฎหมาย ?? [0, 0]
@@ -306,6 +323,12 @@ csv()
 				by_cabinet?.[2022]?.ออกเป็นกฎหมาย ?? [0, 0]
 			],
 			[
+				by_cabinet?.[2023]?.ตกไป ?? [0, 0],
+				by_cabinet?.[2023]?.อยู่ในกระบวนการ ?? [0, 0],
+				by_cabinet?.[2023]?.ออกเป็นกฎหมาย ?? [0, 0]
+			],
+			// PPL
+			[
 				by_people?.[2019]?.ตกไป ?? [0, 0],
 				by_people?.[2019]?.อยู่ในกระบวนการ ?? [0, 0],
 				by_people?.[2019]?.ออกเป็นกฎหมาย ?? [0, 0]
@@ -324,6 +347,11 @@ csv()
 				by_people?.[2022]?.ตกไป ?? [0, 0],
 				by_people?.[2022]?.อยู่ในกระบวนการ ?? [0, 0],
 				by_people?.[2022]?.ออกเป็นกฎหมาย ?? [0, 0]
+			],
+			[
+				by_people?.[2023]?.ตกไป ?? [0, 0],
+				by_people?.[2023]?.อยู่ในกระบวนการ ?? [0, 0],
+				by_people?.[2023]?.ออกเป็นกฎหมาย ?? [0, 0]
 			]
 		];
 

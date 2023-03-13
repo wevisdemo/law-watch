@@ -132,14 +132,24 @@
 					decoding="async"
 				/>
 			</div>
+			<div class="wv-font-kondolar wv-font-black year">
+				<img
+					src="/law-watch/stats/66.svg"
+					alt=""
+					width="89"
+					height="56"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
 		</div>
 	</div>
 	<ol class="stats-footnote wv-b7">
-		<li>* นับจากปีที่เริ่มยื่นเสนอร่างกฎหมาย</li>
+		<li>* นับจากปีที่ข้อมูลการยื่นเสนอร่างกฎหมายเผยแพร่ต่อสาธารณะ</li>
 		<li class="indent">
 			** มีร่างกฎหมายที่ถูกเสนอตั้งแต่ ปี พ.ศ. 2561 กินระยะเวลานานรวมอยู่ด้วย 3 ฉบับ
 		</li>
-		<li>*** Update ข้อมูลร่างกฎหมายล่าสุดวันที่ 5 พ.ย. 2565</li>
+		<li>*** Update ข้อมูลร่างกฎหมายล่าสุดวันที่ 28 ก.พ. 2566</li>
 	</ol>
 </section>
 
@@ -156,7 +166,8 @@
 
 	.chart-container {
 		display: flex;
-		width: calc(100% - 96px);
+		width: calc(100% - 48px);
+		margin-left: 48px;
 	}
 
 	.chart-header {
@@ -176,7 +187,7 @@
 	}
 
 	.party-header {
-		padding: 50px 0;
+		padding: 82px 0;
 	}
 
 	.cab-header {
@@ -184,12 +195,12 @@
 	}
 
 	.people-header {
-		padding: 24px 0;
+		padding: 66px 0;
 	}
 
 	@media (max-width: 767.5px) {
 		.party-header {
-			padding: 76px 0;
+			padding: 100px 0;
 		}
 
 		.cab-header {
@@ -197,7 +208,7 @@
 		}
 
 		.people-header {
-			padding: 44px 0;
+			padding: 76px 0;
 		}
 	}
 
@@ -207,7 +218,7 @@
 
 	.chart-body {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: repeat(3, min-content) auto;
 		width: 100%;
 
@@ -300,7 +311,8 @@
 		}
 
 		.chart-container {
-			width: calc(100% - 32px);
+			width: calc(100% - 16px);
+			margin-left: 16px;
 		}
 
 		.chart-header-mobile {
