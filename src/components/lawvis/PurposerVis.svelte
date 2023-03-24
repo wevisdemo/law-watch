@@ -36,7 +36,7 @@
 						{/each}
 					{/each}
 					<span class="number wv-b5">
-						<span class="wv-font-semibold">{dom_catg.flat(2).length} ฉบับ</span>
+						<span class="wv-semibold">{dom_catg.flat(2).length} ฉบับ</span>
 						<span class="number-back">
 							{((dom_catg.flat(2).length / stats.all_law_len) * 100).toFixed(1)}%
 						</span>

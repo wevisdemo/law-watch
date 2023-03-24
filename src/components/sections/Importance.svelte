@@ -259,7 +259,7 @@
 					loading="lazy"
 					decoding="async"
 				/>
-				<h2 class="wv-font-kondolar wv-h9">
+				<h2 class="wv-kondolar wv-h9">
 					{popup_status === 'party' ? 'พรรคการเมือง' : 'ประชาชน'}
 				</h2>
 				<button

@@ -36,7 +36,7 @@
 			<span class="nw">สำหรับประชาชนว่า</span>
 		</p>
 		<Eyes margin="40px 0" />
-		<p class="wv-b3 wv-font-semibold">
+		<p class="wv-b3 wv-semibold">
 			<span class="nw">เราควรจะเลือก หรือไม่เลือกใคร</span>
 			<span class="nw">ในการเลือกตั้งครั้งถัดไป</span>
 		</p>
@@ -63,7 +63,7 @@
 			color: #fff;
 		}
 
-		> p.wv-font-semibold {
+		> p.wv-semibold {
 			color: #a5ebd7;
 		}
 	}

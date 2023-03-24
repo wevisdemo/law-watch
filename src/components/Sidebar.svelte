@@ -78,7 +78,7 @@
 
 <article class="law-detail wv-b6" class:open={open_sidebar}>
 	<header>
-		<h3 class="wv-font-semibold wv-h10">{relative_law[current_law_index]?.Law_Name}</h3>
+		<h3 class="wv-semibold wv-h10">{relative_law[current_law_index]?.Law_Name}</h3>
 		<button type="button" class="close-btn" on:click={close}>
 			<img
 				src="/law-watch/card-close.svg"
@@ -92,7 +92,7 @@
 	</header>
 	<div class="detail-wrapper">
 		<div class="status f">
-			<span class="wv-font-semibold" style="line-height:1">สถานะกฎหมาย</span>
+			<span class="wv-semibold" style="line-height:1">สถานะกฎหมาย</span>
 			<Paper
 				noMargin
 				type={textTypeToPaperType(relative_law[0]?.Law_Status ?? '')}
@@ -178,7 +178,7 @@
 		{/if}
 		<section>
 			<dl>
-				<dt class="wv-font-semibold f">หมวดกฎหมาย</dt>
+				<dt class="wv-semibold f">หมวดกฎหมาย</dt>
 				<dd>
 					<div
 						class="law-type-pill {LAW_TYPE_METADATA[
@@ -189,7 +189,7 @@
 					</div>
 				</dd>
 				{#if relative_law[current_law_index]?.Date_Diff}
-					<dt class="wv-font-semibold f">
+					<dt class="wv-semibold f">
 						<img
 							src="/law-watch/calendar.svg"
 							alt=""
@@ -203,7 +203,7 @@
 					</dt>
 					<dd>{formatDuration(relative_law[current_law_index]?.Date_Diff ?? 0)}</dd>
 				{/if}
-				<dt class="wv-font-semibold f">
+				<dt class="wv-semibold f">
 					{#if relative_law[current_law_index]?.Date_Diff}
 						<div class="addon" />
 					{:else}
@@ -220,13 +220,13 @@
 					วันที่เสนอ
 				</dt>
 				<dd>{formatDate(relative_law[current_law_index]?.Start_Date)}</dd>
-				<dt class="wv-font-semibold f">
+				<dt class="wv-semibold f">
 					<div class="addon" />
 					วันที่สิ้นสุด
 				</dt>
 				<dd>{formatDate(relative_law[current_law_index]?.End_Date)}</dd>
 
-				<dt class="wv-font-semibold f">
+				<dt class="wv-semibold f">
 					<img
 						src="/law-watch/person.svg"
 						alt=""
@@ -239,7 +239,7 @@
 					ชื่อผู้เสนอ
 				</dt>
 				<dd>{relative_law[current_law_index]?.Proposer_Name}</dd>
-				<dt class="wv-font-semibold f">
+				<dt class="wv-semibold f">
 					<div class="addon" />
 					ประเภทผู้เสนอ
 				</dt>
@@ -275,11 +275,11 @@
 	</div>
 	{#if votelog_data && votelog_data.total_voter !== 0}
 		<section class="theywork">
-			<h4 class="wv-font-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
+			<h4 class="wv-semibold">การโหวตในสภาผู้แทนราษฎรวาระล่าสุด</h4>
 			{#if relative_law[current_law_index]?.VoteLog_Term}
 				<p>วาระที่ {relative_law[current_law_index]?.VoteLog_Term}</p>
 			{/if}
-			<div class="wv-font-kondolar wv-font-black wv-h10">
+			<div class="wv-kondolar wv-black wv-h10">
 				{Math.floor((votelog_data.approve / votelog_data.total_voter) * 100)}% ผ่าน
 			</div>
 			<div class="theywork-barchart">

@@ -25,13 +25,13 @@
 </script>
 
 <section bind:this={el_section} id="stats-section" class="f c">
-	<h2 class="wv-font-kondolar wv-h9 tc" style="padding:0 16px">
+	<h2 class="wv-kondolar wv-h9 tc" style="padding:0 16px">
 		<span class="nw">ร่างกฎหมายที่ถูกเสนอ</span><span class="nw">เพื่อพิจารณาในสมัย</span><span
 			class="nw">รัฐบาลประยุทธ์ จันทร์โอชา 2</span
 		><br />
 		<span class="header-line2">
 			ทั้งหมด
-			<span class="wv-font-kondolar wv-h4 wv-font-black c-mint">{stats.all_law_len}</span>
+			<span class="wv-kondolar wv-h4 wv-black c-mint">{stats.all_law_len}</span>
 			ฉบับ
 		</span>
 	</h2>
@@ -56,7 +56,7 @@
 				<div class="chart-presenter-header">
 					<span class="wv-b4">พรรคการเมือง</span><br />
 					<div class="number-aligner f">
-						<span class="wv-font-kondolar wv-h5 wv-font-black">{stats.by_party_len}</span>
+						<span class="wv-kondolar wv-h5 wv-black">{stats.by_party_len}</span>
 						<span class="wv-b5">ฉบับ</span>
 					</div>
 				</div>
@@ -66,7 +66,7 @@
 					<div class="number-container">
 						<span class="wv-b4">คณะรัฐมนตรี</span><br />
 						<div class="number-aligner f">
-							<span class="wv-font-kondolar wv-h5 wv-font-black">{stats.by_cabinet_len}</span>
+							<span class="wv-kondolar wv-h5 wv-black">{stats.by_cabinet_len}</span>
 							<span class="wv-b5">ฉบับ</span>
 						</div>
 					</div>
@@ -76,7 +76,7 @@
 				<div class="chart-presenter-header">
 					<span class="wv-b4">ประชาชน</span><br />
 					<div class="number-aligner f">
-						<span class="wv-font-kondolar wv-h5 wv-font-black">{stats.by_people_len}</span>
+						<span class="wv-kondolar wv-h5 wv-black">{stats.by_people_len}</span>
 						<span class="wv-b5">ฉบับ</span>
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 					<PaperChart {data} />
 				</div>
 			{/each}
-			<div class="wv-font-kondolar wv-font-black year">
+			<div class="wv-kondolar wv-black year">
 				<img
 					src="/law-watch/stats/62.svg"
 					alt=""
@@ -102,7 +102,7 @@
 					decoding="async"
 				/>
 			</div>
-			<div class="wv-font-kondolar wv-font-black year">
+			<div class="wv-kondolar wv-black year">
 				<img
 					src="/law-watch/stats/63.svg"
 					alt=""
@@ -112,7 +112,7 @@
 					decoding="async"
 				/>
 			</div>
-			<div class="wv-font-kondolar wv-font-black year">
+			<div class="wv-kondolar wv-black year">
 				<img
 					src="/law-watch/stats/64.svg"
 					alt=""
@@ -122,7 +122,7 @@
 					decoding="async"
 				/>
 			</div>
-			<div class="wv-font-kondolar wv-font-black year">
+			<div class="wv-kondolar wv-black year">
 				<img
 					src="/law-watch/stats/65.svg"
 					alt=""
@@ -132,7 +132,7 @@
 					decoding="async"
 				/>
 			</div>
-			<div class="wv-font-kondolar wv-font-black year">
+			<div class="wv-kondolar wv-black year">
 				<img
 					src="/law-watch/stats/66.svg"
 					alt=""

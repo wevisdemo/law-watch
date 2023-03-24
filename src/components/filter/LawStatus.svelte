@@ -25,7 +25,7 @@
 	{...$$restProps}
 >
 	<summary
-		class="header wv-font-semibold"
+		class="header wv-semibold"
 		class:highlight={typeof highlight === 'string' && ['one', 'two'].includes(highlight)}
 	>
 		<span class="f">
