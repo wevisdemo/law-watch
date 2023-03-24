@@ -246,7 +246,7 @@
 			</div>
 		{/if}
 		<div class="btn-container f" class:right={is_intro_dismiss}>
-			<button type="button" class="wv-font-anuphan wv-b4 tut-btn f primary" on:click={closeHelp}>
+			<button type="button" class="wv-ibmplex wv-b4 tut-btn f primary" on:click={closeHelp}>
 				สำรวจเอง
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -274,7 +274,7 @@
 				>
 			</button>
 			{#if !is_intro_dismiss}
-				<button type="button" class="wv-font-anuphan wv-b4 tut-btn f" on:click={dismissIntro}>
+				<button type="button" class="wv-ibmplex wv-b4 tut-btn f" on:click={dismissIntro}>
 					ช่วยนำทางที
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +294,7 @@
 			{#if current_tutorial}
 				<button
 					type="button"
-					class="wv-font-anuphan wv-b4 tut-btn f"
+					class="wv-ibmplex wv-b4 tut-btn f"
 					style="width:80px;padding:8px 12px 8px 8px"
 					on:click={resetCurrentTutorial}
 				>

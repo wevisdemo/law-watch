@@ -15,14 +15,14 @@
 
 <WvContainer heading="เกี่ยวกับโครงการ">
 	<WvParagraphGroup heading="เป้าหมาย">
-		<p class="wv-font-baijamjuri">
+		<p class="wv-baijamjuri">
 			เมื่อกฎหมายคือกติกาของการอยู่ร่วมกันในสังคมของรัฐหนึ่ง
 			กฎหมายจึงควรต้องมีที่มาจากกระบวนการอันมีส่วนยึดโยงประชาชนผู้เป็นองค์ประกอบหนึ่งของรัฐ
 			ไม่ว่าจะโดยทางตรงหรือทางอ้อม ซึ่งตามกลไกทางประชาธิปไตยในระบบรัฐธรรมนูญของหลายประเทศ
 			รวมถึงประเทศไทย สมาชิกสภาผู้แทนราษฎรของพรรคการเมืองที่ได้รับการเลือกตั้งเข้าสู่รัฐสภา
 			คือผู้ที่มีส่วนเกี่ยวข้องกับกระบวนการร่างกฎหมายในทุกเส้นทางเสมอ
 		</p>
-		<p class="wv-font-baijamjuri">
+		<p class="wv-baijamjuri">
 			ทาง WeVis ร่วมกับ 101 PUB
 			ขอชวนทุกคนดูข้อมูลร่างกฎหมายที่เข้าสู่กระบวนการรัฐสภาไทยในรัฐบาลยุคประยุทธ์ จันทร์โอชา 2
 			เพื่อพิจารณาว่า ส.ส. ที่คนไทยเลือกตั้งไปนั้น ทำการเสนอ และพิจารณาร่างกฎหมายอะไร และอย่างไรบ้าง
@@ -31,7 +31,7 @@
 		</p>
 	</WvParagraphGroup>
 	<WvParagraphGroup heading="ที่มาของข้อมูล">
-		<ol class="wv-font-baijamjuri" style="padding-left:1rem">
+		<ol class="wv-baijamjuri" style="padding-left:1rem">
 			<li>
 				สำหรับข้อมูลร่างกฎหมายทั้งหมดที่ถูกเสนอและพิจารณาในสภาสมัยรัฐบาลประยุทธ์ จันทร์โอชา 2 ทาง
 				WeVis ขอขอบคุณ <a
@@ -60,33 +60,33 @@
 		</ol>
 	</WvParagraphGroup>
 	<WvParagraphGroup heading="นโยบายการนำข้อมูลไปใช้ต่อ">
-		<p class="wv-font-baijamjuri">
+		<p class="wv-baijamjuri">
 			WeVis มีความตั้งใจที่พัฒนาทุกโปรเจ็กต์ให้เป็น Open Source และเปิดข้อมูลเป็น Open Data
 			ภายใต้เงื่อนไข Creative Commons Attribution-NonCommercial License (CC-BY-NC)
 			คือสามารถนำไปเผยแพร่และดัดแปลงได้ โดยต้องระบุที่มา แต่ห้ามนำไปใช้เพื่อการค้า
 		</p>
-		<p class="wv-font-baijamjuri">
+		<p class="wv-baijamjuri">
 			หากมีข้อสงสัยต้องการสอบถามเพิ่มเติม ประสงค์แจ้งเปลี่ยนแปลงหรือเพิ่มเติมข้อมูลเพื่อความถูกต้อง
 			หรือมีข้อเสนอแนะใดๆ สามารถติดต่อได้ที่ team@punchup.world
 		</p>
 	</WvParagraphGroup>
 	<WvParagraphGroup heading="อาสาสมัครร่วมพัฒนา">
 		<WvParagraphGroup small heading="เขียนโปรแกรม">
-			<p class="wv-font-baijamjuri">
+			<p class="wv-baijamjuri">
 				<a href="https://rootenginear.github.io/" target="_blank" rel="noopener noreferrer"
 					>สุเทพ จันทร์ชูผล</a
 				>
 			</p>
 		</WvParagraphGroup>
 		<WvParagraphGroup small heading="ออกแบบ">
-			<p class="wv-font-baijamjuri">
+			<p class="wv-baijamjuri">
 				<a href="https://pearwawa.myportfolio.com/" target="_blank" rel="noopener noreferrer"
 					>มนสิชา ศรีสวนแตง</a
 				>
 			</p>
 		</WvParagraphGroup>
 		<WvParagraphGroup small heading="สืบค้นและรวบรวมข้อมูล">
-			<p class="wv-font-baijamjuri">
+			<p class="wv-baijamjuri">
 				สิทธิกานต์ ธีระวัฒนชัย, <a
 					href="https://the101percent.com/works/101pub/"
 					target="_blank"
@@ -95,16 +95,16 @@
 			</p>
 		</WvParagraphGroup>
 		<WvParagraphGroup small heading="บรรณาธิการ">
-			<p class="wv-font-baijamjuri">ธนิสรา เรืองเดช</p>
+			<p class="wv-baijamjuri">ธนิสรา เรืองเดช</p>
 		</WvParagraphGroup>
 		<WvParagraphGroup small heading="ประสานงานและจัดการอื่นๆ">
-			<p class="wv-font-baijamjuri">
+			<p class="wv-baijamjuri">
 				<a href="https://punchup.world/" target="_blank" rel="nofollow noopener noreferrer"
 					>Punch Up</a
 				>
 			</p>
 		</WvParagraphGroup>
-		<p class="wv-font-baijamjuri">
+		<p class="wv-baijamjuri">
 			โปรเจกต์ <strong
 				>&ldquo;ส่องผลงานผ่านสภายุคประยุทธ์สอง ส.ส. เสนอและ/หรือโหวตกฎหมายอะไรกันบ้าง?&rdquo;</strong
 			> ได้รับการสนับสนุนทุนในการดำเนินงานจาก National Endowment for Democracy (NED) ซึ่งนำมาใช้เป็นต้นทุนในการรวมรวมข้อมูล

@@ -16,7 +16,7 @@
 </script>
 
 <div class={clazz} class:highlight={$law_type_highlight}>
-	<div class="header wv-font-semibold wv-b6">หมวดหมู่กฎหมาย</div>
+	<div class="header wv-semibold wv-b6">หมวดหมู่กฎหมาย</div>
 	<div class="law-group-selector">
 		{#each GROUP_ORDER as name (name)}
 			<input

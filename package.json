@@ -35,7 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"@floating-ui/dom": "^1.0.4",
-		"@wevisdemo/ui": "^5.0.0",
+		"@wevisdemo/ui": "^6.0.0",
 		"motion": "^10.14.2"
 	}
 }

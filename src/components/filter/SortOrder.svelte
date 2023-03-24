@@ -28,7 +28,7 @@
 		{#each arrow_inbetween as property, i (property)}
 			<button
 				type="button"
-				class="wv-font-anuphan"
+				class="wv-ibmplex"
 				class:active={i === 0}
 				class:sort-property={i % 2 === 0}
 				class:wv-b6={i % 2 === 0}

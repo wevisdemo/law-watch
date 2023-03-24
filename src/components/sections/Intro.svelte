@@ -68,12 +68,12 @@
 		<div class="f c tc">
 			<Eyes animation="awake" />
 			<header>
-				<h1 bind:this={el_h1} class="wv-h2 wv-font-kondolar wv-font-black">
+				<h1 bind:this={el_h1} class="wv-h2 wv-kondolar wv-black">
 					<span class="nw">ส่องผลงาน</span><span class="nw">ผ่านสภา</span><span class="nw"
 						>ยุคประยุทธ์สอง</span
 					>
 				</h1>
-				<p bind:this={el_p} class="wv-h5 wv-font-kondolar c-mint">
+				<p bind:this={el_p} class="wv-h5 wv-kondolar c-mint">
 					<span class="nw">ส.ส. <strong>เสนอ</strong> และ/หรือ <strong>โหวต</strong></span>
 					<span class="nw">กฎหมายอะไรกันบ้าง ?</span>
 				</p>

@@ -35,7 +35,7 @@
 <div class="searchbox-container f {clazz}" {...$$restProps}>
 	<input
 		bind:this={el_searchbox}
-		class="search-input wv-font-anuphan wv-b6"
+		class="search-input wv-ibmplex wv-b6"
 		type="text"
 		placeholder="ค้นหาร่างกฎหมาย"
 		bind:value={$search_input}

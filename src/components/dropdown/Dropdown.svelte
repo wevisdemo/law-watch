@@ -98,7 +98,7 @@
 	</span>
 	<button
 		type="button"
-		class="select-control f wv-font-anuphan wv-b7"
+		class="select-control f wv-ibmplex wv-b7"
 		tabindex="0"
 		on:click={toggleSelect}
 		on:keydown={selectKeyManager}

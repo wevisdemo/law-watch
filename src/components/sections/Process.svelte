@@ -21,7 +21,7 @@
 </script>
 
 <section bind:this={el_section} id="process-section" class="f c tc">
-	<h2 class="wv-h9 wv-font-kondolar">
+	<h2 class="wv-h9 wv-kondolar">
 		<span class="nw">การที่ร่างกฎหมายจะออกเป็นกฎหมายได้</span>
 		<span class="nw">ต้องผ่าน <strong class="c-mint">กระบวนการทางสภา</strong> ดังนี้</span>
 	</h2>
@@ -29,16 +29,16 @@
 		<h3 class="wv-b6 c-mint">ก่อนเข้าสภา</h3>
 		<div class="draft-editor-container" aria-hidden="true">
 			<div class="tc">
-				<span class="editor-type wv-font-semibold wv-b5">ครม.</span>
+				<span class="editor-type wv-semibold wv-b5">ครม.</span>
 			</div>
 			<div>/</div>
 			<div class="tc">
-				<span class="editor-type wv-font-semibold wv-b5">ส.ส.</span><br />
+				<span class="editor-type wv-semibold wv-b5">ส.ส.</span><br />
 				<span class="wv-b6">20 คน</span>
 			</div>
 			<div>/</div>
 			<div class="tc">
-				<span class="editor-type wv-font-semibold wv-b5">ประชาชน</span><br />
+				<span class="editor-type wv-semibold wv-b5">ประชาชน</span><br />
 				<span class="wv-b6">10,000 คน</span>
 			</div>
 		</div>
@@ -129,14 +129,14 @@
 			loading="lazy"
 			decoding="async"
 		/>
-		<p class="wv-font-kondolar wv-h10 c-mint">
+		<p class="wv-kondolar wv-h10 c-mint">
 			<span class="sr-only">แล้วก็จะ</span>ประกาศในราชกิจจานุเบกษา<br />
 			บังคับใช้เป็นกฎหมาย
 		</p>
 	</section>
 	<p class="mem-detail wv-b5">
-		<span class="wv-font-bold"><span class="sr-only">สังเกตได้ว่า</span> ส.ส. จากพรรคการเมือง</span
-		><br />
+		<span class="wv-bold"><span class="sr-only">สังเกตได้ว่า</span> ส.ส. จากพรรคการเมือง</span><br
+		/>
 		ที่ได้รับเลือกตั้งจากประชาชน<br />
 		มีส่วนเกี่ยวข้องกับกระบวนการ<br />
 		ออกกฎหมายทุกช่องทาง
@@ -144,7 +144,7 @@
 	<div class="mem-relation">
 		<div class="rel-text">
 			<span class="wv-h11 c-mint">ก่อนเข้าสภา</span>
-			<span class="wv-font-kondolar wv-h9"><span class="sr-only">ทำการเสนอ</span>ร่างกฎหมาย</span>
+			<span class="wv-kondolar wv-h9"><span class="sr-only">ทำการเสนอ</span>ร่างกฎหมาย</span>
 		</div>
 		<img
 			class="rel-tooltip"
@@ -157,7 +157,7 @@
 		/>
 		<div class="rel-text">
 			<span class="wv-h11 c-mint">ในสภา</span>
-			<span class="wv-font-kondolar wv-h9">ส.ส. <span class="sr-only">ทำการโหวต</span></span>
+			<span class="wv-kondolar wv-h9">ส.ส. <span class="sr-only">ทำการโหวต</span></span>
 		</div>
 		<img
 			class="rel-tooltip"

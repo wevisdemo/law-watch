@@ -34,7 +34,7 @@
 				{/each}
 			{/each}
 			<span class="number wv-b5">
-				<span class="wv-font-semibold">{party.flat(3).length} ฉบับ</span>
+				<span class="wv-semibold">{party.flat(3).length} ฉบับ</span>
 			</span>
 		</div>
 	{/each}
