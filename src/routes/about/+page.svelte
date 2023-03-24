@@ -61,10 +61,9 @@
 	</WvParagraphGroup>
 	<WvParagraphGroup heading="นโยบายการนำข้อมูลไปใช้ต่อ">
 		<p class="wv-font-baijamjuri">
-			ทางทีมมีความตั้งใจที่พัฒนาทุกโปรเจ็กต์ให้เป็น Open Source และเปิดข้อมูลเป็น Open Data
-			ภายใต้เงื่อนไข Creative Commons Attribution-ShareAlike License
+			WeVis มีความตั้งใจที่พัฒนาทุกโปรเจ็กต์ให้เป็น Open Source และเปิดข้อมูลเป็น Open Data
+			ภายใต้เงื่อนไข Creative Commons Attribution-NonCommercial License (CC-BY-NC)
 			คือสามารถนำไปเผยแพร่และดัดแปลงได้ โดยต้องระบุที่มา แต่ห้ามนำไปใช้เพื่อการค้า
-			และต้องเผยแพร่งานดัดแปลงโดยใช้สัญญาอนุญาตชนิดเดียวกัน
 		</p>
 		<p class="wv-font-baijamjuri">
 			หากมีข้อสงสัยต้องการสอบถามเพิ่มเติม ประสงค์แจ้งเปลี่ยนแปลงหรือเพิ่มเติมข้อมูลเพื่อความถูกต้อง
