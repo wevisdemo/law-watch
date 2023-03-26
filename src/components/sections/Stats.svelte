@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 
 	import LawStatus from 'components/filter/LawStatus.svelte';
-	import PaperChart from 'components/PaperChart.svelte';
+	let paperChart: any | undefined;
 
 	import { stats } from 'data/generated/stats';
 
@@ -11,6 +11,7 @@
 
 	let el_section: Element;
 	onMount(() => {
+		paperChart = import('components/PaperChart.svelte');
 		inView(
 			el_section,
 			() => {
@@ -88,9 +89,13 @@
 		</div>
 		<div class="chart-body">
 			{#each stats.data as data}
-				<div>
-					<PaperChart {data} />
-				</div>
+				{#if paperChart}
+					{#await paperChart then { default: PaperChart }}
+						<div>
+							<PaperChart {data} />
+						</div>
+					{/await}
+				{/if}
 			{/each}
 			<div class="wv-kondolar wv-black year">
 				<img
